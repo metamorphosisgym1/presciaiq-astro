@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WhySection from '../components/sections/WhySection';
+import LeadCaptureSection from '../components/sections/LeadCaptureSection';
+---
+<Layout title="About PresciaIQ">
+  <div class="pt-24">
+    <WhySection client:load />
+    <LeadCaptureSection client:load />
+  </div>
+</Layout>

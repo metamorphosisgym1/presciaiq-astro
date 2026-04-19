@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PricingSection from '../components/sections/PricingSection';
+import LeadCaptureSection from '../components/sections/LeadCaptureSection';
+---
+<Layout title="Pricing — PresciaIQ">
+  <div class="pt-24">
+    <PricingSection client:load />
+    <LeadCaptureSection client:load />
+  </div>
+</Layout>
