@@ -11,7 +11,7 @@ const VideoSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
-            See Prescia<span className="text-primary neon-glow">IQ</span> in 3 Minutes.
+            <span style={{whiteSpace:"nowrap"}}>See Prescia<span className="text-primary neon-glow">IQ</span> in 3 Minutes.</span>
           </h2>
           <p className="text-lg text-muted-foreground font-sans">
             Watch how four AI tools work together to eliminate guesswork from your business.
