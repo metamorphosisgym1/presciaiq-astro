@@ -34,7 +34,7 @@ const WhySection = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <SectionWrapper id="intelligence" className="py-24 md:py-32">
+    <SectionWrapper id="intelligence" className="py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* The Reaction Tax */}

@@ -110,14 +110,14 @@ const LeadCaptureSection = () => {
   const inputStyle = { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' };
 
   return (
-    <SectionWrapper id="audit" className="py-24 md:py-32 aurora-bg relative overflow-hidden">
+    <SectionWrapper id="audit" className="py-12 md:py-16 aurora-bg relative overflow-hidden">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
             Let's Build Something Intelligent.
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-sans">
-            Whether you need a predictive AI strategy or a high-performance digital product, our team is ready.
+            Whether you need a predictive AI strategy or a high-performance digital product, Alex and Macauley are ready to build with you directly.
           </p>
         </div>
 

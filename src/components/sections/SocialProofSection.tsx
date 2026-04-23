@@ -62,7 +62,7 @@ const TestimonialCard = ({ t }: { t: typeof testimonials[0] }) => (
 
 const SocialProofSection = () => {
   return (
-    <section className="py-24 md:py-32 aurora-bg">
+    <section className="py-12 md:py-16 aurora-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h2 className="font-display text-3xl md:text-5xl font-bold mb-16 max-w-full leading-tight text-foreground">
           Trusted by Founders Building With PresciaIQ.

@@ -174,7 +174,7 @@ const ProductCard = ({ product, index }: { product: typeof products[0]; index: n
 
 const ProductsSection = () => {
   return (
-    <SectionWrapper id="products" className="py-24 md:py-32 aurora-bg">
+    <SectionWrapper id="products" className="py-12 md:py-16 aurora-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-full mb-8">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 leading-tight">

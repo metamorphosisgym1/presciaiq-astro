@@ -177,7 +177,7 @@ const DirectorySection = () => {
   const devInView = useInView(devRef, { once: true, margin: "-50px" });
 
   return (
-    <SectionWrapper id="directory" className="py-24 md:py-32 aurora-bg">
+    <SectionWrapper id="directory" className="py-12 md:py-16 aurora-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Heading */}
         <div className="mb-16">
