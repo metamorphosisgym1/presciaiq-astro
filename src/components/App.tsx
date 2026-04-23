@@ -2,7 +2,6 @@ import HeroSection from './sections/HeroSection';
 import ProductsSection from './sections/ProductsSection';
 import AppBuildingSection from './sections/AppBuildingSection';
 import ProofOfWorkSection from './sections/ProofOfWorkSection';
-import FlywheelSection from './sections/FlywheelSection';
 import VideoSection from './sections/VideoSection';
 import WhySection from './sections/WhySection';
 import SocialProofSection from './sections/SocialProofSection';
@@ -17,8 +16,7 @@ export default function App() {
       <ProductsSection />
       <AppBuildingSection />
       <ProofOfWorkSection />
-      <FlywheelSection />
-      <VideoSection />
+            <VideoSection />
       <WhySection />
       <SocialProofSection />
       <LeadCaptureSection />
