@@ -12,7 +12,7 @@ const Footer = () => {
               <img src={logo} alt="PresciaIQ" className="w-48 h-auto" />
             </div>
             <p className="text-sm italic text-muted-foreground mb-3 font-display">
-              "Intelligence That Moves First."
+              Intelligence That Moves First
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed font-sans">
               Australia's AI Intelligence & Development Company. We build predictive tools that turn data into decisions.
@@ -79,7 +79,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="tel:0400457006" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">📞 0400 457 006</a></li>
               <li><a href="mailto:sales@presciaiq.com.au" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">✉️ sales@presciaiq.com.au</a></li>
-              <li className="text-sm text-muted-foreground font-sans">📍 Sydney, NSW, Australia</li>
+              <li className="text-sm text-muted-foreground font-sans">📍 100 Harris St, Pyrmont, New South Wales 2009, AU</li>
               <li className="text-sm text-muted-foreground font-sans">📍 Miami, FL, United States</li>
                             <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Privacy Policy</a></li>
               <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Terms of Service</a></li>
@@ -89,7 +89,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
           <p className="text-xs text-muted-foreground font-sans">
-            © 2026 PredictIQ Holdings Pty Ltd T/A PresciaIQ. ABN 89 696 793 432.
+            © 2026 PresciaIQ. All rights reserved. Australian-built AI intelligence.
           </p>
           <div className="flex items-center gap-4">
             <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
