@@ -67,7 +67,7 @@ const PricingSection = () => (
                 <span>{card.product}</span>
               )}
             </h3>
-            <p className="text-sm text-muted-foreground font-sans mb-6">
+            <p className="text-sm text-muted-foreground font-sans mb-2">
               {card.desc}
             </p>
 

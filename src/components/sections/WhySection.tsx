@@ -1,13 +1,32 @@
-import AnimatedCounter from "../AnimatedCounter";
-import SectionWrapper from "../SectionWrapper";
-import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import SectionWrapper from "../SectionWrapper";
 
 const features = [
-  { title: "Predictive, Not Reactive", desc: "Our AI forecasts outcomes before they happen." },
-  { title: "Australian-Built", desc: "Designed for Australian regulations, markets, and conditions." },
-  { title: "Ecosystem Thinking", desc: "Every product shares intelligence. Your data works harder." },
-  { title: "Enterprise-Grade, SMB-Priced", desc: "Palantir-level intelligence at a fraction of the cost." },
+  { title: "Australian-first, not Australia-adapted", desc: "Built in Sydney for the operating conditions of Australian SMB and mid-market businesses. Not retrofitted from tooling built for companies ten times our customers' size." },
+  { title: "Vertical, not horizontal", desc: "Generic predictive analytics is a race to the bottom. Each Prescia IQ product is purpose-built for the decision an operator in that vertical is actually making." },
+  { title: "Evidence before claim", desc: "We do not publish statistics we cannot substantiate or partnerships we cannot name. Every number on this page is defensible. Where a number is modelled, we say so." },
+];
+
+const products = [
+  { name: "AdsIQ", desc: "Campaign timing and spend forecasting for marketing teams and media buyers.", status: "Live" },
+  { name: "BuildPredictIQ", desc: "Risk and budget intelligence for construction.", status: "Live" },
+  { name: "OpsIQ", desc: "Operational bottleneck prediction for logistics and ops-heavy businesses.", status: "On our 2026 roadmap" },
+  { name: "TradesmanIQ", desc: "Job profitability and scheduling intelligence for field services and trades.", status: "On our 2026 roadmap" },
+];
+
+const team = [
+  {
+    name: "Alex Cutajar",
+    role: "Co-Founder",
+    bio: "Ten years of running SMB and FMCG businesses taught Alex the lesson Prescia IQ is built around: operators make the most important decisions of the week without the data to back them. After launching his first software product in 2022 and spending two years inside applied AI through Flourish, he stopped consulting and started building. He leads product, architecture, and the AI systems under every Prescia IQ vertical."
+  },
+  {
+    name: "Macauley Burke",
+    role: "Co-Founder",
+    bio: "Seven years of direct B2B sales inside Australian SMBs through Modern Body Method put Macca in front of the people who buy decisions, not tools. Every engagement ran on the same question Prescia IQ now answers at a deeper layer: where is this business leaking money, time, or attention, and how do you show that to a decision-maker with ten minutes to care. He leads commercial, partnerships, and customer."
+  }
 ];
 
 const WhySection = () => {
@@ -17,66 +36,147 @@ const WhySection = () => {
   return (
     <SectionWrapper id="intelligence" className="py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-16 max-w-4xl leading-tight">
-          Why the Smartest Businesses Choose Prescia<span className="text-primary neon-glow">IQ</span>.
-        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 mb-20">
-          <AnimatedCounter end={150} prefix="$" suffix="M+" label="Risk Identified & Prevented" />
-          <AnimatedCounter end={29} suffix="%" label="Gross Margin Improvement" />
-          <AnimatedCounter end={6000} suffix="+" label="Businesses in Our Intelligence Network" />
-        </div>
+        {/* The Reaction Tax */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl mb-24"
+        >
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            The Reaction Tax
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans mb-6">
+            Every business in Australia pays a tax that never appears on a P&L.
+          </p>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans mb-6">
+            It is the ad spend burned for two weeks before the campaign is pulled. The build that slips six weeks because nobody saw the supplier delay forming. The trades crew on a site that was never going to be ready. The warehouse that ran dry the day demand spiked, and the one next door that sat full while the market moved on.
+          </p>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans mb-6">
+            We call it the Reaction Tax. The price a business pays every time it learns something after it has already happened.
+          </p>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans mb-6">
+            Australian SMB and mid-market operators pay the highest Reaction Tax in the market. Not because the data does not exist, but because the tools that would surface it in time are either priced for enterprise, built for US operating conditions, or too generic to answer the specific decision an Australian operator is making this week.
+          </p>
+          <p className="text-xl md:text-2xl text-foreground font-semibold leading-relaxed font-sans">
+            Prescia IQ was built to close that gap.
+          </p>
+        </motion.div>
 
-        <div ref={ref} className="grid lg:grid-cols-5 gap-12">
+        {/* What we build & How we think */}
+        <div ref={ref} className="grid lg:grid-cols-2 gap-16 mb-24">
+          
+          {/* What we build */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-3"
           >
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans">
-              Most businesses operate on intuition. They guess which ad will perform. They hope the construction budget holds.
-              They pray their operations scale.
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6 leading-snug">
+              What we build
+            </h3>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-sans mb-8">
+              Prescia IQ is Australia's predictive intelligence company. We build AI forecasting tools across four verticals where the Reaction Tax hits hardest.
             </p>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mt-4 font-sans">
-              PresciaIQ was built for founders who refuse to guess. Our AI doesn't just analyse - it predicts.
-              It doesn't just report - it recommends. And it doesn't just serve one part of your business -
-              it connects every intelligence layer into a single, unified ecosystem.
+            <div className="space-y-6">
+              {products.map((p, i) => (
+                <div key={p.name} className="glass-card-hover p-5" style={{ borderLeft: "2px solid rgba(0,255,136,0.3)" }}>
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="font-sans text-base font-bold text-foreground">{p.name}</h4>
+                    <span className="text-xs font-semibold px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                      {p.status}
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground font-sans">{p.desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-sans mt-8 italic">
+              Each product is a vertical answer to the same underlying question. What is going to happen, and what should I do about it before it does.
             </p>
           </motion.div>
 
+          {/* How we think */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
-            {features.map((f, i) => (
-              <motion.div
-                key={f.title}
-                initial={{ opacity: 0, y: 15 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.4 + i * 0.1, duration: 0.5 }}
-                className="glass-card-hover p-5"
-                style={{ borderLeft: '2px solid rgba(0,255,136,0.3)' }}
-              >
-                <div
-                  className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
-                  style={{ background: 'rgba(0,255,136,0.08)' }}
-                >
-                  <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    {i === 0 && <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />}
-                    {i === 1 && <><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></>}
-                    {i === 2 && <><circle cx="12" cy="12" r="3" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /></>}
-                    {i === 3 && <><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></>}
-                  </svg>
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6 leading-snug">
+              How we think
+            </h3>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-sans mb-8">
+              Three things shape everything we build.
+            </p>
+            <div className="space-y-6">
+              {features.map((f, i) => (
+                <div key={f.title} className="glass-card p-6">
+                  <h4 className="font-sans text-base font-bold text-foreground mb-2">{f.title}</h4>
+                  <p className="text-sm text-muted-foreground font-sans leading-relaxed">{f.desc}</p>
                 </div>
-                <h4 className="font-sans text-sm font-semibold text-foreground mb-1">{f.title}</h4>
-                <p className="text-xs text-muted-foreground font-sans">{f.desc}</p>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </motion.div>
+
         </div>
+
+        {/* The operators behind Prescia IQ */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mb-24"
+        >
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              The operators behind Prescia IQ
+            </h3>
+            <p className="text-lg text-muted-foreground font-sans">
+              Prescia IQ is built by people who have run the businesses we serve.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {team.map((t) => (
+              <div key={t.name} className="glass-card p-8 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <h4 className="font-display text-2xl font-bold text-foreground mb-1">{t.name}</h4>
+                  <p className="text-primary font-semibold text-sm mb-6 uppercase tracking-wider">{t.role}</p>
+                  <p className="text-sm md:text-base text-muted-foreground font-sans leading-relaxed">
+                    {t.bio}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Intelligence That Moves First */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center max-w-4xl mx-auto glass-card p-12 relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-primary/5" />
+          <div className="relative z-10">
+            <h3 className="font-display text-2xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
+              Intelligence That Moves First
+            </h3>
+            <p className="text-lg md:text-xl text-muted-foreground font-sans mb-4">
+              The businesses that win the next decade will not be the ones with the most data.
+            </p>
+            <p className="text-lg md:text-xl text-foreground font-semibold font-sans mb-8">
+              They will be the ones that act on it first.
+            </p>
+            <p className="text-sm text-primary font-bold uppercase tracking-widest">
+              That is what we are building.
+            </p>
+          </div>
+        </motion.div>
+
       </div>
     </SectionWrapper>
   );

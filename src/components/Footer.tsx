@@ -62,13 +62,13 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
-                  <Twitter className="w-4 h-4" /> Twitter / X
+                <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
+        <Twitter className="w-4 h-4" /> Twitter / X
                 </a>
               </li>
               <li>
-                <a href="#" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
-                  <Instagram className="w-4 h-4" /> Instagram
+                <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
+        <Instagram className="w-4 h-4" /> Instagram
                 </a>
               </li>
             </ul>
@@ -81,8 +81,7 @@ const Footer = () => {
               <li><a href="mailto:sales@presciaiq.com.au" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">✉️ sales@presciaiq.com.au</a></li>
               <li className="text-sm text-muted-foreground font-sans">📍 Sydney, NSW, Australia</li>
               <li className="text-sm text-muted-foreground font-sans">📍 Miami, FL, United States</li>
-              <li className="text-sm text-muted-foreground font-sans">ABN: 42 671 234 567</li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Privacy Policy</a></li>
+                            <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Privacy Policy</a></li>
               <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Terms of Service</a></li>
             </ul>
           </div>
@@ -90,17 +89,17 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
           <p className="text-xs text-muted-foreground font-sans">
-            © 2026 PresciaIQ. All rights reserved. Australian-built AI intelligence.
+            © 2026 PredictIQ Holdings Pty Ltd T/A PresciaIQ. ABN 89 696 793 432.
           </p>
           <div className="flex items-center gap-4">
             <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               <Linkedin className="w-4 h-4" />
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              <Twitter className="w-4 h-4" />
+            <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+        <Twitter className="w-4 h-4" />
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              <Instagram className="w-4 h-4" />
+            <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+        <Instagram className="w-4 h-4" />
             </a>
           </div>
         </div>

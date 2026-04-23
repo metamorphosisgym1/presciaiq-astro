@@ -39,7 +39,7 @@ const products = [
     oneLiner: "Your entire business playbook, built in 4 weeks.",
     metric: "Custom SOPs delivered. Not templates - tailored systems.",
     features: ["Done-For-You SOPs", "Face-to-Face Discovery", "Ongoing Optimisation"],
-    href: "https://opsiq.com.au/",
+    href: "/products/opsiq",
     badge: "Coming Q3 2026",
     badgeType: "coming" as const,
     heroImage: heroOps,
@@ -51,7 +51,7 @@ const products = [
     oneLiner: "The digital backbone for modern Australian trades businesses.",
     metric: "From quoting to compliance - one intelligent platform.",
     features: ["Job Management", "Compliance Tracking", "Client Portal"],
-    href: "https://tradesmaniq.com.au/",
+    href: "/products/tradesmaniq",
     badge: "In Development",
     badgeType: "coming" as const,
     heroImage: heroTrades,
@@ -176,7 +176,7 @@ const ProductsSection = () => {
   return (
     <SectionWrapper id="products" className="py-24 md:py-32 aurora-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-full mb-16">
+        <div className="max-w-full mb-8">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 leading-tight">
             One Intelligence Ecosystem.{" "}
             <span className="text-gradient-primary">Four Competitive Advantages.</span>

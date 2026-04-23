@@ -64,7 +64,7 @@ const SocialProofSection = () => {
   return (
     <section className="py-24 md:py-32 aurora-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h2 className="font-display text-3xl md:text-5xl font-bold mb-16 max-w-4xl leading-tight text-foreground">
+        <h2 className="font-display text-3xl md:text-5xl font-bold mb-16 max-w-full leading-tight text-foreground">
           Trusted by Founders Building With PresciaIQ.
         </h2>
 

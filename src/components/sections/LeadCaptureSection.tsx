@@ -5,7 +5,7 @@ import { ArrowRight, Loader2 } from "lucide-react";
 import SectionWrapper from "../SectionWrapper";
 import { toast } from "sonner";
 
-const WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/123456/abcde/";
+const WEBHOOK_URL = "https://api.web3forms.com/submit";
 
 const projectTypes = [
   { value: "", label: "Select project type" },
@@ -57,6 +57,8 @@ const LeadCaptureSection = () => {
 
   const submitToWebhook = async (formType: string, data: Record<string, string>) => {
     const payload = {
+      access_key: "fd818bb1-e5a7-4519-873e-68ba8725be59",
+      subject: formType === "strategy_call" ? "New Strategy Call Request" : "New Project Scoping Request",
       form_type: formType,
       submitted_at: new Date().toISOString(),
       page_url: window.location.href,
@@ -197,7 +199,7 @@ const LeadCaptureSection = () => {
                     ) : "Book Your Strategy Call"}
                   </button>
                   <p className="text-center text-xs text-muted-foreground font-sans">
-                    Join 6,000+ Australian businesses in the PresciaIQ intelligence network.
+                    Join 300+ Australian businesses in the PresciaIQ intelligence network.
                   </p>
                 </form>
               </>
