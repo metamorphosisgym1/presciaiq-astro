@@ -81,8 +81,8 @@ const Footer = () => {
               <li><a href="mailto:sales@presciaiq.com.au" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">✉️ sales@presciaiq.com.au</a></li>
               <li className="text-sm text-muted-foreground font-sans">📍 100 Harris St, Pyrmont, New South Wales 2009, AU</li>
               <li className="text-sm text-muted-foreground font-sans">📍 Miami, FL, United States</li>
-                            <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Privacy Policy</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Terms of Service</a></li>
+                            <li><a href="/privacy" class="text-muted-foreground hover:text-primary transition-colors text-sm font-sans">Privacy Policy</a></li>
+              <li><a href="/terms" class="text-muted-foreground hover:text-primary transition-colors text-sm font-sans">Terms of Service</a></li>
             </ul>
           </div>
         </div>
