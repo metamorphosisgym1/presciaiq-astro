@@ -62,7 +62,7 @@ const DirectoryPopup = () => {
               </a>
 
               <a
-                href="https://opsiq.com.au/"
+                href="#opsiq"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between p-4 bg-background border border-border rounded-xl hover:border-[#00ff88]/50 transition-colors group"

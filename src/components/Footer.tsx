@@ -25,7 +25,7 @@ const Footer = () => {
               {[
                 { name: "BuildPredictIQ", href: "https://buildpredictiq.com.au/" },
                 { name: "AdsIQ", href: "https://adsiq.com.au/" },
-                { name: "OpsIQ", href: "https://opsiq.com.au/" },
+                { name: "OpsIQ", href: "#opsiq" },
                 { name: "TradesmanIQ", href: "https://tradesmaniq.com.au/" },
               ].map((p) => (
                 <li key={p.name}>
