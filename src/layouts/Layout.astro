@@ -131,13 +131,96 @@ const {
                 "@type": "Answer",
                 "text": "Yes. PresciaIQ is built in Sydney specifically for Australian SMB and mid-market operating conditions. Every product is designed around Australian regulations, market dynamics, and the specific decisions Australian operators make — not retrofitted from US-built enterprise tooling."
               }
-            }
+            },
+      {
+        "@type": "Question",
+        "name": "How does BuildPredictIQ calculate geotechnical risk?",
+        "acceptedAnswer": { "@type": "Answer", "text": "BuildPredictIQ analyses historical site data, local geological surveys, and weather patterns using predictive AI to forecast potential geotechnical risks before excavation begins, giving builders early warning to adjust scope and budget." }
+      },
+      {
+        "@type": "Question",
+        "name": "What data does AdsIQ use to predict ROAS?",
+        "acceptedAnswer": { "@type": "Answer", "text": "AdsIQ aggregates historical campaign performance, market seasonality, competitor spend velocity, and platform algorithm signals to forecast Return on Ad Spend, helping marketing teams allocate budget before campaigns launch." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is PresciaIQ suitable for small businesses in Australia?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. PresciaIQ is purpose-built for Australian SMBs and mid-market operators. Every product is priced and designed for businesses that need enterprise-grade intelligence without enterprise-grade cost or complexity." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is predictive analytics?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Predictive analytics uses historical data, statistical algorithms, and machine learning to forecast the likelihood of future outcomes. For businesses, this means anticipating risk, demand, and cost before they materialise rather than reacting after the fact." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Reaction Tax?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Reaction Tax is the hidden cost a business pays every time it learns something after it has already happened — a lost deal, a budget blowout, a campaign that underperformed. PresciaIQ eliminates the Reaction Tax by replacing reactive decision-making with predictive intelligence." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is PresciaIQ based?",
+        "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ is headquartered in Sydney, Australia at 100 Harris St, Pyrmont NSW 2009. The company is Australian-built and designed specifically for Australian business conditions, regulations, and markets." }
+      }
           ]
         }
       ]
     })} />
 
-  </head>
+  
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BuildPredictIQ",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "description": "AI-powered construction risk and budget intelligence platform for Australian builders and developers.",
+      "offers": { "@type": "Offer", "price": "4999", "priceCurrency": "AUD" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AdsIQ",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "description": "Campaign timing and ROAS forecasting platform for Australian marketing teams and media buyers.",
+      "offers": { "@type": "Offer", "price": "4999", "priceCurrency": "AUD" }
+    }
+  ]
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PresciaIQ",
+    "image": "https://presciaiq.com.au/og-image.jpg",
+    "url": "https://presciaiq.com.au",
+    "telephone": "+61-2-0000-0000",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "100 Harris St",
+      "addressLocality": "Pyrmont",
+      "addressRegion": "NSW",
+      "postalCode": "2009",
+      "addressCountry": "AU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.8688,
+      "longitude": 151.1957
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  }
+  </script>
+</head>
   <body>
     <Navbar client:load />
     <main><slot /></main>
