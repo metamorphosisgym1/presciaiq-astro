@@ -70,4 +70,35 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </div>
   </div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "What data does AI construction risk assessment use?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AI construction risk assessment platforms typically draw on project schedules, subcontractor performance records, materials pricing data, weather forecasts, regulatory approval timelines, and historical project outcomes. The more granular and current the data, the more accurate the risk predictions."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How accurate is AI-based construction risk prediction?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Accuracy depends on data quality and model training. Well-implemented systems operating on Australian market data can identify high-probability risk events with sufficient lead time for meaningful intervention. The goal is not perfect prediction — it is earlier warning than a human analyst would produce manually."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Is AI construction risk software suitable for small builders?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Platforms like BuildPredictIQ are designed to be accessible to SMB and mid-market builders, not just tier-one contractors. The value proposition is strongest for businesses that lack the internal analytics resources of a large enterprise but face the same market volatility."
+    }
+  }
+]
+})} />
 </Layout>

@@ -71,4 +71,35 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </div>
   </div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "What AI tools are most useful for trades businesses in Australia?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The most impactful AI tools for Australian trades businesses focus on job scheduling and profitability forecasting, quote accuracy, and subcontractor coordination. Platforms that integrate with existing job management software and provide predictive alerts — rather than just reporting — deliver the highest return."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How does AI help a trades business improve profitability?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AI tools help trades businesses improve profitability by identifying which jobs, clients, and service types generate the highest margins, forecasting labour and materials costs more accurately, and flagging scheduling conflicts before they result in overtime or delays."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Is AI affordable for small trades businesses in Australia?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Purpose-built platforms like TradesmanIQ are designed for SMB trades operators, not enterprise contractors. The pricing model is structured around the value delivered — typically a fraction of the cost of a single avoided job blowout."
+    }
+  }
+]
+})} />
 </Layout>

@@ -4,6 +4,6 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://presciaiq.com.au',
+  site: 'https://www.presciaiq.com.au',
   integrations: [react( ), tailwind(), sitemap()],
 });

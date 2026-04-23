@@ -69,4 +69,35 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </div>
   </div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "What is the difference between operational intelligence and business intelligence?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Business intelligence typically refers to historical reporting and analysis — dashboards and reports that show what has already happened. Operational intelligence focuses on real-time and predictive analysis to support immediate decision-making. BI answers \"what happened?\" Operational intelligence answers \"what is happening now and what should I do about it?\""
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "What size business benefits most from an operational intelligence platform?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Operational intelligence platforms deliver the most value to businesses that are large enough to have complex operations but small enough that they lack dedicated analytics teams. This typically means businesses with 10 to 200 employees operating across multiple jobs, projects, or locations simultaneously."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How does an operational intelligence platform integrate with existing systems?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Modern operational intelligence platforms are designed to connect to existing business systems via APIs and data integrations, rather than requiring businesses to replace their current tools. The platform sits as an intelligence layer on top of what you already use."
+    }
+  }
+]
+})} />
 </Layout>

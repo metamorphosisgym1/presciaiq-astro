@@ -70,4 +70,35 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </div>
   </div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "What causes construction budget blowouts in Australia?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The most common causes of construction budget blowouts in Australia are subcontractor delays, materials price volatility, labour shortages, scope creep, and weather events. Most of these risks are foreseeable with sufficient data — the problem is that traditional project management tools do not provide early warning."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How does AI prevent construction budget blowouts?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AI prevents construction budget blowouts by continuously monitoring the signals that precede cost overruns — supplier capacity, subcontractor workloads, materials pricing trends, and weather forecasts — and alerting project managers before the risk materialises rather than after the damage is done."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Does AI budget protection work for residential builders as well as commercial?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The underlying principles apply across project types. The specific signals monitored and the risk models used will differ between residential and commercial construction, which is why purpose-built platforms that can be configured for your project type are more effective than generic analytics tools."
+    }
+  }
+]
+})} />
 </Layout>

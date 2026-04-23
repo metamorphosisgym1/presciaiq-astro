@@ -69,4 +69,35 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </div>
   </div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "What is the difference between predictive analytics and AI?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Predictive analytics is a subset of artificial intelligence. AI is the broader field; predictive analytics refers specifically to the use of statistical and machine learning techniques to forecast future outcomes. All predictive analytics involves some form of AI, but not all AI is predictive analytics."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How much data does a business need to use predictive analytics?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For straightforward forecasting tasks, a business with 12 to 24 months of clean historical data can typically generate useful predictions. Purpose-built vertical platforms like PresciaIQ supplement your business data with market-level data to improve predictions even for businesses with limited history."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Is predictive analytics only for large companies?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The democratisation of machine learning infrastructure means that predictive analytics capabilities that were once only accessible to large enterprises are now available to SMBs through purpose-built SaaS platforms. The key is selecting a platform designed for your scale and vertical rather than an enterprise tool that has been marketed down."
+    }
+  }
+]
+})} />
 </Layout>

@@ -70,4 +70,35 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </div>
   </div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "What is the difference between traditional BI and modern AI intelligence?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Traditional business intelligence tools report on historical data — they answer \"what happened?\" Modern AI intelligence platforms analyse real-time data and forecast future outcomes — they answer \"what is likely to happen and what should I do about it?\" The shift is from descriptive to predictive."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Why are Australian businesses moving away from traditional BI dashboards?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Traditional BI dashboards require analysts to interpret data and generate recommendations manually. Australian businesses are moving toward AI intelligence platforms that automate the analysis layer and surface actionable recommendations directly, reducing the time between data and decision."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "What industries in Australia benefit most from AI business intelligence?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Construction, marketing, logistics, and trades are among the highest-impact industries for AI business intelligence in Australia, because they involve high-frequency decisions with significant financial consequences and have historically relied on manual or reactive processes."
+    }
+  }
+]
+})} />
 </Layout>

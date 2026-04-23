@@ -70,4 +70,35 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </div>
   </div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "What is a ROAS prediction tool?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A ROAS prediction tool uses historical performance data and market signals to forecast the return on ad spend a campaign is likely to achieve before budget is committed. It helps marketing teams allocate spend more efficiently and reduce the cost of poor channel decisions."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How is ROAS prediction different from standard analytics?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Standard analytics tools report on what has already happened. ROAS prediction tools model what is likely to happen given current and projected market conditions. The distinction is the difference between a rearview mirror and a windscreen."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Which advertising channels can ROAS prediction cover?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Mature ROAS prediction platforms cover all major paid channels including Meta, Google Ads, TikTok, programmatic display, and paid search. The accuracy of predictions improves with the volume and quality of historical data available for each channel."
+    }
+  }
+]
+})} />
 </Layout>

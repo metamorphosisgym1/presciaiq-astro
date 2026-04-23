@@ -71,4 +71,35 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </div>
   </div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "What are the best AI tools for small businesses in Australia?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The best AI tools for Australian small businesses depend on the vertical, but the highest-impact categories are predictive analytics for operations, AI-assisted marketing spend forecasting, and automated customer intelligence. Purpose-built Australian platforms outperform generic global tools because they are trained on local market data."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How do small businesses in Australia get started with AI?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The most practical starting point for Australian SMBs is to identify the single most costly recurring decision in the business — whether that is marketing spend, job scheduling, or procurement — and deploy a purpose-built AI tool to improve that decision first. Broad AI adoption is less effective than targeted deployment."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Do AI tools for small business require technical expertise to use?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Modern AI tools designed for SMBs are built to be used by operators, not data scientists. The best platforms surface plain-language recommendations and alerts rather than raw data outputs, requiring no technical background to act on."
+    }
+  }
+]
+})} />
 </Layout>
