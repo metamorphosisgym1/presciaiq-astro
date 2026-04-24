@@ -57,6 +57,7 @@ const LeadCaptureSection = () => {
 
   const submitToWebhook = async (formType: string, data: Record<string, string>) => {
     const payload = {
+      to: "sales@presciaiq.com.au",
       access_key: "fd818bb1-e5a7-4519-873e-68ba8725be59",
       subject: formType === "strategy_call" ? "New Strategy Call Request" : "New Project Scoping Request",
       form_type: formType,

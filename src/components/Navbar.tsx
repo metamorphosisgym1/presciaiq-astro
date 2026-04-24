@@ -28,7 +28,7 @@ const Navbar = () => {
                 <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-lg shadow-lg py-2 z-50" onMouseLeave={() => setIsProductsOpen(false)}>
                   <a href="https://buildpredictiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">BuildPredictIQ</span><span className="text-xs text-muted-foreground">Construction Intelligence</span></a>
                   <a href="https://adsiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AdsIQ</span><span className="text-xs text-muted-foreground">Marketing Intelligence</span></a>
-                  <a href="#opsiq" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">OpsIQ</span><span className="text-xs text-muted-foreground">Operations Intelligence</span></a>
+                  <a href="https://opsiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">OpsIQ</span><span className="text-xs text-muted-foreground">Operations Intelligence</span></a>
                   <a href="https://tradesmaniq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">TradesmanIQ</span><span className="text-xs text-muted-foreground">Trades Intelligence</span></a>
                 </div>
                )}
@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className="md:hidden bg-background border-t border-border py-4 space-y-1">
             <a href="https://buildpredictiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">BuildPredictIQ</a>
             <a href="https://adsiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">AdsIQ</a>
-            <a href="#opsiq" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">OpsIQ</a>
+            <a href="https://opsiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">OpsIQ</a>
             <a href="https://tradesmaniq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">TradesmanIQ</a>
             <div className="border-t border-border my-2"></div>
             <a href="/development" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Development</a>

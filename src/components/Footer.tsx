@@ -25,7 +25,7 @@ const Footer = () => {
               {[
                 { name: "BuildPredictIQ", href: "https://buildpredictiq.com.au/" },
                 { name: "AdsIQ", href: "https://adsiq.com.au/" },
-                { name: "OpsIQ", href: "#opsiq" },
+                { name: "OpsIQ", href: "https://opsiq.com.au/" },
                 { name: "TradesmanIQ", href: "https://tradesmaniq.com.au/" },
               ].map((p) => (
                 <li key={p.name}>
@@ -80,7 +80,7 @@ const Footer = () => {
               <li><a href="tel:0400457006" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">📞 0400 457 006</a></li>
               <li><a href="mailto:sales@presciaiq.com.au" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">✉️ sales@presciaiq.com.au</a></li>
               <li className="text-sm text-muted-foreground font-sans">📍 100 Harris St, Pyrmont, New South Wales 2009, AU</li>
-              <li className="text-sm text-muted-foreground font-sans">📍 Miami, FL, United States</li>
+              <li className="text-sm text-muted-foreground font-sans">📍 1501 Biscayne Blvd, Miami, Florida 33132, US</li>
                             <li><a href="/privacy" class="text-muted-foreground hover:text-primary transition-colors text-sm font-sans">Privacy Policy</a></li>
               <li><a href="/terms" class="text-muted-foreground hover:text-primary transition-colors text-sm font-sans">Terms of Service</a></li>
             </ul>

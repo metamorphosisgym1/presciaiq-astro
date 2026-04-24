@@ -39,7 +39,7 @@ const products = [
     oneLiner: "Your entire business playbook, built in 4 weeks.",
     metric: "Custom SOPs delivered. Not templates - tailored systems.",
     features: ["Done-For-You SOPs", "Face-to-Face Discovery", "Ongoing Optimisation"],
-    href: "/products/opsiq",
+    href: "https://opsiq.com.au/",
     badge: "Coming Q3 2026",
     badgeType: "coming" as const,
     heroImage: heroOps,
