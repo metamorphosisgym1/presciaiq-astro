@@ -57,9 +57,10 @@ const LeadCaptureSection = () => {
 
   const submitToWebhook = async (formType: string, data: Record<string, string>) => {
     const payload = {
-      to: "sales@presciaiq.com.au",
       access_key: "fd818bb1-e5a7-4519-873e-68ba8725be59",
-      subject: formType === "strategy_call" ? "New Strategy Call Request" : "New Project Scoping Request",
+      subject: formType === "strategy_call" ? "New Strategy Call Request — PresciaIQ" : "New Project Scoping Request — PresciaIQ",
+      from_name: "PresciaIQ Website",
+      replyto: data.email || "",
       form_type: formType,
       submitted_at: new Date().toISOString(),
       page_url: window.location.href,
@@ -69,13 +70,15 @@ const LeadCaptureSection = () => {
 
     const response = await fetch(WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      mode: "no-cors",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify(payload),
     });
 
-    // no-cors returns opaque response; treat as success
-    return response;
+    const result = await response.json();
+    if (!result.success) {
+      throw new Error(result.message || "Submission failed");
+    }
+    return result;
   };
 
   const handleStrategySubmit = async (e: React.FormEvent) => {
