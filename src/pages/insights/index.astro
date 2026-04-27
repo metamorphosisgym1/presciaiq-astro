@@ -7,30 +7,87 @@ import Layout from '../../layouts/Layout.astro';
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://presciaiq.com.au" },
-    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://presciaiq.com.au/insights" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.presciaiq.com.au/insights" }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "PresciaIQ Insights",
+  "description": "Expert insights on predictive analytics, AI for construction, marketing spend forecasting, and operational intelligence for Australian businesses.",
+  "url": "https://www.presciaiq.com.au/insights",
+  "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" }
 }
 </script>
 
 <Layout title="Insights | Predictive Analytics &amp; AI Intelligence | PresciaIQ" description="Expert insights on predictive analytics, AI for construction, marketing spend forecasting, and operational intelligence for Australian businesses.">
   <div class="pt-32 pb-24 min-h-screen">
     <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Page Header -->
       <div class="mb-16 text-center">
-        <p class="text-primary font-bold uppercase tracking-widest text-xs mb-4 font-sans">Intelligence Hub</p>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6">Insights</h1>
-        <p class="text-lg text-muted-foreground font-sans max-w-2xl mx-auto">Practical intelligence on AI, predictive analytics, and the decisions that determine whether Australian businesses grow or stall.</p>
+        <p class="text-primary font-bold uppercase tracking-widest text-xs mb-4 font-sans">Insights &amp; Intelligence</p>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6">The PresciaIQ Blog</h1>
+        <p class="text-lg text-muted-foreground font-sans max-w-2xl mx-auto">Deep dives into AI, predictive analytics, and the technology shaping Australian business.</p>
       </div>
+
+      <!-- Foundation Series Section -->
+      <div class="mb-16">
+        <div class="flex items-center gap-4 mb-2">
+          <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Foundation Series</span>
+          <div class="flex-1 h-px bg-border"></div>
+        </div>
+        <p class="text-sm text-muted-foreground font-sans mb-8">The complete argument for predictive intelligence as an operating discipline. Four issues, designed to be read in order.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+          <a href="/insights/the-reaction-tax" class="glass-card-hover p-6 flex flex-col group border-primary/20" style="text-decoration:none;">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Issue 01</span>
+              <span class="text-xs text-muted-foreground font-sans">8 min read</span>
+            </div>
+            <h2 class="font-display text-base font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Reaction Tax</h2>
+            <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Why most Australian businesses are paying to be surprised — and the hidden cost that never appears on a P&amp;L.</p>
+            <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read &rarr;</div>
+          </a>
+          <a href="/insights/where-the-reaction-tax-hides" class="glass-card-hover p-6 flex flex-col group border-primary/20" style="text-decoration:none;">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Issue 02</span>
+              <span class="text-xs text-muted-foreground font-sans">9 min read</span>
+            </div>
+            <h2 class="font-display text-base font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">Where the Reaction Tax Hides</h2>
+            <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A self-audit for the six places it shows up most — marketing, sales, projects, operations, customer health, and cash flow.</p>
+            <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read &rarr;</div>
+          </a>
+          <a href="/insights/three-tests-for-predictive-intelligence" class="glass-card-hover p-6 flex flex-col group border-primary/20" style="text-decoration:none;">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Issue 03</span>
+              <span class="text-xs text-muted-foreground font-sans">8 min read</span>
+            </div>
+            <h2 class="font-display text-base font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Three Tests for Predictive Intelligence</h2>
+            <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">How to tell real predictive tools from dashboards in costume — before you spend a dollar on any of them.</p>
+            <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read &rarr;</div>
+          </a>
+          <a href="/insights/the-action-gap" class="glass-card-hover p-6 flex flex-col group border-primary/20" style="text-decoration:none;">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Issue 04</span>
+              <span class="text-xs text-muted-foreground font-sans">9 min read</span>
+            </div>
+            <h2 class="font-display text-base font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Action Gap</h2>
+            <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Why most predictive deployments fail, and the four conditions that fix them. The model worked. The org did not.</p>
+            <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read &rarr;</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- All Articles Section -->
+      <div class="flex items-center gap-4 mb-2">
+        <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">All Articles</span>
+        <div class="flex-1 h-px bg-border"></div>
+      </div>
+      <p class="text-sm text-muted-foreground font-sans mb-8">Practical intelligence on AI, predictive analytics, and the decisions that determine whether Australian businesses grow or stall.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="/insights/the-reaction-tax" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Strategy</span>
-            <span class="text-xs text-muted-foreground font-sans">4 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Reaction Tax</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Every business in Australia pays a tax that never appears on a P&L. It is the price a business pays every time it learns something after it has already happened.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
         <a href="/insights/ai-construction-risk-assessment-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Construction</span>
@@ -103,7 +160,17 @@ import Layout from '../../layouts/Layout.astro';
           <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Trace the evolution of business intelligence in Australia from manual reporting to predictive AI, and understand what this shift means for Australian SMBs.</p>
           <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
         </a>
+        <a href="/insights/the-reaction-tax" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Strategy</span>
+            <span class="text-xs text-muted-foreground font-sans">8 min read</span>
+          </div>
+          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Reaction Tax — Foundation Series Issue 01</h2>
+          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Every business in Australia pays a tax that never appears on a P&amp;L. It is the price a business pays every time it learns something after it has already happened.</p>
+          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
+        </a>
       </div>
+
     </div>
   </div>
 </Layout>

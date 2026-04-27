@@ -1,0 +1,138 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.presciaiq.com.au/insights" },
+    { "@type": "ListItem", "position": 3, "name": "The Action Gap", "item": "https://www.presciaiq.com.au/insights/the-action-gap" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Action Gap",
+  "description": "Why most predictive AI deployments fail, and the four conditions that fix them. The model works. The organisation does not. Here is how to change that.",
+  "author": { "@type": "Organization", "name": "PresciaIQ" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "logo": { "@type": "ImageObject", "url": "https://www.presciaiq.com.au/logo.png" }
+  },
+  "datePublished": "2026-04-22",
+  "dateModified": "2026-04-27",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.presciaiq.com.au/insights/the-action-gap" },
+  "image": "https://www.presciaiq.com.au/og-image.jpg",
+  "url": "https://www.presciaiq.com.au/insights/the-action-gap",
+  "isPartOf": { "@type": "PublicationIssue", "issueNumber": "04", "isPartOf": { "@type": "Periodical", "name": "PresciaIQ Foundation Series" } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do most predictive AI deployments fail?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most predictive AI deployments fail not because the model is wrong, but because the organisation around it is not built to act on the alerts. The four conditions that must be in place are: a named owner for every alert type, a pre-defined trigger and action for each alert, a closed loop that measures whether the prediction was correct, and cultural permission for the team to act on probability rather than waiting for certainty." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the action gap in predictive AI?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The action gap is the space between when a predictive alert fires and when someone actually makes a decision based on it. It is where the majority of predictive investments die. The system worked. The forecast was correct. But the campaign kept running, the customer churned, and the project slipped anyway — because no one had pre-defined who owned the decision or what action to take." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you close the action gap in a business?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Close the action gap by implementing four conditions: (1) Map every alert type to one named decision-maker — not a team, a person. (2) Pre-define the trigger and action for each alert type before the tool goes live. (3) Create a closed loop that compares every prediction to the actual outcome and measures hit rate. (4) Give the team explicit cultural permission to act on 70% probability rather than waiting for 95% certainty." }
+    }
+  ]
+}
+</script>
+<Layout title="The Action Gap | PresciaIQ Insights — Foundation Series Issue 04" description="Why most predictive AI deployments fail, and the four conditions that fix them. The model works. The organisation does not. Here is how to change that.">
+  <article class="pt-28 pb-20 px-4 max-w-3xl mx-auto">
+    <a href="/insights" class="text-sm text-muted-foreground hover:text-foreground mb-8 inline-block">← Back to Insights</a>
+    <div class="flex items-center gap-4 mb-8 flex-wrap">
+      <span class="text-xs font-semibold tracking-widest bg-card border border-border px-3 py-1 rounded-full uppercase">Foundation Series</span>
+      <span class="text-xs font-semibold tracking-widest bg-primary/10 border border-primary/30 text-primary px-3 py-1 rounded-full uppercase">Issue 04</span>
+      <span class="text-sm text-muted-foreground">April 2026</span>
+      <span class="text-sm text-muted-foreground">9 min read</span>
+    </div>
+    <h1 class="text-5xl md:text-6xl font-bold mb-4">The <span class="text-[#00ff88]">Action Gap</span></h1>
+    <p class="text-xl text-muted-foreground mb-12">Why most predictive deployments fail, and the four conditions that fix them.</p>
+
+    <div class="bg-card border border-border rounded-lg p-6 mb-12">
+      <p class="text-sm text-muted-foreground font-sans">The final issue in the Foundation Series. <a href="/insights/the-reaction-tax" class="text-primary hover:underline">Issue 01</a> named the Reaction Tax. <a href="/insights/where-the-reaction-tax-hides" class="text-primary hover:underline">Issue 02</a> showed where it hides. <a href="/insights/three-tests-for-predictive-intelligence" class="text-primary hover:underline">Issue 03</a> gave you the tests to buy the right tools. This issue solves the hardest problem: why even the right tools fail.</p>
+    </div>
+
+    <h2 class="text-3xl font-bold mb-4">The Expensive Insight Nobody Acted On</h2>
+    <p class="text-lg mb-6">There is a recurring story we hear from operators who have already bought predictive tools. The system worked. The forecast was correct. Nothing happened.</p>
+    <p class="mb-6">The campaign that should have been paused kept running for another week, because the marketing manager was waiting for someone to confirm. The customer who was going to churn did churn, because the success team had not agreed in advance who owned the save play. The supplier delay that was flagged early hit the project anyway, because by the time the risk made it through three layers of governance the cheap fix was already gone.</p>
+    <p class="mb-12">This is the action gap. It is the space between the alert and the decision, and it is where the majority of predictive investments die.</p>
+    <blockquote class="border-l-4 border-[#00ff88] pl-6 py-2 my-8 text-xl italic">The model worked. The org did not.</blockquote>
+
+    <h2 class="text-3xl font-bold mb-4 mt-12">Why the Gap Exists</h2>
+    <p class="mb-6">A predictive insight is only useful if somebody acts on it before the window closes. That requires four things to be true at the moment the alert fires: there is a clear owner; the action is pre-defined; the outcome will be measured; and the owner has cultural permission to be early and occasionally wrong.</p>
+    <p class="mb-12">Most organisations have none of these four in place when the predictive tool is switched on. The tool gets blamed when the deployment underperforms. The tool was not the problem. The conditions for the tool to produce value were never built.</p>
+
+    <h2 class="text-3xl font-bold mb-4 mt-12">Condition 1: A Named Owner of the Decision</h2>
+    <p class="mb-6">Every alert needs a single human whose name is on it. Not a team. Not a function. A person. If the predictive system fires a churn-risk alert and the response is "customer success will look at it," the alert is going to be acted on slowly or not at all, because everyone who could act assumes someone else is already doing it.</p>
+    <p class="mb-12">The discipline is to map every alert type to one named decision-maker, and to make that mapping visible. The cost is political; the value is enormous. An alert with no owner is not predictive intelligence. It is noise.</p>
+
+    <h2 class="text-3xl font-bold mb-4 mt-12">Condition 2: A Pre-Defined Trigger and Action</h2>
+    <p class="mb-6">When the alert fires, the question "what should we do about this?" should already have been answered. Not in detail. In structure.</p>
+    <ul class="list-none space-y-3 mb-6 pl-0">
+      <li class="flex items-start gap-3"><span class="text-[#00ff88] mt-1">→</span><span>If a campaign hits underperformance forecast, pause the bottom-quartile spend and brief the agency.</span></li>
+      <li class="flex items-start gap-3"><span class="text-[#00ff88] mt-1">→</span><span>If a project schedule slips into amber, surface the supplier dependency to the steering group.</span></li>
+      <li class="flex items-start gap-3"><span class="text-[#00ff88] mt-1">→</span><span>If a customer engagement score forecasts churn within sixty days, trigger the executive sponsor outreach play.</span></li>
+    </ul>
+    <p class="mb-12">These pre-defined actions are not constraints; they are velocity. They remove the question "what now?" from the moment the alert lands, which is the worst possible moment to be inventing a response. The only debate at alert time is whether the situation justifies overriding the standard play. That debate takes minutes, not weeks.</p>
+
+    <h2 class="text-3xl font-bold mb-4 mt-12">Condition 3: A Closed Loop on the Outcome</h2>
+    <p class="mb-6">Every triggered action needs a follow-up that compares what the system predicted to what actually happened. Did the campaign recover? Did the customer stay? Did the schedule hold? The answers feed back into the system and into the team's calibration of when to trust the alerts.</p>
+    <p class="mb-12">Without this loop, two failure modes appear. The team starts ignoring alerts that have been wrong, even when the underlying system has improved. Or the team keeps acting on alerts that have been wrong, because nobody has measured the hit rate. Both failure modes erode trust in the predictive layer over time, which erodes the value of the investment, which is what kills most deployments at the eighteen-month mark.</p>
+
+    <div class="bg-card border border-border rounded-lg p-6 my-8">
+      <p class="text-sm font-bold text-primary uppercase tracking-widest mb-3">Ask This Week</p>
+      <p class="text-sm text-muted-foreground">If you have predictive tools live in your business today, ask your team this in your next operations meeting: "For each of our predictive alert types, who is the single owner, what is the pre-defined action, and how often were the alerts right last quarter?" The silence will tell you what to fix.</p>
+    </div>
+
+    <h2 class="text-3xl font-bold mb-4 mt-12">Condition 4: Cultural Permission to Be Early and Occasionally Wrong</h2>
+    <p class="mb-6">This is the condition almost nobody puts in writing, and the one that decides whether the other three actually function. Predictive intelligence forces a team to act on probability rather than certainty. Sometimes the alert will be right and the action will save the outcome. Sometimes the alert will be wrong and the action will look unnecessary in hindsight.</p>
+    <p class="mb-6">Cultures that punish false positives kill predictive intelligence inside six months. The team learns to wait until the evidence is overwhelming, which is the same as waiting until the cheap fix is gone, which means the predictive layer adds no value over the descriptive one. The Reaction Tax stays in place, paid for now in software licences as well.</p>
+    <p class="mb-12">The leader's job is to make the call explicitly: in this business, we would rather act on a 70% probability and occasionally be wrong than wait for 95% certainty and be reliably late. That permission has to come from the top, and it has to be repeated, because the gravitational pull of every operating culture is toward retrospective certainty.</p>
+    <blockquote class="border-l-4 border-[#00ff88] pl-6 py-2 my-8 text-xl italic">The gravitational pull of every operating culture is toward retrospective certainty. The leader's job is to oppose it.</blockquote>
+
+    <h2 class="text-3xl font-bold mb-4 mt-12">Closing the Foundation</h2>
+    <p class="mb-6">This is the end of the Foundation Series. Across four pieces we have argued that there is a hidden cost in your business called the Reaction Tax, that it tends to hide in six predictable places, that the tools in market vary widely in whether they actually help you stop paying it, and that even the best tools fail unless the organisation around them is built to act.</p>
+    <p class="mb-6">From here the series becomes vertical. The next pieces will go deep on specific domains, starting with marketing intelligence and construction risk, where the Reaction Tax is most measurable and where our own products are furthest along.</p>
+    <blockquote class="border-l-4 border-[#00ff88] pl-6 py-2 my-8 text-xl italic">Predictive intelligence is not a feature you buy. It is an operating discipline you build. The tool is a third of the work. The four conditions in this piece are the other two thirds.</blockquote>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 mb-8">
+      <a href="/insights/the-reaction-tax" class="bg-card border border-border rounded-lg p-4 hover:border-primary transition-colors text-center">
+        <p class="text-xs text-primary font-bold uppercase tracking-widest mb-1">Issue 01</p>
+        <p class="text-xs text-muted-foreground">The Reaction Tax</p>
+      </a>
+      <a href="/insights/where-the-reaction-tax-hides" class="bg-card border border-border rounded-lg p-4 hover:border-primary transition-colors text-center">
+        <p class="text-xs text-primary font-bold uppercase tracking-widest mb-1">Issue 02</p>
+        <p class="text-xs text-muted-foreground">Where It Hides</p>
+      </a>
+      <a href="/insights/three-tests-for-predictive-intelligence" class="bg-card border border-border rounded-lg p-4 hover:border-primary transition-colors text-center">
+        <p class="text-xs text-primary font-bold uppercase tracking-widest mb-1">Issue 03</p>
+        <p class="text-xs text-muted-foreground">The Three Tests</p>
+      </a>
+      <div class="bg-primary/10 border border-primary/30 rounded-lg p-4 text-center">
+        <p class="text-xs text-primary font-bold uppercase tracking-widest mb-1">Issue 04</p>
+        <p class="text-xs text-muted-foreground">The Action Gap</p>
+      </div>
+    </div>
+
+    <a href="/contact" class="inline-flex items-center gap-2 bg-[#00ff88] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[#00ff88]/90 transition-colors mt-4">Build your predictive layer with PresciaIQ →</a>
+  </article>
+</Layout>

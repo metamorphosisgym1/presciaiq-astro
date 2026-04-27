@@ -1,0 +1,121 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.presciaiq.com.au/insights" },
+    { "@type": "ListItem", "position": 3, "name": "The Three Tests for Predictive Intelligence", "item": "https://www.presciaiq.com.au/insights/three-tests-for-predictive-intelligence" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Three Tests for Predictive Intelligence",
+  "description": "How to tell real predictive AI tools from dashboards in costume. Three tests every Australian business should apply before buying any predictive software.",
+  "author": { "@type": "Organization", "name": "PresciaIQ" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "logo": { "@type": "ImageObject", "url": "https://www.presciaiq.com.au/logo.png" }
+  },
+  "datePublished": "2026-04-15",
+  "dateModified": "2026-04-27",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.presciaiq.com.au/insights/three-tests-for-predictive-intelligence" },
+  "image": "https://www.presciaiq.com.au/og-image.jpg",
+  "url": "https://www.presciaiq.com.au/insights/three-tests-for-predictive-intelligence",
+  "isPartOf": { "@type": "PublicationIssue", "issueNumber": "03", "isPartOf": { "@type": "Periodical", "name": "PresciaIQ Foundation Series" } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you tell if an AI tool is truly predictive or just descriptive?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Apply the Time Test: ask the vendor 'when the system raises an alert, has the event happened yet, or is the system telling me it is about to happen?' If the alert fires after the metric has already moved, the tool is descriptive. A genuinely predictive tool fires the alert while the metric is still inside the threshold, based on forecast trajectory — giving you days or weeks of decision lead time." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Action Test for predictive AI software?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Action Test asks whether the tool recommends a specific action or just hands you a chart. A tool that passes the Action Test converts the prediction into a decision — for example, 'pause the bottom-quartile audience segment by Thursday, reallocate spend to the top-quartile.' Tools that only produce a forecast or risk score and leave the user to figure out what to do next are operationally useless, regardless of how accurate the prediction is." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Accountability Test for predictive software?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Accountability Test asks whether the system grades itself against what actually happened. A real predictive system runs a closed loop: it makes a prediction, the world produces an outcome, and the system compares the two and surfaces its hit rate. You should be able to ask any predictive tool how often its predictions have been right over the last quarter. If the vendor cannot give you a clean answer, the system is not learning from itself." }
+    }
+  ]
+}
+</script>
+<Layout title="The Three Tests for Predictive Intelligence | PresciaIQ Insights — Foundation Series Issue 03" description="How to tell real predictive AI tools from dashboards in costume. Three tests every Australian business should apply before buying any predictive software.">
+  <article class="pt-28 pb-20 px-4 max-w-3xl mx-auto">
+    <a href="/insights" class="text-sm text-muted-foreground hover:text-foreground mb-8 inline-block">← Back to Insights</a>
+    <div class="flex items-center gap-4 mb-8 flex-wrap">
+      <span class="text-xs font-semibold tracking-widest bg-card border border-border px-3 py-1 rounded-full uppercase">Foundation Series</span>
+      <span class="text-xs font-semibold tracking-widest bg-primary/10 border border-primary/30 text-primary px-3 py-1 rounded-full uppercase">Issue 03</span>
+      <span class="text-sm text-muted-foreground">April 2026</span>
+      <span class="text-sm text-muted-foreground">8 min read</span>
+    </div>
+    <h1 class="text-5xl md:text-6xl font-bold mb-4">The Three Tests for <span class="text-[#00ff88]">Predictive Intelligence</span></h1>
+    <p class="text-xl text-muted-foreground mb-12">How to tell real predictive tools from dashboards in costume.</p>
+
+    <div class="bg-card border border-border rounded-lg p-6 mb-12">
+      <p class="text-sm text-muted-foreground font-sans">Part three of four in the Foundation Series. <a href="/insights/the-reaction-tax" class="text-primary hover:underline">Issue 01</a> named the Reaction Tax. <a href="/insights/where-the-reaction-tax-hides" class="text-primary hover:underline">Issue 02</a> showed you where it hides. This issue gives you the buyer's discipline to stop paying for tools that don't actually fix it.</p>
+    </div>
+
+    <h2 class="text-3xl font-bold mb-4">The Market Is Now Noisy</h2>
+    <p class="text-lg mb-6">Almost every business software product launched in the last eighteen months claims to be predictive. "AI-powered." "Forward-looking." "Anticipates churn." "Surfaces risk before it happens." Most of these products are not lying. They are also not, by any operationally useful definition, predictive.</p>
+    <p class="mb-6">What most of them are is descriptive software with a generative AI summarisation layer bolted on. The underlying engine still tells you what already happened. The new layer tells you the same thing in fluent English. That is not the same as telling you what is about to happen, in time to act on it.</p>
+    <p class="mb-12">The reason this matters is that you are about to spend money on at least one of these tools. The wrong test will leave you with a stack that feels modern and behaves the same way the old one did. Three tests will separate the real ones from the rest.</p>
+
+    <h2 class="text-3xl font-bold mb-4 mt-12">Test 1: The Time Test</h2>
+    <p class="mb-6">Ask the vendor a single question: <em>When the system raises an alert, has the event happened yet, or is the system telling me it is about to happen?</em></p>
+    <p class="mb-6">If the answer is the first, you are looking at descriptive software. If the answer is the second, you are looking at something predictive. Most tools fail this test the moment you push on it. The alert fires when the metric crosses a threshold, which means the metric has already moved. Useful, but late.</p>
+    <p class="mb-6">A tool that passes the Time Test fires the alert while the metric is still inside the threshold, on the basis that the trajectory is forecast to cross it. The difference is days or weeks of decision lead time.</p>
+    <div class="bg-card border border-border rounded-lg p-6 my-8">
+      <p class="text-sm font-bold text-primary uppercase tracking-widest mb-3">Worked Example</p>
+      <p class="text-sm text-muted-foreground mb-2"><strong class="text-foreground">Fails the Time Test:</strong> A customer success tool that alerts you when engagement drops below a defined level. The problem has already happened.</p>
+      <p class="text-sm text-muted-foreground"><strong class="text-foreground">Passes the Time Test:</strong> A tool that alerts you that engagement is <em>forecast</em> to drop below the level inside the next thirty days, based on trajectory. You can still prevent the problem.</p>
+    </div>
+    <blockquote class="border-l-4 border-[#00ff88] pl-6 py-2 my-8 text-xl italic">Descriptive software fires the alert after the metric moves. Predictive software fires it before.</blockquote>
+
+    <h2 class="text-3xl font-bold mb-4 mt-12">Test 2: The Action Test</h2>
+    <p class="mb-6">The second test is about what the tool does once it has produced an insight. Ask the vendor: <em>Does the system recommend a specific action, or does it hand me a chart and walk away?</em></p>
+    <p class="mb-6">A surprising number of "predictive" products produce a forecast or a risk score and then leave the user to figure out what to do with it. The forecast is technically predictive. The product is operationally useless, because the user still has to do all the cognitive work of translating the prediction into a decision.</p>
+    <p class="mb-6">A tool that passes the Action Test does the translation for you. It does not just say "this campaign is at risk." It says "pause the bottom-quartile audience segment by Thursday, reallocate the spend to the top-quartile, expected recovery is X." That recommendation may be wrong. It may need to be overridden. But it converts the prediction into a decision, which is the only thing that closes the gap between knowing and doing.</p>
+    <p class="mb-6">The reason most tools fail this test is that recommending an action requires the vendor to be willing to be wrong in public. Be wary of any predictive tool that has no specific action recommendation behind its alerts. It usually means the vendor does not trust the prediction enough to bet on it.</p>
+
+    <h2 class="text-3xl font-bold mb-4 mt-12">Test 3: The Accountability Test</h2>
+    <p class="mb-6">The third test is the hardest one to pass. Ask: <em>Does the system grade itself against what actually happened?</em></p>
+    <p class="mb-6">A real predictive system runs a closed loop. It makes a prediction. The world produces an outcome. The system compares the two, surfaces its hit rate to the user, and updates accordingly. You should be able to look at any predictive tool you are evaluating and ask, in plain language, how often its predictions have been right over the last quarter.</p>
+    <p class="mb-6">If the vendor cannot give you a clean answer, the system is not learning from itself, which means it is not predictive in any operationally meaningful sense. It is forecasting in a vacuum.</p>
+    <p class="mb-6">This test is also the most useful one for negotiating. Ask for the accuracy data before you sign. A vendor who is confident in the product will produce it. A vendor who is not will get vague about "the model continues to improve" and "every customer is different." That answer is the answer.</p>
+
+    <div class="bg-card border border-border rounded-lg p-6 my-12">
+      <p class="text-sm font-bold text-primary uppercase tracking-widest mb-3">Ask This Week</p>
+      <p class="text-sm text-muted-foreground">Run the three tests on every tool already in your stack that has the word "predictive" or "AI-powered" in its marketing. The results are usually uncomfortable. They are also clarifying.</p>
+    </div>
+
+    <h2 class="text-3xl font-bold mb-4">What We Hold Ourselves To</h2>
+    <p class="mb-6">We will not pretend PresciaIQ has solved every one of these tests on every product line. We will say that we use the same three tests on our own roadmap, and that any product we ship under the IQ family has to clear all three before we put it in front of a customer.</p>
+    <p class="mb-6">AdsIQ runs the Time Test on campaign performance and the Action Test on spend reallocation. BuildPredictIQ runs the Time Test on supplier delays and schedule risk, and the Accountability Test on its forecasts against project actuals.</p>
+    <p class="mb-12">If you ever evaluate one of our products and decide we have failed one of these tests, we want to know. The buyer's discipline is the same discipline that keeps us honest.</p>
+
+    <div class="bg-card border border-border rounded-lg p-6 mt-12 mb-8">
+      <p class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Coming Next — Issue 04</p>
+      <p class="text-foreground font-semibold mb-2">The Action Gap</p>
+      <p class="text-sm text-muted-foreground mb-4">Even when you have a tool that passes all three tests, most predictive deployments still fail. They fail at the action gap — the space between the alert and the decision. We will explain why, and what to do about it.</p>
+      <a href="/insights/the-action-gap" class="text-primary text-sm font-bold hover:underline">Read Issue 04 →</a>
+    </div>
+
+    <a href="/contact" class="inline-flex items-center gap-2 bg-[#00ff88] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[#00ff88]/90 transition-colors mt-4">See how PresciaIQ passes all three tests →</a>
+  </article>
+</Layout>
