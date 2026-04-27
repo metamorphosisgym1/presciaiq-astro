@@ -5,6 +5,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -12,7 +13,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const close = () => { setIsMobileMenuOpen(false); setIsProductsOpen(false); };
+  const close = () => { setIsMobileMenuOpen(false); setIsProductsOpen(false); setIsServicesOpen(false); };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border/50" : "bg-transparent"}`}>
@@ -33,7 +34,20 @@ const Navbar = () => {
                 </div>
                )}
             </div>
-            <a href="/development" className="text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors">Development</a>
+            <div className="relative">
+              <button onClick={() => setIsServicesOpen(!isServicesOpen)} className="flex items-center space-x-1 text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors">
+                <span>Development</span><ChevronDown className="h-4 w-4" />
+              </button>
+              {isServicesOpen && (
+                <div className="absolute top-full left-0 mt-2 w-72 bg-card border border-border rounded-lg shadow-lg py-2 z-50" onMouseLeave={() => setIsServicesOpen(false)}>
+                  <a href="/development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">All Development Services</span><span className="text-xs text-muted-foreground">Web, App &amp; Software</span></a>
+                  <div className="border-t border-border my-1"></div>
+                  <a href="/services/ai-software-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Software Development</span><span className="text-xs text-muted-foreground">Custom enterprise AI systems</span></a>
+                  <a href="/services/ai-app-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI App Development</span><span className="text-xs text-muted-foreground">Intelligent mobile &amp; web apps</span></a>
+                  <a href="/services/ai-web-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Web Development</span><span className="text-xs text-muted-foreground">Predictive web platforms</span></a>
+                </div>
+              )}
+            </div>
             <a href="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">About</a>
             <a href="/insights" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Insights</a>
             <a href="/pricing" className="text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors">Pricing</a>
@@ -50,6 +64,9 @@ const Navbar = () => {
             <a href="https://tradesmaniq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">TradesmanIQ</a>
             <div className="border-t border-border my-2"></div>
             <a href="/development" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Development</a>
+            <a href="/services/ai-software-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Software Development</a>
+            <a href="/services/ai-app-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI App Development</a>
+            <a href="/services/ai-web-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Web Development</a>
             <a href="/about" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">About</a>
             <a href="/insights" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Insights</a>
             <a href="/pricing" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Pricing</a>
