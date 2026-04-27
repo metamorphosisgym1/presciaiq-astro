@@ -51,7 +51,7 @@ const products = [
     oneLiner: "The digital backbone for modern Australian trades businesses.",
     metric: "From quoting to compliance - one intelligent platform.",
     features: ["Job Management", "Compliance Tracking", "Client Portal"],
-    href: "/products/tradesmaniq",
+    href: "https://tradesmaniq.com.au/",
     badge: "In Development",
     badgeType: "coming" as const,
     heroImage: heroTrades,
