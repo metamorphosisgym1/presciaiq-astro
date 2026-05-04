@@ -169,8 +169,7 @@ const HeroSection = () => {
               transition={{ delay: 0.7, duration: 0.6 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed mb-10 font-sans"
             >
-              PresciaIQ builds AI-powered intelligence tools that turn raw data into competitive advantage.
-              Four products. One ecosystem. Zero guesswork.
+              PresciaIQ design and build AI platforms for Australian businesses that need more than off-the-shelf can deliver.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
