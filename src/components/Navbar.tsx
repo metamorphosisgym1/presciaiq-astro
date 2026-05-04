@@ -52,6 +52,7 @@ const Navbar = () => {
             <a href="/insights" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Insights</a>
             <a href="/pricing" className="text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors">Pricing</a>
             <a href="/contact" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Contact</a>
+            <a href="/start" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Start a Project</a>
             <a href="/contact" className="bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#00ff88]/90 transition-colors text-sm">Book a Strategy Call</a>
           </div>
           <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>{isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
@@ -71,6 +72,7 @@ const Navbar = () => {
             <a href="/insights" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Insights</a>
             <a href="/pricing" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Pricing</a>
             <a href="/contact" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Contact</a>
+            <a href="/start" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Start a Project</a>
             <div className="px-4 pt-2"><a href="/contact" onClick={close} className="block w-full bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg text-sm text-center">Book a Strategy Call</a></div>
           </div>
          )}
