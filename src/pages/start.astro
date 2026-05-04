@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import IntakeQuiz from '../components/sections/IntakeQuiz';
+---
+<Layout
+  title="Start Your Project — Client Intake Brief | PresciaIQ"
+  description="Tell us what you're building. Fill in our short intake brief and we'll come back within 24 hours with a tailored recommendation. Australia's Predictive AI Company."
+>
+  <main class="min-h-screen pt-28 pb-20">
+
+    <!-- Page header -->
+    <div class="max-w-xl mx-auto px-4 mb-10">
+      <p class="text-xs font-mono text-primary tracking-widest uppercase mb-3">Client Intake Brief</p>
+      <h1 class="font-display text-3xl md:text-4xl font-bold text-foreground leading-tight mb-3">
+        Intelligence that<br />moves first.
+      </h1>
+      <p class="text-sm text-muted-foreground font-sans leading-relaxed max-w-sm">
+        A short brief so we walk into our first conversation already aligned — and ready to build. Takes 5–10 minutes.
+      </p>
+      <div class="mt-5 flex items-center gap-6 text-xs font-mono text-muted-foreground">
+        <span>5–10 min</span>
+        <span class="text-white/10">|</span>
+        <span>7 sections</span>
+        <span class="text-white/10">|</span>
+        <span>Reply within 24 hrs</span>
+      </div>
+    </div>
+
+    <!-- Thin divider -->
+    <div class="max-w-xl mx-auto px-4 mb-8">
+      <div class="h-px bg-white/[0.06]"></div>
+    </div>
+
+    <!-- Quiz -->
+    <IntakeQuiz client:load />
+
+  </main>
+</Layout>
