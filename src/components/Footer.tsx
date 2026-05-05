@@ -78,7 +78,7 @@ const Footer = () => {
             <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Contact & Legal</h4>
             <ul className="space-y-3">
               <li><a href="tel:0400457006" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">📞 0400 457 006</a></li>
-              <li><a href="mailto:sales@presciaiq.com.au" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">✉️ sales@presciaiq.com.au</a></li>
+              <li><a href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">✉️ Contact Us</a></li>
               <li className="text-sm text-muted-foreground font-sans">📍 100 Harris St, Pyrmont, New South Wales 2009, AU</li>
               <li className="text-sm text-muted-foreground font-sans">📍 1501 Biscayne Blvd, Miami, Florida 33132, US</li>
                             <li><a href="/privacy" class="text-muted-foreground hover:text-primary transition-colors text-sm font-sans">Privacy Policy</a></li>
