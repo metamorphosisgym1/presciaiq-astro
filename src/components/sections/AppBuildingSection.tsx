@@ -161,10 +161,20 @@ const AppBuildingSection = () => {
         </div>
 
         {/* Value Propositions Strip */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           {valueProps.map((vp, i) => (
             <ValuePropCard key={vp.title} vp={vp} index={i} />
           ))}
+        </div>
+
+        {/* Services Internal Links */}
+        <div className="border-t border-white/10 pt-10">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-primary font-sans font-semibold mb-5">Our Development Services</p>
+          <div className="flex flex-wrap gap-4">
+            <a href="/services/ai-software-development" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm font-sans font-medium text-foreground hover:border-primary hover:text-primary transition-colors">AI Software Development &rarr;</a>
+            <a href="/services/ai-app-development" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm font-sans font-medium text-foreground hover:border-primary hover:text-primary transition-colors">AI App Development &rarr;</a>
+            <a href="/services/ai-web-development" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm font-sans font-medium text-foreground hover:border-primary hover:text-primary transition-colors">AI Web Development &rarr;</a>
+          </div>
         </div>
       </div>
     </SectionWrapper>

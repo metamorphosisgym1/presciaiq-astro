@@ -40,9 +40,32 @@ import Layout from '../../layouts/Layout.astro';
   "url": "https://www.presciaiq.com.au/insights/the-reaction-tax"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Reaction Tax?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Reaction Tax is the hidden cost a business pays every time it learns something after it has already happened. It shows up as wasted ad spend, misallocated labour, project overruns, and cash flow surprises — costs that never appear under a single line item but accumulate across every reactive decision a business makes." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do Australian businesses pay the Reaction Tax?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most businesses pay the Reaction Tax because their tools are pointed at the past. Dashboards, reports, and spreadsheets tell you what has already happened. Without a predictive intelligence layer that forecasts what is about to happen, every decision is made in arrears — after the problem has already formed." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you eliminate the Reaction Tax?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You eliminate the Reaction Tax by replacing reactive reporting with predictive intelligence. Instead of asking what happened, your tools should answer: what is about to happen, and what should I do about it before it does? Purpose-built predictive AI platforms like PresciaIQ are designed to close this gap for Australian SMBs." }
+    }
+  ]
+}
+</script>
 <Layout title="The Reaction Tax | PresciaIQ Insights" description="The Reaction Tax is the hidden cost Australian businesses pay for learning things after they happen. Discover how predictive AI eliminates it.">
   <article class="pt-28 pb-20 px-4 max-w-3xl mx-auto">
-    <a href="/" class="text-sm text-muted-foreground hover:text-foreground mb-8 inline-block">← Back to Insights</a>
+    <a href="/insights" class="text-sm text-muted-foreground hover:text-foreground mb-8 inline-block">← Back to Insights</a>
     <div class="flex items-center gap-4 mb-8">
       <span class="text-xs font-semibold tracking-widest bg-card border border-border px-3 py-1 rounded-full uppercase">Issue 01</span>
       <span class="text-sm text-muted-foreground">April 2026</span>
@@ -59,5 +82,13 @@ import Layout from '../../layouts/Layout.astro';
     <blockquote class="border-l-4 border-[#00ff88] pl-6 py-2 my-8 text-xl italic">What's about to happen, and what should I do about it before it does?</blockquote>
     <p class="mb-12">If your tools can't answer that, you don't have an intelligence stack. You have a filing system with charts on it.</p>
     <a href="/contact" class="inline-flex items-center gap-2 bg-[#00ff88] text-black font-semibold px-6 py-3 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See how this applies to your business →</a>
+    <div class="mt-12 pt-8 border-t border-white/10">
+      <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-semibold mb-4">Our Development Services</p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/services/ai-software-development" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-sm font-medium text-foreground hover:border-[#00ff88] hover:text-[#00ff88] transition-colors">AI Software Development &rarr;</a>
+        <a href="/services/ai-app-development" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-sm font-medium text-foreground hover:border-[#00ff88] hover:text-[#00ff88] transition-colors">AI App Development &rarr;</a>
+        <a href="/services/ai-web-development" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 text-sm font-medium text-foreground hover:border-[#00ff88] hover:text-[#00ff88] transition-colors">AI Web Development &rarr;</a>
+      </div>
+    </div>
   </article>
 </Layout>
