@@ -27,8 +27,11 @@ export default defineConfig({
         if (item.url.includes('/problems/')) {
           return { ...item, priority: 0.8, changefreq: 'monthly' };
         }
+        if (item.url.match(/\/solutions\/[^\/]+\/[^\/]+\/[^\/]+\/$/)) {
+          return { ...item, priority: 0.8, changefreq: 'monthly' }; // Pillar pages
+        }
         if (item.url.includes('/solutions/')) {
-          return { ...item, priority: 0.7, changefreq: 'monthly' };
+          return { ...item, priority: 0.6, changefreq: 'monthly' }; // Cluster pages
         }
         return item;
       },

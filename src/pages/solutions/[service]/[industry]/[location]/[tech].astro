@@ -1,0 +1,127 @@
+---
+import Layout from '../../../../../layouts/Layout.astro';
+import { servicesData } from '../../../../../data/services-data';
+import { industries } from '../../../../../data/industries';
+import { locations } from '../../../../../data/locations';
+import { techStacks } from '../../../../../data/tech-stacks';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const service of servicesData) {
+    for (const industry of industries) {
+      for (const location of locations) {
+        for (const tech of techStacks) {
+          paths.push({
+            params: { 
+              service: service.slug,
+              industry: industry.slug,
+              location: location.slug,
+              tech: tech.slug
+            },
+            props: { service, industry, location, tech },
+          });
+        }
+      }
+    }
+  }
+  return paths;
+}
+
+const { service, industry, location, tech } = Astro.props;
+
+const title = `${tech.name} for ${industry.name} ${service.name} in ${location.name} | PresciaIQ`;
+const description = `PresciaIQ leverages ${tech.name} to build enterprise-grade ${service.name.toLowerCase()} for ${location.name} ${industry.name.toLowerCase()} businesses.`;
+const canonicalURL = `https://www.presciaiq.com.au/solutions/${service.slug}/${industry.slug}/${location.slug}/${tech.slug}`;
+const parentURL = `https://www.presciaiq.com.au/solutions/${service.slug}/${industry.slug}/${location.slug}`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.presciaiq.com.au/solutions" },
+    { "@type": "ListItem", "position": 3, "name": service.name, "item": `https://www.presciaiq.com.au/services/${service.slug}` },
+    { "@type": "ListItem", "position": 4, "name": `${industry.name} ${location.name}`, "item": parentURL },
+    { "@type": "ListItem", "position": 5, "name": tech.name, "item": canonicalURL }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": tech.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+---
+
+<Layout title={title} description={description}>
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-3xl mx-auto px-6">
+      
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20">
+        <div class="flex flex-wrap gap-4 mb-6 text-sm text-gray-400 font-sans">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs">{tech.category}</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs">{location.name}</span>
+          <span>&bull; {industry.name}</span>
+        </div>
+
+        <h1 class="font-display text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
+          {tech.name} for {industry.name} {service.name} in {location.name}
+        </h1>
+        
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          How we leverage {tech.name} to build enterprise-grade {service.name.toLowerCase()} for {industry.plural} operating in {location.name}.
+        </p>
+        
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed">
+          
+          <h2 class="font-display text-2xl font-bold text-white mt-10 mb-4">Enterprise Architecture</h2>
+          <div class="bg-black/40 border-l-4 border-blue-500/50 p-6 mb-8 rounded-r-lg">
+            <p class="mb-4"><strong>The Technology:</strong> {tech.description}</p>
+            <p class="text-white"><strong>System Integration:</strong> {tech.integration}</p>
+          </div>
+
+          <h2 class="font-display text-2xl font-bold text-white mt-10 mb-4">Why {tech.name} for {industry.name}?</h2>
+          <p class="mb-8">
+            For {location.name} {industry.name.toLowerCase()} businesses, selecting the right technology stack is critical to the success of any {service.shortName} initiative. {tech.name} provides the scalability, security, and performance required to process operational data and deliver predictive insights in real time. By embedding predictive models directly into your workflow, we help you move from reactive reporting to proactive decision-making.
+          </p>
+
+          <h2 class="font-display text-2xl font-bold text-white mt-12 mb-6">Frequently Asked Questions</h2>
+          <div class="space-y-8 mb-12">
+            {tech.faqs.map(faq => (
+              <div>
+                <h3 class="font-display text-xl font-semibold text-white mb-3">{faq.q}</h3>
+                <p>{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-12 pt-8 border-t border-white/10">
+            <div class="bg-gradient-to-r from-[#00ff88]/20 to-transparent p-8 rounded-xl border border-[#00ff88]/30">
+              <h3 class="text-2xl font-bold text-white mb-4">Build your predictive advantage.</h3>
+              <p class="text-gray-300 mb-6">Discuss your {service.name.toLowerCase()} requirements with our {location.name} engineering team.</p>
+              <div class="flex flex-wrap gap-4">
+                <a href="/contact" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+                  Book a Technical Scoping Call
+                </a>
+                <a href={parentURL} class="inline-block bg-transparent text-white border border-white/20 font-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-colors">
+                  Back to {industry.name} Overview
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
