@@ -1,0 +1,328 @@
+export interface Competitor {
+  slug: string;
+  name: string;
+  category: string;
+  tagline: string;
+  theirApproach: string;
+  presciaiqAdvantage: string;
+  keyDifferences: { label: string; them: string; us: string }[];
+  faqs: { q: string; a: string }[];
+}
+
+export const competitors: Competitor[] = [
+  {
+    slug: "power-bi",
+    name: "Power BI",
+    category: "Business Intelligence",
+    tagline: "Microsoft's BI dashboard tool vs PresciaIQ's predictive intelligence platform",
+    theirApproach: "Power BI is a data visualisation and reporting tool that helps businesses understand what has already happened. It connects to data sources, builds dashboards, and lets analysts explore historical data.",
+    presciaiqAdvantage: "PresciaIQ is built to predict what will happen next — not just visualise what already occurred. Where Power BI requires a human to interpret a chart and make a decision, PresciaIQ surfaces the decision automatically.",
+    keyDifferences: [
+      { label: "Core function", them: "Historical reporting and visualisation", us: "Predictive intelligence and automated decisions" },
+      { label: "User requirement", them: "Analyst or BI developer required", us: "Operational teams use it directly" },
+      { label: "Time horizon", them: "Backward-looking (what happened)", us: "Forward-looking (what will happen)" },
+      { label: "Decision automation", them: "None — human interprets and decides", us: "Built-in — system surfaces next best action" },
+      { label: "AI capability", them: "Limited (requires Azure ML add-on)", us: "Native predictive models at the core" },
+      { label: "Implementation", them: "Weeks to months of BI development", us: "Rapid deployment with pre-built industry models" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than Power BI?", a: "They solve different problems. Power BI is a reporting tool — it shows you what happened. PresciaIQ is a predictive intelligence platform — it tells you what will happen and automates the response. If your team spends time interpreting dashboards and making manual decisions, PresciaIQ eliminates that lag." },
+      { q: "Can PresciaIQ replace Power BI?", a: "For most operational use cases, yes. PresciaIQ includes real-time data visualisation alongside its predictive models. However, for complex ad-hoc analytics and enterprise reporting, many businesses run both — using Power BI for historical analysis and PresciaIQ for forward-looking operational intelligence." },
+      { q: "What is the cost difference between Power BI and PresciaIQ?", a: "Power BI Pro costs approximately $14 USD per user per month, but the real cost is the analyst time required to build and maintain reports. PresciaIQ is priced per deployment and includes pre-built industry models, reducing the total cost of intelligence significantly." }
+    ]
+  },
+  {
+    slug: "tableau",
+    name: "Tableau",
+    category: "Business Intelligence",
+    tagline: "Salesforce's Tableau visualisation platform vs PresciaIQ's predictive intelligence",
+    theirApproach: "Tableau is a leading data visualisation platform that enables analysts to build interactive charts, graphs, and dashboards from large datasets. It is widely used for exploratory data analysis and executive reporting.",
+    presciaiqAdvantage: "Tableau shows you patterns in historical data. PresciaIQ predicts what those patterns mean for your future operations and automates the response — eliminating the analyst bottleneck entirely.",
+    keyDifferences: [
+      { label: "Core function", them: "Data visualisation and exploration", us: "Predictive intelligence and decision automation" },
+      { label: "Skill requirement", them: "Tableau-certified analyst required", us: "Operational managers use it directly" },
+      { label: "Time horizon", them: "Historical and real-time dashboards", us: "Predictive forecasts and automated alerts" },
+      { label: "Decision support", them: "Surfaces data for human interpretation", us: "Surfaces decisions with recommended actions" },
+      { label: "AI integration", them: "Einstein Discovery add-on (extra cost)", us: "Native predictive models included" },
+      { label: "Pricing", them: "$75–$150 USD/user/month", us: "Per-deployment pricing, no per-seat cost" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than Tableau?", a: "PresciaIQ and Tableau serve different purposes. Tableau is a world-class visualisation tool for analysts. PresciaIQ is a predictive intelligence platform for operational teams. If your goal is to eliminate reactive decision-making and automate operational responses, PresciaIQ delivers outcomes that Tableau cannot." },
+      { q: "Can PresciaIQ integrate with Tableau?", a: "Yes. PresciaIQ can feed predictive outputs into Tableau for teams that already have Tableau embedded in their reporting workflows. Many clients use PresciaIQ as the intelligence layer and Tableau as the presentation layer for executive reporting." },
+      { q: "What industries use PresciaIQ instead of Tableau?", a: "PresciaIQ is most commonly adopted by construction, manufacturing, logistics, retail, and financial services businesses that need operational intelligence — not just executive dashboards. These industries benefit most from predictive models that act on data automatically." }
+    ]
+  },
+  {
+    slug: "qlik-sense",
+    name: "Qlik Sense",
+    category: "Business Intelligence",
+    tagline: "Qlik's associative analytics platform vs PresciaIQ's predictive intelligence",
+    theirApproach: "Qlik Sense is an associative analytics platform that lets users explore data relationships through interactive dashboards and self-service BI. It is known for its in-memory data processing and flexible data modelling.",
+    presciaiqAdvantage: "Qlik Sense helps analysts find patterns in historical data. PresciaIQ predicts future outcomes from those patterns and automates the operational response — without requiring an analyst in the loop.",
+    keyDifferences: [
+      { label: "Core function", them: "Associative analytics and self-service BI", us: "Predictive intelligence and automated decisions" },
+      { label: "User type", them: "Data analysts and BI teams", us: "Operational managers and executives" },
+      { label: "Time horizon", them: "Historical data exploration", us: "Forward-looking predictive forecasts" },
+      { label: "AI capability", them: "AutoML add-on available", us: "Native predictive models at the core" },
+      { label: "Implementation complexity", them: "High — requires data modelling expertise", us: "Rapid deployment with pre-built industry models" },
+      { label: "Decision automation", them: "None — human interprets and acts", us: "Built-in automated alerts and recommendations" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Qlik Sense?", a: "Qlik Sense is a powerful analytics tool for data teams. PresciaIQ is a predictive intelligence platform for operational teams. The key difference is that Qlik requires skilled analysts to extract value, while PresciaIQ delivers predictions and recommendations directly to the people making operational decisions." },
+      { q: "Is PresciaIQ a Qlik Sense alternative?", a: "For operational intelligence use cases, yes. If your primary need is predictive forecasting, automated decision support, and real-time operational alerts — rather than ad-hoc data exploration — PresciaIQ is a more direct fit than Qlik Sense." },
+      { q: "Can PresciaIQ replace Qlik Sense for Australian businesses?", a: "For most operational use cases, yes. PresciaIQ is purpose-built for Australian business conditions and includes pre-built industry models for construction, manufacturing, retail, and logistics — delivering faster time-to-value than a Qlik Sense implementation." }
+    ]
+  },
+  {
+    slug: "domo",
+    name: "Domo",
+    category: "Business Intelligence",
+    tagline: "Domo's cloud BI platform vs PresciaIQ's predictive intelligence",
+    theirApproach: "Domo is a cloud-based business intelligence platform that connects data sources, builds dashboards, and enables collaboration around data. It is popular with mid-market businesses for its ease of use and pre-built connectors.",
+    presciaiqAdvantage: "Domo makes historical data accessible and collaborative. PresciaIQ makes future outcomes predictable and actionable — eliminating the gap between data visibility and operational decision-making.",
+    keyDifferences: [
+      { label: "Core function", them: "Cloud BI and data collaboration", us: "Predictive intelligence and decision automation" },
+      { label: "Time horizon", them: "Historical reporting and real-time dashboards", us: "Predictive forecasts and automated alerts" },
+      { label: "AI capability", them: "Domo AI add-on (extra cost)", us: "Native predictive models included" },
+      { label: "Pricing model", them: "Per-user subscription ($$$)", us: "Per-deployment pricing" },
+      { label: "Implementation", them: "Weeks to months of connector setup", us: "Rapid deployment with pre-built industry models" },
+      { label: "Decision support", them: "Surfaces data for human interpretation", us: "Surfaces decisions with recommended actions" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than Domo?", a: "For predictive intelligence use cases, yes. Domo is excellent for making historical data visible and collaborative. PresciaIQ is built to predict what will happen next and automate the operational response — a fundamentally different capability." },
+      { q: "Is PresciaIQ a Domo alternative for Australian businesses?", a: "Yes, particularly for businesses that have outgrown Domo's dashboard-centric approach and need genuine predictive intelligence. PresciaIQ is purpose-built for Australian operating conditions and priced for mid-market businesses." },
+      { q: "What is the cost of PresciaIQ compared to Domo?", a: "Domo's per-user pricing can become expensive at scale. PresciaIQ uses per-deployment pricing, meaning the cost does not increase as you add users — making it significantly more cost-effective for mid-market businesses with large operational teams." }
+    ]
+  },
+  {
+    slug: "sisense",
+    name: "Sisense",
+    category: "Business Intelligence",
+    tagline: "Sisense's embedded analytics platform vs PresciaIQ's predictive intelligence",
+    theirApproach: "Sisense is an embedded analytics platform that allows software companies and enterprises to embed BI dashboards and data visualisations into their own products and workflows.",
+    presciaiqAdvantage: "Sisense embeds historical analytics into products. PresciaIQ embeds predictive intelligence into operations — surfacing future outcomes and automating decisions rather than displaying past data.",
+    keyDifferences: [
+      { label: "Core function", them: "Embedded analytics and white-label BI", us: "Predictive intelligence and decision automation" },
+      { label: "Primary use case", them: "SaaS product analytics embedding", us: "Operational intelligence for business teams" },
+      { label: "Time horizon", them: "Historical reporting and dashboards", us: "Predictive forecasts and automated alerts" },
+      { label: "AI capability", them: "Sisense Fusion AI (add-on)", us: "Native predictive models at the core" },
+      { label: "Target market", them: "Software vendors and enterprise IT", us: "Mid-market operational teams" },
+      { label: "Implementation", them: "Developer-heavy embedding process", us: "Rapid deployment with pre-built industry models" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Sisense?", a: "Sisense is primarily an embedded analytics tool for software vendors. PresciaIQ is an operational intelligence platform for business teams. If your goal is to add predictive intelligence to your operations — not embed dashboards into a product — PresciaIQ is the more appropriate choice." },
+      { q: "Is PresciaIQ a Sisense alternative?", a: "For operational intelligence use cases, yes. PresciaIQ is purpose-built for mid-market businesses that need predictive forecasting and decision automation — not embedded BI for software products." },
+      { q: "Can PresciaIQ integrate with existing software systems?", a: "Yes. PresciaIQ is API-first and integrates with ERPs, CRMs, WMS, and custom business systems. Unlike Sisense, which requires developer resources to embed, PresciaIQ deploys as a standalone intelligence layer that connects to your existing stack." }
+    ]
+  },
+  {
+    slug: "looker",
+    name: "Looker",
+    category: "Business Intelligence",
+    tagline: "Google's Looker BI platform vs PresciaIQ's predictive intelligence",
+    theirApproach: "Looker (now part of Google Cloud) is a data exploration and business intelligence platform built around LookML, a modelling language that defines data relationships. It is widely used by data teams for self-service analytics.",
+    presciaiqAdvantage: "Looker gives data teams the tools to explore and model historical data. PresciaIQ gives operational teams the predictions they need to act before problems materialise — no LookML required.",
+    keyDifferences: [
+      { label: "Core function", them: "Data exploration and self-service BI", us: "Predictive intelligence and decision automation" },
+      { label: "Skill requirement", them: "LookML developer required", us: "Operational managers use it directly" },
+      { label: "Time horizon", them: "Historical data exploration", us: "Forward-looking predictive forecasts" },
+      { label: "AI capability", them: "Looker ML (Google Cloud dependency)", us: "Native predictive models included" },
+      { label: "Infrastructure", them: "Requires Google Cloud ecosystem", us: "Cloud-agnostic, integrates with any stack" },
+      { label: "Decision automation", them: "None — human interprets and acts", us: "Built-in automated alerts and recommendations" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than Looker?", a: "They solve different problems. Looker is a powerful data exploration tool for engineering and analytics teams. PresciaIQ is a predictive intelligence platform for operational teams. If your goal is to eliminate reactive decision-making rather than enable data exploration, PresciaIQ is the more direct fit." },
+      { q: "Is PresciaIQ a Looker alternative for Australian businesses?", a: "For operational intelligence use cases, yes. PresciaIQ does not require Google Cloud infrastructure, LookML expertise, or a dedicated data team — making it faster and more cost-effective to deploy for Australian mid-market businesses." },
+      { q: "Can PresciaIQ work alongside Google Analytics and Google Cloud?", a: "Yes. PresciaIQ is cloud-agnostic and can ingest data from Google BigQuery, Google Analytics, and other Google Cloud services. Many clients use PresciaIQ as the predictive intelligence layer on top of their existing Google Cloud data infrastructure." }
+    ]
+  },
+  {
+    slug: "thoughtspot",
+    name: "ThoughtSpot",
+    category: "Business Intelligence",
+    tagline: "ThoughtSpot's search-driven analytics vs PresciaIQ's predictive intelligence",
+    theirApproach: "ThoughtSpot is a search-driven analytics platform that allows business users to query data using natural language. It is designed to democratise data access by removing the need for SQL or BI developer skills.",
+    presciaiqAdvantage: "ThoughtSpot makes it easier to ask questions about historical data. PresciaIQ answers the most important question automatically — what will happen next — without requiring users to know what to ask.",
+    keyDifferences: [
+      { label: "Core function", them: "Natural language search over historical data", us: "Predictive intelligence and decision automation" },
+      { label: "User interaction", them: "User queries data to find answers", us: "System surfaces predictions automatically" },
+      { label: "Time horizon", them: "Historical data exploration", us: "Forward-looking predictive forecasts" },
+      { label: "AI capability", them: "SpotIQ AI (anomaly detection)", us: "Native predictive models at the core" },
+      { label: "Decision support", them: "User interprets search results", us: "System recommends next best action" },
+      { label: "Implementation", them: "Data modelling and indexing required", us: "Rapid deployment with pre-built industry models" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to ThoughtSpot?", a: "ThoughtSpot makes historical data searchable. PresciaIQ makes future outcomes predictable. The key difference is that ThoughtSpot still requires users to know what questions to ask, while PresciaIQ proactively surfaces the insights your team needs before they know to look for them." },
+      { q: "Is PresciaIQ a ThoughtSpot alternative?", a: "For predictive intelligence use cases, yes. If your primary need is forecasting, automated decision support, and operational alerts — rather than natural language data search — PresciaIQ is a more direct fit than ThoughtSpot." },
+      { q: "What Australian industries use PresciaIQ instead of ThoughtSpot?", a: "PresciaIQ is most commonly adopted by construction, manufacturing, logistics, and retail businesses that need predictive operational intelligence — not just easier access to historical data. These industries benefit most from automated forecasting and decision support." }
+    ]
+  },
+  {
+    slug: "alteryx",
+    name: "Alteryx",
+    category: "Data Analytics",
+    tagline: "Alteryx's data analytics platform vs PresciaIQ's predictive intelligence",
+    theirApproach: "Alteryx is a data analytics automation platform that enables analysts to blend, prepare, and analyse data through a visual workflow builder. It is widely used for data preparation, predictive modelling, and spatial analytics.",
+    presciaiqAdvantage: "Alteryx is a powerful tool for data analysts building models. PresciaIQ is a deployed intelligence platform for operational teams — delivering predictions and automating decisions without requiring analyst involvement in day-to-day operations.",
+    keyDifferences: [
+      { label: "Core function", them: "Data preparation and analytics automation", us: "Deployed predictive intelligence platform" },
+      { label: "User type", them: "Data analysts and data scientists", us: "Operational managers and executives" },
+      { label: "Deployment model", them: "Analyst builds and runs workflows", us: "Always-on intelligence layer" },
+      { label: "AI capability", them: "Predictive modelling tools for analysts", us: "Pre-built industry models, no analyst required" },
+      { label: "Time to value", them: "Weeks to months of workflow development", us: "Rapid deployment with pre-built models" },
+      { label: "Operational integration", them: "Batch processing and scheduled runs", us: "Real-time predictions and automated alerts" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than Alteryx?", a: "They serve different users. Alteryx is a powerful tool for data analysts who want to build and automate analytics workflows. PresciaIQ is a deployed intelligence platform that delivers predictions to operational teams without requiring analyst involvement. If you want intelligence embedded in your operations — not a tool for your data team — PresciaIQ is the right choice." },
+      { q: "Is PresciaIQ an Alteryx alternative for Australian businesses?", a: "For operational intelligence use cases, yes. PresciaIQ delivers pre-built predictive models for Australian industries without requiring a data science team to build and maintain them — significantly reducing the cost and time to value compared to an Alteryx implementation." },
+      { q: "Can PresciaIQ and Alteryx work together?", a: "Yes. Some organisations use Alteryx for complex data preparation and model development, then deploy PresciaIQ as the operational intelligence layer that delivers predictions to business teams. PresciaIQ's API-first architecture makes integration straightforward." }
+    ]
+  },
+  {
+    slug: "datarobot",
+    name: "DataRobot",
+    category: "AI & Machine Learning",
+    tagline: "DataRobot's AutoML platform vs PresciaIQ's predictive intelligence",
+    theirApproach: "DataRobot is an enterprise AutoML platform that automates the process of building, deploying, and monitoring machine learning models. It is designed to accelerate data science teams and enable citizen data scientists.",
+    presciaiqAdvantage: "DataRobot helps data science teams build models faster. PresciaIQ delivers pre-built industry models to operational teams immediately — eliminating the need for a data science team entirely.",
+    keyDifferences: [
+      { label: "Core function", them: "AutoML platform for data science teams", us: "Pre-built predictive intelligence for operations" },
+      { label: "User type", them: "Data scientists and ML engineers", us: "Operational managers and executives" },
+      { label: "Time to value", them: "Months of model development and validation", us: "Rapid deployment with pre-built industry models" },
+      { label: "Maintenance", them: "Ongoing model monitoring and retraining", us: "Managed intelligence — we maintain the models" },
+      { label: "Cost", them: "Enterprise pricing + data science team cost", us: "Per-deployment pricing, no data team required" },
+      { label: "Industry focus", them: "General-purpose ML platform", us: "Purpose-built for Australian industry verticals" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than DataRobot?", a: "For businesses without a data science team, yes. DataRobot accelerates data scientists. PresciaIQ eliminates the need for data scientists by delivering pre-built predictive models for your industry — with no model development, validation, or maintenance required from your team." },
+      { q: "Is PresciaIQ a DataRobot alternative for Australian businesses?", a: "Yes, particularly for mid-market businesses that need predictive intelligence but cannot justify the cost of a data science team and enterprise AutoML platform. PresciaIQ delivers equivalent predictive capability at a fraction of the total cost." },
+      { q: "What is the difference between AutoML and PresciaIQ?", a: "AutoML platforms like DataRobot give data scientists tools to build models faster. PresciaIQ is a deployed intelligence product — the models are already built, validated, and optimised for your industry. You get the predictions without the data science overhead." }
+    ]
+  },
+  {
+    slug: "palantir",
+    name: "Palantir",
+    category: "AI & Data Analytics",
+    tagline: "Palantir's enterprise AI platform vs PresciaIQ's predictive intelligence for mid-market",
+    theirApproach: "Palantir is an enterprise AI and data analytics platform used primarily by large government agencies and Fortune 500 companies. It specialises in integrating complex, disparate data sources for intelligence and operational decision-making.",
+    presciaiqAdvantage: "Palantir is built for governments and large enterprises with massive data infrastructure budgets. PresciaIQ delivers equivalent predictive intelligence for Australian mid-market businesses — without the enterprise price tag or 12-month implementation timeline.",
+    keyDifferences: [
+      { label: "Target market", them: "Government and Fortune 500 enterprises", us: "Australian mid-market businesses" },
+      { label: "Implementation time", them: "6–18 months", us: "Weeks with pre-built industry models" },
+      { label: "Cost", them: "Millions per year", us: "Mid-market pricing" },
+      { label: "Complexity", them: "Requires dedicated Palantir engineers", us: "Operational teams use it directly" },
+      { label: "Industry focus", them: "Government, defence, finance", us: "Construction, manufacturing, retail, logistics" },
+      { label: "Data requirements", them: "Requires massive data infrastructure", us: "Works with existing business data" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ a Palantir alternative for Australian businesses?", a: "Yes, for mid-market businesses. Palantir is designed for governments and large enterprises with multi-million dollar data infrastructure budgets. PresciaIQ delivers comparable predictive intelligence for Australian SMBs and mid-market operators at a fraction of the cost and complexity." },
+      { q: "How does PresciaIQ compare to Palantir AIP?", a: "Palantir AIP is an enterprise AI platform requiring significant implementation investment and dedicated engineering resources. PresciaIQ is a purpose-built predictive intelligence platform for mid-market businesses — delivering faster time-to-value with pre-built industry models and no dedicated data engineering team required." },
+      { q: "What Australian businesses should use PresciaIQ instead of Palantir?", a: "Any Australian mid-market business in construction, manufacturing, logistics, retail, or financial services that needs predictive operational intelligence but cannot justify Palantir's enterprise pricing and implementation complexity. PresciaIQ delivers the same forward-looking intelligence at mid-market scale." }
+    ]
+  },
+  {
+    slug: "microsoft-fabric",
+    name: "Microsoft Fabric",
+    category: "Data Platform",
+    tagline: "Microsoft Fabric's unified data platform vs PresciaIQ's predictive intelligence",
+    theirApproach: "Microsoft Fabric is a unified analytics platform that combines data engineering, data science, real-time analytics, and business intelligence in a single Microsoft-native environment. It is designed for organisations already invested in the Microsoft ecosystem.",
+    presciaiqAdvantage: "Microsoft Fabric is a powerful data platform for engineering teams. PresciaIQ is a deployed predictive intelligence layer for operational teams — delivering predictions and automating decisions without requiring Microsoft infrastructure or data engineering resources.",
+    keyDifferences: [
+      { label: "Core function", them: "Unified data platform and analytics", us: "Deployed predictive intelligence" },
+      { label: "User type", them: "Data engineers and analysts", us: "Operational managers and executives" },
+      { label: "Infrastructure dependency", them: "Requires Microsoft Azure ecosystem", us: "Cloud-agnostic, integrates with any stack" },
+      { label: "Time to value", them: "Months of data engineering setup", us: "Rapid deployment with pre-built industry models" },
+      { label: "AI capability", them: "Copilot and Azure ML integration", us: "Native predictive models at the core" },
+      { label: "Decision automation", them: "None — human interprets and acts", us: "Built-in automated alerts and recommendations" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than Microsoft Fabric?", a: "They solve different problems. Microsoft Fabric is a data platform for engineering teams to build analytics infrastructure. PresciaIQ is a deployed predictive intelligence platform for operational teams. If your goal is to eliminate reactive decision-making — not build data infrastructure — PresciaIQ is the more direct fit." },
+      { q: "Is PresciaIQ a Microsoft Fabric alternative for Australian businesses?", a: "For operational intelligence use cases, yes. PresciaIQ does not require Azure infrastructure, data engineering resources, or Microsoft licensing — making it faster and more cost-effective to deploy for Australian mid-market businesses that need predictive intelligence, not a data platform." },
+      { q: "Can PresciaIQ integrate with Microsoft systems?", a: "Yes. PresciaIQ is API-first and integrates with Microsoft Dynamics, Azure SQL, SharePoint, and other Microsoft systems. Many clients use PresciaIQ as the predictive intelligence layer on top of their existing Microsoft data infrastructure." }
+    ]
+  },
+  {
+    slug: "sap-analytics-cloud",
+    name: "SAP Analytics Cloud",
+    category: "Business Intelligence",
+    tagline: "SAP Analytics Cloud vs PresciaIQ's predictive intelligence for mid-market",
+    theirApproach: "SAP Analytics Cloud is an enterprise BI and planning platform tightly integrated with the SAP ecosystem. It combines business intelligence, augmented analytics, and collaborative planning in a single cloud environment.",
+    presciaiqAdvantage: "SAP Analytics Cloud is designed for large enterprises already running SAP. PresciaIQ delivers equivalent predictive intelligence for mid-market businesses without the SAP dependency, enterprise pricing, or 12-month implementation timeline.",
+    keyDifferences: [
+      { label: "Target market", them: "Large enterprises running SAP", us: "Australian mid-market businesses" },
+      { label: "SAP dependency", them: "Deep SAP integration required", us: "Integrates with any ERP or data system" },
+      { label: "Implementation time", them: "Months of SAP configuration", us: "Rapid deployment with pre-built industry models" },
+      { label: "Cost", them: "Enterprise pricing", us: "Mid-market pricing" },
+      { label: "AI capability", them: "SAP AI (requires SAP BTP)", us: "Native predictive models included" },
+      { label: "Flexibility", them: "SAP ecosystem lock-in", us: "Cloud-agnostic, no vendor lock-in" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ a SAP Analytics Cloud alternative?", a: "For mid-market businesses, yes. SAP Analytics Cloud is designed for large enterprises running SAP infrastructure. PresciaIQ delivers comparable predictive intelligence without the SAP dependency, enterprise pricing, or implementation complexity — making it the right choice for Australian mid-market operators." },
+      { q: "Can PresciaIQ integrate with SAP?", a: "Yes. PresciaIQ is API-first and can ingest data from SAP S/4HANA, SAP ECC, and other SAP systems. Many mid-market businesses use PresciaIQ as the predictive intelligence layer on top of their existing SAP data without migrating to SAP Analytics Cloud." },
+      { q: "What is the cost difference between SAP Analytics Cloud and PresciaIQ?", a: "SAP Analytics Cloud is priced for enterprise budgets and requires significant SAP consulting investment to implement. PresciaIQ is priced for mid-market businesses and deploys in weeks with pre-built industry models — delivering a significantly lower total cost of intelligence." }
+    ]
+  },
+  {
+    slug: "traditional-bi-tools",
+    name: "Traditional BI Tools",
+    category: "Business Intelligence",
+    tagline: "Traditional BI dashboards vs PresciaIQ's predictive intelligence",
+    theirApproach: "Traditional BI tools — including legacy platforms like Crystal Reports, SSRS, and older versions of Cognos — are built around scheduled reporting, static dashboards, and historical data analysis. They require significant IT and analyst resources to maintain.",
+    presciaiqAdvantage: "Traditional BI tools tell you what happened last quarter. PresciaIQ tells you what will happen next quarter and automates the operational response — eliminating the Reaction Tax that traditional BI perpetuates.",
+    keyDifferences: [
+      { label: "Core function", them: "Historical reporting and static dashboards", us: "Predictive intelligence and decision automation" },
+      { label: "Time horizon", them: "Backward-looking (what happened)", us: "Forward-looking (what will happen)" },
+      { label: "Update frequency", them: "Scheduled batch reports", us: "Real-time predictions and alerts" },
+      { label: "AI capability", them: "None or limited", us: "Native predictive models at the core" },
+      { label: "Decision support", them: "Human interprets reports and decides", us: "System surfaces decisions automatically" },
+      { label: "Maintenance cost", them: "High — IT team required", us: "Managed intelligence — we maintain it" }
+    ],
+    faqs: [
+      { q: "Why should Australian businesses replace traditional BI with PresciaIQ?", a: "Traditional BI tools were built for a world where data was scarce and decisions were made weekly. Today, Australian businesses generate vast operational data in real time — and traditional BI cannot process it fast enough to prevent costly reactive decisions. PresciaIQ replaces the Reaction Tax with predictive intelligence that acts before problems materialise." },
+      { q: "Is PresciaIQ a replacement for existing BI tools?", a: "For operational intelligence use cases, yes. PresciaIQ replaces the need for scheduled reports and manual dashboard interpretation by delivering predictions and recommended actions directly to operational teams. Many businesses run PresciaIQ alongside legacy BI tools during transition, then retire the old systems." },
+      { q: "How long does it take to migrate from traditional BI to PresciaIQ?", a: "Most mid-market businesses can deploy PresciaIQ's core predictive intelligence layer in 4–8 weeks. PresciaIQ's pre-built industry models reduce the data modelling and configuration work that traditional BI migrations require — significantly shortening the transition timeline." }
+    ]
+  },
+  {
+    slug: "ibm-cognos",
+    name: "IBM Cognos",
+    category: "Business Intelligence",
+    tagline: "IBM Cognos Analytics vs PresciaIQ's predictive intelligence",
+    theirApproach: "IBM Cognos Analytics is an enterprise BI and performance management platform that provides reporting, dashboards, and data exploration capabilities. It is widely used in large enterprises and government organisations.",
+    presciaiqAdvantage: "IBM Cognos is a mature enterprise reporting platform. PresciaIQ is a modern predictive intelligence platform — delivering forward-looking forecasts and automated decisions rather than backward-looking reports.",
+    keyDifferences: [
+      { label: "Core function", them: "Enterprise reporting and dashboards", us: "Predictive intelligence and decision automation" },
+      { label: "Time horizon", them: "Historical reporting", us: "Forward-looking predictive forecasts" },
+      { label: "AI capability", them: "IBM Watson integration (extra cost)", us: "Native predictive models included" },
+      { label: "Implementation", them: "Months of enterprise configuration", us: "Rapid deployment with pre-built industry models" },
+      { label: "Cost", them: "Enterprise licensing + IBM consulting", us: "Mid-market pricing, no consulting required" },
+      { label: "User experience", them: "Complex, IT-dependent", us: "Operational teams use it directly" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ a better alternative to IBM Cognos?", a: "For mid-market businesses seeking predictive intelligence, yes. IBM Cognos is a mature enterprise reporting platform designed for large organisations with dedicated IT teams. PresciaIQ delivers forward-looking predictive intelligence at mid-market pricing without the IBM ecosystem dependency." },
+      { q: "Can PresciaIQ replace IBM Cognos for Australian businesses?", a: "For operational intelligence use cases, yes. Many Australian mid-market businesses are migrating from IBM Cognos to PresciaIQ to replace backward-looking reports with forward-looking predictions — reducing analyst overhead and eliminating reactive decision-making." },
+      { q: "What is the cost difference between IBM Cognos and PresciaIQ?", a: "IBM Cognos requires enterprise licensing, IBM infrastructure, and significant consulting investment to implement and maintain. PresciaIQ is priced for mid-market businesses and deploys in weeks with pre-built industry models — delivering a significantly lower total cost of intelligence." }
+    ]
+  },
+  {
+    slug: "microstrategy",
+    name: "MicroStrategy",
+    category: "Business Intelligence",
+    tagline: "MicroStrategy's enterprise analytics vs PresciaIQ's predictive intelligence",
+    theirApproach: "MicroStrategy is an enterprise analytics and business intelligence platform known for its powerful reporting engine, mobile analytics, and hyperintelligence features. It is used by large enterprises for complex analytical workloads.",
+    presciaiqAdvantage: "MicroStrategy is a powerful enterprise analytics platform for large organisations. PresciaIQ delivers predictive intelligence for mid-market businesses — without the enterprise complexity, pricing, or implementation timeline.",
+    keyDifferences: [
+      { label: "Target market", them: "Large enterprises", us: "Australian mid-market businesses" },
+      { label: "Core function", them: "Enterprise analytics and reporting", us: "Predictive intelligence and decision automation" },
+      { label: "Time horizon", them: "Historical analysis", us: "Forward-looking predictive forecasts" },
+      { label: "AI capability", them: "MicroStrategy AI (add-on)", us: "Native predictive models included" },
+      { label: "Implementation", them: "Months of enterprise deployment", us: "Rapid deployment with pre-built industry models" },
+      { label: "Cost", them: "Enterprise pricing", us: "Mid-market pricing" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ a MicroStrategy alternative for Australian businesses?", a: "For mid-market businesses, yes. MicroStrategy is designed for large enterprises with complex analytical workloads and dedicated BI teams. PresciaIQ delivers predictive intelligence at mid-market pricing without the enterprise complexity — making it the right choice for Australian SMBs and mid-market operators." },
+      { q: "How does PresciaIQ compare to MicroStrategy for operational intelligence?", a: "MicroStrategy excels at complex enterprise reporting and analytics. PresciaIQ is purpose-built for operational intelligence — delivering predictions and automated decision support to operational teams rather than analytical insights to BI teams." },
+      { q: "Can PresciaIQ replace MicroStrategy for Australian mid-market businesses?", a: "For operational intelligence use cases, yes. Many Australian mid-market businesses are replacing MicroStrategy's complex reporting infrastructure with PresciaIQ's predictive intelligence platform — reducing IT overhead and delivering faster, more actionable insights to operational teams." }
+    ]
+  }
+];

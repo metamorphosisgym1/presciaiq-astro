@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-
 export default defineConfig({
   site: 'https://www.presciaiq.com.au',
   integrations: [
@@ -21,6 +20,15 @@ export default defineConfig({
         }
         if (item.url.includes('/services/')) {
           return { ...item, priority: 0.9, changefreq: 'monthly' };
+        }
+        if (item.url.includes('/compare/')) {
+          return { ...item, priority: 0.8, changefreq: 'monthly' };
+        }
+        if (item.url.includes('/problems/')) {
+          return { ...item, priority: 0.8, changefreq: 'monthly' };
+        }
+        if (item.url.includes('/solutions/')) {
+          return { ...item, priority: 0.7, changefreq: 'monthly' };
         }
         return item;
       },

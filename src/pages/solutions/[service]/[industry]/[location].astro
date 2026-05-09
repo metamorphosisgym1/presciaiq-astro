@@ -1,0 +1,166 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { servicesData } from '../../../../data/services-data';
+import { industries } from '../../../../data/industries';
+import { locations } from '../../../../data/locations';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const service of servicesData) {
+    for (const industry of industries) {
+      for (const location of locations) {
+        paths.push({
+          params: { 
+            service: service.slug,
+            industry: industry.slug,
+            location: location.slug
+          },
+          props: { service, industry, location },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const { service, industry, location } = Astro.props;
+
+const title = `${service.name} for ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
+const description = `PresciaIQ provides ${service.name.toLowerCase()} for ${industry.plural} ${location.preposition} ${location.name}. Predict ${industry.painPoint} and automate decisions.`;
+const canonicalURL = `https://www.presciaiq.com.au/solutions/${service.slug}/${industry.slug}/${location.slug}`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.presciaiq.com.au/solutions" },
+    { "@type": "ListItem", "position": 3, "name": service.name, "item": `https://www.presciaiq.com.au/services/${service.slug}` },
+    { "@type": "ListItem", "position": 4, "name": `${industry.name} ${location.name}`, "item": canonicalURL }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": `How can ${service.name} help ${industry.plural} ${location.preposition} ${location.name}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `By leveraging ${service.name.toLowerCase()}, ${industry.plural} ${location.preposition} ${location.name} can move from reactive to predictive operations. Instead of suffering from ${industry.painPoint}, you can ${industry.outcome}. ${location.marketContext}`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `What is an example of predictive AI in the ${industry.name.toLowerCase()} sector?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": industry.exampleUseCase
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `Why choose PresciaIQ for ${service.name.toLowerCase()}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": service.differentiator
+      }
+    }
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+      
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8 flex flex-wrap gap-3">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">{industry.name}</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{location.name}</span>
+        </div>
+
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          {service.name} for {industry.name} {location.preposition} {location.name}
+        </h1>
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          {service.tagline} tailored for {industry.plural} operating in {location.name}.
+        </p>
+        
+        <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">The Predictive Advantage</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">
+            For {industry.plural} {location.preposition} {location.name}, traditional software is no longer enough. You don't need another dashboard telling you about {industry.painPoint} after it happens. You need predictive intelligence to <strong>{industry.outcome}</strong>.
+          </p>
+        </div>
+
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
+          <p>{service.description}</p>
+          <p>{location.marketContext}</p>
+          
+          <h3 class="text-2xl font-bold text-white mt-12 mb-6">How We Help {industry.name} Businesses</h3>
+          <p>{industry.exampleUseCase}</p>
+
+          <h3 class="text-2xl font-bold text-white mt-12 mb-6">Our {service.shortName} Deliverables</h3>
+          <ul class="list-disc pl-6 space-y-3 mb-8">
+            {service.deliverables.map(item => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          
+          <p class="text-white font-medium border-l-2 border-white/20 pl-4 py-2 mt-8">
+            {service.differentiator}
+          </p>
+        </div>
+
+        {/* CTA Section */}
+        <div class="bg-gradient-to-r from-[#00ff88]/20 to-transparent p-8 rounded-xl border border-[#00ff88]/30 mb-16">
+          <h3 class="text-2xl font-bold text-white mb-4">Ready to build intelligence into your operations?</h3>
+          <p class="text-gray-300 mb-6">Stop paying the Reaction Tax. Let's discuss how {service.name.toLowerCase()} can transform your {industry.name.toLowerCase()} business {location.preposition} {location.name}.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/contact" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+              Book a Strategy Call
+            </a>
+            <a href={service.href} class="inline-block bg-transparent text-white border border-white/20 font-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-colors">
+              Learn more about {service.name}
+            </a>
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div class="border-t border-white/10 pt-12">
+          <h2 class="text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">How can {service.name} help {industry.plural} {location.preposition} {location.name}?</h3>
+              <p class="text-gray-400 leading-relaxed">By leveraging {service.name.toLowerCase()}, {industry.plural} {location.preposition} {location.name} can move from reactive to predictive operations. Instead of suffering from {industry.painPoint}, you can {industry.outcome}. {location.marketContext}</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">What is an example of predictive AI in the {industry.name.toLowerCase()} sector?</h3>
+              <p class="text-gray-400 leading-relaxed">{industry.exampleUseCase}</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">Why choose PresciaIQ for {service.name.toLowerCase()}?</h3>
+              <p class="text-gray-400 leading-relaxed">{service.differentiator}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Related Insight */}
+        <div class="mt-16 pt-8 border-t border-white/10">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-4">Related Insight</p>
+          <a href={industry.relatedInsight} class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/50 hover:bg-white/5 transition-all">
+            <h4 class="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">{industry.relatedInsightTitle}</h4>
+            <p class="text-sm text-gray-400">Read our in-depth analysis on how predictive intelligence is transforming operations. &rarr;</p>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
