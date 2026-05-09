@@ -49,6 +49,23 @@ const breadcrumbSchema = {
   ]
 };
 
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  'name': 'PresciaIQ ' + service.name,
+  'applicationCategory': 'BusinessApplication',
+  'operatingSystem': 'Web, Cloud',
+  'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'AUD' },
+  'description': 'Predictive AI software designed to solve ' + problem.problemShort.toLowerCase() + ' for ' + industry.plural + ' in ' + location.name + '.'
+};
+const speakableSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  'name': title,
+  'speakable': { '@type': 'SpeakableSpecification', 'xpath': ['/html/head/title', '/html/head/meta[@name=description]/@content'] },
+  'url': canonicalURL
+};
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -129,4 +146,6 @@ const faqSchema = {
 
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 </Layout>
