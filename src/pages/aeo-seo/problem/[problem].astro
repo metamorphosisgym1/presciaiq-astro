@@ -1,0 +1,142 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { aeoProblems } from '../../../data/aeo-problems';
+
+export function getStaticPaths() {
+  return aeoProblems.map(problem => ({
+    params: { problem: problem.slug },
+    props: { problem },
+  }));
+}
+
+const { problem } = Astro.props;
+const title = `${problem.problemTitle} | PresciaIQ`;
+const description = `${problem.symptom} PresciaIQ's Predictive Search Architecture solves this with a one-off programmatic build. From $4,999.`;
+const canonicalURL = `https://www.presciaiq.com.au/aeo-seo/problem/${problem.slug}`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "AEO/SEO", "item": "https://www.presciaiq.com.au/services/aeo-seo-predictive-search-architecture" },
+    { "@type": "ListItem", "position": 3, "name": problem.problemTitle, "item": canonicalURL }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": problem.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": problem.problemTitle,
+  "description": problem.solution,
+  "step": [
+    { "@type": "HowToStep", "name": "Identify the root cause", "text": problem.rootCause },
+    { "@type": "HowToStep", "name": "Understand the cost", "text": problem.cost },
+    { "@type": "HowToStep", "name": "Deploy the solution", "text": problem.solution },
+    { "@type": "HowToStep", "name": "Achieve the outcome", "text": problem.outcome }
+  ]
+};
+---
+<Layout title={title} description={description}>
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8 flex flex-wrap gap-3">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">AEO/SEO Problem</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{problem.problemShort}</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          {problem.problemTitle}
+        </h1>
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          {problem.symptom}
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div class="bg-black/40 border border-white/10 rounded-xl p-6">
+            <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-3">Root Cause</p>
+            <p class="text-gray-300 text-sm leading-relaxed">{problem.rootCause}</p>
+          </div>
+          <div class="bg-black/40 border border-red-500/20 rounded-xl p-6">
+            <p class="text-[11px] uppercase tracking-[0.2em] text-red-400 font-sans font-semibold mb-3">The Cost</p>
+            <p class="text-gray-300 text-sm leading-relaxed">{problem.cost}</p>
+          </div>
+          <div class="bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
+            <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-3">The Outcome</p>
+            <p class="text-gray-300 text-sm leading-relaxed">{problem.outcome}</p>
+          </div>
+        </div>
+
+        <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">The Solution</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">{problem.solution}</p>
+        </div>
+
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
+          <h3 class="text-2xl font-bold text-white mt-4 mb-6">Why This Problem Persists</h3>
+          <p>{problem.rootCause} Most businesses attempt to solve this problem with the same tools that created it — more ad spend, more manual content, more retainer payments. None of these approaches address the structural root cause.</p>
+
+          <p>Predictive Search Architecture addresses the root cause directly. By deploying a comprehensive programmatic architecture in a single build, we create the structural depth and topical authority that Google rewards — generating compounding organic authority that no ad spend can replicate.</p>
+
+          <h3 class="text-2xl font-bold text-white mt-12 mb-6">Proven Results</h3>
+          <ul class="list-disc pl-6 space-y-3 mb-8">
+            <li><strong class="text-white">BuildHire:</strong> 216 → 7,398 pages — 8x increase, zero ongoing ad spend</li>
+            <li><strong class="text-white">LoopBC:</strong> 380 → 5,763 pages — 15x increase across 20 service lines</li>
+            <li><strong class="text-white">PresciaIQ:</strong> 954 → 6,129 pages — 6x increase with full AEO schema</li>
+          </ul>
+
+          <p class="text-white font-medium border-l-2 border-white/20 pl-4 py-2 mt-8">
+            Unlike traditional SEO retainers, this is an infrastructural build. You pay once for the architecture, and it compounds in value over time — dominating both traditional search and AI Answer Engines.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-[#00ff88]/20 to-transparent p-8 rounded-xl border border-[#00ff88]/30 mb-16">
+          <h3 class="text-2xl font-bold text-white mb-4">Ready to solve this problem permanently?</h3>
+          <p class="text-gray-300 mb-6">Let's build the search architecture that generates compounding organic leads — starting from $4,999.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/contact" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+              Book a Strategy Call
+            </a>
+            <a href="/services/aeo-seo-predictive-search-architecture" class="inline-block bg-transparent text-white border border-white/20 font-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-colors">
+              Learn more about Predictive Search Architecture
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-12">
+          <h2 class="text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+          <div class="space-y-8">
+            {problem.faqs.map(faq => (
+              <div>
+                <h3 class="text-xl font-bold text-white mb-3">{faq.q}</h3>
+                <p class="text-gray-400 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-white/10">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-4">Related Service</p>
+          <a href="/services/aeo-seo-predictive-search-architecture" class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/50 hover:bg-white/5 transition-all">
+            <h4 class="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">AEO/SEO — Predictive Search Architecture</h4>
+            <p class="text-sm text-gray-400">The one-off build that solves {problem.problemShort.toLowerCase()} permanently. &rarr;</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+</Layout>

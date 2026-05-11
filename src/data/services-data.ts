@@ -57,5 +57,21 @@ export const servicesData: ServiceData[] = [
       "Performance-optimised, SEO-ready architecture"
     ],
     differentiator: "Our web platforms are built to generate revenue, not just traffic. Every interaction is analysed to predict user intent and automate the next best action."
+  },
+  {
+    slug: "aeo-seo-predictive-search-architecture",
+    name: "AEO/SEO — Predictive Search Architecture",
+    shortName: "Predictive Search Architecture",
+    href: "/services/aeo-seo-predictive-search-architecture",
+    tagline: "Own every search result before your competitor knows the query exists",
+    description: "We build programmatic SEO and AEO (Answer Engine Optimisation) architecture. We map every service, industry, location, and persona to build thousands of targeted, AI-optimised pages in a single deployment, generating compounding structural authority with zero ongoing ad spend.",
+    deliverables: [
+      "Programmatic SEO/AEO page generation",
+      "Dynamic schema markup for AI Answer Engines",
+      "Hyper-targeted location & industry clusters",
+      "Zero ongoing ad spend structural authority",
+      "Scalable internal linking architecture"
+    ],
+    differentiator: "Unlike traditional SEO retainers, this is an infrastructural build. You pay once for the architecture, and it compounds in value over time, dominating both traditional search and AI Answer Engines."
   }
 ];

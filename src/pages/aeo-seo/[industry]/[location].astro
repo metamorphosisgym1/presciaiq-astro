@@ -1,0 +1,183 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { industries } from '../../../data/industries';
+import { locations } from '../../../data/locations';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const industry of industries) {
+    for (const location of locations) {
+      paths.push({
+        params: { industry: industry.slug, location: location.slug },
+        props: { industry, location },
+      });
+    }
+  }
+  return paths;
+}
+
+const { industry, location } = Astro.props;
+const title = `AEO/SEO for ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
+const description = `PresciaIQ builds programmatic SEO and AEO architectures for ${industry.plural} ${location.preposition} ${location.name}. Deploy hundreds of targeted, schema-rich pages that dominate ${industry.name.toLowerCase()} search in ${location.name}. From $4,999.`;
+const canonicalURL = `https://www.presciaiq.com.au/aeo-seo/${industry.slug}/${location.slug}`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "AEO/SEO", "item": "https://www.presciaiq.com.au/services/aeo-seo-predictive-search-architecture" },
+    { "@type": "ListItem", "position": 3, "name": industry.name, "item": `https://www.presciaiq.com.au/aeo-seo/industry/${industry.slug}` },
+    { "@type": "ListItem", "position": 4, "name": location.name, "item": canonicalURL }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": `AEO/SEO Predictive Search Architecture for ${industry.name} ${location.preposition} ${location.name}`,
+  "description": description,
+  "provider": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "url": "https://www.presciaiq.com.au"
+  },
+  "areaServed": location.name,
+  "offers": {
+    "@type": "Offer",
+    "price": "4999",
+    "priceCurrency": "AUD",
+    "priceSpecification": { "@type": "UnitPriceSpecification", "price": "4999", "priceCurrency": "AUD", "description": "From $4,999 one-off build" }
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": `What is programmatic SEO for ${industry.name.toLowerCase()} ${location.preposition} ${location.name}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Programmatic SEO for ${industry.name.toLowerCase()} ${location.preposition} ${location.name} deploys hundreds to thousands of targeted, schema-rich pages that capture every search query in the ${industry.name.toLowerCase()} sector across ${location.name} — from service-specific queries to problem-specific and persona-specific searches.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `How can ${industry.plural} ${location.preposition} ${location.name} benefit from AEO/SEO?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `${industry.plural} ${location.preposition} ${location.name} that deploy Predictive Search Architecture stop ${industry.painPoint} and start to ${industry.outcome}. ${location.marketContext}`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `What results can ${industry.plural} ${location.preposition} ${location.name} expect?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `${industry.exampleUseCase} PresciaIQ clients in the ${industry.name.toLowerCase()} sector typically see a 5x–15x increase in indexed pages and a 3x–10x increase in organic traffic within 90 days of deployment.`
+      }
+    }
+  ]
+};
+---
+<Layout title={title} description={description}>
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8 flex flex-wrap gap-3">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">AEO/SEO</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{industry.name}</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{location.name}</span>
+          <span class="text-white/50 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">From $4,999</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          Predictive Search Architecture for {industry.name} {location.preposition} {location.name}
+        </h1>
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          Own every search result in the {industry.name.toLowerCase()} sector {location.preposition} {location.name}. We build programmatic SEO and AEO architectures specifically for {industry.plural} {location.preposition} {location.name} — deploying hundreds to thousands of targeted, schema-rich pages in a single build.
+        </p>
+
+        <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">The {industry.name} Search Opportunity {location.preposition} {location.name}</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">
+            {industry.plural} {location.preposition} {location.name} that deploy Predictive Search Architecture stop {industry.painPoint} and start to {industry.outcome}. {location.marketContext}
+          </p>
+        </div>
+
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
+          <p>Most {industry.plural} {location.preposition} {location.name} are invisible on Google for the majority of the search queries their prospects are using. They have a handful of generic pages targeting broad keywords — and they're losing to competitors with deeper structural authority every single day.</p>
+
+          <p>Predictive Search Architecture changes this. We map every dimension of your {industry.name.toLowerCase()} business — every service you offer, every location in your market, every problem you solve, every persona you target — and deploy a unique, highly optimised page for each combination. The result is a website that captures the full search demand landscape for the {industry.name.toLowerCase()} sector {location.preposition} {location.name}.</p>
+
+          <h3 class="text-2xl font-bold text-white mt-12 mb-6">What We Build for {industry.name} Businesses {location.preposition} {location.name}</h3>
+          <ul class="list-disc pl-6 space-y-3 mb-8">
+            <li>Industry-specific service pages demonstrating deep {industry.name.toLowerCase()} expertise</li>
+            <li>Location × Industry pages capturing local {industry.name.toLowerCase()} search demand in {location.name}</li>
+            <li>Problem → Solution pages targeting the specific challenges {industry.plural} face</li>
+            <li>FAQ / AEO pages structured for ChatGPT, Perplexity, and Google AI Overviews</li>
+            <li>Competitor comparison pages intercepting {industry.plural} at the decision stage</li>
+            <li>Persona pages speaking to every decision-maker in {industry.name.toLowerCase()} businesses</li>
+          </ul>
+
+          <h3 class="text-2xl font-bold text-white mt-12 mb-6">Industry Insight</h3>
+          <p>{industry.exampleUseCase}</p>
+
+          <p class="text-white font-medium border-l-2 border-white/20 pl-4 py-2 mt-8">
+            Unlike traditional SEO retainers, this is an infrastructural build. You pay once for the architecture, and it compounds in value over time — dominating both traditional search and AI Answer Engines across the entire {industry.name.toLowerCase()} sector {location.preposition} {location.name}.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-[#00ff88]/20 to-transparent p-8 rounded-xl border border-[#00ff88]/30 mb-16">
+          <h3 class="text-2xl font-bold text-white mb-4">Ready to dominate {industry.name.toLowerCase()} search {location.preposition} {location.name}?</h3>
+          <p class="text-gray-300 mb-6">Let's build the search architecture that generates compounding organic leads for your {industry.name.toLowerCase()} business {location.preposition} {location.name} — starting from $4,999.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/contact" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+              Book a Strategy Call
+            </a>
+            <a href="/services/aeo-seo-predictive-search-architecture" class="inline-block bg-transparent text-white border border-white/20 font-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-colors">
+              Learn more about Predictive Search Architecture
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-12">
+          <h2 class="text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">What is programmatic SEO for {industry.name.toLowerCase()} {location.preposition} {location.name}?</h3>
+              <p class="text-gray-400 leading-relaxed">Programmatic SEO for {industry.name.toLowerCase()} {location.preposition} {location.name} deploys hundreds to thousands of targeted, schema-rich pages that capture every search query in the {industry.name.toLowerCase()} sector across {location.name} — from service-specific queries to problem-specific and persona-specific searches.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">How can {industry.plural} {location.preposition} {location.name} benefit from AEO/SEO?</h3>
+              <p class="text-gray-400 leading-relaxed">{industry.plural} {location.preposition} {location.name} that deploy Predictive Search Architecture stop {industry.painPoint} and start to {industry.outcome}. {location.marketContext}</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">What results can {industry.plural} {location.preposition} {location.name} expect?</h3>
+              <p class="text-gray-400 leading-relaxed">{industry.exampleUseCase} PresciaIQ clients in the {industry.name.toLowerCase()} sector typically see a 5x–15x increase in indexed pages and a 3x–10x increase in organic traffic within 90 days of deployment.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-white/10">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-4">Explore More</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href={`/aeo-seo/industry/${industry.slug}`} class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/50 hover:bg-white/5 transition-all">
+              <h4 class="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">AEO/SEO for {industry.name}</h4>
+              <p class="text-sm text-gray-400">See how Predictive Search Architecture works for the {industry.name.toLowerCase()} sector. &rarr;</p>
+            </a>
+            <a href={`/aeo-seo/location/${location.slug}`} class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/50 hover:bg-white/5 transition-all">
+              <h4 class="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">AEO/SEO {location.preposition} {location.name}</h4>
+              <p class="text-sm text-gray-400">See how Predictive Search Architecture works for {location.name} businesses. &rarr;</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

@@ -1,0 +1,179 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { locations } from '../../../data/locations';
+
+export function getStaticPaths() {
+  return locations.map(location => ({
+    params: { location: location.slug },
+    props: { location },
+  }));
+}
+
+const { location } = Astro.props;
+const title = `AEO/SEO — Predictive Search Architecture ${location.preposition} ${location.name} | PresciaIQ`;
+const description = `PresciaIQ builds programmatic SEO and AEO architectures for businesses ${location.preposition} ${location.name}. Deploy hundreds of targeted, schema-rich pages in a single build. From $4,999.`;
+const canonicalURL = `https://www.presciaiq.com.au/aeo-seo/location/${location.slug}`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "AEO/SEO", "item": "https://www.presciaiq.com.au/services/aeo-seo-predictive-search-architecture" },
+    { "@type": "ListItem", "position": 3, "name": location.name, "item": canonicalURL }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": `AEO/SEO Predictive Search Architecture ${location.preposition} ${location.name}`,
+  "description": description,
+  "provider": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "url": "https://www.presciaiq.com.au"
+  },
+  "areaServed": location.name,
+  "offers": {
+    "@type": "Offer",
+    "price": "4999",
+    "priceCurrency": "AUD",
+    "priceSpecification": { "@type": "UnitPriceSpecification", "price": "4999", "priceCurrency": "AUD", "description": "From $4,999 one-off build" }
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": `What is AEO/SEO Predictive Search Architecture ${location.preposition} ${location.name}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Predictive Search Architecture is a programmatic SEO and AEO build that deploys hundreds to thousands of targeted, schema-rich pages for businesses ${location.preposition} ${location.name} — generating compounding organic authority with zero ongoing ad spend.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `How much does programmatic SEO cost ${location.preposition} ${location.name}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `PresciaIQ's Predictive Search Architecture starts from $4,999 as a one-off build for businesses ${location.preposition} ${location.name}. Unlike monthly SEO retainers, this is a single investment that generates compounding organic authority over time.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `How long does it take to see SEO results ${location.preposition} ${location.name}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `With Predictive Search Architecture, hyper-specific long-tail queries typically begin ranking within 2–4 weeks of deployment. Broader terms build authority over 3–6 months. ${location.marketContext}`
+      }
+    }
+  ]
+};
+---
+<Layout title={title} description={description}>
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8 flex flex-wrap gap-3">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">AEO/SEO</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{location.name}</span>
+          <span class="text-white/50 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">From $4,999</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          Predictive Search Architecture {location.preposition} {location.name}
+        </h1>
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          Own every search result before your competitor knows the query exists. We build programmatic SEO and AEO architectures for businesses {location.preposition} {location.name} — deploying hundreds to thousands of targeted, schema-rich pages in a single build.
+        </p>
+
+        <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">The Structural Advantage</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">
+            Businesses {location.preposition} {location.name} that deploy Predictive Search Architecture build a compounding digital asset that generates qualified leads 24/7 — at zero ongoing cost. {location.marketContext}
+          </p>
+        </div>
+
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
+          <p>Most businesses {location.preposition} {location.name} are invisible on Google for the majority of the search queries their prospects are using. They have a handful of pages targeting broad, competitive keywords — and they're losing to competitors with deeper structural authority every single day.</p>
+
+          <p>Predictive Search Architecture changes this. We map every dimension of your business — every service you offer, every industry you serve, every location in your market, every problem you solve — and deploy a unique, highly optimised page for each combination. The result is a website that captures the full search demand landscape for your category, leaving nothing on the table for competitors.</p>
+
+          <h3 class="text-2xl font-bold text-white mt-12 mb-6">What We Build for {location.name} Businesses</h3>
+          <ul class="list-disc pl-6 space-y-3 mb-8">
+            <li>Service × Location page clusters — a dedicated page for every service in every market you serve</li>
+            <li>Industry vertical pages — demonstrating deep expertise in every sector you target</li>
+            <li>Problem → Solution pages — capturing high-intent queries from prospects who have identified their problem</li>
+            <li>FAQ / AEO pages — structured for both Google and AI Answer Engines (ChatGPT, Perplexity, Google AI Overviews)</li>
+            <li>Competitor comparison pages — intercepting prospects at the decision stage</li>
+            <li>Persona-targeted landing pages — speaking directly to every buyer persona in your market</li>
+          </ul>
+
+          <h3 class="text-2xl font-bold text-white mt-12 mb-6">Proven Results</h3>
+          <p>PresciaIQ has deployed Predictive Search Architecture for businesses across Australia and internationally, with consistent results:</p>
+          <ul class="list-disc pl-6 space-y-3 mb-8">
+            <li><strong class="text-white">BuildHire:</strong> 216 → 7,398 pages — 8x increase in indexed pages, zero ongoing ad spend</li>
+            <li><strong class="text-white">LoopBC:</strong> 380 → 5,763 pages — 15x increase across 20 service lines and 15 locations</li>
+            <li><strong class="text-white">PresciaIQ:</strong> 954 → 6,129 pages — 6x increase with full AEO schema coverage</li>
+          </ul>
+
+          <p class="text-white font-medium border-l-2 border-white/20 pl-4 py-2 mt-8">
+            Unlike traditional SEO retainers, this is an infrastructural build. You pay once for the architecture, and it compounds in value over time — dominating both traditional search and AI Answer Engines.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-[#00ff88]/20 to-transparent p-8 rounded-xl border border-[#00ff88]/30 mb-16">
+          <h3 class="text-2xl font-bold text-white mb-4">Ready to dominate search {location.preposition} {location.name}?</h3>
+          <p class="text-gray-300 mb-6">Stop paying the Reaction Tax. Let's build the search architecture that generates compounding organic leads for your {location.name} business — starting from $4,999.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/contact" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+              Book a Strategy Call
+            </a>
+            <a href="/services/aeo-seo-predictive-search-architecture" class="inline-block bg-transparent text-white border border-white/20 font-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-colors">
+              Learn more about Predictive Search Architecture
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-12">
+          <h2 class="text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">What is AEO/SEO Predictive Search Architecture {location.preposition} {location.name}?</h3>
+              <p class="text-gray-400 leading-relaxed">Predictive Search Architecture is a programmatic SEO and AEO build that deploys hundreds to thousands of targeted, schema-rich pages for businesses {location.preposition} {location.name} — generating compounding organic authority with zero ongoing ad spend.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">How much does programmatic SEO cost {location.preposition} {location.name}?</h3>
+              <p class="text-gray-400 leading-relaxed">PresciaIQ's Predictive Search Architecture starts from $4,999 as a one-off build for businesses {location.preposition} {location.name}. Unlike monthly SEO retainers, this is a single investment that generates compounding organic authority over time.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">How long does it take to see SEO results {location.preposition} {location.name}?</h3>
+              <p class="text-gray-400 leading-relaxed">With Predictive Search Architecture, hyper-specific long-tail queries typically begin ranking within 2–4 weeks of deployment. Broader terms build authority over 3–6 months. {location.marketContext}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-white/10">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-4">Explore More</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="/services/aeo-seo-predictive-search-architecture" class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/50 hover:bg-white/5 transition-all">
+              <h4 class="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">AEO/SEO Service Overview</h4>
+              <p class="text-sm text-gray-400">Learn how Predictive Search Architecture works and what's included. &rarr;</p>
+            </a>
+            <a href="/contact" class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/50 hover:bg-white/5 transition-all">
+              <h4 class="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">Book a Strategy Call</h4>
+              <p class="text-sm text-gray-400">Discuss your {location.name} search architecture with our team. &rarr;</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

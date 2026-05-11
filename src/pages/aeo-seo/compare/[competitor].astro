@@ -1,0 +1,114 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { aeoCompetitors } from '../../../data/aeo-competitors';
+
+export function getStaticPaths() {
+  return aeoCompetitors.map(competitor => ({
+    params: { competitor: competitor.slug },
+    props: { competitor },
+  }));
+}
+
+const { competitor } = Astro.props;
+const title = `PresciaIQ vs ${competitor.name} — Predictive Search Architecture | PresciaIQ`;
+const description = `Compare PresciaIQ's Predictive Search Architecture vs ${competitor.name}. ${competitor.presciaiqAdvantage} From $4,999.`;
+const canonicalURL = `https://www.presciaiq.com.au/aeo-seo/compare/${competitor.slug}`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "AEO/SEO", "item": "https://www.presciaiq.com.au/services/aeo-seo-predictive-search-architecture" },
+    { "@type": "ListItem", "position": 3, "name": `vs ${competitor.name}`, "item": canonicalURL }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": competitor.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+};
+---
+<Layout title={title} description={description}>
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8 flex flex-wrap gap-3">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">Comparison</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{competitor.category}</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          PresciaIQ vs {competitor.name}
+        </h1>
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          {competitor.description}
+        </p>
+
+        <div class="bg-black/40 border-l-4 border-red-500/50 p-6 mb-8 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">The Limitation of {competitor.name}</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">{competitor.limitation}</p>
+        </div>
+
+        <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">The PresciaIQ Advantage</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">{competitor.presciaiqAdvantage}</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-white mb-6">Side-by-Side Comparison</h2>
+        <div class="overflow-x-auto mb-12">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="border-b border-white/10">
+                <th class="text-left py-4 px-4 text-gray-400 font-semibold text-sm uppercase tracking-wider">Feature</th>
+                <th class="text-left py-4 px-4 text-gray-400 font-semibold text-sm uppercase tracking-wider">{competitor.name}</th>
+                <th class="text-left py-4 px-4 text-[#00ff88] font-semibold text-sm uppercase tracking-wider">PresciaIQ</th>
+              </tr>
+            </thead>
+            <tbody>
+              {competitor.comparisonPoints.map((point, i) => (
+                <tr class={`border-b border-white/5 ${i % 2 === 0 ? 'bg-white/2' : ''}`}>
+                  <td class="py-4 px-4 text-gray-400 text-sm font-medium">{point.label}</td>
+                  <td class="py-4 px-4 text-gray-500 text-sm">{point.competitor}</td>
+                  <td class="py-4 px-4 text-[#00ff88] text-sm font-semibold">{point.presciaiq}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-gradient-to-r from-[#00ff88]/20 to-transparent p-8 rounded-xl border border-[#00ff88]/30 mb-16">
+          <h3 class="text-2xl font-bold text-white mb-4">Ready to make the switch?</h3>
+          <p class="text-gray-300 mb-6">Stop paying for approaches that don't compound. Let's build the search architecture that generates organic leads forever — starting from $4,999.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/contact" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+              Book a Strategy Call
+            </a>
+            <a href="/services/aeo-seo-predictive-search-architecture" class="inline-block bg-transparent text-white border border-white/20 font-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-colors">
+              Learn more about Predictive Search Architecture
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-12">
+          <h2 class="text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+          <div class="space-y-8">
+            {competitor.faqs.map(faq => (
+              <div>
+                <h3 class="text-xl font-bold text-white mb-3">{faq.q}</h3>
+                <p class="text-gray-400 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>

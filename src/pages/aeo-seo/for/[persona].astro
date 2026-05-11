@@ -1,0 +1,149 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { aeoPersonas } from '../../../data/aeo-personas';
+
+export function getStaticPaths() {
+  return aeoPersonas.map(persona => ({
+    params: { persona: persona.slug },
+    props: { persona },
+  }));
+}
+
+const { persona } = Astro.props;
+const title = `AEO/SEO Predictive Search Architecture for ${persona.name} | PresciaIQ`;
+const description = `PresciaIQ builds programmatic SEO and AEO architectures for ${persona.plural}. Stop ${persona.painPoint}. ${persona.outcome}. From $4,999.`;
+const canonicalURL = `https://www.presciaiq.com.au/aeo-seo/for/${persona.slug}`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "AEO/SEO", "item": "https://www.presciaiq.com.au/services/aeo-seo-predictive-search-architecture" },
+    { "@type": "ListItem", "position": 3, "name": `For ${persona.name}`, "item": canonicalURL }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": `What is Predictive Search Architecture for ${persona.role.toLowerCase()}s?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Predictive Search Architecture is a programmatic SEO and AEO build designed specifically for ${persona.plural}. ${persona.motivation}`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": persona.objection,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": persona.objectionResponse
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `What results can ${persona.plural} expect from Predictive Search Architecture?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": persona.exampleUseCase
+      }
+    }
+  ]
+};
+---
+<Layout title={title} description={description}>
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8 flex flex-wrap gap-3">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">AEO/SEO</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">For {persona.name}</span>
+          <span class="text-white/50 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">From $4,999</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          Predictive Search Architecture for {persona.name}
+        </h1>
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          Stop {persona.painPoint}. {persona.outcome}.
+        </p>
+
+        <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">Built for {persona.name}</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">
+            {persona.motivation}
+          </p>
+        </div>
+
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
+          <p>{persona.exampleUseCase}</p>
+
+          <h3 class="text-2xl font-bold text-white mt-12 mb-6">What Predictive Search Architecture Delivers for {persona.name}</h3>
+          <ul class="list-disc pl-6 space-y-3 mb-8">
+            <li>Hundreds to thousands of targeted, schema-rich pages deployed in a single build</li>
+            <li>Full AEO schema coverage — FAQPage, Service, LocalBusiness, BreadcrumbList</li>
+            <li>Hyper-targeted location and industry clusters capturing every market you serve</li>
+            <li>Zero ongoing cost — a one-off build that compounds in value over time</li>
+            <li>AI Answer Engine visibility — ChatGPT, Perplexity, Google AI Overviews</li>
+            <li>Measurable results within 30–90 days of deployment</li>
+          </ul>
+
+          <div class="bg-white/5 border border-white/10 rounded-xl p-6 my-8">
+            <h4 class="text-lg font-bold text-white mb-4">Common Objection</h4>
+            <p class="text-[#00ff88] font-semibold mb-3">"{persona.objection}"</p>
+            <p class="text-gray-300">{persona.objectionResponse}</p>
+          </div>
+
+          <p class="text-white font-medium border-l-2 border-white/20 pl-4 py-2 mt-8">
+            Unlike traditional SEO retainers, this is an infrastructural build. You pay once for the architecture, and it compounds in value over time — dominating both traditional search and AI Answer Engines.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-r from-[#00ff88]/20 to-transparent p-8 rounded-xl border border-[#00ff88]/30 mb-16">
+          <h3 class="text-2xl font-bold text-white mb-4">Ready to build your search architecture?</h3>
+          <p class="text-gray-300 mb-6">Let's discuss how Predictive Search Architecture can help you {persona.outcome.toLowerCase()} — starting from $4,999.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/contact" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+              Book a Strategy Call
+            </a>
+            <a href="/services/aeo-seo-predictive-search-architecture" class="inline-block bg-transparent text-white border border-white/20 font-bold px-8 py-4 rounded-lg hover:bg-white/5 transition-colors">
+              Learn more about Predictive Search Architecture
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-12">
+          <h2 class="text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">What is Predictive Search Architecture for {persona.role.toLowerCase()}s?</h3>
+              <p class="text-gray-400 leading-relaxed">{persona.motivation}</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">{persona.objection}</h3>
+              <p class="text-gray-400 leading-relaxed">{persona.objectionResponse}</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">What results can {persona.plural} expect?</h3>
+              <p class="text-gray-400 leading-relaxed">{persona.exampleUseCase}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-white/10">
+          <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-4">Related Insight</p>
+          <a href={persona.relatedInsight} class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/50 hover:bg-white/5 transition-all">
+            <h4 class="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">{persona.relatedInsightTitle}</h4>
+            <p class="text-sm text-gray-400">Read our in-depth analysis on building compounding search authority. &rarr;</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Layout>
