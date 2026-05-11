@@ -174,6 +174,7 @@ const AppBuildingSection = () => {
             <a href="/services/ai-software-development" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm font-sans font-medium text-foreground hover:border-primary hover:text-primary transition-colors">AI Software Development &rarr;</a>
             <a href="/services/ai-app-development" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm font-sans font-medium text-foreground hover:border-primary hover:text-primary transition-colors">AI App Development &rarr;</a>
             <a href="/services/ai-web-development" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm font-sans font-medium text-foreground hover:border-primary hover:text-primary transition-colors">AI Web Development &rarr;</a>
+            <a href="/services/aeo-seo-predictive-search-architecture" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-sm font-sans font-medium text-foreground hover:border-primary hover:text-primary transition-colors">AEO/SEO — Predictive Search Architecture &rarr;</a>
           </div>
         </div>
       </div>

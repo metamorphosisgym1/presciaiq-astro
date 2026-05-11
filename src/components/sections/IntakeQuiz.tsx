@@ -27,6 +27,7 @@ const buildTypes = [
   { value: "automation_ai",  label: "Automation or AI agent",        sub: "Replace manual work, AI assistant, workflow automation" },
   { value: "sops",           label: "SOPs & operational systems",    sub: "Document and systemise how your business runs" },
   { value: "website",        label: "High-converting website",       sub: "Service site, e-commerce, booking platform" },
+  { value: "aeo_seo",        label: "AEO/SEO — Predictive Search Architecture", sub: "Own every search result. Thousands of targeted pages, zero ad spend." },
   { value: "mix",            label: "A mix of the above",            sub: "Multi-part project — let's scope it together" },
   { value: "not_sure",       label: "Not sure yet",                  sub: "You have a problem — we'll figure out the solution" },
 ];

@@ -34,6 +34,17 @@ const cards = [
     href: "/contact",
     isInternal: true,
   },
+  {
+    product: "AEO/SEO",
+    desc: "Predictive Search Architecture",
+    tiers: [
+      { name: "Starter", price: "From $4,999", unit: "one-off" },
+      { name: "Enterprise", price: "Custom", unit: "scoped project" },
+    ],
+    cta: "Scope Your Search Architecture",
+    href: "/services/aeo-seo-predictive-search-architecture",
+    isInternal: true,
+  },
 ];
 
 const PricingSection = () => (
@@ -51,7 +62,7 @@ const PricingSection = () => (
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {cards.map((card) => (
           <div
             key={card.product}
@@ -60,9 +71,11 @@ const PricingSection = () => (
               border: "1px solid rgba(0,255,136,0.1)",
             }}
           >
-            <h3 className="font-display text-2xl font-bold text-foreground mb-1 whitespace-nowrap">
+            <h3 className="font-display text-2xl font-bold text-foreground mb-1">
               {card.product.includes("IQ") ? (
                 <>{card.product.replace("IQ", "")}<span className="text-primary neon-glow">IQ</span></>
+              ) : card.product === "AEO/SEO" ? (
+                <><span className="text-primary neon-glow">AEO</span><span className="text-foreground">/SEO</span></>
               ) : (
                 <span>{card.product}</span>
               )}

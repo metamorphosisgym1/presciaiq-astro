@@ -39,12 +39,14 @@ const Navbar = () => {
                 <span>Development</span><ChevronDown className="h-4 w-4" />
               </button>
               {isServicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-card border border-border rounded-lg shadow-lg py-2 z-50" onMouseLeave={() => setIsServicesOpen(false)}>
+                <div className="absolute top-full left-0 mt-2 w-80 bg-card border border-border rounded-lg shadow-lg py-2 z-50" onMouseLeave={() => setIsServicesOpen(false)}>
                   <a href="/development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">All Development Services</span><span className="text-xs text-muted-foreground">Web, App &amp; Software</span></a>
                   <div className="border-t border-border my-1"></div>
                   <a href="/services/ai-software-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Software Development</span><span className="text-xs text-muted-foreground">Custom enterprise AI systems</span></a>
                   <a href="/services/ai-app-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI App Development</span><span className="text-xs text-muted-foreground">Intelligent mobile &amp; web apps</span></a>
                   <a href="/services/ai-web-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Web Development</span><span className="text-xs text-muted-foreground">Predictive web platforms</span></a>
+                  <div className="border-t border-border my-1"></div>
+                  <a href="/services/aeo-seo-predictive-search-architecture" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">AEO/SEO — Predictive Search Architecture</span><span className="text-xs text-muted-foreground">Own every search result before your competitor knows the query exists</span></a>
                 </div>
               )}
             </div>
@@ -68,6 +70,7 @@ const Navbar = () => {
             <a href="/services/ai-software-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Software Development</a>
             <a href="/services/ai-app-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI App Development</a>
             <a href="/services/ai-web-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Web Development</a>
+            <a href="/services/aeo-seo-predictive-search-architecture" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent pl-6">↳ AEO/SEO — Predictive Search Architecture</a>
             <a href="/about" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">About</a>
             <a href="/insights" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Insights</a>
             <a href="/pricing" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Pricing</a>
