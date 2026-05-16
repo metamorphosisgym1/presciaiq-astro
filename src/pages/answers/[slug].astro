@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { aeoAnswers } from '../../data/aeo-answers';
+
+export function getStaticPaths() {
+  return aeoAnswers.map(answer => ({
+    params: { slug: answer.slug },
+    props: { answer },
+  }));
+}
+
+const { answer } = Astro.props;
+
+const title = `${answer.question} | PresciaIQ`;
+const description = answer.shortAnswer;
+const canonicalURL = `https://www.presciaiq.com.au/answers/${answer.slug}`;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": answer.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": answer.fullAnswer
+      }
+    },
+    ...answer.relatedQuestions.map(q => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `${answer.shortAnswer} For more detail, see our full answer on ${answer.question.toLowerCase()}.`
+      }
+    }))
+  ]
+};
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": canonicalURL,
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".answer-short", ".answer-full"]
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "Answers", "item": "https://www.presciaiq.com.au/answers" },
+    { "@type": "ListItem", "position": 3, "name": answer.question, "item": canonicalURL }
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">{answer.category}</span>
+        </div>
+
+        <h1 class="font-display text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
+          {answer.question}
+        </h1>
+
+        <div class="answer-short bg-black/40 border-l-4 border-[#00ff88] p-6 mb-10 rounded-r-lg">
+          <p class="text-lg text-white font-medium leading-relaxed">{answer.shortAnswer}</p>
+        </div>
+
+        <div class="answer-full prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-12">
+          <p>{answer.fullAnswer}</p>
+        </div>
+
+        {answer.relatedQuestions && answer.relatedQuestions.length > 0 && (
+          <div class="mb-12">
+            <h2 class="text-xl font-bold text-white mb-6">Related Questions</h2>
+            <div class="space-y-3">
+              {answer.relatedQuestions.map((q) => (
+                <div class="border border-white/10 rounded-lg p-4">
+                  <p class="text-gray-300 font-medium">{q}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div class="bg-gradient-to-r from-[#00ff88]/10 to-transparent border border-[#00ff88]/20 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold text-white mb-4">Want to see predictive AI in action?</h2>
+          <p class="text-gray-400 mb-6">Book a 30-minute discovery call. We'll show you exactly what predictions are achievable for your business within 90 days.</p>
+          <a href="/start" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+            Book a Discovery Call
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

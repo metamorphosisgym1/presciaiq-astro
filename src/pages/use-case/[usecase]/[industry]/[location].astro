@@ -1,0 +1,123 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { aeoUseCases } from '../../../../data/aeo-use-cases';
+import { industries } from '../../../../data/industries';
+import { locations } from '../../../../data/locations';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const useCase of aeoUseCases) {
+    for (const industry of industries) {
+      for (const location of locations) {
+        paths.push({
+          params: {
+            usecase: useCase.slug,
+            industry: industry.slug,
+            location: location.slug
+          },
+          props: { useCase, industry, location },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const { useCase, industry, location } = Astro.props;
+
+const title = `${useCase.shortTitle} for ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
+const description = `PresciaIQ deploys ${useCase.shortTitle.toLowerCase()} for ${industry.plural} ${location.preposition} ${location.name}. ${useCase.outcome}`;
+const canonicalURL = `https://www.presciaiq.com.au/use-case/${useCase.slug}/${industry.slug}/${location.slug}`;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": useCase.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": useCase.shortTitle, "item": `https://www.presciaiq.com.au/use-case/${useCase.slug}` },
+    { "@type": "ListItem", "position": 3, "name": industry.name, "item": `https://www.presciaiq.com.au/use-case/${useCase.slug}/${industry.slug}` },
+    { "@type": "ListItem", "position": 4, "name": location.name, "item": canonicalURL }
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8 flex flex-wrap gap-3">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">{useCase.category}</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{industry.name}</span>
+          <span class="text-white/50 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{location.name}</span>
+        </div>
+
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          {useCase.shortTitle} for {industry.name} {location.preposition} {location.name}
+        </h1>
+
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          {useCase.description}
+        </p>
+
+        <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">How It Works for {industry.name}</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">
+            {useCase.howItWorks} For {industry.plural} {location.preposition} {location.name}, this means addressing the core challenge of {industry.painPoint} — and replacing it with the ability to {industry.outcome}.
+          </p>
+        </div>
+
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
+          <p>
+            {location.marketContext} For {industry.plural} in this market, the stakes are high. {useCase.outcome} — and PresciaIQ delivers this capability in 4–8 weeks with no internal data science team required.
+          </p>
+          <p>
+            {useCase.pagesGenerated && `Our ${useCase.shortTitle.toLowerCase()} approach generates comprehensive coverage across your entire market: ${useCase.pagesGenerated}.`}
+          </p>
+        </div>
+
+        <div class="bg-black/30 border border-white/10 rounded-xl p-8 mb-16">
+          <h2 class="text-xl font-bold text-white mb-4">Case Study: {useCase.exampleClient}</h2>
+          <p class="text-gray-300 leading-relaxed">{useCase.exampleResult}</p>
+        </div>
+
+        <div class="mb-16">
+          <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            {useCase.faqs.map((faq) => (
+              <div class="border border-white/10 rounded-xl p-6">
+                <h3 class="text-white font-semibold mb-3">{faq.q}</h3>
+                <p class="text-gray-400 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-[#00ff88]/10 to-transparent border border-[#00ff88]/20 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold text-white mb-4">Ready to deploy {useCase.shortTitle.toLowerCase()} for your {industry.name} business?</h2>
+          <p class="text-gray-400 mb-6">Book a 30-minute discovery call. We'll assess your data readiness and show you exactly what's achievable within 90 days.</p>
+          <a href="/start" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+            Book a Discovery Call
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

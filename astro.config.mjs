@@ -27,11 +27,20 @@ export default defineConfig({
         if (item.url.includes('/problems/')) {
           return { ...item, priority: 0.8, changefreq: 'monthly' };
         }
+        if (item.url.includes('/answers/')) {
+          return { ...item, priority: 0.8, changefreq: 'weekly' }; // AEO answer pages
+        }
         if (item.url.match(/\/solutions\/[^\/]+\/[^\/]+\/[^\/]+\/$/)) {
           return { ...item, priority: 0.8, changefreq: 'monthly' }; // Pillar pages
         }
         if (item.url.includes('/solutions/')) {
           return { ...item, priority: 0.6, changefreq: 'monthly' }; // Cluster pages
+        }
+        if (item.url.includes('/for/')) {
+          return { ...item, priority: 0.7, changefreq: 'monthly' }; // Job title cluster pages
+        }
+        if (item.url.includes('/use-case/')) {
+          return { ...item, priority: 0.7, changefreq: 'monthly' }; // Use case cluster pages
         }
         return item;
       },

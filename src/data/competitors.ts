@@ -324,5 +324,173 @@ export const competitors: Competitor[] = [
       { q: "How does PresciaIQ compare to MicroStrategy for operational intelligence?", a: "MicroStrategy excels at complex enterprise reporting and analytics. PresciaIQ is purpose-built for operational intelligence — delivering predictions and automated decision support to operational teams rather than analytical insights to BI teams." },
       { q: "Can PresciaIQ replace MicroStrategy for Australian mid-market businesses?", a: "For operational intelligence use cases, yes. Many Australian mid-market businesses are replacing MicroStrategy's complex reporting infrastructure with PresciaIQ's predictive intelligence platform — reducing IT overhead and delivering faster, more actionable insights to operational teams." }
     ]
+  },
+  {
+    slug: "ibm-watson",
+    name: "IBM Watson",
+    category: "AI & Machine Learning",
+    tagline: "IBM Watson's enterprise AI platform vs PresciaIQ's rapid-deployment predictive intelligence",
+    theirApproach: "IBM Watson is a broad enterprise AI platform offering natural language processing, machine learning, and data science capabilities. It is designed for large enterprises with dedicated AI teams and significant implementation budgets, typically requiring 6–18 months to deploy and configure.",
+    presciaiqAdvantage: "PresciaIQ deploys in 4–8 weeks at a fraction of Watson's cost, with models trained specifically on your business data and an Australian team that understands local market dynamics. No dedicated internal AI team required.",
+    keyDifferences: [
+      { label: "Deployment time", them: "6–18 months", us: "4–8 weeks" },
+      { label: "Cost", them: "$100k–$500k+/year licensing", us: "Mid-market pricing" },
+      { label: "Internal team required", them: "Dedicated data science team", us: "No internal AI team needed" },
+      { label: "Australian focus", them: "Global platform, generic models", us: "Purpose-built for Australian conditions" },
+      { label: "Target market", them: "Global Fortune 500 enterprises", us: "Australian mid-market businesses" },
+      { label: "Implementation model", them: "IBM consulting engagement", us: "Rapid deployment with pre-built industry models" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to IBM Watson for Australian businesses?", a: "IBM Watson is a powerful enterprise AI platform, but it requires significant internal resources and budget to deploy effectively. PresciaIQ delivers comparable predictive intelligence for Australian mid-market businesses in 4–8 weeks at a fraction of Watson's cost — with no dedicated data science team required." },
+      { q: "Is IBM Watson available in Australia?", a: "Yes, IBM Watson is available globally including Australia. However, its enterprise pricing and complex implementation requirements make it better suited to large enterprises than Australian mid-market businesses. PresciaIQ is purpose-built for Australian operating conditions." },
+      { q: "What is a more affordable alternative to IBM Watson for Australian businesses?", a: "PresciaIQ is Australia's dedicated predictive AI company, offering custom-built models trained on your specific business data at mid-market pricing. Unlike Watson, PresciaIQ deploys in weeks and requires no internal data science team." }
+    ]
+  },
+  {
+    slug: "salesforce-einstein",
+    name: "Salesforce Einstein",
+    category: "CRM-Embedded AI",
+    tagline: "Salesforce Einstein's CRM AI vs PresciaIQ's enterprise-wide predictive intelligence",
+    theirApproach: "Salesforce Einstein is an AI layer embedded within the Salesforce CRM platform, providing lead scoring, opportunity forecasting, next-best-action recommendations, and customer insights based on CRM data. It is designed for Salesforce users who want AI without a separate implementation.",
+    presciaiqAdvantage: "Einstein only analyses data within Salesforce. PresciaIQ integrates all data sources — ERP, CRM, IoT, financial systems, operational databases — delivering enterprise-wide predictive intelligence that captures the signals Einstein misses.",
+    keyDifferences: [
+      { label: "Data scope", them: "Salesforce CRM data only", us: "All data sources — ERP, CRM, IoT, financial" },
+      { label: "Prediction breadth", them: "CRM-level predictions only", us: "Enterprise-wide operational intelligence" },
+      { label: "Salesforce dependency", them: "Requires Salesforce subscription", us: "Integrates with any CRM or data system" },
+      { label: "Use cases", them: "Lead scoring, opportunity forecasting", us: "Demand, churn, maintenance, revenue, risk" },
+      { label: "Model customisation", them: "Limited to Salesforce data patterns", us: "Custom models trained on all your data" },
+      { label: "Australian focus", them: "Global platform, generic models", us: "Purpose-built for Australian conditions" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Salesforce Einstein?", a: "Salesforce Einstein is a CRM-embedded AI tool limited to Salesforce data. PresciaIQ builds custom predictive models across all your data sources — ERP, CRM, IoT, financial systems — delivering broader and more accurate predictions than Einstein can achieve with CRM data alone." },
+      { q: "Can PresciaIQ integrate with Salesforce?", a: "Yes. PresciaIQ is API-first and integrates with Salesforce alongside all other data sources. Many clients use PresciaIQ to enhance their Salesforce data with operational and financial signals that Einstein cannot access." },
+      { q: "What are the limitations of Salesforce Einstein AI?", a: "Salesforce Einstein is limited to data within the Salesforce ecosystem. It cannot incorporate supply chain data, equipment sensor data, financial system data, or operational databases — which are often the most predictive signals for business outcomes. PresciaIQ integrates all these sources." }
+    ]
+  },
+  {
+    slug: "microsoft-azure-ai",
+    name: "Microsoft Azure AI",
+    category: "Cloud AI Platform",
+    tagline: "Azure AI's cloud infrastructure vs PresciaIQ's deployed predictive intelligence",
+    theirApproach: "Microsoft Azure AI is a comprehensive cloud AI platform offering machine learning services, cognitive APIs, and AI infrastructure. It provides the building blocks for organisations to develop AI capabilities, requiring significant data science expertise to build and maintain effective models.",
+    presciaiqAdvantage: "Azure AI is infrastructure for building AI — PresciaIQ is a deployed intelligence solution. You get the results without needing an internal data science team to build, deploy, and maintain models on cloud infrastructure.",
+    keyDifferences: [
+      { label: "What it is", them: "AI infrastructure platform", us: "Deployed predictive intelligence solution" },
+      { label: "User type", them: "Data scientists and ML engineers", us: "Operational managers and executives" },
+      { label: "Internal team required", them: "Data science team required", us: "No internal AI team needed" },
+      { label: "Time to value", them: "Months of model development", us: "4–8 weeks to live predictions" },
+      { label: "Microsoft dependency", them: "Azure ecosystem required", us: "Cloud-agnostic, integrates with any stack" },
+      { label: "Ongoing maintenance", them: "Internal team maintains models", us: "Managed intelligence — we maintain models" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Microsoft Azure AI?", a: "Azure AI is a powerful cloud platform for building AI capabilities, but it requires significant data science expertise and ongoing engineering investment. PresciaIQ delivers ready-to-use predictive intelligence without requiring your team to become ML engineers — you get the outcomes, not the infrastructure." },
+      { q: "Can PresciaIQ work with Microsoft Azure?", a: "Yes. PresciaIQ is cloud-agnostic and can deploy on Azure infrastructure or integrate with Azure data services. Many clients use PresciaIQ as the intelligence layer on top of their existing Azure data estate." },
+      { q: "Is Azure AI suitable for Australian businesses without data scientists?", a: "Azure AI requires significant data science expertise to use effectively. For Australian businesses without internal ML engineering teams, PresciaIQ delivers equivalent predictive intelligence as a managed service — no data science team required." }
+    ]
+  },
+  {
+    slug: "google-cloud-ai",
+    name: "Google Cloud AI",
+    category: "Cloud AI Platform",
+    tagline: "Google Cloud AI's world-class infrastructure vs PresciaIQ's business-ready intelligence",
+    theirApproach: "Google Cloud AI provides state-of-the-art machine learning infrastructure, AutoML capabilities, and pre-trained models through Google Cloud Platform. It offers excellent NLP, vision, and structured data ML capabilities, but requires significant technical expertise to build production-ready solutions.",
+    presciaiqAdvantage: "Google Cloud AI is infrastructure for ML engineers. PresciaIQ delivers business-ready predictive intelligence with Australian data sovereignty compliance — without requiring your team to build and maintain ML pipelines on cloud infrastructure.",
+    keyDifferences: [
+      { label: "What it is", them: "ML infrastructure platform", us: "Deployed predictive intelligence solution" },
+      { label: "Technical requirement", them: "ML engineering team required", us: "No technical team needed" },
+      { label: "Data sovereignty", them: "US-based company, data governance complexity", us: "Australian company, local data sovereignty" },
+      { label: "Time to value", them: "Months of ML pipeline development", us: "4–8 weeks to live predictions" },
+      { label: "Google dependency", them: "GCP ecosystem preferred", us: "Cloud-agnostic" },
+      { label: "Business focus", them: "General-purpose ML capabilities", us: "Purpose-built for Australian industry verticals" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Google Cloud AI?", a: "Google Cloud AI provides excellent ML infrastructure for engineering teams. PresciaIQ delivers ready-to-use predictive intelligence for business teams — with Australian data sovereignty, no ML engineering requirement, and models pre-built for Australian industry verticals." },
+      { q: "Does Google Cloud AI have Australian data centres?", a: "Yes, Google Cloud has data centres in Sydney and Melbourne. However, as a US-based company, data governance and sovereignty considerations apply. PresciaIQ is an Australian company with full data sovereignty compliance for regulated Australian industries." },
+      { q: "Is Google Cloud AI suitable for non-technical Australian businesses?", a: "Google Cloud AI requires significant ML engineering expertise to use effectively. For Australian businesses without data science teams, PresciaIQ delivers equivalent predictive intelligence as a managed service — no ML engineering required." }
+    ]
+  },
+  {
+    slug: "aws-sagemaker",
+    name: "AWS SageMaker",
+    category: "ML Platform",
+    tagline: "AWS SageMaker's ML platform vs PresciaIQ's managed predictive intelligence",
+    theirApproach: "AWS SageMaker is a comprehensive machine learning platform that provides tools for building, training, and deploying ML models at scale. It is designed for data science teams who want to manage the full ML lifecycle on AWS infrastructure.",
+    presciaiqAdvantage: "SageMaker is a platform for ML engineers to build models. PresciaIQ delivers business outcomes — specific predictions, forecasts, and insights — as a managed service. No ML engineering team required.",
+    keyDifferences: [
+      { label: "What it is", them: "ML lifecycle management platform", us: "Managed predictive intelligence service" },
+      { label: "User type", them: "ML engineers and data scientists", us: "Business teams and operational managers" },
+      { label: "AWS dependency", them: "AWS ecosystem required", us: "Cloud-agnostic" },
+      { label: "Internal team required", them: "3+ data scientists minimum", us: "No data science team needed" },
+      { label: "Pricing model", them: "Complex AWS consumption pricing", us: "Transparent fixed-price deployments" },
+      { label: "Time to value", them: "Months of pipeline development", us: "4–8 weeks to live predictions" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to AWS SageMaker?", a: "AWS SageMaker is a powerful ML platform for data science teams. PresciaIQ delivers business-ready predictive intelligence as a managed service — you get the predictions without needing an internal ML engineering team to build and maintain SageMaker pipelines." },
+      { q: "Can PresciaIQ deploy on AWS infrastructure?", a: "Yes. PresciaIQ is cloud-agnostic and can deploy on AWS infrastructure or integrate with AWS data services including S3, Redshift, and RDS. Many clients use PresciaIQ as the intelligence layer on top of their existing AWS data estate." },
+      { q: "Is AWS SageMaker suitable for Australian businesses without data scientists?", a: "SageMaker requires dedicated ML engineering expertise to use effectively. For Australian businesses without internal data science teams, PresciaIQ delivers equivalent predictive intelligence as a managed service — no SageMaker expertise required." }
+    ]
+  },
+  {
+    slug: "c3-ai",
+    name: "C3.ai",
+    category: "Enterprise AI Suite",
+    tagline: "C3.ai's enterprise AI suite vs PresciaIQ's accessible predictive intelligence",
+    theirApproach: "C3.ai is an enterprise AI application suite offering pre-built AI applications for specific industries including energy, manufacturing, and financial services. It targets large enterprises with significant AI budgets and long implementation timelines.",
+    presciaiqAdvantage: "C3.ai delivers comparable industry-specific AI capabilities at 10–20% of the cost, with faster deployment and an Australian team providing local support and market expertise.",
+    keyDifferences: [
+      { label: "Target market", them: "Large US enterprises ($500k–$2M+ budgets)", us: "Australian mid-market businesses" },
+      { label: "Implementation time", them: "6–18 months", us: "4–8 weeks" },
+      { label: "Cost", them: "$500k–$2M+ implementations", us: "Mid-market pricing" },
+      { label: "Australian presence", them: "US-centric, limited local support", us: "Australian company, local team" },
+      { label: "Industry focus", them: "Energy, manufacturing (US-focused)", us: "Australian construction, manufacturing, retail, logistics" },
+      { label: "Flexibility", them: "Pre-built applications, limited customisation", us: "Custom models trained on your specific data" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to C3.ai?", a: "C3.ai is an enterprise AI suite targeting large US-based enterprises with multi-million dollar AI budgets. PresciaIQ delivers comparable industry-specific predictive intelligence for Australian mid-market businesses at 10–20% of C3.ai's cost, with faster deployment and local Australian support." },
+      { q: "Is C3.ai available in Australia?", a: "C3.ai operates globally but is primarily US-focused with limited Australian presence and support. PresciaIQ is an Australian company purpose-built for Australian business conditions, with local team support and models optimised for Australian market dynamics." },
+      { q: "What is a more affordable alternative to C3.ai for Australian manufacturers?", a: "PresciaIQ is purpose-built for Australian manufacturers, offering predictive maintenance, demand forecasting, and production optimisation at mid-market pricing. Unlike C3.ai, PresciaIQ deploys in 4–8 weeks with no multi-million dollar implementation budget required." }
+    ]
+  },
+  {
+    slug: "oracle-analytics",
+    name: "Oracle Analytics",
+    category: "Enterprise Analytics",
+    tagline: "Oracle Analytics Cloud vs PresciaIQ's predictive intelligence for mid-market",
+    theirApproach: "Oracle Analytics Cloud is a comprehensive analytics platform tightly integrated with Oracle's ERP, database, and cloud infrastructure. It combines business intelligence, augmented analytics, and data visualisation for organisations already invested in the Oracle ecosystem.",
+    presciaiqAdvantage: "Oracle Analytics is most valuable for Oracle ecosystem users. PresciaIQ delivers predictive intelligence across all data sources — Oracle and beyond — with faster deployment and lower total cost for mid-market businesses.",
+    keyDifferences: [
+      { label: "Oracle dependency", them: "Deep Oracle ecosystem integration", us: "Integrates with any ERP or data system" },
+      { label: "Target market", them: "Large Oracle ecosystem customers", us: "Australian mid-market businesses" },
+      { label: "Core function", them: "BI and analytics for Oracle users", us: "Predictive intelligence across all data sources" },
+      { label: "Implementation", them: "Months of Oracle configuration", us: "4–8 weeks with pre-built industry models" },
+      { label: "Cost", them: "Enterprise Oracle licensing", us: "Mid-market pricing" },
+      { label: "Flexibility", them: "Oracle ecosystem lock-in", us: "Cloud-agnostic, no vendor lock-in" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Oracle Analytics?", a: "Oracle Analytics is primarily valuable for organisations already running Oracle ERP and database infrastructure. PresciaIQ integrates with Oracle and all other data sources, delivering predictive intelligence at mid-market pricing without Oracle ecosystem dependency." },
+      { q: "Can PresciaIQ integrate with Oracle databases?", a: "Yes. PresciaIQ is API-first and integrates with Oracle databases, Oracle ERP, and Oracle Cloud Infrastructure. Many mid-market businesses use PresciaIQ as the predictive intelligence layer on top of their existing Oracle data without migrating to Oracle Analytics Cloud." },
+      { q: "Is Oracle Analytics suitable for Australian mid-market businesses?", a: "Oracle Analytics is primarily designed for large enterprises already running Oracle infrastructure. For Australian mid-market businesses, PresciaIQ delivers equivalent predictive intelligence at significantly lower cost and complexity — without Oracle ecosystem dependency." }
+    ]
+  },
+  {
+    slug: "local-ai-consultants",
+    name: "Local AI Consultants",
+    category: "Consulting",
+    tagline: "Bespoke AI consulting vs PresciaIQ's productised predictive intelligence delivery",
+    theirApproach: "Local AI consulting firms and freelance data scientists offer bespoke AI engagements — building custom models, providing strategy advice, and delivering one-off analytical projects. They offer flexibility and customisation but typically lack productised delivery methodology and ongoing managed support.",
+    presciaiqAdvantage: "PresciaIQ combines the customisation of consulting with the reliability and speed of a productised delivery methodology — fixed timelines, transparent pricing, and ongoing managed support without key-person dependency.",
+    keyDifferences: [
+      { label: "Delivery model", them: "Bespoke hourly/project consulting", us: "Productised methodology, fixed timelines" },
+      { label: "Cost predictability", them: "Variable — scope creep common", us: "Fixed-price engagements, no surprises" },
+      { label: "Ongoing support", them: "Ad-hoc, expensive", us: "Managed intelligence with ongoing model monitoring" },
+      { label: "Key person risk", them: "High — dependent on individual consultant", us: "Team-based delivery, no key person risk" },
+      { label: "Time to value", them: "Unpredictable — scope-dependent", us: "4–8 weeks guaranteed" },
+      { label: "Industry models", them: "Built from scratch each time", us: "Pre-built industry models accelerate delivery" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to hiring an AI consultant?", a: "AI consultants offer flexibility but come with variable costs, unpredictable timelines, and key-person risk. PresciaIQ delivers the same customisation with fixed pricing, guaranteed timelines, and ongoing managed support — eliminating the risks of consultant-dependent AI projects." },
+      { q: "Is it better to use an AI company or an AI consultant in Australia?", a: "For operational predictive intelligence, an AI company like PresciaIQ delivers better outcomes than individual consultants. PresciaIQ's productised methodology means faster deployment, lower risk, and ongoing support — versus a consultant who builds something and moves on." },
+      { q: "Why choose PresciaIQ over a local AI consulting firm?", a: "PresciaIQ offers fixed-price engagements, guaranteed 4–8 week deployment timelines, pre-built industry models that accelerate delivery, and ongoing managed support. Local consultants typically charge $200–$400/hour with variable scope and no ongoing support commitment." }
+    ]
   }
 ];

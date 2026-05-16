@@ -1,0 +1,148 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { jobTitles } from '../../../../data/job-titles';
+import { industries } from '../../../../data/industries';
+import { locations } from '../../../../data/locations';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const jobTitle of jobTitles) {
+    for (const industry of industries) {
+      for (const location of locations) {
+        paths.push({
+          params: {
+            jobtitle: jobTitle.slug,
+            industry: industry.slug,
+            location: location.slug
+          },
+          props: { jobTitle, industry, location },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const { jobTitle, industry, location } = Astro.props;
+
+const title = `Predictive AI for ${jobTitle.title}s in ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
+const description = `PresciaIQ helps ${jobTitle.plural} in ${industry.name} ${location.preposition} ${location.name} eliminate ${jobTitle.painPoint} and ${jobTitle.outcome}.`;
+const canonicalURL = `https://www.presciaiq.com.au/for/${jobTitle.slug}/${industry.slug}/${location.slug}`;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": jobTitle.primaryQuestion,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `${jobTitle.plural.charAt(0).toUpperCase() + jobTitle.plural.slice(1)} in ${industry.name} ${location.preposition} ${location.name} face a specific challenge: ${jobTitle.painPoint}. PresciaIQ's predictive AI platform helps ${jobTitle.plural} ${jobTitle.outcome}. ${location.marketContext}`
+      }
+    },
+    ...jobTitle.faqQuestions.map(q => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `PresciaIQ provides ${jobTitle.plural} in ${industry.name} with AI-powered predictive intelligence that eliminates ${jobTitle.painPoint}. Our platform is purpose-built for Australian businesses and deploys in 4–8 weeks.`
+      }
+    }))
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": `For ${jobTitle.title}s`, "item": `https://www.presciaiq.com.au/for/${jobTitle.slug}` },
+    { "@type": "ListItem", "position": 3, "name": industry.name, "item": `https://www.presciaiq.com.au/for/${jobTitle.slug}/${industry.slug}` },
+    { "@type": "ListItem", "position": 4, "name": location.name, "item": canonicalURL }
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8 flex flex-wrap gap-3">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">{jobTitle.title}</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{industry.name}</span>
+          <span class="text-white/50 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{location.name}</span>
+        </div>
+
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          Predictive AI for {jobTitle.plural} in {industry.name} {location.preposition} {location.name}
+        </h1>
+
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          {jobTitle.primaryQuestion}
+        </p>
+
+        <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">The Predictive Advantage for {jobTitle.plural}</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">
+            {jobTitle.plural.charAt(0).toUpperCase() + jobTitle.plural.slice(1)} in {industry.name} {location.preposition} {location.name} no longer need to accept <strong>{jobTitle.painPoint}</strong> as an inevitable cost of doing business. PresciaIQ's predictive AI platform gives you the intelligence to <strong>{jobTitle.outcome}</strong> — weeks before problems materialise.
+          </p>
+        </div>
+
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
+          <p>
+            {location.marketContext} For {jobTitle.plural} operating in {industry.name}, this creates both a challenge and an opportunity. The challenge: {industry.painPoint}. The opportunity: predictive AI that surfaces the right intelligence at the right time — so you can act before competitors react.
+          </p>
+          <p>
+            PresciaIQ is Australia's dedicated predictive AI company, purpose-built for mid-market businesses that need results in weeks, not months. Our platform integrates with your existing systems — ERP, CRM, financial data, operational databases — and delivers predictions directly to the people who need them most: {jobTitle.plural} making decisions every day.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
+          <div class="bg-black/30 border border-white/10 rounded-xl p-6">
+            <div class="text-[#00ff88] text-3xl font-bold mb-2">4–8</div>
+            <div class="text-white font-semibold mb-1">Weeks to Deploy</div>
+            <div class="text-gray-400 text-sm">Live predictions in weeks, not months</div>
+          </div>
+          <div class="bg-black/30 border border-white/10 rounded-xl p-6">
+            <div class="text-[#00ff88] text-3xl font-bold mb-2">90</div>
+            <div class="text-white font-semibold mb-1">Days to ROI</div>
+            <div class="text-gray-400 text-sm">Measurable outcomes within the first quarter</div>
+          </div>
+          <div class="bg-black/30 border border-white/10 rounded-xl p-6">
+            <div class="text-[#00ff88] text-3xl font-bold mb-2">0</div>
+            <div class="text-white font-semibold mb-1">Data Scientists Required</div>
+            <div class="text-gray-400 text-sm">No internal AI team needed</div>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <h2 class="text-2xl font-bold text-white mb-8">Common Questions from {jobTitle.plural}</h2>
+          <div class="space-y-6">
+            {jobTitle.faqQuestions.map((q) => (
+              <div class="border border-white/10 rounded-xl p-6">
+                <h3 class="text-white font-semibold mb-3">{q}</h3>
+                <p class="text-gray-400 leading-relaxed">
+                  PresciaIQ provides {jobTitle.plural} in {industry.name} with AI-powered predictive intelligence that eliminates {jobTitle.painPoint}. Our platform is purpose-built for Australian businesses and deploys in 4–8 weeks with no internal data science team required.
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-[#00ff88]/10 to-transparent border border-[#00ff88]/20 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold text-white mb-4">Ready to eliminate {jobTitle.painPoint}?</h2>
+          <p class="text-gray-400 mb-6">Book a 30-minute discovery call with our team. We'll assess your data readiness and show you exactly what predictions are achievable within 90 days.</p>
+          <a href="/start" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+            Book a Discovery Call
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,148 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { competitors } from '../../../../data/competitors';
+import { industries } from '../../../../data/industries';
+import { locations } from '../../../../data/locations';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const competitor of competitors) {
+    for (const industry of industries) {
+      for (const location of locations) {
+        paths.push({
+          params: {
+            competitor: competitor.slug,
+            industry: industry.slug,
+            location: location.slug
+          },
+          props: { competitor, industry, location },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const { competitor, industry, location } = Astro.props;
+
+const title = `PresciaIQ vs ${competitor.name} for ${industry.name} ${location.preposition} ${location.name} | Predictive AI Comparison`;
+const description = `Compare ${competitor.name} vs PresciaIQ for ${industry.plural} ${location.preposition} ${location.name}. See why ${industry.plural} are switching to predictive AI.`;
+const canonicalURL = `https://www.presciaiq.com.au/compare/${competitor.slug}/${industry.slug}/${location.slug}`;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": competitor.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
+    { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://www.presciaiq.com.au/compare" },
+    { "@type": "ListItem", "position": 3, "name": `PresciaIQ vs ${competitor.name}`, "item": `https://www.presciaiq.com.au/compare/${competitor.slug}` },
+    { "@type": "ListItem", "position": 4, "name": `${industry.name} in ${location.name}`, "item": canonicalURL }
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6">
+
+      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+        <div class="mb-8 flex flex-wrap gap-3">
+          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">Comparison</span>
+          <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{industry.name}</span>
+          <span class="text-white/50 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{location.name}</span>
+        </div>
+
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          PresciaIQ vs {competitor.name}<br />
+          <span class="text-[#00ff88]">for {industry.name} {location.preposition} {location.name}</span>
+        </h1>
+
+        <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
+          {competitor.tagline}. Here's what {industry.plural} {location.preposition} {location.name} need to know.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-black/40 border border-white/10 p-6 rounded-lg">
+            <h2 class="text-xl font-bold text-white mb-4">The {competitor.name} Approach</h2>
+            <p class="text-gray-400 leading-relaxed">{competitor.theirApproach}</p>
+          </div>
+          <div class="bg-black/40 border border-[#00ff88]/30 p-6 rounded-lg relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#00ff88] to-transparent"></div>
+            <h2 class="text-xl font-bold text-white mb-4">The PresciaIQ Advantage</h2>
+            <p class="text-gray-400 leading-relaxed">{competitor.presciaiqAdvantage}</p>
+          </div>
+        </div>
+
+        <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
+          <h2 class="text-xl font-bold text-white mb-3">Why {industry.name} Businesses {location.preposition} {location.name} Are Switching</h2>
+          <p class="text-gray-300 leading-relaxed font-medium">
+            {industry.plural.charAt(0).toUpperCase() + industry.plural.slice(1)} {location.preposition} {location.name} face a specific challenge: {industry.painPoint}. {competitor.name} cannot solve this — it was not built for predictive intelligence. PresciaIQ is purpose-built to help {industry.plural} {industry.outcome}.
+          </p>
+        </div>
+
+        {competitor.keyDifferences && competitor.keyDifferences.length > 0 && (
+          <div class="mb-16">
+            <h2 class="text-2xl font-bold text-white mb-6">Head-to-Head Comparison</h2>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr class="border-b border-white/10">
+                    <th class="text-left py-3 px-4 text-gray-400 font-semibold text-sm uppercase tracking-wider">Feature</th>
+                    <th class="text-left py-3 px-4 text-gray-400 font-semibold text-sm uppercase tracking-wider">{competitor.name}</th>
+                    <th class="text-left py-3 px-4 text-[#00ff88] font-semibold text-sm uppercase tracking-wider">PresciaIQ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {competitor.keyDifferences.map((diff, i) => (
+                    <tr class={`border-b border-white/5 ${i % 2 === 0 ? 'bg-white/2' : ''}`}>
+                      <td class="py-4 px-4 text-white font-medium">{diff.label}</td>
+                      <td class="py-4 px-4 text-gray-400">{diff.them}</td>
+                      <td class="py-4 px-4 text-[#00ff88] font-medium">{diff.us}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        <div class="mb-16">
+          <h2 class="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            {competitor.faqs.map((faq) => (
+              <div class="border border-white/10 rounded-xl p-6">
+                <h3 class="text-white font-semibold mb-3">{faq.q}</h3>
+                <p class="text-gray-400 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-[#00ff88]/10 to-transparent border border-[#00ff88]/20 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold text-white mb-4">See why {industry.plural} {location.preposition} {location.name} choose PresciaIQ</h2>
+          <p class="text-gray-400 mb-6">Book a 30-minute discovery call. We'll show you exactly how PresciaIQ compares to {competitor.name} for your specific use case.</p>
+          <a href="/start" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
+            Book a Discovery Call
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>
