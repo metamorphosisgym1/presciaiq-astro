@@ -19,7 +19,9 @@ export function getStaticPaths() {
 const { industry, location } = Astro.props;
 const title = `AEO/SEO for ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
 const description = `PresciaIQ builds programmatic SEO and AEO architectures for ${industry.plural} ${location.preposition} ${location.name}. Deploy hundreds of targeted, schema-rich pages that dominate ${industry.name.toLowerCase()} search in ${location.name}. From $4,999.`;
-const canonicalURL = `https://www.presciaiq.com.au/aeo-seo/${industry.slug}/${location.slug}`;
+// Self-canonical: this page covers AEO/SEO service specifically for this industry+location
+// It is distinct from /solutions/ pages which cover all predictive AI services
+const canonicalURL = `https://www.presciaiq.com.au/aeo-seo/${industry.slug}/${location.slug}/`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -82,7 +84,7 @@ const faqSchema = {
   ]
 };
 ---
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
   <div class="pt-32 pb-24 min-h-screen">
     <div class="max-w-4xl mx-auto px-6">
 

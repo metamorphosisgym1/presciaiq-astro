@@ -27,7 +27,7 @@ const { service, industry, location } = Astro.props;
 
 const title = `${service.name} for ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
 const description = `PresciaIQ provides ${service.name.toLowerCase()} for ${industry.plural} ${location.preposition} ${location.name}. Predict ${industry.painPoint} and automate decisions.`;
-const canonicalURL = `https://www.presciaiq.com.au/solutions/${service.slug}/${industry.slug}/${location.slug}`;
+const canonicalURL = `https://www.presciaiq.com.au/solutions/${service.slug}/${industry.slug}/${location.slug}/`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -72,7 +72,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
   <div class="pt-32 pb-24 min-h-screen">
     <div class="max-w-4xl mx-auto px-6">
       

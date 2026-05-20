@@ -31,7 +31,7 @@ const { service, industry, location, tech } = Astro.props;
 
 const title = `${tech.name} for ${industry.name} ${service.name} in ${location.name} | PresciaIQ`;
 const description = `PresciaIQ leverages ${tech.name} to build enterprise-grade ${service.name.toLowerCase()} for ${location.name} ${industry.name.toLowerCase()} businesses.`;
-const canonicalURL = `https://www.presciaiq.com.au/solutions/${service.slug}/${industry.slug}/${location.slug}/${tech.slug}`;
+const canonicalURL = `https://www.presciaiq.com.au/solutions/${service.slug}/${industry.slug}/${location.slug}/${tech.slug}/`;
 const parentURL = `https://www.presciaiq.com.au/solutions/${service.slug}/${industry.slug}/${location.slug}`;
 
 const breadcrumbSchema = {
@@ -77,7 +77,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
   <div class="pt-32 pb-24 min-h-screen">
     <div class="max-w-3xl mx-auto px-6">
       

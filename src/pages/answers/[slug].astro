@@ -13,7 +13,7 @@ const { answer } = Astro.props;
 
 const title = `${answer.question} | PresciaIQ`;
 const description = answer.shortAnswer;
-const canonicalURL = `https://www.presciaiq.com.au/answers/${answer.slug}`;
+const canonicalURL = `https://www.presciaiq.com.au/answers/${answer.slug}/`;
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -61,7 +61,7 @@ const breadcrumbSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

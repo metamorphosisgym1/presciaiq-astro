@@ -27,7 +27,7 @@ const { jobTitle, industry, location } = Astro.props;
 
 const title = `Predictive AI for ${jobTitle.title}s in ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
 const description = `PresciaIQ helps ${jobTitle.plural} in ${industry.name} ${location.preposition} ${location.name} eliminate ${jobTitle.painPoint} and ${jobTitle.outcome}.`;
-const canonicalURL = `https://www.presciaiq.com.au/for/${jobTitle.slug}/${industry.slug}/${location.slug}`;
+const canonicalURL = `https://www.presciaiq.com.au/for/${jobTitle.slug}/${industry.slug}/${location.slug}/`;
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -64,7 +64,7 @@ const breadcrumbSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 

@@ -13,7 +13,7 @@ const { competitor } = Astro.props;
 
 const title = `PresciaIQ vs ${competitor.name} | Predictive AI vs ${competitor.category}`;
 const description = `Compare ${competitor.name} vs PresciaIQ. Discover why Australian businesses are moving from traditional ${competitor.category} to predictive AI and decision automation.`;
-const canonicalURL = `https://www.presciaiq.com.au/compare/${competitor.slug}`;
+const canonicalURL = `https://www.presciaiq.com.au/compare/${competitor.slug}/`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -39,7 +39,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
   <div class="pt-32 pb-24 min-h-screen">
     <div class="max-w-4xl mx-auto px-6">
       

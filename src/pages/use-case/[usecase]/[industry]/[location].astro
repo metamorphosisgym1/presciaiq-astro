@@ -27,7 +27,7 @@ const { useCase, industry, location } = Astro.props;
 
 const title = `${useCase.shortTitle} for ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
 const description = `PresciaIQ deploys ${useCase.shortTitle.toLowerCase()} for ${industry.plural} ${location.preposition} ${location.name}. ${useCase.outcome}`;
-const canonicalURL = `https://www.presciaiq.com.au/use-case/${useCase.slug}/${industry.slug}/${location.slug}`;
+const canonicalURL = `https://www.presciaiq.com.au/use-case/${useCase.slug}/${industry.slug}/${location.slug}/`;
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -54,7 +54,7 @@ const breadcrumbSchema = {
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 

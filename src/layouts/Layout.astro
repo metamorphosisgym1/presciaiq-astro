@@ -7,12 +7,18 @@ import Footer from '../components/Footer';
 export interface Props {
   title?: string;
   description?: string;
+  canonicalURL?: string;
+  noindex?: boolean;
 }
 
 const {
   title = "PresciaIQ — Intelligence That Moves First | Australia's AI Company",
   description = "PresciaIQ design and build AI platforms for Australian businesses that need more than off-the-shelf can deliver.",
+  canonicalURL,
+  noindex = false,
 } = Astro.props;
+
+const resolvedCanonical = canonicalURL || Astro.url.href;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -36,15 +42,15 @@ const {
 
 
     <!-- SEO: Primary Meta Tags -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
     <meta name="language" content="en-AU" />
-    <link rel="canonical" href={Astro.url.href} />
-    <link rel="alternate" hreflang="en-AU" href={Astro.url.href} />
-    <link rel="alternate" hreflang="x-default" href={Astro.url.href} />
+    <link rel="canonical" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="en-AU" href={resolvedCanonical} />
+    <link rel="alternate" hreflang="x-default" href={resolvedCanonical} />
 
     <!-- SEO: Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:url" content={resolvedCanonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content="PresciaIQ design and build AI platforms for Australian businesses that need more than off-the-shelf can deliver." />
     <meta property="og:image" content="https://www.presciaiq.com.au/og-image.jpg" />
@@ -53,7 +59,7 @@ const {
 
     <!-- SEO: Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={Astro.url.href} />
+    <meta name="twitter:url" content={resolvedCanonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content="PresciaIQ design and build AI platforms for Australian businesses that need more than off-the-shelf can deliver." />
     <meta name="twitter:image" content="https://www.presciaiq.com.au/og-image.jpg" />
