@@ -492,5 +492,113 @@ export const competitors: Competitor[] = [
       { q: "Is it better to use an AI company or an AI consultant in Australia?", a: "For operational predictive intelligence, an AI company like PresciaIQ delivers better outcomes than individual consultants. PresciaIQ's productised methodology means faster deployment, lower risk, and ongoing support — versus a consultant who builds something and moves on." },
       { q: "Why choose PresciaIQ over a local AI consulting firm?", a: "PresciaIQ offers fixed-price engagements, guaranteed 4–8 week deployment timelines, pre-built industry models that accelerate delivery, and ongoing managed support. Local consultants typically charge $200–$400/hour with variable scope and no ongoing support commitment." }
     ]
+  },
+
+  // ── AUSTRALIAN WEB / APP / SOFTWARE COMPETITORS ────────────────────────────
+
+  {
+    slug: "appster",
+    name: "Appster",
+    category: "App Development",
+    tagline: "App development agency vs PresciaIQ's AI-powered app and web builds with programmatic SEO built in",
+    theirApproach: "Appster is an Australian app development agency that builds mobile and web apps for startups and businesses. They focus on design-led development with a strong emphasis on UX and product thinking.",
+    presciaiqAdvantage: "PresciaIQ builds apps and web platforms with AI and programmatic SEO built in from day one — not just a well-designed product, but one that generates organic leads from launch. Appster builds the product; PresciaIQ builds the product and the distribution engine simultaneously.",
+    keyDifferences: [
+      { label: "AI capability", them: "Design and development focus", us: "AI and predictive analytics built into every build" },
+      { label: "SEO/AEO", them: "Not included in standard builds", us: "Programmatic SEO and AEO built into every project" },
+      { label: "Lead generation", them: "Product only — marketing separate", us: "Product + organic lead generation from day one" },
+      { label: "Pricing model", them: "Project-based, variable scope", us: "Fixed-price with defined deliverables" },
+      { label: "Post-launch support", them: "Maintenance packages available", us: "90-day included support + ongoing options" },
+      { label: "Data ownership", them: "Full code ownership on completion", us: "Full code ownership + data infrastructure" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Appster for app development?", a: "Appster focuses on design-led app development. PresciaIQ builds apps with AI features and programmatic SEO built in from day one — so your app generates organic traffic and leads from launch, not just after a separate marketing engagement." },
+      { q: "Is Appster or PresciaIQ better for a startup app in Australia?", a: "For startups that need organic traction quickly, PresciaIQ is the stronger choice. We build the product and the SEO/AEO distribution infrastructure simultaneously, so you're generating leads before your first paid ad spend." },
+      { q: "What is the difference between Appster and PresciaIQ?", a: "Appster is a product development agency. PresciaIQ is a product development agency that also builds the organic distribution engine — programmatic SEO, AEO, and AI-powered lead generation — as part of the same engagement." }
+    ]
+  },
+  {
+    slug: "buzinga",
+    name: "Buzinga",
+    category: "App Development",
+    tagline: "Mobile app agency vs PresciaIQ's AI-powered builds with organic lead generation built in",
+    theirApproach: "Buzinga is a Melbourne-based mobile app development agency specialising in iOS and Android apps for Australian businesses. They offer end-to-end app development from strategy through to launch and ongoing support.",
+    presciaiqAdvantage: "PresciaIQ delivers mobile and web apps with AI capabilities and programmatic SEO built in — ensuring your app is discoverable from launch. Buzinga builds the app; PresciaIQ builds the app and the organic discovery infrastructure simultaneously.",
+    keyDifferences: [
+      { label: "AI integration", them: "Standard app development", us: "AI and predictive features built into every app" },
+      { label: "Organic discovery", them: "App store optimisation only", us: "Programmatic SEO + AEO + app store optimisation" },
+      { label: "Web + app", them: "Mobile app focus", us: "Web app, mobile app, and web platform builds" },
+      { label: "Lead generation", them: "App only", us: "App + organic lead generation infrastructure" },
+      { label: "Location", them: "Melbourne-based", us: "Australian-wide with Melbourne and Sydney presence" },
+      { label: "Data analytics", them: "Standard analytics integration", us: "Predictive analytics and AI dashboards built in" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Buzinga for app development in Melbourne?", a: "Buzinga is a strong Melbourne app development agency. PresciaIQ builds apps with AI features and programmatic SEO built in — so your app generates organic leads from launch, not just app store downloads." },
+      { q: "Is Buzinga or PresciaIQ better for a business app in Australia?", a: "For businesses that want their app to generate organic leads and rank in search results, PresciaIQ is the stronger choice. We build the app and the SEO/AEO infrastructure simultaneously." },
+      { q: "What makes PresciaIQ different from Buzinga?", a: "Buzinga focuses on mobile app development. PresciaIQ builds mobile apps, web apps, and software platforms with AI and programmatic SEO built in — delivering both the product and the organic distribution engine." }
+    ]
+  },
+  {
+    slug: "outware-mobile",
+    name: "Outware Mobile",
+    category: "App Development",
+    tagline: "Enterprise mobile agency vs PresciaIQ's AI-powered builds for mid-market Australian businesses",
+    theirApproach: "Outware Mobile is an Australian enterprise mobile app development agency with a strong track record in banking, retail, and government sectors. They focus on large-scale, complex mobile app projects for enterprise clients.",
+    presciaiqAdvantage: "Outware Mobile targets enterprise clients with large budgets. PresciaIQ delivers enterprise-quality AI-powered web and app builds for mid-market Australian businesses — with programmatic SEO and AEO built in at a fraction of enterprise agency pricing.",
+    keyDifferences: [
+      { label: "Target market", them: "Enterprise (ASX200, government)", us: "Mid-market Australian businesses ($5M–$100M revenue)" },
+      { label: "Pricing", them: "Enterprise pricing ($200K+)", us: "Mid-market pricing ($18K–$150K)" },
+      { label: "AI capability", them: "Custom enterprise AI projects", us: "AI built into every web and app build" },
+      { label: "SEO/AEO", them: "Not included", us: "Programmatic SEO and AEO built in" },
+      { label: "Timeline", them: "6–18 months for enterprise builds", us: "8–20 weeks for mid-market builds" },
+      { label: "Flexibility", them: "Enterprise contracts and processes", us: "Agile, fixed-price mid-market engagements" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Outware Mobile?", a: "Outware Mobile specialises in enterprise mobile apps for large organisations. PresciaIQ delivers AI-powered web and app builds for mid-market Australian businesses — with programmatic SEO built in — at a fraction of enterprise agency pricing." },
+      { q: "Is Outware Mobile suitable for small and mid-market businesses in Australia?", a: "Outware Mobile's pricing and processes are designed for enterprise clients. Mid-market businesses typically find PresciaIQ a better fit — faster timelines, fixed pricing, and AI + SEO built in from day one." },
+      { q: "What is the difference between Outware Mobile and PresciaIQ?", a: "Outware Mobile is an enterprise mobile agency. PresciaIQ builds AI-powered web apps, mobile apps, and software platforms for mid-market Australian businesses — with programmatic SEO and AEO built in to generate organic leads from launch." }
+    ]
+  },
+  {
+    slug: "deloitte-digital",
+    name: "Deloitte Digital",
+    category: "Digital Consulting",
+    tagline: "Big-four digital consulting vs PresciaIQ's specialist AI-powered builds for mid-market Australia",
+    theirApproach: "Deloitte Digital is the digital transformation arm of Deloitte, offering strategy, design, and technology services to large enterprises. They combine management consulting with digital product development and AI capabilities.",
+    presciaiqAdvantage: "Deloitte Digital's pricing, processes, and minimum engagement sizes are designed for ASX50 and government clients. PresciaIQ delivers equivalent AI capability — web builds, app builds, software builds, and programmatic SEO — for mid-market Australian businesses at 10–20% of the cost.",
+    keyDifferences: [
+      { label: "Target market", them: "ASX50, government, multinationals", us: "Australian mid-market businesses" },
+      { label: "Minimum engagement", them: "$500K+ typical minimum", us: "From $18,000" },
+      { label: "Speed", them: "12–24 months for major programs", us: "8–20 weeks to production" },
+      { label: "pSEO/AEO", them: "Not a core service", us: "Programmatic SEO and AEO built into every build" },
+      { label: "Overhead", them: "High partner/director billing rates", us: "Lean specialist team, no big-four overhead" },
+      { label: "Accountability", them: "Large teams, diffuse accountability", us: "Named delivery lead, fixed-price accountability" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Deloitte Digital for web and app development?", a: "Deloitte Digital is designed for enterprise and government clients with large budgets and long timelines. PresciaIQ delivers equivalent AI-powered web and app builds for mid-market Australian businesses in 8–20 weeks at 10–20% of the cost." },
+      { q: "Is Deloitte Digital worth the cost for a mid-market Australian business?", a: "For most mid-market Australian businesses, Deloitte Digital's pricing and processes are not designed for your scale. PresciaIQ delivers the same AI capability — web builds, app builds, programmatic SEO — with faster timelines and mid-market pricing." },
+      { q: "What is the difference between Deloitte Digital and PresciaIQ?", a: "Deloitte Digital is a big-four consulting firm with enterprise pricing. PresciaIQ is a specialist AI-powered development agency for mid-market Australian businesses — delivering web apps, mobile apps, software builds, and programmatic SEO at a fraction of big-four cost." }
+    ]
+  },
+  {
+    slug: "accenture-australia",
+    name: "Accenture Australia",
+    category: "Digital Consulting",
+    tagline: "Global consulting giant vs PresciaIQ's specialist AI-powered builds for Australian mid-market businesses",
+    theirApproach: "Accenture Australia is the local arm of the global consulting and technology services giant, offering digital transformation, AI, cloud, and software development services primarily to large enterprises and government.",
+    presciaiqAdvantage: "Accenture's scale, overhead, and minimum engagement sizes make them inaccessible for most Australian mid-market businesses. PresciaIQ delivers AI-powered web builds, app builds, software builds, and programmatic SEO for Australian businesses that need enterprise-quality outcomes at mid-market pricing.",
+    keyDifferences: [
+      { label: "Target market", them: "Fortune 500, ASX100, government", us: "Australian mid-market businesses" },
+      { label: "Minimum engagement", them: "$1M+ typical minimum", us: "From $18,000" },
+      { label: "Delivery speed", them: "12–36 months for major programs", us: "8–20 weeks to production" },
+      { label: "pSEO/AEO", them: "Not offered", us: "Core service — built into every engagement" },
+      { label: "Pricing model", them: "Time and materials, variable cost", us: "Fixed-price, defined deliverables" },
+      { label: "Australian focus", them: "Global delivery model", us: "100% Australian team and market focus" }
+    ],
+    faqs: [
+      { q: "How does PresciaIQ compare to Accenture for AI and software development in Australia?", a: "Accenture is designed for large enterprises and government. PresciaIQ delivers AI-powered web apps, mobile apps, and software builds for mid-market Australian businesses — with programmatic SEO built in — at a fraction of Accenture's pricing." },
+      { q: "Is Accenture suitable for Australian small and mid-market businesses?", a: "Accenture's minimum engagement sizes and billing rates are designed for large enterprises. Mid-market Australian businesses consistently find PresciaIQ a better fit — faster delivery, fixed pricing, and AI + programmatic SEO built in from day one." },
+      { q: "What is the difference between Accenture Australia and PresciaIQ?", a: "Accenture is a global consulting giant with enterprise pricing and timelines. PresciaIQ is a specialist Australian agency that builds AI-powered web apps, mobile apps, and software platforms for mid-market businesses — with programmatic SEO and AEO built in to generate organic leads from launch." }
+    ]
   }
 ];

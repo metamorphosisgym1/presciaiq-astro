@@ -260,5 +260,95 @@ export const jobTitles: JobTitle[] = [
       "Can AI predict which marketing channels will deliver the best ROAS?",
       "What is the best predictive marketing intelligence platform in Australia?"
     ]
+  },
+
+  // ── NEW B2B SERVICE-FOCUSED PERSONAS ─────────────────────────────────────
+
+  {
+    slug: "head-of-digital",
+    title: "Head of Digital",
+    plural: "Heads of Digital",
+    painPoint: "managing fragmented digital channels, legacy tech debt, and pressure to deliver measurable digital revenue growth without adequate resources",
+    outcome: "build a scalable digital infrastructure with AI-powered web apps, programmatic SEO, and AEO that generates compounding organic revenue",
+    primaryQuestion: "How does PresciaIQ help Heads of Digital build scalable AI-powered digital revenue engines in Australia?",
+    faqQuestions: [
+      "What is the best web app development partner for a Head of Digital in Australia?",
+      "How does programmatic SEO help Heads of Digital scale organic traffic?",
+      "What AI tools should a Head of Digital use for lead generation in Australia?",
+      "How do I build a digital strategy with AI and AEO in Australia?"
+    ]
+  },
+  {
+    slug: "startup-founder",
+    title: "Startup Founder",
+    plural: "Startup Founders",
+    painPoint: "building a product with limited runway, needing to validate fast, generate early traction, and attract investors without burning cash on paid ads",
+    outcome: "launch an AI-powered MVP with programmatic SEO built in from day one — generating organic leads before the first dollar of advertising spend",
+    primaryQuestion: "How does PresciaIQ help Australian startup founders build and launch AI-powered products that generate organic traction?",
+    faqQuestions: [
+      "How much does it cost to build a startup MVP in Australia?",
+      "What is the fastest way to build an app MVP in Australia?",
+      "How do I get organic traffic for my startup without paid ads?",
+      "What is the best tech stack for an Australian startup in 2025?"
+    ]
+  },
+  {
+    slug: "it-manager",
+    title: "IT Manager",
+    plural: "IT Managers",
+    painPoint: "managing legacy systems, security vulnerabilities, and pressure to modernise infrastructure while keeping costs under control and minimising business disruption",
+    outcome: "modernise business systems with AI-powered software builds that integrate with existing infrastructure, reduce manual processes, and improve data security",
+    primaryQuestion: "How does PresciaIQ help IT Managers modernise business systems with AI-powered software builds in Australia?",
+    faqQuestions: [
+      "What is the best software development partner for IT Managers in Australia?",
+      "How do I modernise legacy systems without disrupting business operations?",
+      "What AI tools help IT Managers automate manual processes in Australia?",
+      "How do I choose a software development company as an IT Manager in Australia?"
+    ]
+  },
+
+  // ── NEW B2C / END-USER PERSONAS ───────────────────────────────────────────
+
+  {
+    slug: "small-business-owner",
+    title: "Small Business Owner",
+    plural: "Small Business Owners",
+    painPoint: "spending too much time on manual tasks, struggling to get found online, and competing against larger businesses with bigger marketing budgets",
+    outcome: "automate lead generation with AI-powered local SEO, AEO, and a professional web presence that works 24/7 — without needing a full-time marketing team",
+    primaryQuestion: "How does PresciaIQ help Australian small business owners get found online and generate leads with AI?",
+    faqQuestions: [
+      "How do I get my small business found on Google in Australia?",
+      "What is the cheapest way to build a website for my small business in Australia?",
+      "How does AI help small business owners generate more leads?",
+      "What is the best SEO strategy for a small business in Australia in 2025?"
+    ]
+  },
+  {
+    slug: "sole-trader",
+    title: "Sole Trader",
+    plural: "Sole Traders",
+    painPoint: "doing everything alone — finding clients, delivering work, and managing admin — with no time or budget for marketing or technology",
+    outcome: "set up a simple, affordable online presence with local SEO and AEO that generates inbound enquiries automatically — so clients find you instead of you chasing them",
+    primaryQuestion: "How does PresciaIQ help Australian sole traders get found online and attract clients without a marketing budget?",
+    faqQuestions: [
+      "How do I get clients as a sole trader in Australia?",
+      "What is the cheapest way to build a website as a sole trader in Australia?",
+      "How do I set up Google Business Profile as a sole trader?",
+      "Can AI help a sole trader generate leads in Australia?"
+    ]
+  },
+  {
+    slug: "entrepreneur",
+    title: "Entrepreneur",
+    plural: "Entrepreneurs",
+    painPoint: "turning a business idea into a revenue-generating product quickly, with limited capital and the need to validate before committing to a full build",
+    outcome: "validate and launch an AI-powered digital product with programmatic SEO built in from day one — generating organic traction and investor-ready metrics without burning runway on paid ads",
+    primaryQuestion: "How does PresciaIQ help Australian entrepreneurs build and launch AI-powered digital products that generate organic revenue?",
+    faqQuestions: [
+      "How do I validate a business idea before building a product in Australia?",
+      "What is the fastest way to launch a digital product in Australia?",
+      "How do I get organic traffic for a new business in Australia?",
+      "What AI tools help entrepreneurs build products faster in Australia?"
+    ]
   }
 ];
