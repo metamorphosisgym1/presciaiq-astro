@@ -18,7 +18,7 @@ const Navbar = () => {
   const close = () => { setIsMobileMenuOpen(false); setIsProductsOpen(false); setIsServicesOpen(false); setIsIndustriesOpen(false); setIsInsightsOpen(false); };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border/50" : "bg-transparent"}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background backdrop-blur-md border-b border-border/50" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <a href="/"><img src="/logo.png" alt="PresciaIQ" className="h-8 w-auto" /></a>
@@ -83,8 +83,8 @@ const Navbar = () => {
             <a href="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">About</a>
             <a href="/pricing" className="text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors">Pricing</a>
             <a href="/contact" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Contact</a>
-            <a href="/start" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Start a Project</a>
-            <a href="/contact" className="bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#00ff88]/90 transition-colors text-sm">Book a Strategy Call</a>
+            <a href="/start" className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Start a Project</a>
+            <a href="/contact" className="inline-flex items-center justify-center whitespace-nowrap bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#00ff88]/90 transition-colors text-sm">Book a Strategy Call</a>
           </div>
           <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>{isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
         </div>
