@@ -1,0 +1,149 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Predictive AI for Logistics & Supply Chain in Australia | PresciaIQ";
+const description = "OpsIQ by PresciaIQ predicts delivery delays, supplier failures, and inventory shortfalls before they cascade into operational shutdowns. Built for Australian logistics operators, 3PLs, and supply chain managers.";
+const canonicalURL = new URL("/industries/logistics/", Astro.site).href;
+
+const faqs = [
+  {
+    q: "How does OpsIQ predict supply chain disruptions?",
+    a: "OpsIQ monitors 38 operational signals including supplier lead time variance, carrier performance history, port congestion data, weather events on key freight corridors, and inventory velocity. When a combination of signals indicates a disruption risk, OpsIQ alerts your operations team 5–14 days before the impact is felt."
+  },
+  {
+    q: "What types of logistics businesses does OpsIQ serve?",
+    a: "OpsIQ is built for Australian 3PL operators, freight forwarders, e-commerce fulfilment centres, and in-house logistics teams at manufacturers and retailers. The engine is particularly effective for businesses with 3+ supplier relationships and 2+ distribution points."
+  },
+  {
+    q: "Can OpsIQ integrate with our warehouse management system?",
+    a: "OpsIQ integrates with major Australian WMS platforms including Manhattan Associates, Microlistics, and Pronto Xi. For businesses on custom WMS or ERP systems, we provide a REST API for bidirectional data exchange."
+  },
+  {
+    q: "How does OpsIQ handle seasonal demand spikes?",
+    a: "OpsIQ's demand forecasting module analyses 3 years of historical order data, seasonal patterns, and external signals (economic indicators, competitor activity, weather) to produce a 90-day forward demand forecast. This allows procurement teams to pre-position inventory before demand spikes materialise."
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": canonicalURL,
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+          { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.presciaiq.com.au/industries/" },
+          { "@type": "ListItem", "position": 3, "name": "Logistics & Supply Chain", "item": canonicalURL }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    },
+    { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-summary"] }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <div class="border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/industries/" class="hover:text-primary transition-colors">Industries</a>
+          <span>/</span>
+          <span class="text-foreground">Logistics & Supply Chain</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="py-16 md:py-24 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Logistics & Supply Chain</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">OpsIQ</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
+          Predict Bottlenecks <span class="text-gradient-primary">Before They Stop Your Operation</span>
+        </h1>
+        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+          OpsIQ delivers operational intelligence for Australian logistics operators — monitoring 38 supply chain signals to predict delivery delays, supplier failures, and inventory shortfalls 5–14 days before they cascade into shutdowns.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Book a Free Supply Chain Assessment →
+          </a>
+          <a href="/products/opsiq/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
+            View OpsIQ →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {[
+            { stat: "5–14d", label: "Early warning lead time" },
+            { stat: "38", label: "Supply chain signals monitored" },
+            { stat: "91%", label: "Disruption prediction accuracy" },
+            { stat: "27%", label: "Average reduction in stockouts" },
+          ].map(item => (
+            <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
+              <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
+              <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Frequently Asked Questions</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10">Logistics AI — Common Questions</h2>
+        <div class="space-y-6 max-w-3xl">
+          {faqs.map(faq => (
+            <div class="border-b border-white/5 pb-6">
+              <h3 class="font-display text-lg font-bold text-foreground mb-3">{faq.q}</h3>
+              <p class="text-muted-foreground font-sans leading-relaxed text-sm">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="/products/opsiq/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Product</p>
+            <p class="font-display font-bold text-foreground">OpsIQ →</p>
+          </a>
+          <a href="/industries/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Industries</p>
+            <p class="font-display font-bold text-foreground">All Industries →</p>
+          </a>
+          <a href="/start/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Get Started</p>
+            <p class="font-display font-bold text-foreground">Book Assessment →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

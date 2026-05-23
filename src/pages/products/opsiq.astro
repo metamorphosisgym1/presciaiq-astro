@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "OpsIQ — Supply Chain & Operational Intelligence | PresciaIQ";
+const description = "OpsIQ monitors 38 supply chain signals to predict delivery delays, supplier failures, and inventory shortfalls 5–14 days before they cascade into shutdowns. Built for Australian logistics operators and 3PLs. From $1,500/month.";
+const canonicalURL = new URL("/products/opsiq/", Astro.site).href;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "OpsIQ",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": description,
+      "url": canonicalURL,
+      "offers": {
+        "@type": "Offer",
+        "price": "1500",
+        "priceCurrency": "AUD",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1500", "priceCurrency": "AUD", "unitText": "MONTH" }
+      },
+      "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.presciaiq.com.au/products/" },
+        { "@type": "ListItem", "position": 3, "name": "OpsIQ", "item": canonicalURL }
+      ]
+    },
+    { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-summary"] }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <div class="border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/products/" class="hover:text-primary transition-colors">Products</a>
+          <span>/</span>
+          <span class="text-foreground">OpsIQ</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="py-16 md:py-24 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">OpsIQ</span>
+          <span class="text-xs text-muted-foreground font-sans">Logistics & Supply Chain</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
+          See Supply Chain Disruptions <span class="text-gradient-primary">5–14 Days Before They Hit</span>
+        </h1>
+        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+          OpsIQ monitors 38 operational signals across your supply chain — supplier lead times, carrier performance, port congestion, weather events, and inventory velocity — to predict disruptions before they cascade into shutdowns.
+        </p>
+        <div class="flex flex-col sm:flex-row items-start gap-6 mb-8">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Book a Free Supply Chain Assessment →
+          </a>
+          <div>
+            <p class="text-xs text-muted-foreground font-sans mb-1">Starting from</p>
+            <p class="font-mono text-2xl font-bold text-primary">$1,500/month</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { stat: "5–14d", label: "Disruption early warning" },
+            { stat: "38", label: "Supply chain signals monitored" },
+            { stat: "91%", label: "Prediction accuracy" },
+            { stat: "27%", label: "Average stockout reduction" },
+          ].map(item => (
+            <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
+              <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
+              <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Features</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10">What OpsIQ Does</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {[
+            { title: "Disruption Early Warning", desc: "Monitors 38 signals and alerts your operations team 5–14 days before a supply chain disruption materialises — enough time to activate contingency suppliers or pre-position inventory." },
+            { title: "90-Day Demand Forecasting", desc: "Analyses 3 years of historical order data, seasonal patterns, and external signals to produce a 90-day forward demand forecast for procurement planning." },
+            { title: "Supplier Risk Scoring", desc: "Scores each supplier against lead time variance, quality defect rate, and financial stability indicators — so you know which suppliers are flight risks before they fail." },
+            { title: "Inventory Optimisation", desc: "Recommends optimal safety stock levels by SKU based on demand volatility and supplier lead time variance — reducing both stockouts and excess inventory carrying costs." },
+            { title: "WMS & ERP Integration", desc: "Native integrations with Manhattan Associates, Microlistics, Pronto Xi, SAP, and Oracle. REST API available for custom systems." },
+            { title: "Freight Corridor Monitoring", desc: "Tracks weather events, port congestion, and carrier performance on your key freight corridors in real time — surfacing route risk before it delays your inbound shipments." },
+          ].map(f => (
+            <div class="rounded-xl border border-white/8 p-6" style="background: rgba(255,255,255,0.02);">
+              <h3 class="font-display text-lg font-bold text-foreground mb-3">{f.title}</h3>
+              <p class="text-muted-foreground font-sans text-sm leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="/industries/logistics/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Industry</p>
+            <p class="font-display font-bold text-foreground">Logistics & Supply Chain →</p>
+          </a>
+          <a href="/products/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Products</p>
+            <p class="font-display font-bold text-foreground">All Products →</p>
+          </a>
+          <a href="/start/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Get Started</p>
+            <p class="font-display font-bold text-foreground">Book Free Assessment →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

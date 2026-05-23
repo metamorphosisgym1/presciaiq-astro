@@ -1,0 +1,209 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = "BuildHire Case Study — How PresciaIQ Built an 84,000-Page pSEO Architecture for Equipment Hire | PresciaIQ";
+const description = "How PresciaIQ replaced BuildHire's $45–$90 CPC paid ad dependency with a programmatic SEO architecture covering 84,000 pages, 83 NSW locations, and 12 construction industry sub-sectors — at zero ongoing cost per visit.";
+const canonicalURL = new URL("/insights/case-studies/buildhire/", Astro.site).href;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "url": canonicalURL,
+      "author": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+      "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-05-01",
+      "mainEntityOfPage": canonicalURL,
+      "about": [
+        { "@type": "Thing", "name": "Programmatic SEO" },
+        { "@type": "Thing", "name": "Equipment Hire" },
+        { "@type": "Thing", "name": "Construction Industry" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.presciaiq.com.au/insights/" },
+        { "@type": "ListItem", "position": 3, "name": "Case Studies", "item": "https://www.presciaiq.com.au/insights/case-studies/" },
+        { "@type": "ListItem", "position": 4, "name": "BuildHire", "item": canonicalURL }
+      ]
+    },
+    { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-summary", "h2"] }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <!-- Breadcrumb -->
+    <div class="border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/insights/" class="hover:text-primary transition-colors">Insights</a>
+          <span>/</span>
+          <a href="/insights/case-studies/" class="hover:text-primary transition-colors">Case Studies</a>
+          <span>/</span>
+          <span class="text-foreground">BuildHire</span>
+        </nav>
+      </div>
+    </div>
+
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Case Study</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">pSEO Architecture</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold border border-white/10 text-muted-foreground">Construction & Equipment Hire</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+          From $90 CPC to Zero: How BuildHire Built an 84,000-Page Organic Search Presence
+        </h1>
+        <p class="speakable-summary text-xl text-muted-foreground font-sans leading-relaxed mb-8">
+          BuildHire, an equipment hire company serving NSW construction sites, had zero organic search presence — every lead came from paid ads at $45–$90 cost per click. PresciaIQ designed and built a full programmatic SEO and pAEO architecture that replaced paid dependency with a permanent, compounding organic asset.
+        </p>
+        <!-- Key metrics bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl border border-primary/20" style="background: rgba(0,255,136,0.02);">
+          {[
+            { stat: "84,000", label: "Organic pages deployed" },
+            { stat: "83", label: "NSW locations covered" },
+            { stat: "$0", label: "Ongoing cost per organic visit" },
+            { stat: "12", label: "Industry sub-sectors targeted" },
+          ].map(m => (
+            <div class="text-center">
+              <p class="font-mono text-2xl font-bold text-primary mb-1">{m.stat}</p>
+              <p class="text-xs text-muted-foreground font-sans">{m.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- The Problem -->
+      <section class="mb-12">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">The Problem: Total Paid Ad Dependency</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          When BuildHire came to PresciaIQ, their entire lead generation operation ran through Google Ads. The business was paying between $45 and $90 per click for queries like "mini excavator hire Sydney" and "tipper truck hire NSW" — keywords with high commercial intent but equally high competition from national hire companies with seven-figure ad budgets.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The fundamental problem was structural: paid search creates a dependency loop. Stop paying, stop getting leads. There was no organic presence, no brand authority, and no content infrastructure that could generate leads independently of ad spend.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          BuildHire needed a distribution engine — a system that would generate qualified organic traffic across every equipment type, every NSW location, and every construction industry sub-sector, without requiring ongoing ad spend to maintain.
+        </p>
+      </section>
+
+      <!-- The Solution -->
+      <section class="mb-12">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">The Solution: Programmatic SEO Architecture at Scale</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          PresciaIQ designed a four-dimensional programmatic SEO architecture built on Astro — a static site framework chosen specifically for its sub-second page load times and zero-JavaScript-by-default approach, which produces the fastest Core Web Vitals scores of any framework available.
+        </p>
+
+        <h3 class="font-display text-xl font-bold text-foreground mb-3 mt-8">The Page Architecture</h3>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The architecture generates pages across four intersecting dimensions: equipment type (9 categories), NSW location (83 suburbs and regions), construction industry sub-sector (12 categories), and use case (11 specific applications). Each combination produces a unique, genuinely useful page — not a template with swapped keywords, but a page with location-specific content, industry-specific use cases, and equipment-specific specifications.
+        </p>
+        <div class="rounded-xl border border-white/8 overflow-hidden mb-6">
+          <table class="w-full text-sm font-sans">
+            <thead>
+              <tr class="border-b border-white/8" style="background: rgba(255,255,255,0.03);">
+                <th class="text-left px-4 py-3 text-muted-foreground font-semibold">Route</th>
+                <th class="text-left px-4 py-3 text-muted-foreground font-semibold">Example URL</th>
+                <th class="text-right px-4 py-3 text-muted-foreground font-semibold">Pages</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { route: "Equipment × Location", example: "/hire/mini-excavator/sydney/", pages: "747" },
+                { route: "Equipment × Location × Industry", example: "/hire/mini-excavator/sydney/residential-construction/", pages: "8,964" },
+                { route: "Equipment × Location × Use Case", example: "/hire/mini-excavator/sydney/trenching/", pages: "8,217" },
+                { route: "Equipment × Location × FAQ", example: "/hire/mini-excavator/sydney/how-to-operate/", pages: "8,964" },
+                { route: "Compare × Industry × Location", example: "/compare/mini-excavator-vs-bobcat/sydney/", pages: "41,998" },
+                { route: "For × Job Title × Location", example: "/for/site-manager/sydney/", pages: "16,434" },
+              ].map((row, i) => (
+                <tr class={`border-b border-white/5 ${i % 2 === 0 ? '' : ''}`}>
+                  <td class="px-4 py-3 text-foreground">{row.route}</td>
+                  <td class="px-4 py-3 text-muted-foreground font-mono text-xs">{row.example}</td>
+                  <td class="px-4 py-3 text-right text-primary font-mono font-semibold">{row.pages}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="font-display text-xl font-bold text-foreground mb-3 mt-8">The Technical Stack</h3>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          PresciaIQ built the site on Astro with React islands for interactive components — the booking calculator, the quote request form, and the equipment comparison tool. The static generation approach means every page is pre-rendered at build time, producing HTML files that load in under 300ms on a 4G connection.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          Stripe was integrated directly into the booking flow, allowing customers to pay a deposit and confirm a booking without leaving the site. The booking calculator uses real-time pricing data from the equipment data layer, with delivery cost logic based on distance from BuildHire's depot.
+        </p>
+
+        <h3 class="font-display text-xl font-bold text-foreground mb-3 mt-8">Schema & pAEO Implementation</h3>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          Every equipment page carries a full schema stack: Product schema with Offer and UnitPriceSpecification (enabling price rich snippets in Google), FAQPage schema (enabling FAQ accordions in search results), BreadcrumbList schema, and SpeakableSpecification schema for voice search eligibility.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The FAQ content on each page is structured to answer the specific questions that construction site managers ask when searching for equipment hire — not generic questions, but questions specific to the equipment type and location combination. This is the pAEO layer: content structured to be cited by AI assistants when answering queries like "what is the best mini excavator hire company in Sydney?"
+        </p>
+      </section>
+
+      <!-- Results -->
+      <section class="mb-12">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">The Results: A Permanent Organic Asset</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The BuildHire pSEO architecture represents a fundamental shift in how the business generates leads. Instead of paying $45–$90 per click for traffic that stops the moment the ad budget is paused, BuildHire now has 84,000 indexed pages that generate organic traffic permanently — with no ongoing cost per visit.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The architecture covers every commercially meaningful search query in the NSW equipment hire market. A site manager in Parramatta searching for "tipper truck hire Parramatta construction" lands on a page built specifically for that query. A project manager in Newcastle searching for "excavator hire Newcastle civil works" lands on a page built for that exact combination.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The compounding nature of organic search means the value of this architecture increases over time. As Google indexes more pages and the domain accumulates authority, the cost per acquisition from organic search continues to fall while the volume of organic traffic continues to grow.
+        </p>
+      </section>
+
+      <!-- Services Used -->
+      <section class="mb-12 rounded-2xl border border-white/8 p-8" style="background: rgba(255,255,255,0.02);">
+        <h2 class="font-display text-xl font-bold text-foreground mb-6">Services Used in This Engagement</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            { service: "Programmatic SEO Architecture", href: "/services/aeo-seo-predictive-search-architecture/" },
+            { service: "AI Web Development", href: "/services/ai-web-development/" },
+            { service: "pAEO Answer Page Strategy", href: "/services/aeo-seo-predictive-search-architecture/" },
+            { service: "Schema & Structured Data Implementation", href: "/services/ai-web-development/" },
+          ].map(s => (
+            <a href={s.href} class="flex items-center gap-3 text-sm font-sans text-muted-foreground hover:text-primary transition-colors">
+              <span class="text-primary">→</span>
+              {s.service}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="rounded-2xl border border-primary/20 p-8 text-center" style="background: rgba(0,255,136,0.02);">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-3">Build Your Own pSEO Architecture</h2>
+        <p class="text-muted-foreground font-sans mb-6 max-w-lg mx-auto">
+          If your business relies on paid ads for lead generation, a programmatic SEO architecture is the most capital-efficient way to build a permanent organic distribution channel.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Book a Free pSEO Assessment →
+          </a>
+          <a href="/insights/case-studies/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
+            View All Case Studies →
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>

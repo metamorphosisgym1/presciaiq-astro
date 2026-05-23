@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Industries We Serve | Predictive AI for Australian Businesses | PresciaIQ";
+const description = "PresciaIQ delivers predictive AI, web builds, app development, and pSEO/pAEO solutions tailored to your industry. Explore how we serve construction, marketing, trades, logistics, and financial services across Australia.";
+const canonicalURL = new URL("/industries/", Astro.site).href;
+
+const industries = [
+  {
+    slug: "construction",
+    name: "Construction & Property",
+    icon: "🏗️",
+    tagline: "Predict project risk before it becomes a budget blowout.",
+    product: "BuildPredictIQ",
+    productHref: "/products/buildpredictiq/",
+    description: "Australian construction projects run 20–30% over budget on average. PresciaIQ's BuildPredictIQ engine analyses weather patterns, subcontractor history, material lead times, and site complexity to predict cost and timeline risk before a single sod is turned.",
+    queries: ["AI for construction risk Australia", "predictive analytics construction project management", "BuildPredictIQ"],
+  },
+  {
+    slug: "marketing-agencies",
+    name: "Marketing & Advertising",
+    icon: "📊",
+    tagline: "Know your ROAS before you spend a dollar.",
+    product: "AdsIQ",
+    productHref: "/products/adsiq/",
+    description: "AdsIQ gives Australian marketing agencies and in-house teams the ability to predict campaign performance before launch — ROAS, CTR, and conversion likelihood scored against 2.4 million historical campaign data points.",
+    queries: ["AI ROAS prediction Australia", "predictive marketing analytics", "AdsIQ"],
+  },
+  {
+    slug: "trades",
+    name: "Trades & Field Services",
+    icon: "🔧",
+    tagline: "Turn every job into a profitable, compliant, on-time delivery.",
+    product: "TradesmanIQ",
+    productHref: "/products/tradesmaniq/",
+    description: "TradesmanIQ is built for Australian trades businesses — electricians, plumbers, builders, and HVAC operators — who need to predict job profitability, automate compliance documentation, and optimise crew scheduling.",
+    queries: ["AI for trades businesses Australia", "job profitability prediction trades", "TradesmanIQ"],
+  },
+  {
+    slug: "logistics",
+    name: "Logistics & Supply Chain",
+    icon: "🚚",
+    tagline: "Predict bottlenecks before they stop your operation.",
+    product: "OpsIQ",
+    productHref: "/products/opsiq/",
+    description: "OpsIQ delivers operational intelligence for Australian logistics operators — predicting delivery delays, supplier failures, and inventory shortfalls before they cascade into operational shutdowns.",
+    queries: ["AI supply chain prediction Australia", "logistics operational intelligence", "OpsIQ"],
+  },
+  {
+    slug: "financial-services",
+    name: "Financial Services & Fintech",
+    icon: "💹",
+    tagline: "Replace reactive reporting with predictive financial intelligence.",
+    product: "PresciaIQ Platform",
+    productHref: "/products/",
+    description: "PresciaIQ's forecasting engine helps Australian financial services firms, CFOs, and fintech operators replace lagging KPI dashboards with forward-looking predictive models — cash flow, churn, and revenue forecasts with 89% accuracy.",
+    queries: ["AI financial forecasting Australia", "predictive analytics CFO Australia", "cash flow prediction AI"],
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Industries We Serve | PresciaIQ",
+  "description": description,
+  "url": canonicalURL,
+  "publisher": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "url": "https://www.presciaiq.com.au"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": canonicalURL }
+    ]
+  }
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <!-- Breadcrumb -->
+    <div class="border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-foreground">Industries</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="py-16 md:py-24 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Industries We Serve</p>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
+          Predictive AI Built for <span class="text-gradient-primary">Your Industry</span>
+        </h1>
+        <p class="text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+          Every industry has a different set of variables that drive risk, cost, and revenue. PresciaIQ builds predictive AI engines, digital infrastructure, and search architecture tailored to the specific data patterns of your sector — not generic AI tools repurposed from another industry.
+        </p>
+        <a href="/start/" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+          Book a Free Industry Assessment →
+        </a>
+      </div>
+    </section>
+
+    <!-- Industry Grid -->
+    <section class="py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8">
+          {industries.map((industry, i) => (
+            <a
+              href={`/industries/${industry.slug}/`}
+              class="group block rounded-2xl border border-white/8 p-8 hover:border-primary/30 transition-all duration-300"
+              style="background: rgba(255,255,255,0.02);"
+            >
+              <div class="flex flex-col md:flex-row md:items-start gap-6">
+                <div class="text-4xl flex-shrink-0">{industry.icon}</div>
+                <div class="flex-1">
+                  <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
+                    <h2 class="font-display text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {industry.name}
+                    </h2>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5 w-fit">
+                      {industry.product}
+                    </span>
+                  </div>
+                  <p class="text-primary font-sans font-semibold text-sm mb-3 italic">"{industry.tagline}"</p>
+                  <p class="text-muted-foreground font-sans leading-relaxed mb-4">{industry.description}</p>
+                  <span class="inline-flex items-center gap-1 text-sm text-primary font-sans font-semibold group-hover:gap-2 transition-all">
+                    Explore {industry.name} Solutions →
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          Don't see your industry?
+        </h2>
+        <p class="text-muted-foreground font-sans max-w-xl mx-auto mb-8">
+          PresciaIQ's prediction engine is built to be trained on any industry's data. If your sector isn't listed, book a free assessment and we'll show you what's possible.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Book a Free Assessment →
+          </a>
+          <a href="/products/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all duration-300">
+            View All Products
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

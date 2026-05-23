@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer style={{ background: 'rgba(5,5,8,0.9)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-8 lg:gap-6">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
               <img src={logo} alt="PresciaIQ" className="w-48 h-auto" />
@@ -20,25 +20,34 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Products & Services</h4>
+            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Products</h4>
             <ul className="space-y-3">
+              <li><a href="/products/" className="text-sm text-primary hover:text-primary/80 transition-colors font-sans font-semibold">All Products →</a></li>
               {[
-                { name: "BuildPredictIQ", href: "https://buildpredictiq.com.au/" },
-                { name: "AdsIQ", href: "https://adsiq.com.au/" },
-                { name: "OpsIQ", href: "https://opsiq.com.au/" },
-                { name: "TradesmanIQ", href: "https://tradesmaniq.com.au/" },
+                { name: "BuildPredictIQ", href: "/products/buildpredictiq/", sub: "Construction AI" },
+                { name: "AdsIQ", href: "/products/adsiq/", sub: "Marketing AI" },
+                { name: "OpsIQ", href: "/products/opsiq/", sub: "Operations AI" },
+                { name: "TradesmanIQ", href: "/products/tradesmaniq/", sub: "Trades AI" },
               ].map((p) => (
                 <li key={p.name}>
-                  <a href={p.href} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
+                  <a href={p.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
                     {p.name.replace("IQ", "")}<span className="text-primary">IQ</span>
                   </a>
                 </li>
               ))}
-              <li>
-                <a href="/development" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
-                  Web & App <span className="text-primary">Development</span>
-                </a>
-              </li>
+              <li><a href="/development" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Web & App <span className="text-primary">Development</span></a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Industries</h4>
+            <ul className="space-y-3">
+              <li><a href="/industries/" className="text-sm text-primary hover:text-primary/80 transition-colors font-sans font-semibold">All Industries →</a></li>
+              <li><a href="/industries/construction/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Construction</a></li>
+              <li><a href="/industries/marketing-agencies/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Marketing</a></li>
+              <li><a href="/industries/trades/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Trades</a></li>
+              <li><a href="/industries/logistics/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Logistics</a></li>
+              <li><a href="/industries/financial-services/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Financial Services</a></li>
             </ul>
           </div>
 

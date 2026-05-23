@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Predictive AI for Trades & Field Services in Australia | PresciaIQ";
+const description = "TradesmanIQ by PresciaIQ helps Australian electricians, plumbers, builders, and HVAC operators predict job profitability, automate compliance documentation, and optimise crew scheduling with AI.";
+const canonicalURL = new URL("/industries/trades/", Astro.site).href;
+
+const faqs = [
+  {
+    q: "What trades does TradesmanIQ support?",
+    a: "TradesmanIQ is currently optimised for electrical contractors, plumbing and gas fitting businesses, general building contractors, HVAC and refrigeration operators, and pest control companies. Support for additional trade categories is added quarterly based on client demand."
+  },
+  {
+    q: "How does TradesmanIQ predict job profitability?",
+    a: "TradesmanIQ analyses job parameters — location, job type, estimated hours, materials, and crew composition — against your historical job data to predict actual vs quoted margin. The engine flags jobs where historical data suggests margin erosion risk before you commit the crew."
+  },
+  {
+    q: "Can TradesmanIQ automate compliance documentation?",
+    a: "Yes. TradesmanIQ generates compliant job cards, safety observations, and completion certificates based on job type and state jurisdiction. For electrical work, it produces compliant Certificate of Electrical Safety (CES) templates. For plumbing, it generates Compliance Certificates aligned with state requirements."
+  },
+  {
+    q: "Does TradesmanIQ integrate with ServiceM8 or Tradify?",
+    a: "TradesmanIQ has native integrations with ServiceM8, Tradify, and Simpro. Data flows bidirectionally — job data comes in from your field management software, and predictions and compliance documents flow back into the job record."
+  },
+  {
+    q: "How quickly can a trades business implement TradesmanIQ?",
+    a: "For businesses using ServiceM8 or Tradify, implementation takes 2–3 weeks including data migration and team training. For businesses on spreadsheets or other systems, allow 4–5 weeks for data preparation and integration setup."
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": canonicalURL,
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+          { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.presciaiq.com.au/industries/" },
+          { "@type": "ListItem", "position": 3, "name": "Trades & Field Services", "item": canonicalURL }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    },
+    { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-summary"] }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <div class="border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/industries/" class="hover:text-primary transition-colors">Industries</a>
+          <span>/</span>
+          <span class="text-foreground">Trades & Field Services</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="py-16 md:py-24 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Trades & Field Services</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">TradesmanIQ</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
+          Turn Every Job Into a <span class="text-gradient-primary">Profitable, On-Time Delivery</span>
+        </h1>
+        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+          TradesmanIQ is built for Australian trades businesses who need to predict job profitability before committing a crew, automate compliance documentation, and optimise scheduling across multiple sites — without adding admin headcount.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Book a Free Demo →
+          </a>
+          <a href="/products/tradesmaniq/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
+            View TradesmanIQ →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div>
+            <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Problem</p>
+            <h2 class="font-display text-3xl font-bold text-foreground mb-6">Most Trades Businesses Quote on Instinct and Lose Margin on Execution</h2>
+            <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+              The average Australian trades business quotes a job, commits a crew, and discovers the margin problem on the invoice. A job that looked like $800 profit ends up at $200 because of a revisit, a compliance issue, or a materials price change that wasn't caught at quote time.
+            </p>
+            <p class="text-muted-foreground font-sans leading-relaxed">
+              TradesmanIQ analyses your historical job data to identify the patterns that predict margin erosion — job type, location, crew composition, time of year, client type — and flags high-risk jobs before you commit resources.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            {[
+              { stat: "19%", label: "Average margin improvement" },
+              { stat: "2–3wk", label: "Implementation timeline" },
+              { stat: "4", label: "Supported field management platforms" },
+              { stat: "92%", label: "Compliance doc accuracy rate" },
+            ].map(item => (
+              <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
+                <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
+                <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Frequently Asked Questions</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10">Trades AI — Common Questions</h2>
+        <div class="space-y-6 max-w-3xl">
+          {faqs.map(faq => (
+            <div class="border-b border-white/5 pb-6">
+              <h3 class="font-display text-lg font-bold text-foreground mb-3">{faq.q}</h3>
+              <p class="text-muted-foreground font-sans leading-relaxed text-sm">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="/products/tradesmaniq/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Product</p>
+            <p class="font-display font-bold text-foreground">TradesmanIQ →</p>
+          </a>
+          <a href="/insights/ai-tools-trades-businesses-australia/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Insight</p>
+            <p class="font-display font-bold text-foreground">AI Tools for Trades →</p>
+          </a>
+          <a href="/industries/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Industries</p>
+            <p class="font-display font-bold text-foreground">All Industries →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

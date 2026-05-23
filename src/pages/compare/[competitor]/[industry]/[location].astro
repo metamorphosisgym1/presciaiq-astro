@@ -54,7 +54,9 @@ const breadcrumbSchema = {
 };
 ---
 
-<Layout title={title} description={description} canonicalURL={canonicalURL}>
+<Layout title={title} description={description} canonicalURL={canonicalURL}
+  noindex={true}
+>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 

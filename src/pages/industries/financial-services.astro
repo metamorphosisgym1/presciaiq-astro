@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Predictive AI for Financial Services & Fintech in Australia | PresciaIQ";
+const description = "PresciaIQ replaces lagging KPI dashboards with forward-looking predictive models for Australian CFOs, financial services firms, and fintech operators. Cash flow forecasting, churn prediction, and revenue modelling with 89% accuracy.";
+const canonicalURL = new URL("/industries/financial-services/", Astro.site).href;
+
+const faqs = [
+  {
+    q: "How does PresciaIQ's financial forecasting differ from Power BI or Tableau?",
+    a: "Power BI and Tableau are reporting tools — they show you what happened. PresciaIQ is a prediction engine — it tells you what will happen. Our financial forecasting module uses machine learning trained on your historical financial data to produce forward-looking cash flow, revenue, and churn predictions, not backward-looking dashboards."
+  },
+  {
+    q: "What financial metrics can PresciaIQ predict?",
+    a: "PresciaIQ's financial module predicts: 90-day cash flow with variance analysis, monthly recurring revenue (MRR) trajectory, customer churn probability by segment, accounts receivable collection likelihood, and budget vs actual variance forecasts. Custom prediction models can be built for any financial metric with sufficient historical data."
+  },
+  {
+    q: "Is PresciaIQ suitable for ASX-listed companies or only SMEs?",
+    a: "PresciaIQ serves both. Our SME tier is designed for businesses with $2M–$50M annual revenue. Our enterprise tier serves ASX-listed and larger private companies with complex multi-entity structures, custom data integrations, and dedicated model training. Contact us to discuss which tier fits your organisation."
+  },
+  {
+    q: "How does PresciaIQ handle data security for financial data?",
+    a: "All financial data processed by PresciaIQ is encrypted in transit and at rest using AES-256. We are SOC 2 Type II compliant and operate on Australian data centres (AWS ap-southeast-2). We do not use client financial data to train shared models — each client's prediction engine is trained exclusively on their own data."
+  },
+  {
+    q: "What is the typical implementation timeline for financial services clients?",
+    a: "For standard integrations with Xero, MYOB, or QuickBooks, implementation takes 3–4 weeks. For enterprise clients with custom ERP systems (SAP, Oracle, Microsoft Dynamics), allow 6–10 weeks for data architecture and model training."
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": canonicalURL,
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+          { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.presciaiq.com.au/industries/" },
+          { "@type": "ListItem", "position": 3, "name": "Financial Services", "item": canonicalURL }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    },
+    { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-summary"] }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <div class="border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/industries/" class="hover:text-primary transition-colors">Industries</a>
+          <span>/</span>
+          <span class="text-foreground">Financial Services</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="py-16 md:py-24 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Financial Services & Fintech</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">PresciaIQ Platform</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
+          Replace Reactive Reporting with <span class="text-gradient-primary">Predictive Financial Intelligence</span>
+        </h1>
+        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+          PresciaIQ's forecasting engine helps Australian CFOs, financial services firms, and fintech operators replace lagging KPI dashboards with forward-looking predictive models — cash flow, churn, and revenue forecasts with 89% accuracy.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Book a Free Financial AI Assessment →
+          </a>
+          <a href="/products/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
+            View All Products →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { stat: "89%", label: "Revenue forecast accuracy" },
+            { stat: "90d", label: "Cash flow prediction horizon" },
+            { stat: "AES-256", label: "Data encryption standard" },
+            { stat: "AU", label: "Data sovereignty — local servers only" },
+          ].map(item => (
+            <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
+              <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
+              <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Frequently Asked Questions</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10">Financial Services AI — Common Questions</h2>
+        <div class="space-y-6 max-w-3xl">
+          {faqs.map(faq => (
+            <div class="border-b border-white/5 pb-6">
+              <h3 class="font-display text-lg font-bold text-foreground mb-3">{faq.q}</h3>
+              <p class="text-muted-foreground font-sans leading-relaxed text-sm">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="/answers/how-does-ai-help-cfo-financial-planning-and-forecasting/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Answer</p>
+            <p class="font-display font-bold text-foreground">AI for CFO Forecasting →</p>
+          </a>
+          <a href="/industries/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Industries</p>
+            <p class="font-display font-bold text-foreground">All Industries →</p>
+          </a>
+          <a href="/start/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Get Started</p>
+            <p class="font-display font-bold text-foreground">Book Assessment →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

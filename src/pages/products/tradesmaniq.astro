@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "TradesmanIQ — Job Profitability & Compliance AI for Australian Trades | PresciaIQ";
+const description = "TradesmanIQ predicts job profitability before crew commitment, automates compliance documentation, and optimises scheduling for Australian electrical, plumbing, building, and HVAC businesses. From $490/month.";
+const canonicalURL = new URL("/products/tradesmaniq/", Astro.site).href;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "TradesmanIQ",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": description,
+      "url": canonicalURL,
+      "offers": {
+        "@type": "Offer",
+        "price": "490",
+        "priceCurrency": "AUD",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "490", "priceCurrency": "AUD", "unitText": "MONTH" }
+      },
+      "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.presciaiq.com.au/products/" },
+        { "@type": "ListItem", "position": 3, "name": "TradesmanIQ", "item": canonicalURL }
+      ]
+    },
+    { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-summary"] }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <div class="border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/products/" class="hover:text-primary transition-colors">Products</a>
+          <span>/</span>
+          <span class="text-foreground">TradesmanIQ</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="py-16 md:py-24 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">TradesmanIQ</span>
+          <span class="text-xs text-muted-foreground font-sans">Trades & Field Services</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
+          Know If a Job Is Profitable <span class="text-gradient-primary">Before You Send the Crew</span>
+        </h1>
+        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+          TradesmanIQ analyses your historical job data to predict margin risk before crew commitment, automates state-compliant documentation, and optimises scheduling across multiple sites — without adding admin headcount.
+        </p>
+        <div class="flex flex-col sm:flex-row items-start gap-6 mb-8">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Book a Free Demo →
+          </a>
+          <div>
+            <p class="text-xs text-muted-foreground font-sans mb-1">Starting from</p>
+            <p class="font-mono text-2xl font-bold text-primary">$490/month</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { stat: "19%", label: "Average margin improvement" },
+            { stat: "2–3wk", label: "Implementation timeline" },
+            { stat: "4", label: "Supported field management platforms" },
+            { stat: "92%", label: "Compliance doc accuracy" },
+          ].map(item => (
+            <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
+              <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
+              <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Features</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10">What TradesmanIQ Does</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {[
+            { title: "Job Profitability Prediction", desc: "Analyses job parameters against your historical data to predict actual vs quoted margin — flagging high-risk jobs before you commit the crew." },
+            { title: "Compliance Document Automation", desc: "Generates compliant job cards, safety observations, and completion certificates by job type and state jurisdiction — CES for electrical, Compliance Certificates for plumbing." },
+            { title: "Crew Scheduling Optimisation", desc: "Optimises crew allocation across multiple jobs based on skill requirements, travel time, and job priority — reducing dead time between jobs by an average of 22%." },
+            { title: "Quote Accuracy Scoring", desc: "Scores each new quote against historical similar jobs to identify where your quotes typically under-estimate — improving quote accuracy over time." },
+            { title: "ServiceM8 & Tradify Integration", desc: "Native bidirectional integration with ServiceM8, Tradify, and Simpro. Job data flows in, predictions and documents flow back into the job record automatically." },
+            { title: "Materials Price Alerts", desc: "Monitors real-time pricing for common trade materials (copper, PVC, switchgear, HVAC components) and alerts you when a price movement affects your open quotes." },
+          ].map(f => (
+            <div class="rounded-xl border border-white/8 p-6" style="background: rgba(255,255,255,0.02);">
+              <h3 class="font-display text-lg font-bold text-foreground mb-3">{f.title}</h3>
+              <p class="text-muted-foreground font-sans text-sm leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="/industries/trades/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Industry</p>
+            <p class="font-display font-bold text-foreground">Trades & Field Services →</p>
+          </a>
+          <a href="/products/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Products</p>
+            <p class="font-display font-bold text-foreground">All Products →</p>
+          </a>
+          <a href="/start/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Get Started</p>
+            <p class="font-display font-bold text-foreground">Book Free Demo →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

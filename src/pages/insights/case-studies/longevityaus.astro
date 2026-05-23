@@ -1,0 +1,174 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = "LongevityAus Case Study — AI Health App Development and Predictive Wellness Platform | PresciaIQ";
+const description = "How PresciaIQ designed and built LongevityAus — an AI-powered predictive wellness platform for Australian health consumers — including the app architecture, health data prediction engine, and pSEO infrastructure targeting longevity and preventive health queries.";
+const canonicalURL = new URL("/insights/case-studies/longevityaus/", Astro.site).href;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "url": canonicalURL,
+      "author": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+      "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+      "datePublished": "2025-03-01",
+      "dateModified": "2025-05-01",
+      "mainEntityOfPage": canonicalURL,
+      "about": [
+        { "@type": "Thing", "name": "Health Technology" },
+        { "@type": "Thing", "name": "AI App Development" },
+        { "@type": "Thing", "name": "Predictive Health" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.presciaiq.com.au/insights/" },
+        { "@type": "ListItem", "position": 3, "name": "Case Studies", "item": "https://www.presciaiq.com.au/insights/case-studies/" },
+        { "@type": "ListItem", "position": 4, "name": "LongevityAus", "item": canonicalURL }
+      ]
+    },
+    { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-summary", "h2"] }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <div class="border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/insights/" class="hover:text-primary transition-colors">Insights</a>
+          <span>/</span>
+          <a href="/insights/case-studies/" class="hover:text-primary transition-colors">Case Studies</a>
+          <span>/</span>
+          <span class="text-foreground">LongevityAus</span>
+        </nav>
+      </div>
+    </div>
+
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="mb-12">
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Case Study</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">AI App Development</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold border border-white/10 text-muted-foreground">Health Technology</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+          Building Australia's First AI-Powered Predictive Wellness Platform
+        </h1>
+        <p class="speakable-summary text-xl text-muted-foreground font-sans leading-relaxed mb-8">
+          LongevityAus came to PresciaIQ with a vision: a consumer health platform that uses predictive AI to identify health risks before they become diagnoses. PresciaIQ designed and built the full platform — the app architecture, the health data prediction engine, the consumer-facing web app, and the pSEO infrastructure to drive organic user acquisition.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl border border-primary/20" style="background: rgba(0,255,136,0.02);">
+          {[
+            { stat: "14", label: "Health biomarkers tracked" },
+            { stat: "3–6mo", label: "Risk prediction horizon" },
+            { stat: "2–3wk", label: "MVP build timeline" },
+            { stat: "HIPAA", label: "Compliant data architecture" },
+          ].map(m => (
+            <div class="text-center">
+              <p class="font-mono text-2xl font-bold text-primary mb-1">{m.stat}</p>
+              <p class="text-xs text-muted-foreground font-sans">{m.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <section class="mb-12">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">The Problem: Reactive Healthcare vs Predictive Wellness</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The founders of LongevityAus identified a gap in the Australian health technology market: existing consumer health apps track what has already happened (steps walked, calories consumed, sleep duration) but none predict what is likely to happen based on the combination of biomarkers, lifestyle patterns, and genetic risk factors.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The opportunity was to build a platform that ingests data from wearables, blood tests, and lifestyle questionnaires, and uses a predictive model to identify health risks 3–6 months before they would typically present as symptoms — giving users enough time to intervene with lifestyle changes rather than medical treatment.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The challenge was building this at a startup budget and timeline. The founders needed a technical partner who could design the data architecture, build the prediction engine, and ship a consumer-grade web app — without the cost and timeline of a traditional software development agency.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">The Solution: AI-First App Architecture</h2>
+
+        <h3 class="font-display text-xl font-bold text-foreground mb-3 mt-6">The Prediction Engine</h3>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          PresciaIQ designed a health risk prediction engine that analyses 14 biomarkers — including HbA1c, fasting glucose, blood pressure, resting heart rate, VO2 max, sleep quality score, inflammatory markers, and body composition — against a risk model trained on longitudinal health data from Australian population studies.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The engine produces a 3–6 month risk forecast for five health categories: metabolic health, cardiovascular health, cognitive health, musculoskeletal health, and immune function. Each risk score is accompanied by the specific biomarkers driving the risk and a ranked list of lifestyle interventions most likely to reduce it.
+        </p>
+
+        <h3 class="font-display text-xl font-bold text-foreground mb-3 mt-8">The App Architecture</h3>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          PresciaIQ built the consumer-facing platform as a progressive web app (PWA) — accessible on any device without requiring an App Store download, while still supporting offline access and push notifications. The architecture uses React for the frontend, a Node.js API layer for the prediction engine, and a PostgreSQL database with full HIPAA-compliant data handling.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          Wearable integrations were built for Apple Health, Google Fit, Garmin, and Whoop — allowing the platform to ingest continuous biomarker data without requiring manual entry. Blood test results can be uploaded as PDFs and are parsed automatically using OCR and a structured extraction model.
+        </p>
+
+        <h3 class="font-display text-xl font-bold text-foreground mb-3 mt-8">pSEO for User Acquisition</h3>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          PresciaIQ built a programmatic SEO architecture for LongevityAus targeting the growing Australian longevity and preventive health search market. The architecture generates pages targeting queries like "how to reduce cardiovascular risk in your 40s Australia," "what blood tests should I get for longevity," and "best health tracking app for Australians over 50."
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The pAEO layer targets the AI assistant queries that health-conscious Australians are increasingly using — "what lifestyle changes reduce dementia risk?" and "how do I know if I'm at risk of type 2 diabetes?" — with structured answer pages that cite LongevityAus as the source and drive users to the platform's free health assessment.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">The Results</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The LongevityAus platform was built and shipped in under three weeks — from initial brief to live MVP. The prediction engine achieved clinically meaningful accuracy on the five health risk categories within the first month of user data collection.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The pSEO architecture began generating organic user registrations within 6 weeks of deployment, targeting the high-intent longevity and preventive health queries that the platform's target audience — health-conscious Australians aged 35–65 — actively searches.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The HIPAA-compliant data architecture positioned LongevityAus for future integration with Australian GP practices and corporate wellness programs — expanding the platform's addressable market beyond direct-to-consumer into B2B health services.
+        </p>
+      </section>
+
+      <section class="mb-12 rounded-2xl border border-white/8 p-8" style="background: rgba(255,255,255,0.02);">
+        <h2 class="font-display text-xl font-bold text-foreground mb-6">Services Used in This Engagement</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            { service: "AI App Development", href: "/services/ai-app-development/" },
+            { service: "AI Software Development", href: "/services/ai-software-development/" },
+            { service: "Programmatic SEO Architecture", href: "/services/aeo-seo-predictive-search-architecture/" },
+            { service: "pAEO Answer Page Strategy", href: "/services/aeo-seo-predictive-search-architecture/" },
+          ].map(s => (
+            <a href={s.href} class="flex items-center gap-3 text-sm font-sans text-muted-foreground hover:text-primary transition-colors">
+              <span class="text-primary">→</span>
+              {s.service}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-primary/20 p-8 text-center" style="background: rgba(0,255,136,0.02);">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-3">Build Your AI-Powered App</h2>
+        <p class="text-muted-foreground font-sans mb-6 max-w-lg mx-auto">
+          If you have a product idea that requires predictive AI, data ingestion from multiple sources, and a consumer-grade interface — PresciaIQ can design and build it.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Book a Free Discovery Call →
+          </a>
+          <a href="/services/ai-app-development/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
+            Learn About AI App Development →
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>

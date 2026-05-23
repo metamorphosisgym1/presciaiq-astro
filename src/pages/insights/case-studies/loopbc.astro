@@ -1,0 +1,166 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = "LoopBC Case Study — AI-Powered Campaign Prediction for a Digital Marketing Agency | PresciaIQ";
+const description = "How PresciaIQ built AdsIQ predictive campaign scoring and a full pSEO/pAEO architecture for LoopBC, a digital marketing agency — enabling ROAS prediction before campaign launch and organic lead generation across 21 industry verticals.";
+const canonicalURL = new URL("/insights/case-studies/loopbc/", Astro.site).href;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "url": canonicalURL,
+      "author": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+      "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+      "datePublished": "2025-02-01",
+      "dateModified": "2025-05-01",
+      "mainEntityOfPage": canonicalURL,
+      "about": [
+        { "@type": "Thing", "name": "Digital Marketing" },
+        { "@type": "Thing", "name": "Campaign Performance Prediction" },
+        { "@type": "Thing", "name": "Programmatic SEO" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.presciaiq.com.au/insights/" },
+        { "@type": "ListItem", "position": 3, "name": "Case Studies", "item": "https://www.presciaiq.com.au/insights/case-studies/" },
+        { "@type": "ListItem", "position": 4, "name": "LoopBC", "item": canonicalURL }
+      ]
+    },
+    { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-summary", "h2"] }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <div class="border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/insights/" class="hover:text-primary transition-colors">Insights</a>
+          <span>/</span>
+          <a href="/insights/case-studies/" class="hover:text-primary transition-colors">Case Studies</a>
+          <span>/</span>
+          <span class="text-foreground">LoopBC</span>
+        </nav>
+      </div>
+    </div>
+
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="mb-12">
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Case Study</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">AdsIQ + pSEO</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold border border-white/10 text-muted-foreground">Digital Marketing Agency</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+          How LoopBC Uses AI to Predict Campaign ROAS Before a Single Dollar Is Spent
+        </h1>
+        <p class="speakable-summary text-xl text-muted-foreground font-sans leading-relaxed mb-8">
+          LoopBC is a digital marketing agency that needed two things: a way to prove campaign value to clients before launch, and an organic lead generation system that didn't depend on their own ad spend. PresciaIQ delivered both — AdsIQ predictive campaign scoring and a full pSEO/pAEO architecture spanning 21 industry verticals.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl border border-primary/20" style="background: rgba(0,255,136,0.02);">
+          {[
+            { stat: "84%", label: "ROAS prediction accuracy" },
+            { stat: "21", label: "Industry verticals covered" },
+            { stat: "31%", label: "Average client ROAS improvement" },
+            { stat: "2.4M", label: "Campaign data points in model" },
+          ].map(m => (
+            <div class="text-center">
+              <p class="font-mono text-2xl font-bold text-primary mb-1">{m.stat}</p>
+              <p class="text-xs text-muted-foreground font-sans">{m.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <section class="mb-12">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">The Problem: Proving Value Before Spend</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          Digital marketing agencies face a structural credibility problem: clients want proof of results before committing budget, but results only exist after budget is committed. LoopBC was losing pitches to larger agencies who could point to extensive case study libraries — even when LoopBC's strategic thinking was demonstrably superior.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The second problem was self-referential: LoopBC was spending significant budget on their own Google and Meta ads to generate new business leads. The irony of a marketing agency paying $60–$120 per click for their own leads was not lost on the founders.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          They needed a predictive capability that could show prospective clients a data-driven ROAS forecast before campaign launch — and an organic lead generation system that would make their own paid ad dependency redundant.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">The Solution: AdsIQ + pSEO Architecture</h2>
+
+        <h3 class="font-display text-xl font-bold text-foreground mb-3 mt-6">AdsIQ: Predictive Campaign Scoring</h3>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          PresciaIQ integrated AdsIQ into LoopBC's pitch and onboarding workflow. Before any campaign launches, LoopBC's team enters the campaign parameters — industry vertical, target audience, budget, creative format, platform mix, and objective — and AdsIQ produces a risk-adjusted ROAS forecast with a confidence interval based on 2.4 million comparable Australian campaign data points.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The output is a client-ready prediction document: "Based on 847 comparable campaigns in the retail sector targeting 25–45 year olds on Meta with a $15,000 monthly budget, we predict a ROAS of 3.2–4.1x with 84% confidence." This transformed LoopBC's pitch dynamic — instead of asking clients to trust their instincts, they were presenting data-backed predictions.
+        </p>
+
+        <h3 class="font-display text-xl font-bold text-foreground mb-3 mt-8">pSEO Architecture: Organic Lead Generation</h3>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          PresciaIQ designed and built a programmatic SEO architecture for LoopBC's own website covering their services across 21 industry verticals and 59 Australian locations. The architecture generates pages targeting queries like "digital marketing agency for construction companies Sydney" and "Google Ads management for medical practices Melbourne" — high-intent, low-competition queries that national agencies don't bother targeting.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The pAEO layer — Answer Engine Optimisation — ensures LoopBC's content is structured to be cited by ChatGPT and Perplexity when users ask questions like "what is the best digital marketing agency for a construction company in Sydney?" Each answer page carries SpeakableSpecification schema, FAQPage schema, and a direct CTA to book a discovery call.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">The Results</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The AdsIQ integration immediately changed LoopBC's pitch conversion rate. Prospective clients who received a data-backed ROAS prediction in the proposal were significantly more likely to proceed — the prediction removed the "how do we know this will work?" objection from the sales conversation.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          For existing clients, AdsIQ's post-campaign learning loop improved prediction accuracy over time. After 90 days of campaign data flowing back into the model, LoopBC's ROAS predictions for their core verticals exceeded 84% accuracy — making the predictions genuinely useful for client budget planning.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The pSEO architecture began generating organic enquiries within 8 weeks of deployment as Google indexed the first wave of pages. LoopBC's own paid ad spend for new business acquisition was reduced as organic leads from the programmatic pages began filling the pipeline.
+        </p>
+      </section>
+
+      <section class="mb-12 rounded-2xl border border-white/8 p-8" style="background: rgba(255,255,255,0.02);">
+        <h2 class="font-display text-xl font-bold text-foreground mb-6">Services Used in This Engagement</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            { service: "AdsIQ — Predictive Campaign Scoring", href: "/products/adsiq/" },
+            { service: "Programmatic SEO Architecture", href: "/services/aeo-seo-predictive-search-architecture/" },
+            { service: "AI Web Development", href: "/services/ai-web-development/" },
+            { service: "pAEO Answer Page Strategy", href: "/services/aeo-seo-predictive-search-architecture/" },
+          ].map(s => (
+            <a href={s.href} class="flex items-center gap-3 text-sm font-sans text-muted-foreground hover:text-primary transition-colors">
+              <span class="text-primary">→</span>
+              {s.service}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="rounded-2xl border border-primary/20 p-8 text-center" style="background: rgba(0,255,136,0.02);">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-3">Predict Your Campaign Performance</h2>
+        <p class="text-muted-foreground font-sans mb-6 max-w-lg mx-auto">
+          Whether you're a marketing agency wanting to prove value to clients, or a business wanting to know if your next campaign will deliver before you commit budget — AdsIQ gives you the answer.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Run a Free Campaign Prediction →
+          </a>
+          <a href="/products/adsiq/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
+            Learn About AdsIQ →
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>

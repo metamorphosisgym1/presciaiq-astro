@@ -8,6 +8,14 @@ export default defineConfig({
     react(),
     tailwind(),
     sitemap({
+      filter: (page) => {
+        // Exclude shallow programmatic clusters from sitemap (noindexed)
+        const shallow = ['/for/', '/compare/', '/solutions/', '/use-case/', '/aeo-seo/'];
+        // Keep /answers/ and /problems/ (hand-crafted AEO pages)
+        if (page.includes('/answers/') || page.includes('/problems/')) return true;
+        // Exclude all other programmatic clusters
+        return !shallow.some(path => page.includes(path));
+      },
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),

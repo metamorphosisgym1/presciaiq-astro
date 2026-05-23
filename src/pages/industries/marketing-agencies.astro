@@ -1,0 +1,202 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Predictive AI for Marketing Agencies & Advertisers in Australia | PresciaIQ";
+const description = "AdsIQ by PresciaIQ predicts campaign ROAS, CTR, and conversion likelihood before you spend a dollar. Built for Australian marketing agencies and in-house teams running Google, Meta, and programmatic campaigns.";
+const canonicalURL = new URL("/industries/marketing-agencies/", Astro.site).href;
+
+const faqs = [
+  {
+    q: "How does AdsIQ predict ROAS before a campaign launches?",
+    a: "AdsIQ scores your campaign parameters — creative type, audience segment, platform, budget, and objective — against 2.4 million historical campaign data points from Australian advertisers. The engine produces a predicted ROAS range with a confidence interval, allowing you to optimise before spend."
+  },
+  {
+    q: "Which advertising platforms does AdsIQ support?",
+    a: "AdsIQ currently supports Google Ads (Search, Display, YouTube), Meta Ads (Facebook, Instagram), TikTok Ads, LinkedIn Ads, and programmatic display via DV360. Platform-specific prediction models are trained separately for each channel."
+  },
+  {
+    q: "Can AdsIQ integrate with our existing reporting stack?",
+    a: "Yes. AdsIQ connects to Google Analytics 4, Looker Studio, and major ad platforms via API. Predictions are surfaced in your existing dashboard or via a standalone AdsIQ interface — your choice."
+  },
+  {
+    q: "How accurate are AdsIQ's ROAS predictions?",
+    a: "On campaigns with sufficient historical data (minimum 90 days of account history), AdsIQ achieves 84% accuracy on ROAS predictions within a ±15% margin. For new accounts without history, accuracy improves to this level within 60 days of data ingestion."
+  },
+  {
+    q: "Is AdsIQ suitable for small marketing agencies or only large ones?",
+    a: "AdsIQ is built for agencies managing $50K/month or more in ad spend. For smaller agencies, our starter tier provides prediction scoring on individual campaigns without full account integration. Contact us to discuss which tier fits your current spend level."
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": canonicalURL,
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+          { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.presciaiq.com.au/industries/" },
+          { "@type": "ListItem", "position": 3, "name": "Marketing & Advertising", "item": canonicalURL }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    },
+    {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", ".speakable-summary"]
+    }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <!-- Breadcrumb -->
+    <div class="border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/industries/" class="hover:text-primary transition-colors">Industries</a>
+          <span>/</span>
+          <span class="text-foreground">Marketing & Advertising</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="py-16 md:py-24 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Marketing & Advertising</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">AdsIQ</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
+          Know Your ROAS <span class="text-gradient-primary">Before You Spend a Dollar</span>
+        </h1>
+        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+          AdsIQ scores your campaign parameters against 2.4 million historical Australian campaign data points to predict ROAS, CTR, and conversion likelihood before launch — so you optimise the strategy, not the post-mortem.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Run a Free Campaign Prediction →
+          </a>
+          <a href="/products/adsiq/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
+            View AdsIQ →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div>
+            <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Problem</p>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">Australian Ad Spend Is Wasted on Campaigns That Were Always Going to Underperform</h2>
+            <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+              The average Australian marketing agency launches campaigns based on creative intuition, platform best-practice guides, and last quarter's benchmarks. By the time the data tells you the campaign is underperforming, you've already spent 60–70% of the budget.
+            </p>
+            <p class="text-muted-foreground font-sans leading-relaxed">
+              AdsIQ inverts this. Before you commit budget, the prediction engine tells you which creative format, audience segment, and bidding strategy is most likely to hit your ROAS target — based on what actually worked for comparable Australian campaigns in your vertical.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            {[
+              { stat: "84%", label: "ROAS prediction accuracy" },
+              { stat: "2.4M", label: "Historical campaign data points" },
+              { stat: "31%", label: "Average improvement in campaign ROAS" },
+              { stat: "6", label: "Supported ad platforms" },
+            ].map(item => (
+              <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
+                <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
+                <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Use Cases</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10">How Australian Marketing Teams Use AdsIQ</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              title: "Pre-Launch Campaign Scoring",
+              desc: "Before committing budget, score your campaign brief against historical performance data. Get a predicted ROAS range, CTR estimate, and top 3 optimisation recommendations."
+            },
+            {
+              title: "Creative Format Selection",
+              desc: "AdsIQ tells you whether video, static, carousel, or story format is most likely to perform for your specific audience segment and campaign objective — before you brief the creative team."
+            },
+            {
+              title: "Budget Allocation Modelling",
+              desc: "Model how splitting budget across Google, Meta, and TikTok will affect total ROAS — and get a recommended allocation based on your industry vertical and target audience demographics."
+            },
+          ].map(uc => (
+            <div class="rounded-xl border border-white/8 p-6" style="background: rgba(255,255,255,0.02);">
+              <h3 class="font-display text-lg font-bold text-foreground mb-3">{uc.title}</h3>
+              <p class="text-muted-foreground font-sans text-sm leading-relaxed">{uc.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Frequently Asked Questions</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10">Marketing AI — Common Questions</h2>
+        <div class="space-y-6 max-w-3xl">
+          {faqs.map(faq => (
+            <div class="border-b border-white/5 pb-6">
+              <h3 class="font-display text-lg font-bold text-foreground mb-3">{faq.q}</h3>
+              <p class="text-muted-foreground font-sans leading-relaxed text-sm">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Related -->
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="/products/adsiq/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Product</p>
+            <p class="font-display font-bold text-foreground">AdsIQ →</p>
+          </a>
+          <a href="/answers/how-does-predictive-ai-improve-roas-for-australian-marketing-agencies/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Answer</p>
+            <p class="font-display font-bold text-foreground">AI & ROAS Prediction →</p>
+          </a>
+          <a href="/insights/roas-prediction-tool-australian-marketing/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Insight</p>
+            <p class="font-display font-bold text-foreground">ROAS Prediction Tool →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

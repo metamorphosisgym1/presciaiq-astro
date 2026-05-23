@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "AdsIQ — Predictive Campaign Performance Engine | PresciaIQ";
+const description = "AdsIQ predicts ROAS, CTR, and conversion likelihood before your campaign launches. Scored against 2.4M historical Australian campaign data points across Google, Meta, TikTok, and LinkedIn. From $890/month.";
+const canonicalURL = new URL("/products/adsiq/", Astro.site).href;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "AdsIQ",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": description,
+      "url": canonicalURL,
+      "offers": {
+        "@type": "Offer",
+        "price": "890",
+        "priceCurrency": "AUD",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "890", "priceCurrency": "AUD", "unitText": "MONTH" }
+      },
+      "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.presciaiq.com.au/products/" },
+        { "@type": "ListItem", "position": 3, "name": "AdsIQ", "item": canonicalURL }
+      ]
+    },
+    { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".speakable-summary"] }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+    <div class="border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span>/</span>
+          <a href="/products/" class="hover:text-primary transition-colors">Products</a>
+          <span>/</span>
+          <span class="text-foreground">AdsIQ</span>
+        </nav>
+      </div>
+    </div>
+
+    <section class="py-16 md:py-24 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">AdsIQ</span>
+          <span class="text-xs text-muted-foreground font-sans">Marketing & Advertising</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
+          Predict Campaign ROAS <span class="text-gradient-primary">Before You Spend a Dollar</span>
+        </h1>
+        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+          AdsIQ scores your campaign parameters against 2.4 million historical Australian campaign data points to predict ROAS, CTR, and conversion likelihood before launch — across Google, Meta, TikTok, and LinkedIn.
+        </p>
+        <div class="flex flex-col sm:flex-row items-start gap-6 mb-8">
+          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+            Run a Free Campaign Prediction →
+          </a>
+          <div>
+            <p class="text-xs text-muted-foreground font-sans mb-1">Starting from</p>
+            <p class="font-mono text-2xl font-bold text-primary">$890/month</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { stat: "84%", label: "ROAS prediction accuracy" },
+            { stat: "2.4M", label: "Historical AU campaign data points" },
+            { stat: "31%", label: "Average ROAS improvement" },
+            { stat: "6", label: "Supported ad platforms" },
+          ].map(item => (
+            <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
+              <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
+              <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Features</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10">What AdsIQ Does</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {[
+            { title: "Pre-Launch ROAS Prediction", desc: "Score your campaign brief before committing budget. Get a predicted ROAS range with confidence interval based on comparable Australian campaigns in your vertical." },
+            { title: "Creative Format Scoring", desc: "AdsIQ tells you whether video, static, carousel, or story format is most likely to perform for your specific audience and objective — before you brief the creative team." },
+            { title: "Budget Allocation Modelling", desc: "Model how splitting budget across Google, Meta, and TikTok affects total ROAS and get a recommended allocation based on your industry and target demographics." },
+            { title: "Audience Segment Prediction", desc: "Score different audience segments against your campaign objective to identify the highest-probability converting segment before you set targeting." },
+            { title: "Post-Campaign Learning", desc: "Every campaign result feeds back into your AdsIQ model, improving prediction accuracy over time. After 90 days, accuracy typically exceeds 84%." },
+            { title: "GA4 & Platform Integration", desc: "Connects to Google Analytics 4, Google Ads, Meta Ads Manager, TikTok Ads, and LinkedIn Campaign Manager for seamless data flow." },
+          ].map(f => (
+            <div class="rounded-xl border border-white/8 p-6" style="background: rgba(255,255,255,0.02);">
+              <h3 class="font-display text-lg font-bold text-foreground mb-3">{f.title}</h3>
+              <p class="text-muted-foreground font-sans text-sm leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="/industries/marketing-agencies/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Industry</p>
+            <p class="font-display font-bold text-foreground">Marketing & Advertising →</p>
+          </a>
+          <a href="/insights/case-studies/loopbc/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Case Study</p>
+            <p class="font-display font-bold text-foreground">LoopBC Case Study →</p>
+          </a>
+          <a href="/start/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-xs text-primary mb-2">Get Started</p>
+            <p class="font-display font-bold text-foreground">Book Free Demo →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
