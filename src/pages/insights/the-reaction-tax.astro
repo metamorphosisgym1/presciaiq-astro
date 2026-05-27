@@ -18,10 +18,7 @@ import Layout from '../../layouts/Layout.astro';
   "@type": "BlogPosting",
   "headline": "The Reaction Tax",
   "description": "Every business in Australia pays a tax that never appears on a P&L. It is the price a business pays every time it learns something after it has already happened.",
-  "author": {
-    "@type": "Organization",
-    "name": "PresciaIQ"
-  },
+  "author": { "@type": "Person", "name": "Macauley Burke", "@id": "https://www.presciaiq.com.au/about/#macauley-burke", "url": "https://www.presciaiq.com.au/about/", "jobTitle": "Co-Founder & Head of Growth", "worksFor": { "@type": "Organization", "@id": "https://www.presciaiq.com.au/#organization" }, "knowsAbout": ["B2B Sales", "Enterprise Client Development", "AI Commercialisation", "Revenue Growth"] },
   "publisher": {
     "@type": "Organization",
     "name": "PresciaIQ",
@@ -37,7 +34,12 @@ import Layout from '../../layouts/Layout.astro';
     "@id": "https://www.presciaiq.com.au/insights/the-reaction-tax"
   },
   "image": "https://presciaiq.com.au/og-image.jpg",
-  "url": "https://www.presciaiq.com.au/insights/the-reaction-tax"
+  "url": "https://www.presciaiq.com.au/insights/the-reaction-tax",
+  "relatedLink": [
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/services/aeo-seo-predictive-search-architecture/", "name": "AEO/SEO Predictive Search Architecture" },
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/where-the-reaction-tax-hides/", "name": "Where the Reaction Tax Hides" },
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/the-action-gap/", "name": "The Action Gap" }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -61,6 +63,22 @@ import Layout from '../../layouts/Layout.astro';
       "acceptedAnswer": { "@type": "Answer", "text": "You eliminate the Reaction Tax by replacing reactive reporting with predictive intelligence. Instead of asking what happened, your tools should answer: what is about to happen, and what should I do about it before it does? Purpose-built predictive AI platforms like PresciaIQ are designed to close this gap for Australian SMBs." }
     }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "@id": "https://www.presciaiq.com.au/insights/the-reaction-tax/#reaction-tax",
+  "name": "Reaction Tax",
+  "description": "The Reaction Tax is the hidden cost every business pays when it learns something after it has already happened — the ad spend burned on a failing campaign, the build that slips because nobody saw the supplier delay, or the warehouse that ran dry when demand spiked. Coined by PresciaIQ, it quantifies the compounding cost of reactive decision-making versus predictive intelligence.",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "PresciaIQ Predictive Intelligence Glossary",
+    "url": "https://www.presciaiq.com.au/insights/"
+  },
+  "url": "https://www.presciaiq.com.au/insights/the-reaction-tax/",
+  "termCode": "reaction-tax"
 }
 </script>
 <Layout title="The Reaction Tax | PresciaIQ Insights" description="The Reaction Tax is the hidden cost Australian businesses pay for learning things after they happen. Discover how predictive AI eliminates it.">

@@ -91,7 +91,36 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
             "addressRegion": "NSW",
             "addressCountry": "AU"
           },
-          "sameAs": ["https://www.linkedin.com/company/presciaiq"]
+          "sameAs": [
+            "https://www.linkedin.com/company/presciaiq",
+            "https://www.crunchbase.com/organization/presciaiq",
+            "https://www.facebook.com/presciaiq",
+            "https://abr.business.gov.au/ABN/View?abn=presciaiq",
+            "https://www.google.com/search?q=PresciaIQ"
+          ],
+          "knowsAbout": [
+            "Predictive Analytics",
+            "Applied AI",
+            "Business Intelligence",
+            "AI Platform Development",
+            "Answer Engine Optimisation",
+            "Programmatic SEO"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${resolvedCanonical}#webpage`,
+          "url": resolvedCanonical,
+          "name": title,
+          "description": description,
+          "isPartOf": { "@id": "https://www.presciaiq.com.au/#website" },
+          "about": { "@id": "https://www.presciaiq.com.au/#organization" },
+          "dateModified": "2026-05-27",
+          "inLanguage": "en-AU",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", "h2", ".answer-short", ".answer-full", "[data-speakable]"]
+          }
         },
         {
           "@type": "WebSite",

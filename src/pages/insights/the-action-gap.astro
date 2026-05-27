@@ -18,7 +18,7 @@ import Layout from '../../layouts/Layout.astro';
   "@type": "BlogPosting",
   "headline": "The Action Gap",
   "description": "Why most predictive AI deployments fail, and the four conditions that fix them. The model works. The organisation does not. Here is how to change that.",
-  "author": { "@type": "Organization", "name": "PresciaIQ" },
+  "author": { "@type": "Person", "name": "Macauley Burke", "@id": "https://www.presciaiq.com.au/about/#macauley-burke", "url": "https://www.presciaiq.com.au/about/", "jobTitle": "Co-Founder & Head of Growth", "worksFor": { "@type": "Organization", "@id": "https://www.presciaiq.com.au/#organization" }, "knowsAbout": ["B2B Sales", "Enterprise Client Development", "AI Commercialisation", "Revenue Growth"] },
   "publisher": {
     "@type": "Organization",
     "name": "PresciaIQ",
@@ -29,7 +29,12 @@ import Layout from '../../layouts/Layout.astro';
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.presciaiq.com.au/insights/the-action-gap" },
   "image": "https://www.presciaiq.com.au/og-image.jpg",
   "url": "https://www.presciaiq.com.au/insights/the-action-gap",
-  "isPartOf": { "@type": "PublicationIssue", "issueNumber": "04", "isPartOf": { "@type": "Periodical", "name": "PresciaIQ Foundation Series" } }
+  "isPartOf": { "@type": "PublicationIssue", "issueNumber": "04", "isPartOf": { "@type": "Periodical", "name": "PresciaIQ Foundation Series" } ,
+  "relatedLink": [
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/the-reaction-tax/", "name": "The Reaction Tax" },
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/three-tests-for-predictive-intelligence/", "name": "Three Tests for Predictive Intelligence" },
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/services/ai-software-development/", "name": "AI Software Development" }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -53,6 +58,22 @@ import Layout from '../../layouts/Layout.astro';
       "acceptedAnswer": { "@type": "Answer", "text": "Close the action gap by implementing four conditions: (1) Map every alert type to one named decision-maker — not a team, a person. (2) Pre-define the trigger and action for each alert type before the tool goes live. (3) Create a closed loop that compares every prediction to the actual outcome and measures hit rate. (4) Give the team explicit cultural permission to act on 70% probability rather than waiting for 95% certainty." }
     }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "@id": "https://www.presciaiq.com.au/insights/the-action-gap/#action-gap",
+  "name": "Action Gap",
+  "description": "The Action Gap is the interval between when a predictive AI model produces a correct forecast and when an organisation actually acts on it. Coined by PresciaIQ, it describes the organisational failure mode where the model works but the business does not — caused by unclear ownership, misaligned incentives, or decision latency. Closing the Action Gap is the primary challenge in deploying predictive intelligence at scale.",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "PresciaIQ Predictive Intelligence Glossary",
+    "url": "https://www.presciaiq.com.au/insights/"
+  },
+  "url": "https://www.presciaiq.com.au/insights/the-action-gap/",
+  "termCode": "action-gap"
 }
 </script>
 <Layout title="The Action Gap | PresciaIQ Insights — Foundation Series Issue 04" description="Why most predictive AI deployments fail, and the four conditions that fix them. The model works. The organisation does not. Here is how to change that.">
