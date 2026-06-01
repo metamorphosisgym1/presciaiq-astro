@@ -125,11 +125,11 @@ const MagneticButton = ({ children, href, className }: { children: React.ReactNo
 };
 
 const clients = [
-  { name: "Modern Body Method", src: "/manus-storage/mbm-logo_dc13c582.jpg", height: 44 },
-  { name: "Longevity Australia", src: "/manus-storage/longevity-logo-transparent_0aaae48d.png", height: 36 },
-  { name: "MAC Developments", src: "/manus-storage/mac-developments-logo-white_631abb34.png", height: 40 },
-  { name: "BuildHire", src: "/manus-storage/buildhire-logo_52120bb0.png", height: 40 },
-  { name: "A-One Fencing & Gates", src: "/manus-storage/aone-fencing-logo-transparent_b8d8bcd6.png", height: 52 },
+  { name: "Modern Body Method", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/FSMtjROAgpCQtXgQ.jpg", height: 44 },
+  { name: "Longevity Australia", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/cuvgTHdxFETpXNfw.png", height: 36 },
+  { name: "MAC Developments", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/toLVqRnPHQXIWwAV.png", height: 40 },
+  { name: "BuildHire", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/HTjarNxJwVKsAfMq.png", height: 40 },
+  { name: "A-One Fencing & Gates", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/PToThjafjtTfyGoL.png", height: 52 },
 ];
 
 const HeroSection = () => {
