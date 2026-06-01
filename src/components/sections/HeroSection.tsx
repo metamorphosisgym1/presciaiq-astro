@@ -124,12 +124,12 @@ const MagneticButton = ({ children, href, className }: { children: React.ReactNo
   );
 };
 
-const stats = [
-  "AI-Powered Risk Detection for Construction",
-  "Smarter Ad Spend with Predictive Analytics",
-  "4 AI Products - One Unified Ecosystem",
-  "Built for Australian Businesses",
-  "⭐ 5-Star Rated on Google AI Marketplace",
+const clients = [
+  { name: "Modern Body Method", src: "/manus-storage/mbm-logo_dc13c582.jpg", height: 44 },
+  { name: "Longevity Australia", src: "/manus-storage/longevity-logo-transparent_0aaae48d.png", height: 36 },
+  { name: "MAC Developments", src: "/manus-storage/mac-developments-logo-white_631abb34.png", height: 40 },
+  { name: "BuildHire", src: "/manus-storage/buildhire-logo_52120bb0.png", height: 40 },
+  { name: "A-One Fencing & Gates", src: "/manus-storage/aone-fencing-logo-transparent_b8d8bcd6.png", height: 52 },
 ];
 
 const HeroSection = () => {
@@ -249,14 +249,21 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scrolling stats bar */}
-      <div className="relative z-10" style={{ borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(20px)' }}>
-        <div className="overflow-hidden">
-          <div className="flex animate-scroll-left">
-            {[...stats, ...stats].map((stat, i) => (
-              <div key={i} className="flex items-center gap-6 px-8 py-4 whitespace-nowrap">
-                <span className="font-mono text-sm text-primary neon-glow">{stat}</span>
-                <span className="text-muted-foreground/30">|</span>
+      {/* Client logo carousel */}
+      <div className="relative z-10" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(20px)' }}>
+        <div className="py-2 text-center">
+          <span className="text-[10px] font-mono text-muted-foreground/40 uppercase tracking-[0.25em]">Trusted by Australian businesses</span>
+        </div>
+        <div className="overflow-hidden pb-6">
+          <div className="flex animate-scroll-left" style={{ width: 'max-content' }}>
+            {[...clients, ...clients, ...clients].map((client, i) => (
+              <div key={i} className="flex items-center justify-center px-12 flex-shrink-0">
+                <img
+                  src={client.src}
+                  alt={client.name}
+                  style={{ height: client.height, width: 'auto', maxWidth: 150, objectFit: 'contain' }}
+                  className="opacity-85 hover:opacity-100 transition-opacity duration-300"
+                />
               </div>
             ))}
           </div>
