@@ -41,8 +41,8 @@ export default function AuditPopup() {
   }, []);
 
   useEffect(() => {
-    // Time delay: 10 seconds
-    const timer = setTimeout(showPopup, 10000);
+    // Time delay: 5 seconds
+    const timer = setTimeout(showPopup, 5000);
 
     // Exit intent: cursor moves toward top of viewport
     const handleMouseLeave = (e: MouseEvent) => {
