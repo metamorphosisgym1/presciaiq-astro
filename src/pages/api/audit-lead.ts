@@ -25,7 +25,7 @@ export const POST: APIRoute = async ({ request }) => {
     // ── 1. Notify PresciaIQ team ──────────────────────────────────────────
     await resend.emails.send({
       from: "PresciaIQ Leads <leads@presciaiq.com.au>",
-      to: ["hello@presciaiq.com.au"],
+      to: ["sales@presciaiq.com.au"],
       subject: `🔍 New Audit Request — ${name} (${url})`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #0a0f0a; color: #ffffff; padding: 32px; border-radius: 12px;">
