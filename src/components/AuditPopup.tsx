@@ -82,34 +82,24 @@ export default function AuditPopup() {
     setLoading(true);
 
     try {
-      // Send internal notification to sales@presciaiq.com.au
-      await fetch("https://api.resend.com/emails", {
+      // Submit to Web3Forms — delivers to sales@presciaiq.com.au
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer re_T6jG9okS_3iCprYZpjyZCunMB1UwBzFoQ",
-        },
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
-          from: "PresciaIQ Audit <onboarding@resend.dev>",
-          to: ["sales@presciaiq.com.au"],
+          access_key: "fd818bb1-e5a7-4519-873e-68ba8725be59",
           subject: `New Audit Lead: ${form.name} — ${form.url}`,
-          html: `<h2>New Website Audit Request</h2><p><strong>Name:</strong> ${form.name}</p><p><strong>Email:</strong> ${form.email}</p><p><strong>Website:</strong> ${form.url}</p><p><strong>Industry:</strong> ${form.industry}</p><p><a href="https://backlinkdash-9wienkvu.manus.space/">Open Dashboard to Run Audit →</a></p>`,
+          from_name: "PresciaIQ Website Audit",
+          name: form.name,
+          email: form.email,
+          website: form.url,
+          industry: form.industry,
+          message: `New Website Audit Request\n\nName: ${form.name}\nEmail: ${form.email}\nWebsite: ${form.url}\nIndustry: ${form.industry}\n\nOpen Dashboard: https://backlinkdash-9wienkvu.manus.space/`,
+          botcheck: "",
         }),
       });
-      // Send confirmation to the lead
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer re_T6jG9okS_3iCprYZpjyZCunMB1UwBzFoQ",
-        },
-        body: JSON.stringify({
-          from: "PresciaIQ <onboarding@resend.dev>",
-          to: [form.email],
-          subject: "Your Digital Health Score is being prepared",
-          html: `<p>Hi ${form.name},</p><p>Thanks for requesting your free Digital Health Score for <strong>${form.url}</strong>.</p><p>Our team is auditing your site across three dimensions:</p><ul><li>Organic Search Visibility</li><li>AI Engine Readiness (AEO)</li><li>Lead Generation Efficiency</li></ul><p>You'll receive your results within 24 hours. Or skip the wait and book a free discovery call:</p><p><a href="https://calendly.com/app/scheduling/meeting_types/user/me">Book a Discovery Call →</a></p><p>— The PresciaIQ Team</p>`,
-        }),
-      });
+      const data = await response.json();
+      if (!data.success) throw new Error(data.message || "Submission failed");
       setStep(3);
     } catch {
       setError("Something went wrong. Please try again or email us directly.");
