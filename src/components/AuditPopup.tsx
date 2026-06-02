@@ -82,12 +82,34 @@ export default function AuditPopup() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/audit-lead", {
+      // Send internal notification to sales@presciaiq.com.au
+      await fetch("https://api.resend.com/emails", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer re_T6jG9okS_3iCprYZpjyZCunMB1UwBzFoQ",
+        },
+        body: JSON.stringify({
+          from: "PresciaIQ Audit <onboarding@resend.dev>",
+          to: ["sales@presciaiq.com.au"],
+          subject: `New Audit Lead: ${form.name} — ${form.url}`,
+          html: `<h2>New Website Audit Request</h2><p><strong>Name:</strong> ${form.name}</p><p><strong>Email:</strong> ${form.email}</p><p><strong>Website:</strong> ${form.url}</p><p><strong>Industry:</strong> ${form.industry}</p><p><a href="https://backlinkdash-9wienkvu.manus.space/">Open Dashboard to Run Audit →</a></p>`,
+        }),
       });
-      if (!res.ok) throw new Error("Submission failed");
+      // Send confirmation to the lead
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer re_T6jG9okS_3iCprYZpjyZCunMB1UwBzFoQ",
+        },
+        body: JSON.stringify({
+          from: "PresciaIQ <onboarding@resend.dev>",
+          to: [form.email],
+          subject: "Your Digital Health Score is being prepared",
+          html: `<p>Hi ${form.name},</p><p>Thanks for requesting your free Digital Health Score for <strong>${form.url}</strong>.</p><p>Our team is auditing your site across three dimensions:</p><ul><li>Organic Search Visibility</li><li>AI Engine Readiness (AEO)</li><li>Lead Generation Efficiency</li></ul><p>You'll receive your results within 24 hours. Or skip the wait and book a free discovery call:</p><p><a href="https://calendly.com/app/scheduling/meeting_types/user/me">Book a Discovery Call →</a></p><p>— The PresciaIQ Team</p>`,
+        }),
+      });
       setStep(3);
     } catch {
       setError("Something went wrong. Please try again or email us directly.");
