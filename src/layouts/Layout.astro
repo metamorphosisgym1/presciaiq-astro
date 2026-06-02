@@ -3,6 +3,7 @@ import Analytics from "@vercel/analytics/astro";
 import '../styles/global.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import AuditPopup from '../components/AuditPopup';
 
 export interface Props {
   title?: string;
@@ -259,6 +260,7 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
     <Navbar client:load />
     <main><slot /></main>
     <Footer client:load />
+    <AuditPopup client:load />
     <Analytics />
   </body>
 </html>
