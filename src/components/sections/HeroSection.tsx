@@ -130,6 +130,7 @@ const clients = [
   { name: "MAC Developments", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/toLVqRnPHQXIWwAV.png", height: 40 },
   { name: "BuildHire", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/HTjarNxJwVKsAfMq.png", height: 40 },
   { name: "A-One Fencing & Gates", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/PToThjafjtTfyGoL.png", height: 52 },
+  { name: "Loop", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/XEUSiOzDKmFWUMPm.png", height: 48 },
 ];
 
 const HeroSection = () => {
