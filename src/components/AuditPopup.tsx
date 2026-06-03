@@ -22,7 +22,7 @@ const INDUSTRIES = [
 ];
 
 const STORAGE_KEY = "presciaiq_audit_popup_shown";
-const CALENDLY_URL = "https://calendly.com/app/scheduling/meeting_types/user/me";
+const CALENDLY_URL = "https://calendly.com/presciaiq-sales/discoverycall?month=2026-06";
 
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function AuditPopup() {
