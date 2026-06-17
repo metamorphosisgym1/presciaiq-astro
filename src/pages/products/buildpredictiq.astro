@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "BuildPredictIQ — AI Construction Risk & Cost Forecasting | PresciaIQ";
-const description = "BuildPredictIQ predicts construction project cost overruns, timeline blowouts, and subcontractor risk before a sod is turned. Trained on 12,000+ Australian construction projects. Integrates with Procore and Aconex.";
+const title = "BuildPredictIQ — Predict Construction Cost Overruns";
+const description = "Predict construction cost overruns and timeline blowouts before a sod is turned. Trained on 12,000+ Australian projects. Integrates with Procore.";
 const canonicalURL = new URL("/products/buildpredictiq/", Astro.site).href;
 
 const schema = {
@@ -36,6 +36,34 @@ const schema = {
 };
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is BuildPredictIQ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "BuildPredictIQ is a predictive AI platform for Australian construction businesses that predicts project cost overruns, timeline blowouts, and subcontractor risk before a sod is turned. It is trained on over 12,000 Australian construction projects and integrates with Procore and Aconex." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does BuildPredictIQ predict cost overruns?",
+      "acceptedAnswer": { "@type": "Answer", "text": "BuildPredictIQ analyses your project brief, subcontractor history, site conditions, and supply chain signals against 12,000+ comparable Australian construction projects. It identifies the specific risk factors most likely to cause overruns and quantifies the probability and magnitude of each risk before construction begins." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does BuildPredictIQ integrate with Procore?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. BuildPredictIQ integrates natively with Procore and Aconex, the two most widely used construction management platforms in Australia. This allows real-time data flow without manual data entry or duplicate systems." }
+    },
+    {
+      "@type": "Question",
+      "name": "What size construction companies use BuildPredictIQ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "BuildPredictIQ is designed for Australian construction companies running projects from $500k to $50 million. It is particularly valuable for tier 2 and tier 3 builders who need enterprise-grade risk prediction without the cost of large in-house data teams." }
+    }
+  ]
+}
+</script>
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

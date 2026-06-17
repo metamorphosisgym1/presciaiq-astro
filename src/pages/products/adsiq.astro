@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "AdsIQ — Predictive Campaign Performance Engine | PresciaIQ";
-const description = "AdsIQ predicts ROAS, CTR, and conversion likelihood before your campaign launches. Scored against 2.4M historical Australian campaign data points across Google, Meta, TikTok, and LinkedIn. From $890/month.";
+const title = "AdsIQ — Predict Campaign ROAS Before Launch";
+const description = "AdsIQ predicts ROAS, CTR, and conversion likelihood before your campaign launches. Scored against 2.4M Australian campaign data points. From $890/mo.";
 const canonicalURL = new URL("/products/adsiq/", Astro.site).href;
 
 const schema = {
@@ -36,6 +36,34 @@ const schema = {
 };
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AdsIQ and how does it work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "AdsIQ is a predictive campaign performance engine by PresciaIQ that predicts ROAS, CTR, and conversion likelihood before your campaign launches. It scores your campaign brief against 2.4 million historical Australian campaign data points across Google, Meta, TikTok, and LinkedIn to give you a predicted ROAS range with confidence interval." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does AdsIQ cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "AdsIQ starts from $890 per month for Australian businesses. Pricing scales based on the number of campaigns scored per month and integration requirements. Contact PresciaIQ for a tailored quote." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which ad platforms does AdsIQ support?",
+      "acceptedAnswer": { "@type": "Answer", "text": "AdsIQ supports Google Ads, Meta Ads Manager, TikTok Ads, and LinkedIn Campaign Manager. It integrates with Google Analytics 4 for post-campaign learning that improves prediction accuracy over time." }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is AdsIQ's ROAS prediction?",
+      "acceptedAnswer": { "@type": "Answer", "text": "AdsIQ achieves prediction accuracy exceeding 84% after 90 days of campaign learning for most Australian businesses. Initial predictions are based on comparable campaigns in your vertical and audience segment from the 2.4 million data point training set." }
+    }
+  ]
+}
+</script>
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

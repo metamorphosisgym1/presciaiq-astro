@@ -1,8 +1,8 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
-const title = "BuildHire Case Study — How PresciaIQ Built an 84,000-Page pSEO Architecture for Equipment Hire | PresciaIQ";
-const description = "How PresciaIQ replaced BuildHire's $45–$90 CPC paid ad dependency with a programmatic SEO architecture covering 84,000 pages, 83 NSW locations, and 12 construction industry sub-sectors — at zero ongoing cost per visit.";
+const title = "BuildHire Case Study | Programmatic SEO Results";
+const description = "How BuildHire replaced $90 CPC paid ads with 84,000 programmatic SEO pages — generating organic equipment hire leads across Sydney at zero ad spend."s $45–$90 CPC paid ad dependency with a programmatic SEO architecture covering 84,000 pages, 83 NSW locations, and 12 construction industry sub-sectors — at zero ongoing cost per visit.";
 const canonicalURL = new URL("/insights/case-studies/buildhire/", Astro.site).href;
 
 const schema = {
@@ -38,6 +38,24 @@ const schema = {
 };
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How did BuildHire reduce its cost per lead with programmatic SEO?",
+      "acceptedAnswer": { "@type": "Answer", "text": "BuildHire reduced its cost per lead from $90 per click (paid Google Ads) to near zero by deploying an 84,000-page programmatic SEO architecture built by PresciaIQ. The architecture targets every suburb, equipment type, and use case combination across Sydney and NSW, generating organic enquiries without ongoing ad spend." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many pages did PresciaIQ build for BuildHire?",
+      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ built 84,000 programmatic pages for BuildHire covering 46 service areas, 6 excavator and equipment types, and multiple use case and industry variations. The architecture was deployed in a single release using Astro's static site generation, with all pages indexed and structured with LocalBusiness, FAQPage, and Product schema." }
+    }
+  ]
+}
+</script>
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

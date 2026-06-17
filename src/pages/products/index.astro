@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "PresciaIQ Products | Predictive AI Engines for Australian Businesses";
-const description = "Explore PresciaIQ's suite of predictive AI products — BuildPredictIQ for construction, AdsIQ for marketing, OpsIQ for logistics, and TradesmanIQ for field services. Built and hosted in Australia.";
+const title = "AI Products for Australian Businesses | PresciaIQ";
+const description = "Predictive AI engines for construction, marketing, logistics, and trades. BuildPredictIQ, AdsIQ, OpsIQ, and TradesmanIQ — built in Australia."s suite of predictive AI products — BuildPredictIQ for construction, AdsIQ for marketing, OpsIQ for logistics, and TradesmanIQ for field services. Built and hosted in Australia.";
 const canonicalURL = new URL("/products/", Astro.site).href;
 
 const products = [
@@ -65,6 +65,29 @@ const schema = {
 };
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What AI products does PresciaIQ offer?",
+      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ offers four predictive AI products for Australian businesses: BuildPredictIQ for construction cost overrun prediction, AdsIQ for marketing campaign ROAS prediction, OpsIQ for supply chain disruption prediction, and TradesmanIQ for trades job profitability prediction. All products are built and hosted in Australia." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do PresciaIQ AI products cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ AI products start from $890 per month. Pricing varies by product and usage volume. AdsIQ starts from $890/month, BuildPredictIQ and OpsIQ are priced on project volume, and TradesmanIQ is priced per active user. Contact PresciaIQ for a tailored quote for your business." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are PresciaIQ products built for Australian businesses?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All PresciaIQ products are trained on Australian data, built to Australian compliance standards, and hosted on Australian infrastructure. This means predictions are calibrated to Australian market conditions, not US or UK benchmarks that may not reflect local realities." }
+    }
+  ]
+}
+</script>
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

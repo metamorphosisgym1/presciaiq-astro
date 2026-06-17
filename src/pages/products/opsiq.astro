@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "OpsIQ — Supply Chain & Operational Intelligence | PresciaIQ";
-const description = "OpsIQ monitors 38 supply chain signals to predict delivery delays, supplier failures, and inventory shortfalls 5–14 days before they cascade into shutdowns. Built for Australian logistics operators and 3PLs. From $1,500/month.";
+const title = "OpsIQ — Predict Supply Chain Disruptions 14 Days Out";
+const description = "OpsIQ monitors 38 supply chain signals to predict delivery delays and supplier failures 5–14 days before they cascade. Built for Australian logistics.";
 const canonicalURL = new URL("/products/opsiq/", Astro.site).href;
 
 const schema = {
@@ -36,6 +36,29 @@ const schema = {
 };
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is OpsIQ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "OpsIQ is a supply chain disruption prediction platform by PresciaIQ that monitors 38 supply chain signals to predict delivery delays, supplier failures, and inventory shortfalls 5 to 14 days before they cascade into operational shutdowns. It is built specifically for Australian logistics and distribution businesses." }
+    },
+    {
+      "@type": "Question",
+      "name": "How far in advance does OpsIQ predict disruptions?",
+      "acceptedAnswer": { "@type": "Answer", "text": "OpsIQ predicts supply chain disruptions 5 to 14 days before they materialise, depending on the signal type. Supplier failure signals are typically detectable 10 to 14 days out. Delivery delay signals from port and freight data are typically 5 to 7 days out." }
+    },
+    {
+      "@type": "Question",
+      "name": "What supply chain signals does OpsIQ monitor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "OpsIQ monitors 38 signals including supplier financial health indicators, port congestion data, freight carrier performance, weather event forecasts, geopolitical risk feeds, and your own historical order and delivery data. The combination of external and internal signals produces significantly higher prediction accuracy than any single data source." }
+    }
+  ]
+}
+</script>
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

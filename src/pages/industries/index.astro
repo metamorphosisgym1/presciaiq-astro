@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "Industries We Serve | Predictive AI for Australian Businesses | PresciaIQ";
-const description = "PresciaIQ delivers predictive AI, web builds, app development, and pSEO/pAEO solutions tailored to your industry. Explore how we serve construction, marketing, trades, logistics, and financial services across Australia.";
+const title = "AI for Australian Industries | PresciaIQ";
+const description = "Predictive AI solutions built for Australian construction, marketing, logistics, trades, and financial services. See how PresciaIQ fits your industry.";
 const canonicalURL = new URL("/industries/", Astro.site).href;
 
 const industries = [
@@ -79,6 +79,24 @@ const schema = {
 };
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which industries does PresciaIQ serve?",
+      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ builds predictive AI solutions for Australian construction, marketing agencies, logistics and supply chain, trades businesses, and financial services. Each industry solution is trained on Australian data and calibrated to local market conditions." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does PresciaIQ build custom AI solutions for specific industries?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. In addition to its four off-the-shelf AI products, PresciaIQ builds custom predictive AI platforms for industries with specific data requirements. Custom industry solutions start from $25,000 and are typically delivered within 12 to 16 weeks." }
+    }
+  ]
+}
+</script>
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

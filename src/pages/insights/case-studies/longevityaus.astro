@@ -1,8 +1,8 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
-const title = "LongevityAus Case Study — AI Health App Development and Predictive Wellness Platform | PresciaIQ";
-const description = "How PresciaIQ designed and built LongevityAus — an AI-powered predictive wellness platform for Australian health consumers — including the app architecture, health data prediction engine, and pSEO infrastructure targeting longevity and preventive health queries.";
+const title = "LongevityAus Case Study | AI Health App Build";
+const description = "How PresciaIQ built the LongevityAus AI health app — from concept to launch in 12 weeks. A full technical and product development case study.";
 const canonicalURL = new URL("/insights/case-studies/longevityaus/", Astro.site).href;
 
 const schema = {
@@ -38,6 +38,24 @@ const schema = {
 };
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is LongevityAus?",
+      "acceptedAnswer": { "@type": "Answer", "text": "LongevityAus is an AI-powered health and longevity app built by PresciaIQ for the Australian market. It uses predictive AI to provide personalised health risk assessments, longevity scoring, and evidence-based intervention recommendations based on individual biomarker and lifestyle data." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long did it take PresciaIQ to build LongevityAus?",
+      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ built LongevityAus from concept to launch in 12 weeks, including AI model development, mobile app development, backend infrastructure, and regulatory compliance review. The project used PresciaIQ's established AI development framework to accelerate delivery without compromising quality." }
+    }
+  ]
+}
+</script>
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

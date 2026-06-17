@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "TradesmanIQ — Job Profitability & Compliance AI for Australian Trades | PresciaIQ";
-const description = "TradesmanIQ predicts job profitability before crew commitment, automates compliance documentation, and optimises scheduling for Australian electrical, plumbing, building, and HVAC businesses. From $490/month.";
+const title = "TradesmanIQ — Predict Job Profitability Before Dispatch";
+const description = "Predict job profitability before crew commitment. Automates compliance docs and optimises scheduling for Australian electrical, plumbing, and HVAC.";
 const canonicalURL = new URL("/products/tradesmaniq/", Astro.site).href;
 
 const schema = {
@@ -36,6 +36,34 @@ const schema = {
 };
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is TradesmanIQ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "TradesmanIQ is a predictive AI platform for Australian trades businesses that predicts job profitability before crew commitment, automates compliance documentation, and optimises scheduling. It is designed for electrical, plumbing, building, and HVAC businesses across Australia." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does TradesmanIQ predict job profitability?",
+      "acceptedAnswer": { "@type": "Answer", "text": "TradesmanIQ analyses your job brief, historical job data, crew availability, materials costs, and site conditions to predict the probability of a job being profitable before you commit crew. It flags jobs likely to run over time or materials budget so you can adjust pricing or scope before accepting." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which trades does TradesmanIQ support?",
+      "acceptedAnswer": { "@type": "Answer", "text": "TradesmanIQ is built for Australian electrical, plumbing, HVAC, and general building trades. It handles the specific compliance documentation requirements for each trade type, including electrical safety certificates, plumbing compliance reports, and building inspection documentation." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does TradesmanIQ integrate with existing job management software?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. TradesmanIQ integrates with the most widely used Australian trades job management platforms including ServiceM8, Tradify, and Simpro. Data flows automatically without manual entry, and predictions are surfaced directly in your existing workflow." }
+    }
+  ]
+}
+</script>
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 

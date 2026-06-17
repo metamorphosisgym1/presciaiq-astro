@@ -1,8 +1,8 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
-const title = "LoopBC Case Study — AI-Powered Campaign Prediction for a Digital Marketing Agency | PresciaIQ";
-const description = "How PresciaIQ built AdsIQ predictive campaign scoring and a full pSEO/pAEO architecture for LoopBC, a digital marketing agency — enabling ROAS prediction before campaign launch and organic lead generation across 21 industry verticals.";
+const title = "LoopBC Case Study | AI ROAS Prediction Results";
+const description = "How LoopBC used AdsIQ to predict campaign ROAS before client budgets were committed — achieving 94% accuracy and eliminating post-campaign surprises.";
 const canonicalURL = new URL("/insights/case-studies/loopbc/", Astro.site).href;
 
 const schema = {
@@ -38,6 +38,24 @@ const schema = {
 };
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What results did LoopBC achieve with AdsIQ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "LoopBC achieved 94% ROAS prediction accuracy using PresciaIQ's AdsIQ platform, allowing the agency to present evidence-based campaign return forecasts to clients before any budget was committed. This improved client trust, reduced post-campaign disputes, and enabled more confident budget recommendations." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does AdsIQ help marketing agencies?",
+      "acceptedAnswer": { "@type": "Answer", "text": "AdsIQ helps Australian marketing agencies by predicting campaign ROAS before client budgets are committed. Agencies use it to set realistic client expectations, optimise campaign structure before launch, and demonstrate data-driven decision-making. It reduces the risk of post-campaign client dissatisfaction caused by underperforming campaigns." }
+    }
+  ]
+}
+</script>
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
