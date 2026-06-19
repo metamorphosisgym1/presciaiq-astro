@@ -4,6 +4,7 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AuditPopup from '../components/AuditPopup';
+import StickyCtaBar from '../components/StickyCtaBar';
 
 export interface Props {
   title?: string;
@@ -261,6 +262,7 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
     <main><slot /></main>
     <Footer client:load />
     <AuditPopup client:load />
+    <StickyCtaBar client:load />
     <Analytics />
   </body>
 </html>

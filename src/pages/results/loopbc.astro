@@ -1,0 +1,157 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "LoopBC Case Study: 84% ROAS Prediction Accuracy — How AI Changed the Agency Pitch";
+const description = "How LoopBC used PresciaIQ's AdsIQ platform to predict campaign ROAS before a dollar was spent, cut client disputes in half, and build an organic lead generation system that replaced their own ad spend.";
+const canonicalURL = "/results/loopbc/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "url": `https://www.presciaiq.com.au${canonicalURL}`,
+  "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+  "datePublished": "2025-01-01",
+  "dateModified": "2026-06-01",
+  "about": [
+    { "@type": "Thing", "name": "ROAS Prediction" },
+    { "@type": "Thing", "name": "Marketing Agency" },
+    { "@type": "Thing", "name": "Predictive Analytics" }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+
+    <!-- Hero -->
+    <section class="pt-28 pb-16 border-b border-white/5">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Client Result</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">AdsIQ · Predictive ROAS</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold border border-white/10 text-muted-foreground">Marketing Agency · Sydney</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight">
+          84% ROAS prediction<br />
+          <span class="text-primary">before a dollar is spent.</span>
+        </h1>
+        <p class="text-xl text-muted-foreground font-sans leading-relaxed max-w-2xl mb-10">
+          LoopBC was losing pitches to agencies with bigger case study libraries — even when their strategy was better. PresciaIQ gave them AdsIQ: a campaign prediction engine that lets them walk into every pitch with a data-backed ROAS forecast. The result: 84% prediction accuracy, 31% average client ROAS improvement, and their own paid ad dependency eliminated.
+        </p>
+
+        <!-- Metrics bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl border border-primary/20 mb-10" style="background: rgba(0,255,136,0.02);">
+          {[
+            { stat: "84%", label: "ROAS prediction accuracy" },
+            { stat: "31%", label: "Avg client ROAS improvement" },
+            { stat: "2.4M", label: "Campaign data points in model" },
+            { stat: "21", label: "Industry verticals covered" },
+          ].map(m => (
+            <div class="text-center">
+              <p class="font-mono text-3xl font-bold text-primary mb-1">{m.stat}</p>
+              <p class="text-xs text-muted-foreground font-sans">{m.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- CTA -->
+        <div class="flex flex-wrap gap-4">
+          <a href="/start" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98]"
+            style="background: linear-gradient(135deg, #4ade80, #22d3ee);">
+            Get the same result for your agency →
+          </a>
+          <a href="https://calendly.com/presciaiq-sales/discoverycall" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-white/15 text-white/75 hover:border-primary/40 transition-all">
+            Book a free 20-min call
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Problem</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-6">Every agency pitch came down to "trust us." Clients wanted proof before they committed.</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          LoopBC is a Sydney digital marketing agency. Their strategic thinking was demonstrably strong — but in competitive pitches against larger agencies with extensive case study libraries, they kept losing on credibility, not capability.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The second problem was self-referential: LoopBC was spending $60–$120 per click on their own Google and Meta ads to generate new business leads. The irony of a marketing agency paying that much for their own leads was not lost on the founders.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          They needed two things: a way to prove campaign value before budget was committed, and an organic lead generation system that would make their own paid ad dependency redundant.
+        </p>
+      </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Solution</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-6">Predict ROAS before launch. Generate leads without ads.</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          PresciaIQ integrated AdsIQ into LoopBC's pitch and onboarding workflow. Before any campaign launches, LoopBC enters the campaign parameters — industry vertical, target audience, budget, creative format, platform mix, and objective — and AdsIQ produces a risk-adjusted ROAS forecast with a confidence interval based on 2.4 million comparable Australian campaign data points.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The output is a client-ready prediction document: <em>"Based on 847 comparable campaigns in the retail sector targeting 25–45 year olds on Meta with a $15,000 monthly budget, we predict a ROAS of 3.2–4.1x with 84% confidence."</em> This transformed LoopBC's pitch dynamic entirely.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+          {[
+            { title: "AdsIQ Predictive Engine", desc: "Pre-launch ROAS forecasting across Google, Meta, TikTok, and LinkedIn — scored against 2.4M Australian campaign data points" },
+            { title: "pSEO Architecture", desc: "Programmatic SEO covering LoopBC's services across 21 industry verticals and 59 Australian locations — eliminating their own paid ad dependency" },
+          ].map(item => (
+            <div class="p-5 rounded-xl border border-white/8" style="background: rgba(255,255,255,0.02);">
+              <p class="font-semibold text-white text-sm mb-2">{item.title}</p>
+              <p class="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- The Result -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Result</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-6">Data-backed pitches. Better client outcomes. Organic leads without ad spend.</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          AdsIQ achieved 84% ROAS prediction accuracy across LoopBC's client campaigns. Campaigns where AdsIQ was used in pre-launch optimisation showed an average 31% improvement in client ROAS compared to campaigns run without it. Post-campaign client disputes dropped significantly as expectations were set with data, not gut feel.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The programmatic SEO architecture built for LoopBC's own website now generates organic enquiries from businesses searching for digital marketing services across 21 industry verticals — without ongoing ad spend. The paid media dependency that cost $60–$120 per click is being systematically replaced by a permanent organic asset.
+        </p>
+      </div>
+    </section>
+
+    <!-- Lead Capture CTA -->
+    <section class="py-20">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Get the Same Result</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          Are you walking into pitches<br class="hidden md:block" /> with gut feel instead of data?
+        </h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-8 max-w-xl mx-auto">
+          Whether you're a marketing agency that needs predictive campaign scoring, or a business that needs to stop paying $60–$120 per click for leads — we'll show you exactly what's possible in a free 20-minute session.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/start"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98]"
+            style="background: linear-gradient(135deg, #4ade80, #22d3ee);">
+            Get My Free Audit →
+          </a>
+          <a href="https://calendly.com/presciaiq-sales/discoverycall" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold border border-white/15 text-white/75 hover:border-primary/40 transition-all">
+            Book a 20-min Discovery Call
+          </a>
+        </div>
+        <p class="text-xs text-muted-foreground mt-6">Free. No obligation. Response within 24 hours.</p>
+      </div>
+    </section>
+
+  </main>
+</Layout>

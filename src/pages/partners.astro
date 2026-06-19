@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Referral Partner Program | PresciaIQ — Earn $500–$1,000 Per Client";
+const description = "Accountants, business coaches, web developers, and consultants: earn $500–$1,000 for every client you refer to PresciaIQ. Simple, no paperwork, paid on signing.";
+const canonicalURL = "/partners/";
+
+const CALENDLY_URL = "https://calendly.com/presciaiq-sales/discoverycall";
+
+const partnerTypes = [
+  {
+    icon: "📊",
+    title: "Accountants & Bookkeepers",
+    desc: "Your clients are already asking about AI and digital marketing. When they're paying too much for leads or invisible online, refer them to us.",
+  },
+  {
+    icon: "🎯",
+    title: "Business Coaches & Consultants",
+    desc: "You work with business owners on growth. We give them the AI infrastructure to execute it. A natural fit.",
+  },
+  {
+    icon: "💻",
+    title: "Web Developers & Designers",
+    desc: "You build the site. We build the organic traffic machine that fills it with leads. Refer clients who need SEO, AEO, or AI tools.",
+  },
+  {
+    icon: "📱",
+    title: "Marketing Agencies",
+    desc: "If a client needs something outside your core offer — AI software, programmatic SEO, AEO architecture — refer them and earn.",
+  },
+];
+
+const howItWorks = [
+  { step: "01", title: "Make the introduction", desc: "DM us on LinkedIn or email partners@presciaiq.com.au with the client's name and what they need. That's it." },
+  { step: "02", title: "We handle everything", desc: "We run the discovery call, audit, proposal, and onboarding. You don't need to be involved beyond the introduction." },
+  { step: "03", title: "Get paid on signing", desc: "When the client signs, we pay your referral fee within 7 days. No invoicing process, no chasing." },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": `https://www.presciaiq.com.au${canonicalURL}`,
+  "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+
+    <!-- Hero -->
+    <section class="pt-28 pb-16 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
+          style="background: rgba(74,222,128,0.1); color: #4ade80; border: 1px solid rgba(74,222,128,0.2);">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+          Referral Partner Program — Now Open
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight">
+          Earn $500–$1,000<br />
+          <span class="text-primary">per client you refer.</span>
+        </h1>
+        <p class="text-xl text-muted-foreground font-sans leading-relaxed max-w-2xl mx-auto mb-10">
+          If you work with Australian business owners — as an accountant, business coach, web developer, or consultant — we'll pay you $500–$1,000 for every client you introduce who signs with PresciaIQ. No paperwork. No process. Just an introduction.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="mailto:partners@presciaiq.com.au"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98]"
+            style="background: linear-gradient(135deg, #4ade80, #22d3ee);">
+            Become a Partner →
+          </a>
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold border border-white/15 text-white/75 hover:border-primary/40 transition-all">
+            Book a Partner Call
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commission structure -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-8 text-center">Commission Structure</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { amount: "$500", label: "Per AI product referral", desc: "Client signs up for TradesmanIQ, AdsIQ, OpsIQ, or BuildPredictIQ (any plan)" },
+            { amount: "$750", label: "Per AEO/SEO project", desc: "Client signs for a programmatic SEO or AEO architecture build ($4,999+)" },
+            { amount: "$1,000", label: "Per retainer client", desc: "Client signs an ongoing monthly retainer ($1,500+/month)" },
+          ].map(tier => (
+            <div class="p-6 rounded-2xl border border-primary/20 text-center" style="background: rgba(0,255,136,0.02);">
+              <p class="font-mono text-4xl font-black text-primary mb-2">{tier.amount}</p>
+              <p class="font-semibold text-white text-sm mb-3">{tier.label}</p>
+              <p class="text-xs text-muted-foreground leading-relaxed">{tier.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-center text-xs text-muted-foreground mt-6">Paid within 7 days of client signing. No minimum referrals required. No cap on earnings.</p>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4 text-center">Who It's For</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10 text-center">If your clients are Australian business owners, this is for you.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {partnerTypes.map(p => (
+            <div class="flex gap-4 p-5 rounded-xl border border-white/8" style="background: rgba(255,255,255,0.02);">
+              <span class="text-2xl shrink-0">{p.icon}</span>
+              <div>
+                <p class="font-semibold text-white text-sm mb-1">{p.title}</p>
+                <p class="text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4 text-center">How It Works</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-10 text-center">Three steps. No paperwork.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {howItWorks.map(step => (
+            <div class="text-center">
+              <p class="font-mono text-4xl font-black text-primary/30 mb-4">{step.step}</p>
+              <p class="font-semibold text-white text-sm mb-2">{step.title}</p>
+              <p class="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Who we're looking for (ideal client profile) -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Ideal Client Profile</p>
+        <h2 class="font-display text-2xl font-bold text-foreground mb-6">The clients most likely to sign — and earn you a commission.</h2>
+        <div class="space-y-3">
+          {[
+            "Australian business doing $2M–$50M in annual revenue",
+            "Currently spending $1,000+/month on Google Ads or paid social",
+            "No organic search presence or a weak one",
+            "Wants to reduce paid media dependency",
+            "In construction, equipment hire, marketing, logistics, trades, or professional services",
+            "Open to AI tools or has already asked about them",
+          ].map(item => (
+            <div class="flex items-start gap-3">
+              <span class="text-primary mt-0.5 shrink-0">✓</span>
+              <p class="text-sm text-muted-foreground">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          Ready to become a partner?
+        </h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-8 max-w-xl mx-auto">
+          Email us at partners@presciaiq.com.au or book a 20-minute partner call. We'll walk you through the program, answer any questions, and set you up to start referring.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="mailto:partners@presciaiq.com.au"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98]"
+            style="background: linear-gradient(135deg, #4ade80, #22d3ee);">
+            Email Us to Join →
+          </a>
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold border border-white/15 text-white/75 hover:border-primary/40 transition-all">
+            Book a Partner Call
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>

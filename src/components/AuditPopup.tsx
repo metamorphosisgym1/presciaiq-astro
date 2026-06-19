@@ -40,19 +40,25 @@ export default function AuditPopup() {
     sessionStorage.setItem(STORAGE_KEY, "1");
   }, []);
 
-  useEffect(() => {
-    // Time delay: 5 seconds
-    const timer = setTimeout(showPopup, 5000);
-
+    useEffect(() => {
+    // Time delay: 8 seconds
+    const timer = setTimeout(showPopup, 8000);
     // Exit intent: cursor moves toward top of viewport
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 10) showPopup();
     };
+    // Scroll depth: fires at 60% page scroll
+    const handleScroll = () => {
+      const scrolled = window.scrollY + window.innerHeight;
+      const total = document.documentElement.scrollHeight;
+      if (scrolled / total >= 0.60) showPopup();
+    };
     document.addEventListener("mouseleave", handleMouseLeave);
-
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       clearTimeout(timer);
       document.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [showPopup]);
 

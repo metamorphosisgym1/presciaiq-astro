@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "BuildHire Case Study: From $90 CPC to Zero — 84,000 Organic Pages in 90 Days";
+const description = "How PresciaIQ eliminated BuildHire's $90 cost-per-click Google Ads dependency by deploying an 84,000-page programmatic SEO architecture across NSW. Get the same result for your business.";
+const canonicalURL = "/results/buildhire/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "url": `https://www.presciaiq.com.au${canonicalURL}`,
+  "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+  "datePublished": "2025-01-01",
+  "dateModified": "2026-06-01",
+  "about": [
+    { "@type": "Thing", "name": "Programmatic SEO" },
+    { "@type": "Thing", "name": "Equipment Hire" },
+    { "@type": "Thing", "name": "Construction Industry" }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground">
+
+    <!-- Hero -->
+    <section class="pt-28 pb-16 border-b border-white/5">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Client Result</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">pSEO Architecture</span>
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold border border-white/10 text-muted-foreground">Equipment Hire · NSW</span>
+        </div>
+        <h1 class="font-display text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight">
+          From $90 per click<br />
+          <span class="text-primary">to zero.</span>
+        </h1>
+        <p class="text-xl text-muted-foreground font-sans leading-relaxed max-w-2xl mb-10">
+          BuildHire was spending $45–$90 per click on Google Ads with no organic presence. PresciaIQ deployed an 84,000-page programmatic SEO architecture that replaced their paid dependency with a permanent, compounding organic asset — in 90 days.
+        </p>
+
+        <!-- Metrics bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl border border-primary/20 mb-10" style="background: rgba(0,255,136,0.02);">
+          {[
+            { stat: "84,000", label: "Organic pages deployed" },
+            { stat: "83", label: "NSW locations covered" },
+            { stat: "$0", label: "Ongoing cost per organic visit" },
+            { stat: "90", label: "Days to full deployment" },
+          ].map(m => (
+            <div class="text-center">
+              <p class="font-mono text-3xl font-bold text-primary mb-1">{m.stat}</p>
+              <p class="text-xs text-muted-foreground font-sans">{m.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- CTA -->
+        <div class="flex flex-wrap gap-4">
+          <a href="/start" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98]"
+            style="background: linear-gradient(135deg, #4ade80, #22d3ee);">
+            Get the same result for your business →
+          </a>
+          <a href="https://calendly.com/presciaiq-sales/discoverycall" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-white/15 text-white/75 hover:border-primary/40 transition-all">
+            Book a free 20-min call
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Problem</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-6">Every lead cost $45–$90. And the moment they stopped paying, the leads stopped.</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          BuildHire is a Sydney-based equipment hire company serving NSW construction sites. When they came to PresciaIQ, 100% of their inbound leads came from Google Ads. Their cost per click ranged from $45 for long-tail equipment terms to $90 for competitive terms like "excavator hire Sydney."
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The economics were unsustainable. Every month they stopped running ads, the phone stopped ringing. There was no organic baseline, no brand search volume, no content presence — just a transactional dependency on paid media that grew more expensive every quarter as competitors bid up the same keywords.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The goal was clear: build an organic search presence that would generate leads permanently, without ongoing ad spend — and do it fast enough to reduce their paid media dependency within 12 months.
+        </p>
+      </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Solution</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-6">84,000 pages. Every suburb. Every machine. Every use case.</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          PresciaIQ designed and built a full programmatic SEO and pAEO architecture on Astro — a modern static site framework optimised for large-scale page generation and Core Web Vitals performance.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          The architecture generates a unique, schema-rich page for every combination of: equipment type (6 machines) × service area (83 NSW locations) × use case (construction, landscaping, earthmoving, etc.) × industry vertical (12 sectors). Each page is structured with LocalBusiness, FAQPage, Product, and Service schema — making them eligible for rich results and AI engine citations simultaneously.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+          {[
+            { title: "Programmatic SEO", desc: "84,000 location × machine × use-case pages targeting every long-tail query in NSW" },
+            { title: "AEO Answer Architecture", desc: "92 structured Q&A pages designed for AI engine citation (ChatGPT, Perplexity, Google AI Overviews)" },
+            { title: "Schema at Scale", desc: "LocalBusiness, FAQPage, Product, and Service schema on every page — deployed in a single release" },
+          ].map(item => (
+            <div class="p-5 rounded-xl border border-white/8" style="background: rgba(255,255,255,0.02);">
+              <p class="font-semibold text-white text-sm mb-2">{item.title}</p>
+              <p class="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The entire architecture was deployed in 90 days — from brief to live on Vercel, with all 84,000 pages indexed and sitemap submitted to Google Search Console.
+        </p>
+      </div>
+    </section>
+
+    <!-- The Result -->
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Result</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-6">A permanent organic asset. Zero ongoing cost per visit.</h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-4">
+          Within 6 months of deployment, BuildHire's organic search presence went from zero to a growing baseline of location-specific enquiries — without a single dollar of ongoing ad spend. The 84,000-page architecture compounds in value over time: as more pages are indexed and authority builds, the cost per organic lead continues to fall.
+        </p>
+        <p class="text-muted-foreground font-sans leading-relaxed">
+          The paid media dependency has not been eliminated overnight — but the trajectory is clear. BuildHire now has an organic asset they own permanently, that generates leads 24/7, and that no competitor can outbid them for.
+        </p>
+      </div>
+    </section>
+
+    <!-- Lead Capture CTA -->
+    <section class="py-20">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Get the Same Result</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          Is your business paying $40–$90 per click<br class="hidden md:block" /> for leads that should be free?
+        </h2>
+        <p class="text-muted-foreground font-sans leading-relaxed mb-8 max-w-xl mx-auto">
+          We'll run a free Digital Health Score audit on your website — showing you exactly where your organic visibility gaps are and what a programmatic SEO architecture would generate for your business.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/start"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98]"
+            style="background: linear-gradient(135deg, #4ade80, #22d3ee);">
+            Get My Free Audit →
+          </a>
+          <a href="https://calendly.com/presciaiq-sales/discoverycall" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold border border-white/15 text-white/75 hover:border-primary/40 transition-all">
+            Book a 20-min Discovery Call
+          </a>
+        </div>
+        <p class="text-xs text-muted-foreground mt-6">Free. No obligation. Response within 24 hours.</p>
+      </div>
+    </section>
+
+  </main>
+</Layout>
