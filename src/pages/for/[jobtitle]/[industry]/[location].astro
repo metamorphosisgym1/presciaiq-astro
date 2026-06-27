@@ -65,7 +65,7 @@ const breadcrumbSchema = {
 ---
 
 <Layout title={title} description={description} canonicalURL={canonicalURL}
-  noindex={true}
+  noindex={!(['ceo','marketing-director','cfo','operations-manager','cto'].includes(jobTitle.slug) && ['construction','financial-services','logistics','professional-services','manufacturing'].includes(industry.slug) && ['sydney','melbourne','brisbane','perth','adelaide','australia'].includes(location.slug))}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

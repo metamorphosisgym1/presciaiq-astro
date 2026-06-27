@@ -9,9 +9,13 @@ export default defineConfig({
     tailwind(),
     sitemap({
       filter: (page) => {
-        // Week 1 staged rollout: compare pages now indexed (58 hand-crafted competitor pages)
-        // Large-volume clusters (/for/, /solutions/, /use-case/, /aeo-seo/) deferred to weeks 2-4
-        const shallow = ['/for/', '/solutions/', '/use-case/', '/aeo-seo/'];
+        // Week 2 staged rollout:
+        // - All /aeo-seo/[industry]/[location]/ pages now indexed (180 high-intent service pages)
+        // - Top 150 /for/ persona pages indexed (5 job titles × 5 industries × 6 locations)
+        // - /solutions/ and /use-case/ deferred to weeks 3-4
+        const priorityJobTitles = ['ceo','marketing-director','cfo','operations-manager','cto'];
+        const priorityIndustries = ['construction','financial-services','logistics','professional-services','manufacturing'];
+        const priorityLocations = ['sydney','melbourne','brisbane','perth','adelaide','australia'];
         // Always include: hand-crafted AEO pages, comparison pages, case studies, results, partners
         if (page.includes('/answers/')) return true;
         if (page.includes('/problems/')) return true;
@@ -19,8 +23,17 @@ export default defineConfig({
         if (page.includes('/partners')) return true;
         if (page.includes('/results/')) return true;
         if (page.includes('/insights/case-studies/')) return true;
-        // Exclude remaining large programmatic clusters (staged rollout weeks 2-4)
-        return !shallow.some(path => page.includes(path));
+        // Week 2: Include all /aeo-seo/[industry]/[location]/ pages
+        if (page.match(/\/aeo-seo\/[^\/]+\/[^\/]+\//)) return true;
+        // Week 2: Include top 150 /for/ persona pages
+        const forMatch = page.match(/\/for\/([^\/]+)\/([^\/]+)\/([^\/]+)\//);
+        if (forMatch) {
+          const [, jt, ind, loc] = forMatch;
+          return priorityJobTitles.includes(jt) && priorityIndustries.includes(ind) && priorityLocations.includes(loc);
+        }
+        // Exclude remaining large programmatic clusters (/solutions/, /use-case/) — weeks 3-4
+        if (page.includes('/solutions/') || page.includes('/use-case/')) return false;
+        return true;
       },
       changefreq: 'weekly',
       priority: 0.7,
