@@ -914,22 +914,7 @@ FAQPage schema is implemented as a JSON-LD script block in the HTML head section
 
 A basic FAQPage schema implementation looks like this:
 
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is predictive AI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Predictive AI uses machine learning models trained on historical data to forecast future outcomes..."
-      }
-    }
-  ]
-}
-```
+[Example FAQPage JSON-LD: {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is predictive AI?","acceptedAnswer":{"@type":"Answer","text":"Predictive AI uses machine learning..."}}]}]
 
 **Why FAQPage Schema Matters for AEO**
 
