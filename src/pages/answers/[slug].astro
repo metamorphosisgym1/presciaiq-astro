@@ -99,18 +99,100 @@ const breadcrumbSchema = {
           </div>
         )}
 
-        {/* Internal cross-links to related services */}
-        {answer.category && (
-          <div class="mb-8 border border-white/10 rounded-xl p-6">
-            <h2 class="text-lg font-bold text-white mb-4">Explore PresciaIQ services</h2>
-            <div class="flex flex-wrap gap-3">
-              <a href="/services/ai-web-development" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">AI Web Development →</a>
-              <a href="/services/ai-app-development" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">AI App Development →</a>
-              <a href="/services/ai-software-development" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">AI Software Builds →</a>
-              <a href="/services/aeo-seo-predictive-search-architecture" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">pSEO &amp; AEO →</a>
-            </div>
-          </div>
-        )}
+        {/* Smart category-aware product CTA — maps answer topic to the most relevant PresciaIQ product */}
+        {
+          (() => {
+            const cat = answer.category;
+            const slug = answer.slug;
+            // Determine primary product based on category and slug keywords
+            const isConstruction = slug.includes('construction') || slug.includes('builder') || slug.includes('buildpredict');
+            const isMarketing = slug.includes('roas') || slug.includes('adsiq') || slug.includes('marketing') || slug.includes('campaign') || slug.includes('ads');
+            const isOps = slug.includes('supply-chain') || slug.includes('operations') || slug.includes('opsiq') || slug.includes('logistics') || slug.includes('demand');
+            const isTrades = slug.includes('trades') || slug.includes('tradesmaniq') || slug.includes('plumber') || slug.includes('electrician');
+            const isAeoSeo = cat === 'aeo' || cat === 'pseo-paeo' || slug.includes('aeo') || slug.includes('pseo') || slug.includes('programmatic') || slug.includes('chatgpt') || slug.includes('perplexity');
+            const isWebBuild = cat === 'web-builds' || cat === 'app-builds' || cat === 'software-builds' || slug.includes('web-app') || slug.includes('website') || slug.includes('app-development') || slug.includes('software');
+
+            if (isConstruction) return (
+              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Product</p>
+                <h2 class="text-lg font-bold text-white mb-2">BuildPredictIQ — AI Risk Engine for Construction</h2>
+                <p class="text-sm text-gray-400 mb-4">Quantify project risk before a sod is turned. Protect margins, defend certifications, and predict cost blowouts before they happen. 50x average ROI.</p>
+                <div class="flex flex-wrap gap-3">
+                  <a href="/products/buildpredictiq" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See BuildPredictIQ →</a>
+                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                </div>
+              </div>
+            );
+            if (isMarketing) return (
+              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Product</p>
+                <h2 class="text-lg font-bold text-white mb-2">AdsIQ — Predictive ROAS Intelligence</h2>
+                <p class="text-sm text-gray-400 mb-4">Predict campaign ROAS before you spend a dollar. AdsIQ connects to GA4, Meta, Google Ads, and TikTok to forecast outcomes and automate budget decisions.</p>
+                <div class="flex flex-wrap gap-3">
+                  <a href="/products/adsiq" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See AdsIQ →</a>
+                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                </div>
+              </div>
+            );
+            if (isOps) return (
+              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Product</p>
+                <h2 class="text-lg font-bold text-white mb-2">OpsIQ — Operational Intelligence Platform</h2>
+                <p class="text-sm text-gray-400 mb-4">Predict demand, optimise routes, and eliminate supply chain surprises before they cost you. Built for Australian logistics, manufacturing, and operations teams.</p>
+                <div class="flex flex-wrap gap-3">
+                  <a href="/products/opsiq" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See OpsIQ →</a>
+                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                </div>
+              </div>
+            );
+            if (isTrades) return (
+              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Product</p>
+                <h2 class="text-lg font-bold text-white mb-2">TradesmanIQ — AI Intelligence for Trades</h2>
+                <p class="text-sm text-gray-400 mb-4">Predict job profitability, automate quoting, and eliminate cash flow surprises. Built specifically for Australian trades businesses — plumbers, electricians, builders, and more.</p>
+                <div class="flex flex-wrap gap-3">
+                  <a href="/products/tradesmaniq" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See TradesmanIQ →</a>
+                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                </div>
+              </div>
+            );
+            if (isAeoSeo) return (
+              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Service</p>
+                <h2 class="text-lg font-bold text-white mb-2">AEO/SEO — Predictive Search Architecture</h2>
+                <p class="text-sm text-gray-400 mb-4">Get cited by ChatGPT, Perplexity, and Google AI Overviews. PresciaIQ builds the answer architecture that makes your business the default recommendation across AI engines.</p>
+                <div class="flex flex-wrap gap-3">
+                  <a href="/services/aeo-seo-predictive-search-architecture" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See the Service →</a>
+                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                </div>
+              </div>
+            );
+            if (isWebBuild) return (
+              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Service</p>
+                <h2 class="text-lg font-bold text-white mb-2">AI-Powered Web &amp; App Development</h2>
+                <p class="text-sm text-gray-400 mb-4">PresciaIQ builds AI-native websites, web apps, and custom software for Australian businesses — with predictive intelligence baked in from day one.</p>
+                <div class="flex flex-wrap gap-3">
+                  <a href="/services/ai-web-development" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See Web Development →</a>
+                  <a href="/services/ai-app-development" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">See App Development →</a>
+                  <a href="/start" class="text-sm border border-white/20 text-gray-300 px-5 py-2.5 rounded-lg hover:bg-white/5 transition-colors">Get a Free Audit</a>
+                </div>
+              </div>
+            );
+            // Default: show all services
+            return (
+              <div class="mb-8 border border-white/10 rounded-xl p-6">
+                <h2 class="text-lg font-bold text-white mb-4">Explore PresciaIQ</h2>
+                <div class="flex flex-wrap gap-3">
+                  <a href="/products/buildpredictiq" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">BuildPredictIQ →</a>
+                  <a href="/products/adsiq" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">AdsIQ →</a>
+                  <a href="/services/aeo-seo-predictive-search-architecture" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">pSEO &amp; AEO →</a>
+                  <a href="/services/ai-software-development" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">AI Software →</a>
+                </div>
+              </div>
+            );
+          })()
+        }
 
         {/* Related answers cross-links */}
         {answer.relatedQuestions && answer.relatedQuestions.length > 0 && (

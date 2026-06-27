@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Thank You | PresciaIQ — We'll Be In Touch Within 24 Hours"
+  description="Thank you for reaching out to PresciaIQ. Our team will respond within 24 hours with a tailored recommendation for your business."
+  canonicalURL="https://www.presciaiq.com.au/thank-you/"
+>
+  <!-- GA4 conversion event: fires on page load, tracks form submissions and bookings -->
+  <script>
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', 'conversion', {
+        event_category: 'lead',
+        event_label: 'form_submission',
+        value: 1
+      });
+      (window as any).gtag('event', 'generate_lead', {
+        currency: 'AUD',
+        value: 500
+      });
+    }
+  </script>
+
+  <div class="pt-32 pb-24 min-h-screen">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+
+      <!-- Confirmation icon -->
+      <div class="mb-8 flex justify-center">
+        <div class="w-20 h-20 rounded-full bg-[#00ff88]/10 border border-[#00ff88]/30 flex items-center justify-center">
+          <svg class="w-10 h-10 text-[#00ff88]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Heading -->
+      <p class="text-xs font-mono text-[#00ff88] tracking-widest uppercase mb-4">Submission Received</p>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+        You're in the queue.
+      </h1>
+      <p class="text-lg text-gray-400 mb-4 leading-relaxed">
+        We've received your brief and a member of the PresciaIQ team will respond within <strong class="text-white">24 hours</strong> with a tailored recommendation.
+      </p>
+      <p class="text-sm text-gray-500 mb-12">
+        Check your inbox — including your spam folder — for a confirmation from <span class="text-gray-400">sales@presciaiq.com.au</span>
+      </p>
+
+      <!-- Divider -->
+      <div class="h-px bg-white/[0.06] mb-12"></div>
+
+      <!-- While you wait section -->
+      <h2 class="text-xl font-bold text-white mb-8">While you wait — explore what's possible</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 text-left">
+        <a href="/insights/case-studies/buildhire" class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/40 hover:bg-white/5 transition-all">
+          <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-2">Case Study</p>
+          <h3 class="text-base font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">BuildHire: $0 in paid ads, 4,000+ organic visits/month</h3>
+          <p class="text-sm text-gray-400">How programmatic SEO replaced $90 CPC Google Ads for a Sydney equipment hire business. →</p>
+        </a>
+        <a href="/insights/case-studies/loopbc" class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/40 hover:bg-white/5 transition-all">
+          <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-2">Case Study</p>
+          <h3 class="text-base font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">LoopBC: 84% ROAS prediction accuracy before campaigns launched</h3>
+          <p class="text-sm text-gray-400">How AdsIQ predicted campaign performance for a Sydney marketing agency. →</p>
+        </a>
+        <a href="/products/buildpredictiq" class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/40 hover:bg-white/5 transition-all">
+          <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-2">Product</p>
+          <h3 class="text-base font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">BuildPredictIQ — AI risk engine for construction</h3>
+          <p class="text-sm text-gray-400">Quantify project risk before a sod is turned. 50x average ROI. →</p>
+        </a>
+        <a href="/services/aeo-seo-predictive-search-architecture" class="group block p-6 rounded-xl border border-white/10 hover:border-[#00ff88]/40 hover:bg-white/5 transition-all">
+          <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-2">Service</p>
+          <h3 class="text-base font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">AEO/SEO — Predictive Search Architecture</h3>
+          <p class="text-sm text-gray-400">Get cited by ChatGPT, Perplexity, and Google AI Overviews. →</p>
+        </a>
+      </div>
+
+      <!-- Secondary CTA -->
+      <div class="bg-gradient-to-r from-[#00ff88]/10 to-transparent border border-[#00ff88]/20 rounded-xl p-8">
+        <h2 class="text-xl font-bold text-white mb-3">Want to talk sooner?</h2>
+        <p class="text-gray-400 mb-6 text-sm">Book a 15-minute Intelligence Audit directly in our calendar — no waiting required.</p>
+        <a
+          href="https://calendly.com/presciaiq/intelligence-audit"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors"
+        >
+          Book a 15-Minute Call Now
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>

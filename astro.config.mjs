@@ -9,11 +9,17 @@ export default defineConfig({
     tailwind(),
     sitemap({
       filter: (page) => {
-        // Exclude shallow programmatic clusters from sitemap (noindexed)
-        const shallow = ['/for/', '/compare/', '/solutions/', '/use-case/', '/aeo-seo/'];
-        // Keep /answers/ and /problems/ (hand-crafted AEO pages)
-        if (page.includes('/answers/') || page.includes('/problems/')) return true;
-        // Exclude all other programmatic clusters
+        // Week 1 staged rollout: compare pages now indexed (58 hand-crafted competitor pages)
+        // Large-volume clusters (/for/, /solutions/, /use-case/, /aeo-seo/) deferred to weeks 2-4
+        const shallow = ['/for/', '/solutions/', '/use-case/', '/aeo-seo/'];
+        // Always include: hand-crafted AEO pages, comparison pages, case studies, results, partners
+        if (page.includes('/answers/')) return true;
+        if (page.includes('/problems/')) return true;
+        if (page.includes('/compare/')) return true;
+        if (page.includes('/partners')) return true;
+        if (page.includes('/results/')) return true;
+        if (page.includes('/insights/case-studies/')) return true;
+        // Exclude remaining large programmatic clusters (staged rollout weeks 2-4)
         return !shallow.some(path => page.includes(path));
       },
       changefreq: 'weekly',
