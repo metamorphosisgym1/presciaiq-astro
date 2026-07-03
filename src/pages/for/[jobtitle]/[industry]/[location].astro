@@ -5,10 +5,32 @@ import { industries } from '../../../../data/industries';
 import { locations } from '../../../../data/locations';
 
 export function getStaticPaths() {
+  // Week 3: Only generate the 2,880 priority combinations (24 job titles × 20 industries × 6 locations)
+  // This keeps build times fast — non-priority combinations return 404 rather than being pre-built
+  const priorityJobTitleSlugs = [
+    'cfo','ceo','operations-manager','marketing-director','head-of-sales',
+    'supply-chain-manager','it-director','risk-manager','cto','coo',
+    'head-of-data','general-manager','digital-transformation-lead',
+    'procurement-manager','plant-manager','logistics-director',
+    'business-analyst','head-of-marketing','head-of-digital',
+    'startup-founder','it-manager','small-business-owner','sole-trader','entrepreneur'
+  ];
+  const priorityIndustrySlugs = [
+    'construction','manufacturing','retail','logistics','healthcare',
+    'mining','agriculture','financial-services','real-estate','hospitality',
+    'professional-services','transport','energy','education','insurance',
+    'wholesale-distribution','food-beverage','automotive','media-advertising','government'
+  ];
+  const priorityLocationSlugs = ['sydney','melbourne','brisbane','perth','adelaide','australia'];
+
+  const priorityJobTitles = jobTitles.filter(jt => priorityJobTitleSlugs.includes(jt.slug));
+  const priorityIndustries = industries.filter(ind => priorityIndustrySlugs.includes(ind.slug));
+  const priorityLocations = locations.filter(loc => priorityLocationSlugs.includes(loc.slug));
+
   const paths = [];
-  for (const jobTitle of jobTitles) {
-    for (const industry of industries) {
-      for (const location of locations) {
+  for (const jobTitle of priorityJobTitles) {
+    for (const industry of priorityIndustries) {
+      for (const location of priorityLocations) {
         paths.push({
           params: {
             jobtitle: jobTitle.slug,
