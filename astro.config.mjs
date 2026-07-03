@@ -9,12 +9,24 @@ export default defineConfig({
     tailwind(),
     sitemap({
       filter: (page) => {
-        // Week 2 staged rollout:
-        // - All /aeo-seo/[industry]/[location]/ pages now indexed (180 high-intent service pages)
-        // - Top 150 /for/ persona pages indexed (5 job titles × 5 industries × 6 locations)
-        // - /solutions/ and /use-case/ deferred to weeks 3-4
-        const priorityJobTitles = ['ceo','marketing-director','cfo','operations-manager','cto'];
-        const priorityIndustries = ['construction','financial-services','logistics','professional-services','manufacturing'];
+        // Week 3 staged rollout:
+        // - All /aeo-seo/[industry]/[location]/ pages indexed (180 high-intent service pages)
+        // - ALL /for/ persona pages indexed: 24 job titles × 20 industries × 6 locations = 2,880 pages
+        // - /solutions/ and /use-case/ deferred to weeks 4-5
+        const priorityJobTitles = [
+          'cfo','ceo','operations-manager','marketing-director','head-of-sales',
+          'supply-chain-manager','it-director','risk-manager','cto','coo',
+          'head-of-data','general-manager','digital-transformation-lead',
+          'procurement-manager','plant-manager','logistics-director',
+          'business-analyst','head-of-marketing','head-of-digital',
+          'startup-founder','it-manager','small-business-owner','sole-trader','entrepreneur'
+        ];
+        const priorityIndustries = [
+          'construction','manufacturing','retail','logistics','healthcare',
+          'mining','agriculture','financial-services','real-estate','hospitality',
+          'professional-services','transport','energy','education','insurance',
+          'wholesale-distribution','food-beverage','automotive','media-advertising','government'
+        ];
         const priorityLocations = ['sydney','melbourne','brisbane','perth','adelaide','australia'];
         // Always include: hand-crafted AEO pages, comparison pages, case studies, results, partners
         if (page.includes('/answers/')) return true;
@@ -25,13 +37,13 @@ export default defineConfig({
         if (page.includes('/insights/case-studies/')) return true;
         // Week 2: Include all /aeo-seo/[industry]/[location]/ pages
         if (page.match(/\/aeo-seo\/[^\/]+\/[^\/]+\//)) return true;
-        // Week 2: Include top 150 /for/ persona pages
+        // Week 3: Include ALL /for/ persona pages (24 job titles × 20 industries × 6 locations = 2,880 pages)
         const forMatch = page.match(/\/for\/([^\/]+)\/([^\/]+)\/([^\/]+)\//);
         if (forMatch) {
           const [, jt, ind, loc] = forMatch;
           return priorityJobTitles.includes(jt) && priorityIndustries.includes(ind) && priorityLocations.includes(loc);
         }
-        // Exclude remaining large programmatic clusters (/solutions/, /use-case/) — weeks 3-4
+        // Exclude remaining large programmatic clusters (/solutions/, /use-case/) — weeks 4-5
         if (page.includes('/solutions/') || page.includes('/use-case/')) return false;
         return true;
       },

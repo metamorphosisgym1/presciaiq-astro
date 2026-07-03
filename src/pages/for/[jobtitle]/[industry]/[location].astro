@@ -65,7 +65,7 @@ const breadcrumbSchema = {
 ---
 
 <Layout title={title} description={description} canonicalURL={canonicalURL}
-  noindex={!(['ceo','marketing-director','cfo','operations-manager','cto'].includes(jobTitle.slug) && ['construction','financial-services','logistics','professional-services','manufacturing'].includes(industry.slug) && ['sydney','melbourne','brisbane','perth','adelaide','australia'].includes(location.slug))}
+  noindex={!(['cfo','ceo','operations-manager','marketing-director','head-of-sales','supply-chain-manager','it-director','risk-manager','cto','coo','head-of-data','general-manager','digital-transformation-lead','procurement-manager','plant-manager','logistics-director','business-analyst','head-of-marketing','head-of-digital','startup-founder','it-manager','small-business-owner','sole-trader','entrepreneur'].includes(jobTitle.slug) && ['construction','manufacturing','retail','logistics','healthcare','mining','agriculture','financial-services','real-estate','hospitality','professional-services','transport','energy','education','insurance','wholesale-distribution','food-beverage','automotive','media-advertising','government'].includes(industry.slug) && ['sydney','melbourne','brisbane','perth','adelaide','australia'].includes(location.slug))}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
