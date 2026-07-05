@@ -48,6 +48,8 @@ export default defineConfig({
         }
         // Exclude remaining large programmatic clusters (/solutions/, /use-case/) — weeks 4-5
         if (page.includes('/solutions/') || page.includes('/use-case/')) return false;
+        // Explicitly exclude deep /compare/[comp]/[ind]/[loc]/ pages (noindex=true, waste crawl budget)
+        if (page.match(/\/compare\/[^\/]+\/[^\/]+/)) return false;
         return true;
       },
       changefreq: 'weekly',
