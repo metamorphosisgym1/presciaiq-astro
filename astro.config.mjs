@@ -31,7 +31,9 @@ export default defineConfig({
         // Always include: hand-crafted AEO pages, comparison pages, case studies, results, partners
         if (page.includes('/answers/')) return true;
         if (page.includes('/problems/')) return true;
-        if (page.includes('/compare/')) return true;
+        // /compare/ hub pages only (e.g. /compare/accenture-australia/) — NOT the deep 3-level pages
+        // Deep /compare/[comp]/[ind]/[loc]/ pages have noindex=true so must NOT be in sitemap
+        if (page.match(/\/compare\/[^\/]+\/$/) && !page.match(/\/compare\/[^\/]+\/[^\/]+\//)) return true;
         if (page.includes('/partners')) return true;
         if (page.includes('/results/')) return true;
         if (page.includes('/insights/case-studies/')) return true;
