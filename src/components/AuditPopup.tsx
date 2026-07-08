@@ -22,6 +22,7 @@ const INDUSTRIES = [
 ];
 
 const STORAGE_KEY = "presciaiq_audit_popup_shown";
+const STORAGE_EXPIRY_HOURS = 24; // Show again after 24 hours
 const CALENDLY_URL = "https://calendly.com/presciaiq-sales/discoverycall?month=2026-06";
 
 // ── Main Component ────────────────────────────────────────────────────────────
@@ -34,24 +35,31 @@ export default function AuditPopup() {
 
   // ── Trigger logic ────────────────────────────────────────────────────────
   const showPopup = useCallback(() => {
-    // Only show once per session
-    if (sessionStorage.getItem(STORAGE_KEY)) return;
+    // Only show on homepage
+    if (typeof window !== "undefined" && window.location.pathname !== "/") return;
+    // Show again after STORAGE_EXPIRY_HOURS hours (not just once per session)
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const shownAt = parseInt(stored, 10);
+      const hoursSince = (Date.now() - shownAt) / (1000 * 60 * 60);
+      if (hoursSince < STORAGE_EXPIRY_HOURS) return;
+    }
     setVisible(true);
-    sessionStorage.setItem(STORAGE_KEY, "1");
+    localStorage.setItem(STORAGE_KEY, String(Date.now()));
   }, []);
 
-    useEffect(() => {
-    // Time delay: 8 seconds
-    const timer = setTimeout(showPopup, 8000);
+  useEffect(() => {
+    // Time delay: 4 seconds on homepage
+    const timer = setTimeout(showPopup, 4000);
     // Exit intent: cursor moves toward top of viewport
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 10) showPopup();
     };
-    // Scroll depth: fires at 60% page scroll
+    // Scroll depth: fires at 50% page scroll
     const handleScroll = () => {
       const scrolled = window.scrollY + window.innerHeight;
       const total = document.documentElement.scrollHeight;
-      if (scrolled / total >= 0.60) showPopup();
+      if (scrolled / total >= 0.50) showPopup();
     };
     document.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("scroll", handleScroll, { passive: true });
