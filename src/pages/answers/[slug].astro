@@ -1,9 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { aeoAnswers } from '../../data/aeo-answers';
+import { aeoAnswersNew } from '../../data/aeo-answers-new';
+
+const allAnswers = [...aeoAnswers, ...aeoAnswersNew];
 
 export function getStaticPaths() {
-  return aeoAnswers.map(answer => ({
+  return allAnswers.map(answer => ({
     params: { slug: answer.slug },
     props: { answer },
   }));

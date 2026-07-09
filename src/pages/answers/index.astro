@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { aeoAnswers } from '../../data/aeo-answers';
+import { aeoAnswersNew } from '../../data/aeo-answers-new';
+
+const allAnswers = [...aeoAnswers, ...aeoAnswersNew];
+
+const title = "AI & AEO Answers | PresciaIQ Knowledge Base";
+const description = "Authoritative answers to the most important questions about predictive AI, Answer Engine Optimisation (AEO), programmatic SEO, and AI implementation for Australian businesses.";
+const canonicalURL = "https://www.presciaiq.com.au/answers/";
+
+// Group answers by category
+const categories: Record<string, typeof allAnswers> = {};
+for (const answer of allAnswers) {
+  const cat = answer.category || 'general';
+  if (!categories[cat]) categories[cat] = [];
+  categories[cat].push(answer);
+}
+
+const categoryLabels: Record<string, string> = {
+  fundamentals: "Fundamentals",
+  "use-cases": "Use Cases",
+  implementation: "Implementation",
+  comparisons: "Comparisons",
+  presciaiq: "About PresciaIQ",
+  industry: "Industry Guides",
+  general: "General",
+};
+
+const categoryOrder = ["fundamentals", "use-cases", "implementation", "industry", "comparisons", "presciaiq", "general"];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Answers", "item": "https://www.presciaiq.com.au/answers/" }
+  ]
+};
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://www.presciaiq.com.au/answers/",
+  "url": "https://www.presciaiq.com.au/answers/",
+  "name": "AI & AEO Answers | PresciaIQ",
+  "description": description,
+  "publisher": { "@id": "https://www.presciaiq.com.au/#organization" },
+  "numberOfItems": allAnswers.length,
+};
+---
+
+<Layout title={title} description={description} canonical={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
+  <main class="min-h-screen bg-[#0a0a0a] text-white">
+    <!-- Hero -->
+    <section class="pt-24 pb-12 px-6 max-w-5xl mx-auto">
+      <nav class="text-sm text-white/40 mb-6 font-mono">
+        <a href="/" class="hover:text-[#00ff88] transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-white/70">Answers</span>
+      </nav>
+      <div class="inline-flex items-center gap-2 bg-[#00ff88]/10 border border-[#00ff88]/20 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse"></span>
+        <span class="text-[#00ff88] text-xs font-mono tracking-widest uppercase">Knowledge Base</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+        AI & AEO Answers
+      </h1>
+      <p class="text-lg text-white/60 max-w-2xl">
+        {allAnswers.length} authoritative answers on predictive AI, Answer Engine Optimisation, and AI implementation for Australian businesses — structured for AI engines and decision-makers alike.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3 text-sm text-white/40 font-mono">
+        <span>{allAnswers.length} answers</span>
+        <span>|</span>
+        <span>{Object.keys(categories).length} categories</span>
+        <span>|</span>
+        <span>Updated July 2026</span>
+      </div>
+    </section>
+
+    <div class="w-full h-px bg-white/10 mb-12"></div>
+
+    <!-- Category sections -->
+    <section class="px-6 max-w-5xl mx-auto pb-24">
+      {categoryOrder.filter(cat => categories[cat]?.length > 0).map(cat => (
+        <div class="mb-14">
+          <h2 class="text-xs font-mono tracking-widest uppercase text-[#00ff88] mb-6">
+            {categoryLabels[cat] || cat} <span class="text-white/30 ml-2">({categories[cat].length})</span>
+          </h2>
+          <div class="grid gap-3">
+            {categories[cat].map(answer => (
+              <a
+                href={`/answers/${answer.slug}/`}
+                class="group flex items-start gap-4 p-4 border border-white/10 rounded-lg hover:border-[#00ff88]/40 hover:bg-white/[0.02] transition-all duration-200"
+              >
+                <span class="text-[#00ff88]/50 mt-0.5 text-lg leading-none group-hover:text-[#00ff88] transition-colors">→</span>
+                <div class="flex-1 min-w-0">
+                  <p class="text-white/90 font-medium group-hover:text-white transition-colors leading-snug">
+                    {answer.question}
+                  </p>
+                  <p class="text-white/40 text-sm mt-1 line-clamp-2">
+                    {answer.shortAnswer}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- CTA -->
+    <section class="border-t border-white/10 px-6 py-16 max-w-5xl mx-auto text-center">
+      <p class="text-white/50 text-sm font-mono mb-4">Can't find your answer?</p>
+      <h2 class="text-2xl font-bold text-white mb-4">Talk to PresciaIQ directly</h2>
+      <p class="text-white/50 mb-8 max-w-md mx-auto">We build custom AI solutions for Australian businesses. Tell us what you're trying to solve.</p>
+      <a
+        href="/start/"
+        class="inline-flex items-center gap-2 bg-[#00ff88] text-black font-bold px-8 py-3 rounded-sm hover:bg-[#00ff88]/90 transition-colors text-sm tracking-wide uppercase"
+      >
+        Start a Brief →
+      </a>
+    </section>
+  </main>
+</Layout>
