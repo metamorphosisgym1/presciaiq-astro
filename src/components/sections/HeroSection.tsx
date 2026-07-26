@@ -153,7 +153,7 @@ const HeroSection = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-xs uppercase tracking-[0.3em] font-sans font-semibold mb-6 text-gradient-primary inline-block"
             >
-              Australia's AI Intelligence & Development Company
+              Australia's Predictive AI Company
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
@@ -161,8 +161,8 @@ const HeroSection = () => {
               transition={{ delay: 0.5, duration: 0.9 }}
               className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-foreground leading-[0.95] mb-6"
             >
-              Intelligence That{" "}
-              <em className="text-primary italic font-display neon-glow">Moves</em> First.
+              Eliminate the{" "}
+              <em className="text-primary italic font-display neon-glow">Reaction</em> Tax.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -170,7 +170,7 @@ const HeroSection = () => {
               transition={{ delay: 0.7, duration: 0.6 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed mb-10 font-sans"
             >
-              PresciaIQ design and build AI platforms for Australian businesses that need more than off-the-shelf can deliver.
+              Stop paying the hidden cost of learning things after they happen. We build AI forecasting platforms that give Australian operators predictive intelligence before decisions need to be made.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -179,10 +179,10 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <MagneticButton
-                href="/contact"
+                href="/start"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(0,255,136,0.3)] transition-all duration-500 font-sans"
               >
-                Book a Strategy Call
+                Calculate Your AI ROI
                 <ArrowRight className="w-4 h-4" />
               </MagneticButton>
               <a
