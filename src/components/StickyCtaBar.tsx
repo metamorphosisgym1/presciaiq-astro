@@ -49,8 +49,8 @@ export default function StickyCtaBar() {
             Free
           </span>
           <p className="text-sm text-white/80 truncate">
-            <span className="font-semibold text-white">Get your free AI Readiness Score</span>
-            <span className="hidden md:inline"> — we'll show you exactly where your business is leaking revenue.</span>
+            <span className="font-semibold text-white">Calculate your Reaction Tax</span>
+            <span className="hidden md:inline"> — see exactly how much margin you are losing to reactive decisions.</span>
           </p>
         </div>
 

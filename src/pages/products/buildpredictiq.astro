@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const title = "BuildPredictIQ — Predict Construction Cost Overruns";
-const description = "Predict construction cost overruns and timeline blowouts before a sod is turned. Trained on 12,000+ Australian projects. Integrates with Procore.";
+const title = "BuildPredictIQ — AI Construction Risk & Cost Forecasting | PresciaIQ";
+const description = "BuildPredictIQ predicts construction cost overruns, timeline blowouts, and subcontractor risk before a sod is turned. Trained on 12,000+ Australian projects. Integrates with Procore and Aconex. Starting from $1,200/month.";
 const canonicalURL = new URL("/products/buildpredictiq/", Astro.site).href;
 
 const schema = {
@@ -158,6 +158,37 @@ const schema = {
               <p class="text-muted-foreground font-sans text-sm leading-relaxed">{f.desc}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 border-b border-white/5">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Who It's For</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-6">Built for Australian Builders and Developers</h2>
+        <div class="space-y-4 text-muted-foreground font-sans leading-relaxed max-w-3xl mb-10">
+          <p>BuildPredictIQ is designed for Australian construction companies running projects from $500k to $50 million. It is particularly valuable for tier 2 and tier 3 builders who need enterprise-grade risk prediction without the cost of large in-house data teams.</p>
+          <p>If you are a project manager who has ever been blindsided by a cost blowout, a developer who has ever had a settlement delayed by a construction overrun, or a builder who has ever won a tender only to discover the margin was eroded by risks you could not see — BuildPredictIQ was built for you.</p>
+          <p>The platform is also used by quantity surveyors, development managers, and construction lenders who need an independent risk assessment before committing capital to a project.</p>
+        </div>
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">How It Works</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-6">From Project Brief to Risk Forecast in 48 Hours</h2>
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+          <div class="rounded-xl border border-white/8 p-6" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-primary text-sm font-bold mb-3">Step 01</p>
+            <h3 class="font-display text-lg font-bold text-foreground mb-3">Input Your Project Brief</h3>
+            <p class="text-muted-foreground font-sans text-sm leading-relaxed">Upload your project brief, site address, subcontractor list, and preliminary budget. BuildPredictIQ connects to your Procore or Aconex account to pull historical project data automatically.</p>
+          </div>
+          <div class="rounded-xl border border-white/8 p-6" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-primary text-sm font-bold mb-3">Step 02</p>
+            <h3 class="font-display text-lg font-bold text-foreground mb-3">AI Analyses 47 Risk Variables</h3>
+            <p class="text-muted-foreground font-sans text-sm leading-relaxed">The platform analyses weather patterns, council approval timelines for your LGA, subcontractor payment and completion history, material price trajectories, and site complexity against 12,000+ comparable Australian projects.</p>
+          </div>
+          <div class="rounded-xl border border-white/8 p-6" style="background: rgba(255,255,255,0.02);">
+            <p class="font-mono text-primary text-sm font-bold mb-3">Step 03</p>
+            <h3 class="font-display text-lg font-bold text-foreground mb-3">Receive Your Risk-Adjusted Forecast</h3>
+            <p class="text-muted-foreground font-sans text-sm leading-relaxed">Within 48 hours, you receive a risk-adjusted cost forecast with P50/P80/P90 confidence intervals, a ranked list of the top risk factors, and specific mitigation recommendations — before you commit to the project.</p>
+          </div>
         </div>
       </div>
     </section>

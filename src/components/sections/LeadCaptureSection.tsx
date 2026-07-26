@@ -117,11 +117,12 @@ const LeadCaptureSection = () => {
     <SectionWrapper id="audit" className="py-12 md:py-16 aurora-bg relative overflow-hidden">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
+          <p className="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Calculate ROI</p>
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
-            Let's Build Something Intelligent.
+            Ready to eliminate the Reaction Tax?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-sans">
-            Whether you need a predictive AI strategy or a high-performance digital product, Alex and Macauley are ready to build with you directly.
+            Book a predictive intelligence briefing with our Sydney team. We will map your current operational bottlenecks, assess your existing data, and calculate the exact financial ROI of deploying predictive AI in your business.
           </p>
         </div>
 
@@ -164,10 +165,10 @@ const LeadCaptureSection = () => {
               <>
                 <div className="text-center mb-8">
                   <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">
-                    Get Your Free Intelligence Audit
+                    Calculate Your AI ROI
                   </h3>
                   <p className="text-sm text-muted-foreground font-sans">
-                    In 15 minutes, we'll identify the single biggest intelligence gap in your business.
+                    In 15 minutes, we'll calculate the exact margin you are losing to the Reaction Tax, and show you how to win it back.
                   </p>
                 </div>
                 <form onSubmit={handleStrategySubmit} className="space-y-5">
@@ -200,7 +201,7 @@ const LeadCaptureSection = () => {
                     className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,255,136,0.3)] transition-all duration-500 text-sm uppercase tracking-widest font-sans disabled:opacity-50 flex items-center justify-center gap-2">
                     {submitting ? (
                       <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>
-                    ) : "Book Your Strategy Call"}
+                    ) : "Book Your Predictive ROI Briefing"}
                   </button>
                   <p className="text-center text-xs text-muted-foreground font-sans">
                     Join 300+ Australian businesses in the PresciaIQ intelligence network.
