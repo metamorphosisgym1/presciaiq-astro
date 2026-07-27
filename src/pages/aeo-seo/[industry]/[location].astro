@@ -19,8 +19,6 @@ export function getStaticPaths() {
 const { industry, location } = Astro.props;
 const title = `AEO/SEO for ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
 const description = `PresciaIQ builds programmatic SEO and AEO architectures for ${industry.plural} ${location.preposition} ${location.name}. Deploy hundreds of targeted, schema-rich pages that dominate ${industry.name.toLowerCase()} search in ${location.name}. From $4,999.`;
-// Self-canonical: this page covers AEO/SEO service specifically for this industry+location
-// It is distinct from /solutions/ pages which cover all predictive AI services
 const canonicalURL = `https://www.presciaiq.com.au/aeo-seo/${industry.slug}/${location.slug}/`;
 
 const breadcrumbSchema = {
@@ -80,12 +78,27 @@ const faqSchema = {
         "@type": "Answer",
         "text": `${industry.exampleUseCase} PresciaIQ clients in the ${industry.name.toLowerCase()} sector typically see a 5x–15x increase in indexed pages and a 3x–10x increase in organic traffic within 90 days of deployment.`
       }
+    },
+    {
+      "@type": "Question",
+      "name": `How much does it cost to build an AEO/SEO architecture for ${industry.plural} ${location.preposition} ${location.name}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `PresciaIQ's Predictive Search Architecture for ${industry.plural} ${location.preposition} ${location.name} starts from $4,999 as a one-off build. This includes full programmatic page generation, schema markup, AEO optimisation for AI answer engines, and a 90-day indexing strategy. Unlike monthly SEO retainers, you pay once and the architecture compounds in value over time.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `How long does it take to see results from programmatic SEO for ${industry.name.toLowerCase()} ${location.preposition} ${location.name}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Most ${industry.plural} ${location.preposition} ${location.name} see Google begin indexing new pages within 2–4 weeks of deployment. Meaningful organic traffic increases typically appear within 60–90 days. Full compounding effect — where the architecture dominates the majority of ${industry.name.toLowerCase()} search queries in ${location.name} — builds over 6–12 months as domain authority compounds.`
+      }
     }
   ]
 };
 ---
-<Layout title={title} description={description} canonicalURL={canonicalURL}
->
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
   <div class="pt-32 pb-24 min-h-screen">
     <div class="max-w-4xl mx-auto px-6">
 
@@ -110,7 +123,14 @@ const faqSchema = {
           </p>
         </div>
 
-        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
+        {industry.localStats && (
+          <div class="bg-[#00ff88]/5 border border-[#00ff88]/20 rounded-xl p-6 mb-12">
+            <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-3">Industry Data</p>
+            <p class="text-gray-300 leading-relaxed font-medium">{industry.localStats}</p>
+          </div>
+        )}
+
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-12">
           <p>Most {industry.plural} {location.preposition} {location.name} are invisible on Google for the majority of the search queries their prospects are using. They have a handful of generic pages targeting broad keywords — and they're losing to competitors with deeper structural authority every single day.</p>
 
           <p>Predictive Search Architecture changes this. We map every dimension of your {industry.name.toLowerCase()} business — every service you offer, every location in your market, every problem you solve, every persona you target — and deploy a unique, highly optimised page for each combination. The result is a website that captures the full search demand landscape for the {industry.name.toLowerCase()} sector {location.preposition} {location.name}.</p>
@@ -124,14 +144,48 @@ const faqSchema = {
             <li>Competitor comparison pages intercepting {industry.plural} at the decision stage</li>
             <li>Persona pages speaking to every decision-maker in {industry.name.toLowerCase()} businesses</li>
           </ul>
+        </div>
 
-          <h3 class="text-2xl font-bold text-white mt-12 mb-6">Industry Insight</h3>
+        {industry.keyBenefits && industry.keyBenefits.length > 0 && (
+          <div class="mb-12">
+            <h3 class="text-2xl font-bold text-white mb-6">Key Benefits for {industry.plural} {location.preposition} {location.name}</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {industry.keyBenefits.map((benefit: string) => (
+                <div class="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-white/10">
+                  <span class="text-[#00ff88] font-bold text-lg mt-0.5 flex-shrink-0">✓</span>
+                  <p class="text-gray-300 text-sm leading-relaxed">{benefit}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {industry.caseStudySnippet && (
+          <div class="bg-black/60 border border-white/10 rounded-xl p-8 mb-12">
+            <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-4">Client Result</p>
+            <p class="text-gray-300 leading-relaxed font-medium italic">"{industry.caseStudySnippet}"</p>
+          </div>
+        )}
+
+        <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
+          <h3 class="text-2xl font-bold text-white mt-4 mb-6">Industry Insight</h3>
           <p>{industry.exampleUseCase}</p>
 
           <p class="text-white font-medium border-l-2 border-white/20 pl-4 py-2 mt-8">
             Unlike traditional SEO retainers, this is an infrastructural build. You pay once for the architecture, and it compounds in value over time — dominating both traditional search and AI Answer Engines across the entire {industry.name.toLowerCase()} sector {location.preposition} {location.name}.
           </p>
         </div>
+
+        {industry.topQueries && industry.topQueries.length > 0 && (
+          <div class="mb-16">
+            <h3 class="text-xl font-bold text-white mb-4">Search Queries We Target for {industry.name} {location.preposition} {location.name}</h3>
+            <div class="flex flex-wrap gap-2">
+              {industry.topQueries.map((query: string) => (
+                <span class="text-xs text-gray-400 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">{query}</span>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div class="bg-gradient-to-r from-[#00ff88]/20 to-transparent p-8 rounded-xl border border-[#00ff88]/30 mb-16">
           <h3 class="text-2xl font-bold text-white mb-4">Ready to dominate {industry.name.toLowerCase()} search {location.preposition} {location.name}?</h3>
@@ -160,6 +214,14 @@ const faqSchema = {
             <div>
               <h3 class="text-xl font-bold text-white mb-3">What results can {industry.plural} {location.preposition} {location.name} expect?</h3>
               <p class="text-gray-400 leading-relaxed">{industry.exampleUseCase} PresciaIQ clients in the {industry.name.toLowerCase()} sector typically see a 5x–15x increase in indexed pages and a 3x–10x increase in organic traffic within 90 days of deployment.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">How much does it cost to build an AEO/SEO architecture for {industry.plural} {location.preposition} {location.name}?</h3>
+              <p class="text-gray-400 leading-relaxed">PresciaIQ's Predictive Search Architecture for {industry.plural} {location.preposition} {location.name} starts from $4,999 as a one-off build. This includes full programmatic page generation, schema markup, AEO optimisation for AI answer engines, and a 90-day indexing strategy. Unlike monthly SEO retainers, you pay once and the architecture compounds in value over time.</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">How long does it take to see results from programmatic SEO for {industry.name.toLowerCase()} {location.preposition} {location.name}?</h3>
+              <p class="text-gray-400 leading-relaxed">Most {industry.plural} {location.preposition} {location.name} see Google begin indexing new pages within 2–4 weeks of deployment. Meaningful organic traffic increases typically appear within 60–90 days. Full compounding effect builds over 6–12 months as domain authority compounds.</p>
             </div>
           </div>
         </div>
