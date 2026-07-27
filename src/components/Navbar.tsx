@@ -34,6 +34,7 @@ const Navbar = () => {
                   <a href="https://opsiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">OpsIQ</span><span className="text-xs text-muted-foreground">Operations Intelligence</span></a>
                   <a href="https://tradesmaniq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">TradesmanIQ</span><span className="text-xs text-muted-foreground">Trades Intelligence</span></a>
                   <a href="https://www.daywinlabs.com" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">FinanceIQ</span><span className="text-xs text-muted-foreground">Finance Intelligence, your digital CFO</span></a>
+                  <a href="/products/ai-automations/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">AI Automations</span><span className="text-xs text-muted-foreground">Custom workflows & agents</span></a>
                 </div>
                )}
             </div>
@@ -96,6 +97,7 @@ const Navbar = () => {
             <a href="https://opsiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">OpsIQ</a>
             <a href="https://tradesmaniq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">TradesmanIQ</a>
             <a href="https://www.daywinlabs.com" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">FinanceIQ</a>
+            <a href="/products/ai-automations/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent">AI Automations</a>
             <div className="border-t border-border my-2"></div>
             <a href="/development" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Development</a>
             <a href="/services/ai-software-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Software Development</a>

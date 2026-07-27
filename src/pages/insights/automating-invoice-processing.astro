@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Stop Entering Invoices Manually: The ROI of Document Processing AI | PresciaIQ Insights";
+const description = "Manual data entry is the lowest-value work your team does. Here is how AI document processing eliminates it completely.";
+const canonicalURL = new URL("/insights/automating-invoice-processing/", Astro.site).href;
+const date = "2026-08-08";
+const category = "AI Automations";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": "https://www.presciaiq.com.au/og-image.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "url": "https://www.presciaiq.com.au"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.presciaiq.com.au/logo.png"
+    }
+  },
+  "datePublished": date,
+  "dateModified": date,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalURL
+  }
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground py-24">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">{category}</span>
+          <time class="text-sm text-muted-foreground font-sans">{new Date(date).toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">{title}</h1>
+        <p class="text-xl text-muted-foreground font-sans leading-relaxed">{description}</p>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none font-sans">
+        <p>If your accounts team is still manually reading PDFs and typing the data into Xero or MYOB, you are paying a heavy 'Reaction Tax' in wasted hours and inevitable human error. Traditional OCR (Optical Character Recognition) software tried to solve this, but it required rigid templates. If a supplier changed their invoice layout, the OCR broke.</p><p>Modern AI document processing does not rely on templates. It 'reads' the document the way a human does. It understands that 'Total Due', 'Amount Payable', and 'Balance' all mean the same thing. It can extract line items, match them against purchase orders, flag discrepancies, and push the structured data directly into your accounting software via API.</p><p>At PresciaIQ, we build custom document processing pipelines that handle invoices, receipts, compliance certificates, and contracts. The ROI is immediate: what previously took a human five minutes per document now takes an AI five seconds, with higher accuracy.</p>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/10">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
+          <h3 class="font-display text-2xl font-bold text-foreground mb-4">Ready to automate your operations?</h3>
+          <p class="text-muted-foreground mb-6">Book a scoping call with our team to discuss how custom AI automations can eliminate manual work in your business.</p>
+          <a href="/start" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300">
+            Book a Scoping Call →
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>

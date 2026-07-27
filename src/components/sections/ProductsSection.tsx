@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowRight, Shield, Target, Settings, Wrench } from "lucide-react";
+import { ArrowRight, Shield, Target, Settings, Wrench, Bot } from "lucide-react";
 import SectionWrapper from "../SectionWrapper";
 const heroBuild = "/hero-buildpredictiq.jpg";
 const heroAds = "/hero-adsiq.jpg";
@@ -8,6 +8,18 @@ const heroOps = "/hero-opsiq.jpg";
 const heroTrades = "/hero-tradesmaniq.jpg";
 
 const products = [
+  {
+    name: "AI Automations",
+    icon: Bot,
+    category: "CUSTOM SOLUTIONS",
+    oneLiner: "Custom workflows & agents for Australian businesses.",
+    metric: "Stop doing work software can do for you.",
+    features: ["CRM & Sales Automation", "Document Processing", "AI Customer Support Agents"],
+    href: "/products/ai-automations/",
+    badge: "Available Now",
+    badgeType: "live" as const,
+    heroImage: heroOps, // Reusing heroOps for now
+  },
   {
     name: "BuildPredictIQ",
     icon: Shield,
