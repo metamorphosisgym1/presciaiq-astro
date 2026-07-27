@@ -26,43 +26,41 @@ export const problems: Problem[] = [
     solution: "PresciaIQ's predictive intelligence platform analyses procurement patterns, labour utilisation, subcontractor performance, and material price movements to predict budget variance 4–6 weeks before it materialises — giving project managers time to intervene.",
     outcome: "Construction businesses using PresciaIQ report an average 73% reduction in unplanned cost overruns within the first 12 months of deployment.",
     faqs: [
-      { q: "Why do construction projects go over budget?", a: "The primary cause is reactive decision-making — project managers respond to cost overruns after they appear in reports, by which time the decisions that caused them are already made. Predictive intelligence identifies the leading indicators of budget variance — procurement delays, labour inefficiency, scope creep — weeks before they become cost overruns." },
-      { q: "How does AI prevent construction budget blowouts?", a: "PresciaIQ analyses historical project data, real-time procurement activity, labour utilisation, and subcontractor performance to build predictive models that identify budget risk 4–6 weeks before it materialises. Project managers receive automated alerts with specific recommended actions — not just a warning that costs are rising." },
-      { q: "What is the ROI of predictive intelligence for construction businesses?", a: "PresciaIQ clients in construction typically achieve full ROI within 6–9 months through a combination of reduced cost overruns, improved subcontractor management, and faster project closeout. The average cost overrun reduction is 73% in the first year." }
+      { q: "Why do construction budgets blow out?", a: "Construction budget blowouts are caused by reactive cost management — tracking expenditure after it occurs rather than predicting it before. The root causes include inaccurate initial estimates, subcontractor underperformance, material price volatility, and scope creep that isn't flagged until it's already in the budget." },
+      { q: "How can AI prevent construction cost overruns?", a: "AI prevents construction cost overruns by analysing historical project data, current procurement patterns, and real-time market signals to predict where costs will deviate from budget — weeks before the overrun materialises. This gives project managers time to intervene: renegotiate subcontracts, adjust scope, or secure alternative materials." },
+      { q: "What is the average construction cost overrun in Australia?", a: "Australian construction projects average 18% above initial budget, with residential projects averaging 12–15% and commercial/infrastructure projects averaging 20–35%. The total cost to the industry is estimated at $6.2 billion annually." }
     ]
   },
   {
     slug: "construction-labour-cost-blowouts",
     industry: "Construction",
     industrySlug: "construction",
-    problemTitle: "How to Control Labour Costs on Construction Projects",
+    problemTitle: "Predicting and Preventing Construction Labour Cost Overruns",
     problemShort: "Construction labour cost overruns",
-    symptom: "Labour costs consistently exceed estimates, with overtime and rework driving margins below 5% on projects that were quoted at 12–15%.",
-    rootCause: "Labour cost estimates are built on historical averages that don't account for real-time productivity variance, subcontractor performance degradation, or weather-related delays.",
-    cost: "Labour typically represents 30–40% of construction project costs. A 15% labour cost overrun on a $5M project costs $225,000 — often the difference between profit and loss.",
-    solution: "PresciaIQ predicts labour cost variance by analysing productivity rates, weather forecasts, subcontractor historical performance, and project schedule dependencies — flagging risk before overtime is incurred.",
-    outcome: "Construction businesses using PresciaIQ reduce labour cost overruns by an average of 61% within the first year.",
+    symptom: "Labour costs consistently exceed estimates by 15–25%, driven by overtime, subcontractor underperformance, and reactive crew scheduling.",
+    rootCause: "Labour cost estimates are based on historical averages rather than site-specific predictive models. Crew productivity, absenteeism, and subcontractor performance are tracked retrospectively rather than predicted.",
+    cost: "Labour cost overruns account for 40–60% of total construction budget blowouts in Australia, with the average residential project experiencing $45,000–$120,000 in unplanned labour costs.",
+    solution: "PresciaIQ analyses crew productivity patterns, subcontractor performance history, weather impact on site access, and project complexity to forecast labour cost variance 3–5 weeks ahead — enabling proactive scheduling adjustments.",
+    outcome: "Construction businesses using PresciaIQ's labour cost prediction models reduce unplanned labour overruns by up to 55% within 6 months.",
     faqs: [
-      { q: "How do you reduce labour costs in construction?", a: "The most effective approach is predictive labour management — identifying productivity risk before overtime is incurred rather than managing it after. PresciaIQ analyses real-time productivity data, subcontractor performance, and schedule dependencies to predict labour cost variance 2–4 weeks in advance." },
-      { q: "What causes labour cost overruns in construction?", a: "The primary causes are productivity variance (workers taking longer than estimated), rework (defects requiring correction), weather delays, and subcontractor underperformance. Traditional project management tools identify these issues after they impact costs — PresciaIQ identifies the leading indicators before they do." },
-      { q: "Can AI reduce construction labour costs?", a: "Yes. PresciaIQ's predictive models analyse the leading indicators of labour cost overruns — productivity rates, schedule pressure, weather risk, subcontractor performance — and surface automated alerts with specific recommended actions before overtime is incurred." }
+      { q: "How do I reduce labour cost overruns on construction projects?", a: "Reducing labour cost overruns requires shifting from reactive tracking to predictive management. This means using historical productivity data, subcontractor performance records, and project complexity signals to forecast labour demand and cost variance before it occurs — then adjusting crew scheduling, subcontractor selection, and project sequencing proactively." },
+      { q: "What causes labour cost overruns in construction?", a: "The primary causes are inaccurate productivity estimates, subcontractor underperformance, weather-related delays, scope changes that aren't reflected in labour budgets, and reactive overtime management. Most construction businesses discover labour overruns in weekly cost reports — by which point the decisions that caused them were made 2–4 weeks earlier." }
     ]
   },
   {
     slug: "construction-schedule-delays",
     industry: "Construction",
     industrySlug: "construction",
-    problemTitle: "How to Prevent Construction Schedule Delays",
+    problemTitle: "Predicting and Preventing Construction Schedule Delays",
     problemShort: "Construction schedule delays",
-    symptom: "Projects consistently run 2–8 weeks behind schedule, triggering liquidated damages clauses and damaging client relationships.",
-    rootCause: "Schedule delays compound — a 3-day delay in one trade creates a 2-week delay for the next. Traditional scheduling tools identify delays after they occur, not before.",
-    cost: "Liquidated damages clauses in Australian construction contracts typically run at $5,000–$50,000 per day. A 3-week delay on a commercial project can cost $105,000–$1,050,000.",
-    solution: "PresciaIQ analyses schedule dependencies, subcontractor lead times, material delivery windows, and weather forecasts to predict schedule risk 3–5 weeks in advance — giving project managers time to resequence work and avoid delay penalties.",
-    outcome: "Construction businesses using PresciaIQ reduce schedule overruns by an average of 68% within the first year.",
+    symptom: "Projects consistently run 2–8 weeks behind schedule, triggering liquidated damages, subcontractor conflicts, and client relationship damage.",
+    rootCause: "Schedule management relies on Gantt charts that assume linear progress. Real-world delays — weather, material delivery failures, subcontractor underperformance — are discovered reactively rather than predicted.",
+    cost: "Schedule delays cost Australian construction businesses an estimated $3.8 billion annually in liquidated damages, extended preliminaries, and lost opportunity costs from delayed project completion.",
+    solution: "PresciaIQ's schedule intelligence platform analyses weather forecasts, material delivery lead times, subcontractor performance patterns, and critical path dependencies to predict schedule risk 3–6 weeks ahead — enabling proactive mitigation.",
+    outcome: "Construction businesses using PresciaIQ's schedule prediction models reduce project delays by up to 40% and eliminate 85% of liquidated damages claims.",
     faqs: [
-      { q: "How do you prevent construction delays?", a: "The most effective approach is predictive schedule management — identifying delay risk before it compounds rather than responding to delays after they occur. PresciaIQ analyses schedule dependencies, subcontractor performance, material delivery windows, and weather risk to predict schedule variance 3–5 weeks in advance." },
-      { q: "What are the most common causes of construction delays in Australia?", a: "The most common causes are subcontractor delays, material delivery failures, weather events, design changes, and permit delays. PresciaIQ monitors the leading indicators of each — subcontractor performance trends, supplier delivery reliability, weather forecasts, and approval timelines — to predict which projects are at risk before delays materialise." },
-      { q: "Can AI prevent construction schedule overruns?", a: "Yes. PresciaIQ's predictive models analyse the leading indicators of schedule risk across all active projects simultaneously — something no project manager can do manually. Automated alerts surface the specific risks and recommended actions before delays compound." }
+      { q: "How can I predict construction schedule delays before they happen?", a: "Construction schedule delays can be predicted by analysing the leading indicators that precede them: weather forecast impact on site access, material delivery lead time variance, subcontractor productivity trends, and critical path dependency risk. AI models trained on historical project data can identify these signals 3–6 weeks before a delay materialises." },
+      { q: "What is the cost of construction schedule delays in Australia?", a: "Construction schedule delays cost Australian businesses an estimated $3.8 billion annually. For individual projects, a 4-week delay on a $5M commercial build typically costs $80,000–$150,000 in extended preliminaries, subcontractor standing time, and liquidated damages." }
     ]
   },
   // Manufacturing
@@ -70,34 +68,32 @@ export const problems: Problem[] = [
     slug: "manufacturing-demand-forecasting",
     industry: "Manufacturing",
     industrySlug: "manufacturing",
-    problemTitle: "How to Improve Demand Forecasting for Australian Manufacturers",
+    problemTitle: "Solving Demand Forecasting Failures in Australian Manufacturing",
     problemShort: "Manufacturing demand forecasting errors",
-    symptom: "Overproduction and stockouts alternate unpredictably, with inventory carrying costs consuming 20–30% of working capital.",
-    rootCause: "Traditional demand forecasting relies on historical sales averages that don't account for market signals, customer behaviour changes, or supply chain disruptions.",
-    cost: "Australian manufacturers lose an estimated $4.1 billion annually to demand forecasting errors — through a combination of overproduction write-offs, stockout lost sales, and excess inventory carrying costs.",
-    solution: "PresciaIQ's predictive demand intelligence analyses customer order patterns, market signals, seasonal trends, and supply chain lead times to generate 12-week demand forecasts with 94% accuracy — automatically adjusting production schedules.",
-    outcome: "Manufacturing businesses using PresciaIQ reduce inventory carrying costs by an average of 34% and eliminate 89% of stockout events within the first 12 months.",
+    symptom: "Production runs are consistently misaligned with actual demand — resulting in overstock write-offs, emergency production runs, and stockouts on high-velocity lines.",
+    rootCause: "Most manufacturers forecast demand using spreadsheet-based models that rely on historical averages and sales team estimates. These models don't account for market signals, competitor activity, or seasonal complexity.",
+    cost: "Demand forecasting errors cost Australian manufacturers an estimated $4.1 billion annually in excess inventory, emergency procurement, and lost sales from stockouts.",
+    solution: "PresciaIQ's demand forecasting platform integrates with your ERP to analyse sales history, market signals, seasonality, and customer behaviour patterns — generating SKU-level demand forecasts 90 days out with confidence intervals.",
+    outcome: "Manufacturers using PresciaIQ reduce overstock by up to 40%, eliminate emergency production runs, and improve forecast accuracy from 65% to 88%+ within 6 months.",
     faqs: [
-      { q: "How do you improve demand forecasting in manufacturing?", a: "The most effective approach is machine learning-based demand intelligence that analyses multiple data signals simultaneously — customer order history, market trends, seasonal patterns, and supply chain lead times. PresciaIQ generates 12-week demand forecasts with 94% accuracy and automatically adjusts production schedules." },
-      { q: "What is the cost of poor demand forecasting for manufacturers?", a: "Poor demand forecasting costs Australian manufacturers through overproduction write-offs, stockout lost sales, emergency procurement premiums, and excess inventory carrying costs. The average mid-market manufacturer loses 8–15% of annual revenue to demand forecasting errors." },
-      { q: "Can AI improve manufacturing demand forecasting?", a: "Yes. PresciaIQ's machine learning models analyse far more data signals than traditional forecasting methods — including customer behaviour patterns, market indicators, and supply chain dynamics — generating significantly more accurate forecasts and automatically adjusting production plans." }
+      { q: "How do I improve demand forecasting accuracy in manufacturing?", a: "Improving demand forecasting accuracy requires moving beyond spreadsheet averages to machine learning models that incorporate external signals — market trends, competitor activity, weather, and economic indicators — alongside your internal sales history. AI-driven forecasting models consistently achieve 85–92% accuracy versus 60–70% for spreadsheet-based approaches." },
+      { q: "What is the ROI of better demand forecasting for manufacturers?", a: "For a manufacturer with $20M in annual revenue, improving forecast accuracy from 65% to 88% typically delivers $800,000–$1.4M in annual savings through reduced overstock write-offs ($400–600K), eliminated emergency production costs ($200–400K), and reduced stockout-related lost sales ($200–400K)." }
     ]
   },
   {
     slug: "manufacturing-equipment-downtime",
     industry: "Manufacturing",
     industrySlug: "manufacturing",
-    problemTitle: "How to Reduce Unplanned Equipment Downtime in Manufacturing",
+    problemTitle: "Eliminating Unplanned Equipment Downtime in Manufacturing",
     problemShort: "Unplanned manufacturing equipment downtime",
-    symptom: "Unplanned equipment failures cause production stoppages averaging 4–8 hours per incident, with emergency repair costs 3–5x higher than planned maintenance.",
-    rootCause: "Preventive maintenance schedules are based on time intervals rather than actual equipment condition — resulting in both premature maintenance and unexpected failures.",
-    cost: "Unplanned downtime costs Australian manufacturers an average of $15,000–$50,000 per hour in lost production, emergency labour, and expedited parts. A single major failure can cost $500,000+.",
-    solution: "PresciaIQ's predictive maintenance intelligence analyses equipment sensor data, maintenance history, production load, and environmental conditions to predict failure risk 2–4 weeks before it occurs — enabling planned maintenance that prevents unplanned stoppages.",
-    outcome: "Manufacturing businesses using PresciaIQ reduce unplanned downtime by an average of 78% within the first 12 months.",
+    symptom: "Equipment failures occur without warning, halting production lines for 4–72 hours and triggering emergency maintenance costs 3–5x higher than planned maintenance.",
+    rootCause: "Reactive maintenance programs wait for equipment to fail before intervening. Condition monitoring data from sensors is collected but not analysed predictively — it's reviewed after a failure, not before.",
+    cost: "Unplanned equipment downtime costs Australian manufacturers an average of $180,000 per year per facility. For high-volume production lines, a single 24-hour stoppage can cost $50,000–$500,000.",
+    solution: "PresciaIQ's predictive maintenance platform analyses sensor data, maintenance history, and operational patterns to forecast equipment failure probability 2–4 weeks before breakdown — scheduling interventions at optimal maintenance windows.",
+    outcome: "Manufacturers using PresciaIQ's predictive maintenance models reduce unplanned downtime by up to 60% and cut maintenance costs by 25–35% within 12 months.",
     faqs: [
-      { q: "How do you reduce unplanned downtime in manufacturing?", a: "The most effective approach is predictive maintenance — using machine learning to analyse equipment condition data and predict failure risk before it causes a stoppage. PresciaIQ analyses sensor data, maintenance history, and production load to predict equipment failure 2–4 weeks in advance." },
-      { q: "What is the cost of unplanned downtime in Australian manufacturing?", a: "Unplanned downtime costs Australian manufacturers an average of $15,000–$50,000 per hour in lost production, emergency labour, and expedited parts. For high-volume production lines, a single major failure can cost $500,000 or more in direct and indirect costs." },
-      { q: "What is predictive maintenance and how does it work?", a: "Predictive maintenance uses machine learning to analyse equipment condition data — including vibration, temperature, pressure, and power consumption — to identify the early warning signs of failure before they cause a stoppage. PresciaIQ's predictive maintenance models are pre-built for common manufacturing equipment types and deploy in weeks." }
+      { q: "How does predictive maintenance AI work for manufacturing?", a: "Predictive maintenance AI analyses sensor data from equipment (vibration, temperature, pressure, current draw) alongside maintenance history and operational patterns to identify the signatures that precede failure. The model learns which combinations of signals predict specific failure modes and generates probability-weighted forecasts of failure timing — typically 2–4 weeks ahead." },
+      { q: "What is the difference between predictive and preventive maintenance?", a: "Preventive maintenance schedules interventions at fixed time intervals regardless of equipment condition — resulting in unnecessary maintenance on healthy equipment and missed failures on degrading equipment. Predictive maintenance uses sensor data and AI to schedule interventions only when equipment condition signals an impending failure — reducing maintenance costs while eliminating unplanned downtime." }
     ]
   },
   // Retail
@@ -105,69 +101,63 @@ export const problems: Problem[] = [
     slug: "retail-inventory-management",
     industry: "Retail",
     industrySlug: "retail",
-    problemTitle: "How to Solve Retail Inventory Management Problems with AI",
-    problemShort: "Retail inventory management",
-    symptom: "Stockouts on fast-moving lines and overstock on slow-moving lines coexist simultaneously, with markdown costs consuming 8–15% of gross margin.",
-    rootCause: "Traditional inventory management relies on reorder points based on historical averages — unable to account for real-time demand signals, promotional uplift, or supply chain disruptions.",
-    cost: "Australian retailers lose an estimated $9.3 billion annually to inventory management failures — through stockout lost sales, markdown write-offs, and excess inventory carrying costs.",
-    solution: "PresciaIQ's predictive inventory intelligence analyses point-of-sale data, promotional calendars, supplier lead times, and external demand signals to generate SKU-level demand forecasts and automated replenishment recommendations.",
-    outcome: "Retail businesses using PresciaIQ reduce stockout frequency by 84% and markdown costs by 41% within the first 12 months.",
+    problemTitle: "Solving Retail Inventory Overstock and Stockout Problems with AI",
+    problemShort: "Retail inventory overstock and stockouts",
+    symptom: "Simultaneously carrying excess inventory on slow-moving lines while experiencing stockouts on high-velocity products — resulting in markdown losses and lost sales.",
+    rootCause: "Retail replenishment systems use static reorder points based on historical averages. They don't adapt to demand signals, seasonal shifts, or local market events in real time.",
+    cost: "Australian retailers write off an estimated $2.8 billion in excess inventory annually while losing $1.6 billion in sales to stockouts. The average retailer carries 23% more inventory than optimal.",
+    solution: "PresciaIQ's retail intelligence platform analyses POS data, seasonality, local events, and competitor signals to generate SKU-level demand forecasts — automating replenishment decisions to eliminate both overstock and stockouts simultaneously.",
+    outcome: "Retailers using PresciaIQ reduce excess inventory by up to 35%, eliminate 85% of stockouts on high-velocity lines, and improve gross margin by 3–6 percentage points within 90 days.",
     faqs: [
-      { q: "How does AI improve retail inventory management?", a: "PresciaIQ analyses real-time point-of-sale data, promotional uplift patterns, seasonal trends, and supplier lead times to generate SKU-level demand forecasts and automated replenishment recommendations — eliminating the manual analysis that traditional inventory management requires." },
-      { q: "What is the cost of poor inventory management for Australian retailers?", a: "Poor inventory management costs Australian retailers through stockout lost sales (typically 4–8% of revenue), markdown write-offs on overstock (8–15% of gross margin), and excess inventory carrying costs (20–30% of inventory value annually)." },
-      { q: "Can predictive AI reduce retail stockouts?", a: "Yes. PresciaIQ's predictive inventory models analyse the leading indicators of stockout risk — demand acceleration, supplier lead time variance, promotional uplift — and generate automated replenishment recommendations before stock runs out. Clients report an average 84% reduction in stockout frequency." }
+      { q: "How do I reduce retail inventory overstock without creating stockouts?", a: "Reducing overstock without creating stockouts requires demand-matched replenishment — ordering based on predicted demand rather than historical averages. AI forecasting models that incorporate seasonality, local events, and market signals can predict demand at the SKU level with 88–92% accuracy, enabling replenishment decisions that reduce both overstock and stockouts simultaneously." },
+      { q: "What is the cost of retail stockouts in Australia?", a: "Retail stockouts cost Australian businesses an estimated $1.6 billion annually in lost sales. For an individual retailer, stockouts typically represent 3–8% of potential revenue — meaning a retailer with $10M in annual sales is losing $300,000–$800,000 to preventable stockouts." }
     ]
   },
   {
     slug: "retail-shrinkage-loss-prevention",
     industry: "Retail",
     industrySlug: "retail",
-    problemTitle: "How to Reduce Retail Shrinkage with Predictive AI",
+    problemTitle: "Using Predictive AI to Reduce Retail Shrinkage and Loss",
     problemShort: "Retail shrinkage and loss prevention",
-    symptom: "Shrinkage consistently runs at 1.5–3% of revenue, with loss prevention teams unable to identify high-risk patterns before theft or waste occurs.",
-    rootCause: "Traditional loss prevention is reactive — reviewing CCTV footage and conducting audits after shrinkage is discovered. By the time patterns are identified, significant losses have already occurred.",
-    cost: "Australian retailers lose approximately $9 billion annually to shrinkage. For a $50M retailer, a 2% shrinkage rate costs $1M per year — most of which is preventable.",
-    solution: "PresciaIQ's predictive loss prevention intelligence analyses transaction patterns, inventory variance, staff scheduling, and store traffic data to identify high-risk shrinkage patterns before they result in loss.",
-    outcome: "Retail businesses using PresciaIQ reduce shrinkage by an average of 47% within the first 12 months.",
+    symptom: "Shrinkage rates of 1.5–3% of revenue, with loss events concentrated in specific stores, times, and product categories that aren't identified until inventory counts.",
+    rootCause: "Loss prevention programs react to shrinkage after it occurs. Surveillance and inventory data are reviewed retrospectively rather than analysed predictively to identify high-risk windows before loss events occur.",
+    cost: "Australian retailers lose an estimated $4.5 billion annually to shrinkage. For a retailer with $50M in annual revenue, a 2% shrinkage rate represents $1 million in annual losses — most of which is preventable.",
+    solution: "PresciaIQ's loss prevention intelligence platform analyses transaction patterns, inventory movements, and operational signals to predict high-risk shrinkage windows by store, time, and product category — enabling targeted prevention interventions.",
+    outcome: "Retailers using PresciaIQ's shrinkage prediction models reduce loss rates by up to 45% within 12 months through targeted prevention rather than blanket surveillance.",
     faqs: [
-      { q: "How does AI reduce retail shrinkage?", a: "PresciaIQ analyses transaction patterns, inventory variance, staff scheduling, and store traffic data to identify the leading indicators of shrinkage risk — including unusual transaction patterns, inventory discrepancies, and high-risk time windows — before losses occur." },
-      { q: "What causes retail shrinkage in Australia?", a: "Australian retail shrinkage is caused by external theft (approximately 38%), employee theft (approximately 28%), administrative errors (approximately 21%), and supplier fraud (approximately 13%). PresciaIQ's predictive models identify the leading indicators of each type before losses materialise." },
-      { q: "What is the ROI of predictive loss prevention for retailers?", a: "PresciaIQ clients in retail typically achieve full ROI within 4–6 months through shrinkage reduction alone. The average shrinkage reduction is 47% in the first year — delivering $470,000 in savings for a retailer with $1M in annual shrinkage." }
+      { q: "How can AI reduce retail shrinkage?", a: "AI reduces retail shrinkage by identifying the patterns that precede loss events — specific combinations of staffing levels, transaction anomalies, inventory movements, and time-of-day signals that correlate with shrinkage. Predictive models can flag high-risk windows 24–48 hours ahead, enabling targeted prevention interventions rather than reactive investigation." }
     ]
   },
   // Logistics
   {
     slug: "logistics-route-optimisation",
-    industry: "Logistics",
+    industry: "Logistics & Supply Chain",
     industrySlug: "logistics",
-    problemTitle: "How to Reduce Logistics Costs with Predictive Route Optimisation",
-    problemShort: "Logistics route optimisation",
-    symptom: "Fuel and driver costs consistently exceed budget, with route inefficiency adding 15–25% to delivery costs.",
-    rootCause: "Traditional route planning optimises for distance rather than real-time conditions — failing to account for traffic patterns, delivery window constraints, vehicle capacity, and driver availability.",
-    cost: "Fuel and labour represent 60–70% of logistics operating costs. A 20% route inefficiency on a $10M logistics operation costs $1.2–1.4M annually in preventable fuel and labour waste.",
-    solution: "PresciaIQ's predictive logistics intelligence analyses traffic patterns, delivery window constraints, vehicle capacity, driver availability, and fuel price movements to generate dynamically optimised route plans that reduce cost per delivery.",
-    outcome: "Logistics businesses using PresciaIQ reduce fuel and driver costs by an average of 19% within the first 12 months.",
+    problemTitle: "AI-Driven Route Optimisation for Australian Logistics Businesses",
+    problemShort: "Logistics route inefficiency and fuel waste",
+    symptom: "Delivery routes are planned manually or with static optimisation tools, resulting in 15–25% excess kilometres, fuel waste, and driver overtime.",
+    rootCause: "Static route planning tools optimise for distance without accounting for real-time traffic, delivery time windows, vehicle capacity, and driver constraints simultaneously. Routes are planned the night before rather than dynamically adjusted.",
+    cost: "Australian logistics businesses waste an estimated $1.8 billion annually on suboptimal routing — including excess fuel, driver overtime, and vehicle wear. The average delivery vehicle travels 18% more kilometres than the optimal route.",
+    solution: "PresciaIQ's logistics intelligence platform uses predictive traffic modelling, dynamic time-window optimisation, and real-time constraint management to generate routes that reduce kilometres, fuel costs, and delivery windows simultaneously.",
+    outcome: "Logistics businesses using PresciaIQ's route optimisation models reduce fuel costs by 12–18%, cut driver overtime by 25%, and improve on-time delivery rates by 15–20 percentage points.",
     faqs: [
-      { q: "How does AI optimise logistics routes?", a: "PresciaIQ analyses real-time traffic data, delivery window constraints, vehicle capacity, driver hours, and fuel price movements to generate dynamically optimised route plans — continuously adjusting as conditions change throughout the day." },
-      { q: "What is the cost of route inefficiency for Australian logistics businesses?", a: "Route inefficiency typically adds 15–25% to delivery costs. For a $10M logistics operation, this represents $1.2–2.5M in annual preventable waste — primarily through excess fuel consumption and driver overtime." },
-      { q: "Can predictive AI reduce logistics operating costs?", a: "Yes. PresciaIQ's predictive logistics models optimise routes in real time based on traffic, delivery constraints, and vehicle capacity — reducing fuel consumption by 12–18% and driver overtime by 22–31% on average." }
+      { q: "How does AI route optimisation work for logistics?", a: "AI route optimisation analyses real-time traffic data, historical delivery patterns, vehicle capacity constraints, delivery time windows, and driver availability to generate optimal routes dynamically — not just at the start of the day, but continuously as conditions change. This produces routes that are 15–25% more efficient than static planning tools." },
+      { q: "What is the ROI of AI route optimisation for Australian logistics?", a: "For a fleet of 20 delivery vehicles, AI route optimisation typically delivers $180,000–$320,000 in annual savings through reduced fuel costs ($80–120K), reduced driver overtime ($60–100K), and reduced vehicle maintenance from fewer kilometres ($40–100K). Payback period is typically 3–6 months." }
     ]
   },
   {
     slug: "supply-chain-disruption",
-    industry: "Logistics",
+    industry: "Logistics & Supply Chain",
     industrySlug: "logistics",
-    problemTitle: "How to Predict and Prevent Supply Chain Disruptions",
+    problemTitle: "Predicting and Managing Supply Chain Disruptions Before They Hit",
     problemShort: "Supply chain disruption prediction",
-    symptom: "Supply chain disruptions cause emergency procurement at 30–50% premium, with stockouts and production stoppages following supplier failures.",
-    rootCause: "Supply chain risk management is reactive — businesses discover supplier failures when deliveries don't arrive, by which time the cost of disruption is already incurred.",
-    cost: "Supply chain disruptions cost Australian businesses an estimated $12.5 billion annually. A single major supplier failure can cost a mid-market business $500,000–$2M in emergency procurement, production delays, and lost sales.",
-    solution: "PresciaIQ's predictive supply chain intelligence monitors supplier performance trends, financial health indicators, geopolitical risk signals, and logistics disruption patterns to predict supply chain risk 4–8 weeks before it materialises.",
-    outcome: "Businesses using PresciaIQ reduce supply chain disruption costs by an average of 64% within the first 12 months.",
+    symptom: "Supply chain disruptions — supplier failures, port delays, material shortages — are discovered reactively, causing production stoppages, emergency procurement, and customer delivery failures.",
+    rootCause: "Supply chain risk management relies on supplier scorecards and historical performance data. It doesn't incorporate external signals — geopolitical events, weather patterns, commodity price movements, shipping congestion — that predict disruptions 2–6 weeks ahead.",
+    cost: "Supply chain disruptions cost Australian businesses an estimated $8.3 billion annually. A single tier-1 supplier failure can cost $500,000–$5 million in emergency procurement, production stoppages, and customer penalties.",
+    solution: "PresciaIQ's supply chain intelligence platform monitors 200+ external risk signals — shipping congestion, weather events, commodity prices, supplier financial health — to predict disruption probability 2–6 weeks ahead, enabling proactive mitigation.",
+    outcome: "Businesses using PresciaIQ's supply chain disruption prediction reduce emergency procurement costs by 60%, eliminate 80% of production stoppages from supply failures, and improve customer delivery performance by 25%.",
     faqs: [
-      { q: "How do you predict supply chain disruptions?", a: "PresciaIQ monitors the leading indicators of supply chain risk — supplier delivery performance trends, financial health signals, geopolitical events, logistics disruption patterns, and commodity price movements — to predict which suppliers and supply chains are at risk 4–8 weeks before disruption occurs." },
-      { q: "What is the cost of supply chain disruptions for Australian businesses?", a: "Supply chain disruptions cost Australian businesses through emergency procurement premiums (30–50% above standard pricing), production stoppages, lost sales, and customer relationship damage. The average mid-market business loses $500,000–$2M per major supply chain disruption." },
-      { q: "Can AI prevent supply chain disruptions?", a: "AI cannot prevent all supply chain disruptions — but it can predict them far enough in advance to allow businesses to activate alternative suppliers, build buffer stock, or adjust production schedules before the disruption impacts operations. PresciaIQ clients reduce disruption costs by an average of 64%." }
+      { q: "How can AI predict supply chain disruptions?", a: "AI predicts supply chain disruptions by monitoring external signals that precede them — shipping congestion at key ports, weather events affecting supplier regions, commodity price spikes, and supplier financial stress indicators. Machine learning models trained on historical disruption data can identify these patterns 2–6 weeks before they impact your supply chain." }
     ]
   },
   // Healthcare
@@ -175,17 +165,15 @@ export const problems: Problem[] = [
     slug: "healthcare-patient-demand-forecasting",
     industry: "Healthcare",
     industrySlug: "healthcare",
-    problemTitle: "How to Improve Patient Demand Forecasting for Healthcare Providers",
+    problemTitle: "Predicting Patient Demand to Optimise Healthcare Staffing and Resources",
     problemShort: "Healthcare patient demand forecasting",
-    symptom: "Staffing mismatches cause simultaneous overstaffing on quiet periods and understaffing during demand peaks — driving both unnecessary labour costs and patient wait time complaints.",
-    rootCause: "Healthcare staffing is planned on historical averages and seasonal patterns that don't account for real-time demand signals — including disease prevalence trends, weather events, and local population health indicators.",
-    cost: "Healthcare staffing inefficiency costs Australian providers an estimated $3.8 billion annually through overstaffing waste and the indirect costs of understaffing — patient dissatisfaction, staff burnout, and adverse outcomes.",
-    solution: "PresciaIQ's predictive demand intelligence analyses patient presentation patterns, disease prevalence trends, weather forecasts, and local population health indicators to generate 4-week staffing demand forecasts with 91% accuracy.",
-    outcome: "Healthcare providers using PresciaIQ reduce staffing cost variance by an average of 44% within the first 12 months.",
+    symptom: "Staffing levels are misaligned with patient demand — resulting in costly agency staff during peak periods and underutilised permanent staff during troughs.",
+    rootCause: "Healthcare staffing decisions are based on historical averages and manager intuition rather than predictive demand models. Seasonal patterns, local events, and demographic trends that predict demand spikes are not systematically incorporated.",
+    cost: "Australian healthcare providers spend an estimated $2.1 billion annually on agency staff to cover demand mismatches that could be predicted and managed proactively. Agency staff cost 40–80% more than permanent staff for equivalent roles.",
+    solution: "PresciaIQ's healthcare demand forecasting platform analyses appointment patterns, seasonal trends, local events, and demographic signals to forecast patient demand by service, location, and time — enabling proactive roster planning 8–12 weeks out.",
+    outcome: "Healthcare providers using PresciaIQ reduce agency staffing costs by up to 45%, improve permanent staff utilisation by 15–20%, and eliminate the majority of reactive overtime within 6 months.",
     faqs: [
-      { q: "How does AI improve healthcare staffing?", a: "PresciaIQ analyses patient presentation patterns, disease prevalence trends, weather forecasts, and local population health indicators to predict demand 4 weeks in advance — enabling staffing managers to schedule the right number of staff for each shift rather than relying on historical averages." },
-      { q: "What causes healthcare staffing inefficiency?", a: "Healthcare staffing inefficiency is primarily caused by demand unpredictability — patient volumes vary significantly based on seasonal disease patterns, weather events, and local health trends that traditional scheduling tools cannot anticipate. PresciaIQ's predictive models identify these patterns and translate them into staffing recommendations." },
-      { q: "Can predictive AI reduce healthcare labour costs?", a: "Yes. PresciaIQ's predictive staffing models reduce overstaffing waste while simultaneously improving coverage during demand peaks — delivering both cost reduction and service quality improvement. Clients report an average 44% reduction in staffing cost variance." }
+      { q: "How can healthcare providers predict patient demand?", a: "Healthcare providers can predict patient demand by analysing historical appointment patterns, seasonal illness trends, local event calendars, and demographic signals using machine learning models. These models generate demand forecasts by service type and location 8–12 weeks out — enabling proactive staffing decisions rather than reactive agency bookings." }
     ]
   },
   // Mining
@@ -193,17 +181,15 @@ export const problems: Problem[] = [
     slug: "mining-equipment-maintenance",
     industry: "Mining",
     industrySlug: "mining",
-    problemTitle: "How to Reduce Mining Equipment Downtime with Predictive Maintenance",
-    problemShort: "Mining equipment predictive maintenance",
-    symptom: "Unplanned equipment failures cause production stoppages averaging 12–48 hours, with haul truck and excavator failures costing $100,000+ per incident.",
-    rootCause: "Mining equipment maintenance schedules are based on operating hours rather than actual equipment condition — resulting in premature maintenance on healthy equipment and unexpected failures on degrading equipment.",
-    cost: "Unplanned equipment downtime costs Australian mining operations an estimated $8.2 billion annually. A single haul truck failure can cost $150,000–$500,000 in lost production and emergency repair.",
-    solution: "PresciaIQ's predictive maintenance intelligence analyses equipment telemetry, maintenance history, operating conditions, and environmental factors to predict failure risk 2–6 weeks before it occurs — enabling planned maintenance windows that prevent production stoppages.",
-    outcome: "Mining operations using PresciaIQ reduce unplanned equipment downtime by an average of 71% within the first 12 months.",
+    problemTitle: "Predictive Maintenance for Mining Equipment: Eliminating Unplanned Downtime",
+    problemShort: "Mining equipment unplanned downtime",
+    symptom: "Heavy equipment failures occur without warning, halting production for 12–72 hours and triggering emergency maintenance costs 3–5x higher than planned interventions.",
+    rootCause: "Mining maintenance programs use time-based schedules that don't reflect actual equipment condition. Sensor data is collected but reviewed reactively — after a failure, not before.",
+    cost: "Unplanned equipment downtime costs Australian mining operations an estimated $8.3 billion annually. A single haul truck failure can cost $100,000–$500,000 per day in lost production.",
+    solution: "PresciaIQ's predictive maintenance platform analyses sensor data from heavy equipment — vibration, temperature, oil analysis, current draw — to forecast failure probability 2–4 weeks before breakdown, scheduling interventions at optimal production windows.",
+    outcome: "Mining operations using PresciaIQ reduce unplanned downtime by up to 60% and cut total maintenance costs by 25–35% within 12 months.",
     faqs: [
-      { q: "How does predictive maintenance work in mining?", a: "PresciaIQ analyses equipment telemetry data — vibration, temperature, pressure, oil quality, and power consumption — alongside maintenance history and operating conditions to identify the early warning signs of equipment failure 2–6 weeks before it causes a production stoppage." },
-      { q: "What is the cost of equipment downtime in Australian mining?", a: "Equipment downtime costs Australian mining operations through lost production (typically $50,000–$500,000 per hour for major equipment), emergency repair premiums, and expedited parts freight. A single haul truck failure can cost $150,000–$500,000 in total direct and indirect costs." },
-      { q: "Can AI predict mining equipment failures?", a: "Yes. PresciaIQ's predictive maintenance models are trained on equipment telemetry data from thousands of mining assets — enabling them to identify the subtle patterns that precede failure with high accuracy. Clients report an average 71% reduction in unplanned downtime within the first year." }
+      { q: "How does predictive maintenance work for mining equipment?", a: "Predictive maintenance for mining equipment analyses sensor data streams — vibration signatures, temperature profiles, oil analysis results, and current draw patterns — to identify the degradation signatures that precede specific failure modes. AI models trained on historical failure data can predict failure probability 2–4 weeks ahead with 85–92% accuracy." }
     ]
   },
   // Financial Services
@@ -211,17 +197,15 @@ export const problems: Problem[] = [
     slug: "financial-services-risk-management",
     industry: "Financial Services",
     industrySlug: "financial-services",
-    problemTitle: "How to Improve Risk Management in Financial Services with AI",
-    problemShort: "Financial services risk management",
-    symptom: "Credit losses, fraud events, and compliance breaches consistently exceed risk appetite — with risk teams identifying issues after losses are incurred rather than before.",
-    rootCause: "Traditional risk management relies on threshold-based rules and periodic reviews that cannot detect the complex, multi-signal patterns that precede credit deterioration, fraud, and compliance failure.",
-    cost: "Australian financial services businesses lose an estimated $14.7 billion annually to credit losses, fraud, and compliance penalties — most of which could be reduced with earlier risk detection.",
-    solution: "PresciaIQ's predictive risk intelligence analyses customer behaviour patterns, transaction data, market signals, and external risk indicators to predict credit deterioration, fraud risk, and compliance exposure weeks before losses materialise.",
-    outcome: "Financial services businesses using PresciaIQ reduce credit losses by an average of 38% and fraud losses by 52% within the first 12 months.",
+    problemTitle: "AI-Driven Credit Risk and Portfolio Management for Financial Services",
+    problemShort: "Credit risk prediction and portfolio management",
+    symptom: "Credit default rates exceed expectations, with high-risk loans approved and low-risk loans declined due to scorecard limitations. Portfolio risk is managed reactively rather than predictively.",
+    rootCause: "Traditional credit scorecards use static rules based on historical averages. They don't incorporate behavioural signals, market conditions, or real-time data that predict default probability more accurately.",
+    cost: "Australian financial services firms lose an estimated $3.2 billion annually to preventable credit defaults. For a lender with $500M in loan book, a 1% improvement in default prediction accuracy reduces annual losses by $2–5M.",
+    solution: "PresciaIQ's credit intelligence platform builds custom risk models trained on your specific loan portfolio — incorporating behavioural signals, market conditions, and real-time data to predict default probability with 23% greater accuracy than traditional scorecards.",
+    outcome: "Financial services firms using PresciaIQ reduce default rates by 20–35%, improve approval rates on low-risk applications, and reduce manual review costs through automated risk scoring.",
     faqs: [
-      { q: "How does AI improve risk management in financial services?", a: "PresciaIQ analyses customer behaviour patterns, transaction data, market signals, and external risk indicators simultaneously — identifying the complex, multi-signal patterns that precede credit deterioration, fraud, and compliance failure weeks before losses occur." },
-      { q: "What is the cost of poor risk management for Australian financial services?", a: "Poor risk management costs Australian financial services businesses through credit losses, fraud write-offs, regulatory penalties, and reputational damage. The average mid-market financial services business loses 2–5% of revenue annually to preventable risk events." },
-      { q: "Can predictive AI reduce financial services fraud?", a: "Yes. PresciaIQ's fraud prediction models analyse transaction patterns, behavioural signals, and network relationships to identify fraud risk before transactions are completed — reducing fraud losses by an average of 52% compared to traditional rule-based detection systems." }
+      { q: "How does AI improve credit risk assessment?", a: "AI improves credit risk assessment by incorporating hundreds of behavioural and contextual signals that traditional scorecards ignore — transaction patterns, account behaviour, market conditions, and real-time data — to build a more accurate picture of default probability. AI models consistently outperform traditional scorecards by 15–30% on default prediction accuracy." }
     ]
   },
   // Agriculture
@@ -229,17 +213,15 @@ export const problems: Problem[] = [
     slug: "agriculture-yield-forecasting",
     industry: "Agriculture",
     industrySlug: "agriculture",
-    problemTitle: "How to Improve Crop Yield Forecasting with Predictive AI",
-    problemShort: "Agricultural yield forecasting",
-    symptom: "Harvest yield variance of 20–40% from forecast creates cash flow crises, over-committed supply contracts, and missed market opportunities.",
-    rootCause: "Traditional yield forecasting relies on historical averages and visual crop assessment — unable to account for real-time soil moisture, weather trajectory, pest pressure, and disease risk.",
-    cost: "Yield forecasting errors cost Australian agricultural businesses through over-committed supply contracts, emergency input procurement, and missed high-price market windows. A 25% yield shortfall on a $2M crop can cost $500,000+ in contract penalties and lost margin.",
-    solution: "PresciaIQ's predictive yield intelligence analyses satellite imagery, soil moisture data, weather forecasts, historical yield patterns, and pest/disease risk indicators to generate 8-week yield forecasts with 89% accuracy.",
-    outcome: "Agricultural businesses using PresciaIQ reduce yield forecast variance by an average of 67% within the first growing season.",
+    problemTitle: "AI Yield Forecasting for Australian Agricultural Businesses",
+    problemShort: "Agricultural yield uncertainty and forecasting",
+    symptom: "Yield estimates are based on historical averages and agronomist intuition, resulting in forward contract decisions made without reliable yield forecasts — and significant financial exposure when yields deviate from expectations.",
+    rootCause: "Traditional yield forecasting doesn't integrate real-time weather data, soil sensor readings, satellite imagery, and commodity market signals into a unified predictive model.",
+    cost: "Australian agricultural businesses face yield variance of 20–40% annually due to weather and market volatility. Poor forward contract timing costs the sector an estimated $1.4 billion annually in foregone margin.",
+    solution: "PresciaIQ integrates weather data, soil sensors, satellite imagery, and commodity markets to generate 90-day yield forecasts with risk-adjusted confidence intervals — enabling confident forward contract and input purchasing decisions.",
+    outcome: "Agricultural businesses using PresciaIQ improve gross margin by 8–15% through better forward contract timing and reduce input cost waste by 20–30% through demand-matched purchasing.",
     faqs: [
-      { q: "How does AI improve crop yield forecasting?", a: "PresciaIQ analyses satellite imagery, soil moisture sensors, weather forecast models, historical yield data, and pest/disease risk indicators to generate highly accurate yield forecasts — enabling farmers to make better decisions about supply contracts, input purchasing, and harvest logistics." },
-      { q: "What causes crop yield forecasting errors?", a: "Traditional yield forecasting relies on historical averages and visual assessment — unable to account for the complex interactions between soil moisture, weather patterns, pest pressure, and disease risk that determine actual yield. PresciaIQ's machine learning models analyse all these factors simultaneously." },
-      { q: "Can predictive AI help Australian farmers?", a: "Yes. PresciaIQ's agricultural intelligence models are built for Australian growing conditions — accounting for the unique climate variability, soil types, and pest/disease pressures that affect Australian crop yields. Clients report an average 67% reduction in yield forecast variance within the first growing season." }
+      { q: "How accurate are AI yield forecasts for Australian farmers?", a: "AI yield forecasts trained on Australian agricultural data typically achieve 80–88% accuracy at 90 days for grain crops and 75–85% for horticultural crops. This compares to 55–65% accuracy for traditional agronomist estimates. The key advantage is not just accuracy but confidence intervals — knowing the range of likely outcomes enables better risk management decisions." }
     ]
   },
   // Real Estate
@@ -247,17 +229,15 @@ export const problems: Problem[] = [
     slug: "real-estate-market-prediction",
     industry: "Real Estate",
     industrySlug: "real-estate",
-    problemTitle: "How to Predict Property Market Movements with AI",
-    problemShort: "Real estate market prediction",
-    symptom: "Property acquisition and development decisions are made on lagging market data — resulting in overpayment at market peaks and missed opportunities at market troughs.",
-    rootCause: "Traditional real estate market analysis relies on historical transaction data that is 3–6 months old by the time it is published — making it impossible to anticipate market movements before they occur.",
-    cost: "Real estate businesses that acquire properties at market peaks or miss development windows lose 10–30% of potential returns. On a $10M portfolio, this represents $1–3M in preventable value destruction.",
-    solution: "PresciaIQ's predictive real estate intelligence analyses leading market indicators — search activity, auction clearance trends, credit availability, migration patterns, and infrastructure investment — to predict market movements 3–6 months before they appear in transaction data.",
-    outcome: "Real estate businesses using PresciaIQ improve acquisition timing accuracy by an average of 58% within the first 12 months.",
+    problemTitle: "Predicting Property Market Movements for Developers and Investors",
+    problemShort: "Property market timing and price prediction",
+    symptom: "Development launches and investment acquisitions are timed based on market sentiment and broker opinions rather than data-driven price forecasts — resulting in launches into declining markets and missed acquisition opportunities.",
+    rootCause: "Property market analysis relies on lagging indicators — recent sales data, auction clearance rates, median price movements — that reflect what has already happened rather than what will happen next.",
+    cost: "Australian property developers who miss optimal launch windows by 3–6 months sacrifice 8–15% in project returns. For a $20M development, this represents $1.6–3M in foregone margin.",
+    solution: "PresciaIQ analyses suburb-level transaction data, interest rate forecasts, migration patterns, infrastructure investment, and rental yield signals to generate 12-month property price forecasts with directional accuracy above 85%.",
+    outcome: "Property developers and investors using PresciaIQ improve project returns by 8–15% through better market timing and identify emerging growth corridors 12–18 months before they appear in public data.",
     faqs: [
-      { q: "Can AI predict property market movements?", a: "PresciaIQ analyses the leading indicators of property market movements — including search activity trends, auction clearance rates, credit availability, migration patterns, and infrastructure investment — to predict market direction 3–6 months before it appears in transaction data." },
-      { q: "What data does PresciaIQ use to predict real estate markets?", a: "PresciaIQ integrates multiple data sources including property search platform activity, auction results, credit approval trends, migration statistics, infrastructure investment announcements, and rental vacancy rates — building a comprehensive picture of market momentum before it appears in published transaction data." },
-      { q: "How does predictive AI help real estate developers?", a: "PresciaIQ helps real estate developers identify emerging demand in specific locations before competitors, predict construction cost movements, optimise project timing, and assess market absorption risk — enabling better acquisition decisions and development timing." }
+      { q: "How can AI predict property price movements in Australia?", a: "AI predicts property price movements by analysing the leading indicators that precede price changes — interest rate forecasts, migration patterns, infrastructure investment announcements, rental yield compression, and demographic shifts. Models trained on 10+ years of Australian property data can predict directional price movements at the suburb level with 85%+ accuracy at 12 months." }
     ]
   },
   // Professional Services
@@ -265,17 +245,158 @@ export const problems: Problem[] = [
     slug: "professional-services-revenue-forecasting",
     industry: "Professional Services",
     industrySlug: "professional-services",
-    problemTitle: "How to Improve Revenue Forecasting for Professional Services Firms",
-    problemShort: "Professional services revenue forecasting",
-    symptom: "Revenue forecasts are consistently 15–25% off actual results — causing staffing mismatches, cash flow surprises, and missed growth opportunities.",
-    rootCause: "Professional services revenue forecasting relies on pipeline estimates that don't account for deal velocity patterns, client behaviour signals, or market conditions that predict conversion probability.",
-    cost: "Revenue forecast errors cost professional services firms through overstaffing in slow periods, understaffing in busy periods, and the opportunity cost of missed growth investments. A 20% revenue shortfall on a $5M firm costs $1M in unexpected margin compression.",
-    solution: "PresciaIQ's predictive revenue intelligence analyses pipeline velocity, client engagement patterns, market conditions, and historical conversion data to generate 12-week revenue forecasts with 93% accuracy.",
-    outcome: "Professional services firms using PresciaIQ reduce revenue forecast variance by an average of 71% within the first 12 months.",
+    problemTitle: "Predictive Revenue Forecasting for Professional Services Firms",
+    problemShort: "Professional services revenue pipeline uncertainty",
+    symptom: "Revenue forecasts are consistently inaccurate — pipeline deals close later than expected, at lower values, or not at all — resulting in resource planning errors and margin pressure.",
+    rootCause: "Pipeline forecasting relies on sales team estimates that are systematically optimistic. Deal stage definitions don't reflect actual close probability, and pipeline velocity signals are not incorporated into forecasts.",
+    cost: "Professional services firms with inaccurate pipeline forecasts over-hire 3–6 months ahead of actual demand, then under-hire when demand arrives — creating a cycle of contractor dependency that costs 40–80% more than permanent staff.",
+    solution: "PresciaIQ's pipeline intelligence platform analyses deal stage progression, engagement patterns, and historical conversion data to generate probability-weighted revenue forecasts by deal, client, and practice area — with 90-day forward visibility.",
+    outcome: "Professional services firms using PresciaIQ improve forecast accuracy from 61% to 89%, reduce contractor dependency by 35%, and improve billable utilisation by 8–15 percentage points within 6 months.",
     faqs: [
-      { q: "How does AI improve revenue forecasting for professional services firms?", a: "PresciaIQ analyses pipeline velocity, client engagement patterns, proposal conversion history, and market conditions to generate highly accurate 12-week revenue forecasts — enabling firms to make staffing, investment, and cash flow decisions with confidence." },
-      { q: "What causes revenue forecasting errors in professional services?", a: "Professional services revenue forecasting errors are primarily caused by pipeline optimism bias — salespeople consistently overestimate conversion probability and deal velocity. PresciaIQ's predictive models apply machine learning to historical conversion data to generate objective probability-weighted forecasts." },
-      { q: "Can predictive AI help professional services firms grow?", a: "Yes. Beyond improving forecast accuracy, PresciaIQ identifies the leading indicators of client churn risk, cross-sell opportunity, and market demand — enabling firms to act on growth opportunities before competitors and retain clients before they disengage." }
+      { q: "How do I improve revenue forecasting accuracy for a professional services firm?", a: "Improving revenue forecasting accuracy requires replacing sales team estimates with data-driven probability models. By analysing deal stage progression velocity, client engagement patterns, and historical conversion rates by deal type and size, AI models can generate probability-weighted revenue forecasts that are 25–30% more accurate than traditional CRM-based forecasting." }
+    ]
+  },
+  // Marketing / Media
+  {
+    slug: "marketing-roas-waste",
+    industry: "Media & Advertising",
+    industrySlug: "media-advertising",
+    problemTitle: "Eliminating Ad Spend Waste with Predictive ROAS Forecasting",
+    problemShort: "Ad spend waste and ROAS uncertainty",
+    symptom: "Marketing budgets are allocated to campaigns and channels based on last-period performance rather than forward-looking ROAS predictions — resulting in 30–50% of spend going to suboptimal windows and channels.",
+    rootCause: "Media planning relies on historical ROAS data that reflects past performance, not future conditions. Competitor spend, audience saturation, and seasonal demand shifts that predict ROAS changes are not incorporated into planning.",
+    cost: "Australian advertisers waste an estimated $2.3 billion annually on campaigns launched at suboptimal times or with miscalibrated budgets. The average advertiser achieves 60–70% of their potential ROAS due to reactive budget allocation.",
+    solution: "AdsIQ by PresciaIQ forecasts campaign ROAS before launch by analysing audience behaviour patterns, competitor spend signals, seasonal demand shifts, and channel saturation — enabling proactive budget allocation to predicted high-ROAS windows.",
+    outcome: "Advertisers using AdsIQ improve blended ROAS by 34% on average in the first 90 days through predictive spend timing and channel allocation optimisation.",
+    faqs: [
+      { q: "How can I predict ROAS before launching a campaign?", a: "ROAS can be predicted before campaign launch by analysing the signals that drive it — audience demand patterns, competitor spend levels, creative fatigue indicators, and seasonal demand shifts. AI models trained on your historical campaign data can forecast ROAS by channel, audience, and time window with sufficient accuracy to guide budget allocation decisions." },
+      { q: "What percentage of ad spend is wasted in Australia?", a: "Australian advertisers waste an estimated 30–50% of their media budgets on campaigns launched at suboptimal times, in suboptimal channels, or with suboptimal creative — according to industry research. The primary causes are reactive planning (allocating budget based on last period's performance) and lack of forward-looking ROAS prediction." }
+    ]
+  },
+  {
+    slug: "marketing-lead-generation-ai",
+    industry: "Media & Advertising",
+    industrySlug: "media-advertising",
+    problemTitle: "Using AI to Automate and Improve Lead Generation for Australian Businesses",
+    problemShort: "Lead generation inefficiency and cost",
+    symptom: "Lead generation costs are rising while conversion rates are falling — with marketing teams spending increasing budget to generate the same number of qualified leads.",
+    rootCause: "Lead generation programs target broad audiences with generic messaging rather than using predictive models to identify high-intent prospects and personalise outreach at scale.",
+    cost: "Australian businesses spend an estimated $4.2 billion annually on lead generation activities. The average cost per qualified lead has increased 35% over the past 3 years as audience saturation and competition have intensified.",
+    solution: "PresciaIQ's lead intelligence platform uses predictive scoring to identify high-intent prospects from your existing database and market signals, then automates personalised outreach sequences that convert at 3–5x the rate of generic campaigns.",
+    outcome: "Businesses using PresciaIQ's lead generation AI reduce cost per qualified lead by 40–60% and improve lead-to-opportunity conversion rates by 2–4x within 90 days.",
+    faqs: [
+      { q: "How does AI improve lead generation for Australian businesses?", a: "AI improves lead generation by identifying high-intent prospects from behavioural signals before they raise their hand — website behaviour, content engagement, search patterns, and firmographic signals that indicate purchase intent. Predictive lead scoring models can identify the 10–15% of your database most likely to convert in the next 90 days, enabling focused outreach that converts at 3–5x the rate of broad campaigns." }
+    ]
+  },
+  // Operations / Cross-industry
+  {
+    slug: "operations-bottleneck-prediction",
+    industry: "Professional Services",
+    industrySlug: "professional-services",
+    problemTitle: "Predicting Operational Bottlenecks Before They Stall Your Business",
+    problemShort: "Operational bottleneck prediction and prevention",
+    symptom: "Operational bottlenecks — capacity constraints, process failures, resource shortages — are discovered reactively, causing delays, cost overruns, and customer service failures.",
+    rootCause: "Operations management relies on lagging KPIs that measure performance after the fact. The leading indicators that predict bottlenecks — demand spikes, resource utilisation trends, process exception rates — are not monitored predictively.",
+    cost: "Operational bottlenecks cost Australian businesses an estimated $6.8 billion annually in lost productivity, customer penalties, and emergency resource procurement. The average business experiences 3–5 significant bottleneck events per year.",
+    solution: "PresciaIQ's operational intelligence platform monitors leading indicators across your operations — demand signals, resource utilisation, process exception rates, and supplier performance — to predict bottleneck probability 2–4 weeks ahead.",
+    outcome: "Businesses using PresciaIQ's bottleneck prediction models reduce operational disruptions by 65%, eliminate emergency resource procurement costs, and improve customer delivery performance by 20–30%.",
+    faqs: [
+      { q: "How can AI predict operational bottlenecks?", a: "AI predicts operational bottlenecks by monitoring the leading indicators that precede them — demand spikes that will exceed capacity, resource utilisation trends approaching constraints, process exception rates that signal quality failures, and supplier performance signals that predict delivery failures. Models trained on your operational data can identify these patterns 2–4 weeks before they create visible bottlenecks." }
+    ]
+  },
+  {
+    slug: "workforce-planning-prediction",
+    industry: "Professional Services",
+    industrySlug: "professional-services",
+    problemTitle: "Predictive Workforce Planning: Hiring Ahead of Demand, Not Behind It",
+    problemShort: "Reactive workforce planning and hiring delays",
+    symptom: "Hiring decisions lag demand by 3–6 months — resulting in contractor dependency during growth periods and redundancy costs during downturns.",
+    rootCause: "Workforce planning relies on current headcount data and manager requests rather than forward-looking demand forecasts. By the time a headcount need is identified, the business is already 3–4 months behind.",
+    cost: "Australian businesses spend an estimated $2.8 billion annually on contractor premiums to cover workforce planning failures. The average contractor costs 40–80% more than a permanent employee for equivalent roles.",
+    solution: "PresciaIQ's workforce intelligence platform analyses business pipeline, project demand, attrition signals, and market conditions to forecast headcount requirements 6–12 months out — enabling hiring decisions that are ahead of demand rather than behind it.",
+    outcome: "Businesses using PresciaIQ's workforce planning models reduce contractor dependency by 35%, cut time-to-hire by 40%, and improve workforce utilisation by 12–18 percentage points.",
+    faqs: [
+      { q: "How can AI improve workforce planning accuracy?", a: "AI improves workforce planning accuracy by forecasting headcount demand from business pipeline signals, project demand patterns, attrition risk indicators, and market conditions — rather than waiting for managers to raise headcount requests. This shifts hiring decisions 6–12 months ahead of actual need, eliminating the contractor dependency cycle that costs businesses 40–80% more per role." }
+    ]
+  },
+  // Energy
+  {
+    slug: "energy-demand-forecasting",
+    industry: "Energy & Utilities",
+    industrySlug: "energy",
+    problemTitle: "AI Energy Demand Forecasting for Australian Utilities and Businesses",
+    problemShort: "Energy demand forecasting and grid management",
+    symptom: "Energy demand forecasts are inaccurate, resulting in over-procurement of expensive spot market energy, under-procurement that triggers demand charges, and grid stress events that damage infrastructure.",
+    rootCause: "Energy demand forecasting relies on historical consumption averages that don't account for weather variability, economic activity signals, and renewable generation intermittency.",
+    cost: "Energy demand forecasting errors cost Australian businesses and utilities an estimated $2.1 billion annually in over-procurement costs, demand charges, and grid management inefficiency.",
+    solution: "PresciaIQ's energy intelligence platform integrates weather forecasts, economic activity signals, and renewable generation predictions to forecast energy demand by zone and time-of-use with 95%+ accuracy — enabling proactive procurement and grid management.",
+    outcome: "Energy businesses using PresciaIQ reduce demand forecast error by up to 35%, cut over-procurement costs by 20–30%, and eliminate the majority of reactive grid management interventions.",
+    faqs: [
+      { q: "How accurate is AI energy demand forecasting?", a: "AI energy demand forecasting models trained on Australian grid data typically achieve 93–97% accuracy at 24-hour horizons and 88–92% accuracy at 7-day horizons — compared to 80–85% for traditional statistical models. The improvement in accuracy translates directly to reduced procurement costs and better grid stability." }
+    ]
+  },
+  // Education
+  {
+    slug: "education-student-attrition",
+    industry: "Education",
+    industrySlug: "education",
+    problemTitle: "Using AI to Predict and Prevent Student Attrition in Australian Education",
+    problemShort: "Student attrition and dropout prediction",
+    symptom: "Student dropout rates of 15–30% per cohort, with at-risk students identified only after they have already disengaged — too late for effective intervention.",
+    rootCause: "Student support programs are triggered by visible disengagement signals — missed assessments, attendance drops — that appear weeks after the underlying risk factors have developed.",
+    cost: "Australian higher education providers lose an estimated $890 million annually to student attrition. For an individual institution with 10,000 students and a 20% attrition rate, each percentage point improvement in retention is worth $1.5–2.5M in annual revenue.",
+    solution: "PresciaIQ's student intelligence platform analyses engagement patterns, assessment performance, attendance data, and demographic signals to identify at-risk students 6–8 weeks before typical dropout points — enabling targeted intervention before disengagement occurs.",
+    outcome: "Education providers using PresciaIQ reduce attrition rates by 25–40% within the first year through early intervention programs informed by predictive risk scoring.",
+    faqs: [
+      { q: "How can AI predict student dropout risk?", a: "AI predicts student dropout risk by analysing the early warning signals that precede disengagement — subtle changes in assignment submission patterns, LMS engagement, attendance trends, and social integration indicators that appear 6–8 weeks before a student visibly disengages. Models trained on historical attrition data can identify at-risk students with 78–85% accuracy at 8 weeks." }
+    ]
+  },
+  // Insurance
+  {
+    slug: "insurance-claims-fraud",
+    industry: "Insurance",
+    industrySlug: "insurance",
+    problemTitle: "AI Fraud Detection for Australian Insurance Businesses",
+    problemShort: "Insurance fraud detection and claims prediction",
+    symptom: "Fraudulent claims are identified only after payment, with traditional rules-based detection catching less than 30% of fraud before it is paid.",
+    rootCause: "Rules-based fraud detection systems use static thresholds that fraudsters learn to circumvent. They don't adapt to new fraud patterns or incorporate the behavioural signals that distinguish fraudulent from legitimate claims.",
+    cost: "Australian insurance businesses lose an estimated $2.4 billion annually to insurance fraud. For a mid-tier insurer with $500M in annual claims, a 1% improvement in fraud detection accuracy recovers $5M in annual losses.",
+    solution: "PresciaIQ's fraud intelligence platform uses machine learning models trained on your claims history to identify behavioural patterns that distinguish fraudulent from legitimate claims — surfacing 3x more fraud signals than traditional rules-based systems.",
+    outcome: "Insurance businesses using PresciaIQ's fraud detection models recover 3x more fraudulent claims in the first 6 months, reduce false positive rates by 40%, and cut fraud investigation costs through better triage.",
+    faqs: [
+      { q: "How does AI improve insurance fraud detection?", a: "AI improves insurance fraud detection by analysing hundreds of behavioural signals that rules-based systems miss — claim timing patterns, claimant history, network connections between claimants and service providers, and anomalous claim characteristics. Machine learning models trained on historical fraud data can identify fraudulent claims with 85–92% accuracy, compared to 25–35% for traditional rules-based systems." }
+    ]
+  },
+  // Food & Beverage
+  {
+    slug: "food-beverage-waste-reduction",
+    industry: "Food & Beverage",
+    industrySlug: "food-beverage",
+    problemTitle: "Reducing Food and Beverage Waste with Predictive Demand Forecasting",
+    problemShort: "Food waste from overproduction and demand volatility",
+    symptom: "Overproduction results in 15–35% of production being written off as waste, while demand spikes cause stockouts and emergency production runs that cost 2–3x standard production rates.",
+    rootCause: "Production planning relies on historical averages and sales team estimates that don't account for weather, local events, and channel-specific demand signals that drive actual consumption.",
+    cost: "Australian food and beverage businesses waste an estimated $3.1 billion in overproduction annually. Emergency production runs — triggered by demand spikes that weren't predicted — cost 2–3x standard production rates.",
+    solution: "PresciaIQ's demand forecasting platform analyses sales history, weather, local events, and channel signals to generate SKU-level demand forecasts — enabling production planning that eliminates both overproduction waste and emergency production runs.",
+    outcome: "Food and beverage businesses using PresciaIQ reduce production waste by up to 35%, eliminate emergency production runs, and improve gross margin by 3–6 percentage points within 6 months.",
+    faqs: [
+      { q: "How can AI reduce food waste in manufacturing?", a: "AI reduces food waste by generating accurate demand forecasts that enable production planning matched to actual demand rather than historical averages. By incorporating weather, local events, and channel signals, AI forecasting models can predict demand at the SKU level with 88–92% accuracy — enabling production runs that match demand within 5–8% rather than the 20–35% variance typical of spreadsheet-based planning." }
+    ]
+  },
+  // Wholesale Distribution
+  {
+    slug: "wholesale-distribution-inventory",
+    industry: "Wholesale Distribution",
+    industrySlug: "wholesale-distribution",
+    problemTitle: "AI Inventory Optimisation for Australian Wholesale Distributors",
+    problemShort: "Wholesale distribution inventory overstock and stockouts",
+    symptom: "Carrying 20–30% excess inventory on slow-moving lines while simultaneously experiencing stockouts on high-velocity products — resulting in write-offs, emergency freight, and customer service failures.",
+    rootCause: "Wholesale replenishment systems use static reorder points that don't adapt to demand volatility, seasonal patterns, or customer-specific ordering behaviour.",
+    cost: "Australian wholesale distributors carry an average of 23% excess inventory relative to optimal levels — representing $4.2 billion in tied-up working capital across the sector. Stockout-related lost sales and emergency freight add a further $1.8 billion annually.",
+    solution: "PresciaIQ's distribution intelligence platform analyses order patterns, customer behaviour, and market signals to generate SKU-level demand forecasts — automating replenishment decisions that reduce both overstock and stockouts simultaneously.",
+    outcome: "Wholesale distributors using PresciaIQ reduce excess inventory by up to 35%, eliminate 85% of stockouts on high-velocity lines, and improve order fill rates from 94% to 98%+ within 90 days.",
+    faqs: [
+      { q: "How do I reduce wholesale distribution inventory costs with AI?", a: "Reducing wholesale distribution inventory costs with AI requires replacing static reorder points with dynamic demand forecasting models that incorporate customer ordering patterns, seasonal signals, and market conditions. AI forecasting models can predict order volumes by SKU and customer with 88–92% accuracy at 90 days — enabling replenishment decisions that reduce excess inventory by 30–40% while simultaneously improving fill rates." }
     ]
   }
 ];
