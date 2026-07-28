@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "CRM Automation: Making HubSpot and Salesforce Work for You | PresciaIQ Insights";
+const description = "A CRM is only as good as the data inside it. Here is how to automate data entry and follow-ups so your sales team can actually sell.";
+const canonicalURL = new URL("/insights/crm-automation-hubspot-salesforce/", Astro.site).href;
+const date = "2026-08-10";
+const category = "AI Automations";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": "https://www.presciaiq.com.au/og-image.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "url": "https://www.presciaiq.com.au"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.presciaiq.com.au/logo.png"
+    }
+  },
+  "datePublished": date,
+  "dateModified": date,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalURL
+  }
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground py-24">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">{category}</span>
+          <time class="text-sm text-muted-foreground font-sans">{new Date(date).toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+        </div>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">{title}</h1>
+        <p class="text-xl text-muted-foreground font-sans leading-relaxed">{description}</p>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none font-sans">
+        <p>Salespeople hate data entry. As a result, most CRMs are filled with incomplete records, missing context, and outdated pipeline stages. The solution is not to demand more admin work from your sales team — the solution is to automate the admin work entirely.</p><p>PresciaIQ builds intelligent CRM automations that run silently in the background. When a sales rep finishes a Zoom call, the AI can automatically transcribe the meeting, extract the key action items, update the deal stage in HubSpot or Salesforce, and draft the follow-up email. When a new lead fills out a form, the automation can enrich their profile with company data from LinkedIn and route them to the correct rep based on territory and capacity.</p><p>By removing the friction of CRM management, we give sales teams back 20-30% of their week to focus on revenue-generating activities.</p>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/10">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
+          <h3 class="font-display text-2xl font-bold text-foreground mb-4">Ready to automate your operations?</h3>
+          <p class="text-muted-foreground mb-6">Book a scoping call with our team to discuss how custom AI automations can eliminate manual work in your business.</p>
+          <a href="/start" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300">
+            Book a Scoping Call →
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
