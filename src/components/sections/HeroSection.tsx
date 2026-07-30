@@ -131,6 +131,8 @@ const clients = [
   { name: "BuildHire", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/HTjarNxJwVKsAfMq.png", height: 40 },
   { name: "A-One Fencing & Gates", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/PToThjafjtTfyGoL.png", height: 52 },
   { name: "Loop", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/XEUSiOzDKmFWUMPm.png", height: 48 },
+  { name: "Vale Tudo Training", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/NdZCoYDQkzDZlkOy.png", height: 44 },
+  { name: "The Silk Studio", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/bgfDWeFezGaiFuju.png", height: 36 },
 ];
 
 const HeroSection = () => {
