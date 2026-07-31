@@ -133,6 +133,7 @@ const clients = [
   { name: "Loop", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/XEUSiOzDKmFWUMPm.png", height: 48 },
   { name: "Vale Tudo Training", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/NdZCoYDQkzDZlkOy.png", height: 44 },
   { name: "The Silk Studio", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/bgfDWeFezGaiFuju.png", height: 36 },
+  { name: "Hypertint", src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/tEEuKKGILsXRTMjr.png", height: 32 },
 ];
 
 const HeroSection = () => {
