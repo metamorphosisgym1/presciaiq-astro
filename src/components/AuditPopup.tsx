@@ -22,8 +22,11 @@ const INDUSTRIES = [
 ];
 
 const STORAGE_KEY = "presciaiq_audit_popup_shown";
-const STORAGE_EXPIRY_HOURS = 24; // Show again after 24 hours
+const STORAGE_EXPIRY_HOURS = 48; // Show again after 48 hours
 const CALENDLY_URL = "https://calendly.com/presciaiq-sales/discoverycall?month=2026-06";
+
+// Pages where popup should NOT show (thank-you, contact, pricing, start)
+const EXCLUDED_PATHS = ["/thank-you", "/contact", "/start", "/privacy", "/terms"];
 
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function AuditPopup() {
@@ -35,9 +38,11 @@ export default function AuditPopup() {
 
   // ── Trigger logic ────────────────────────────────────────────────────────
   const showPopup = useCallback(() => {
-    // Only show on homepage
-    if (typeof window !== "undefined" && window.location.pathname !== "/") return;
-    // Show again after STORAGE_EXPIRY_HOURS hours (not just once per session)
+    if (typeof window === "undefined") return;
+    // Don't show on excluded pages
+    const path = window.location.pathname;
+    if (EXCLUDED_PATHS.some(p => path.startsWith(p))) return;
+    // Show again after STORAGE_EXPIRY_HOURS hours
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       const shownAt = parseInt(stored, 10);
@@ -49,17 +54,19 @@ export default function AuditPopup() {
   }, []);
 
   useEffect(() => {
-    // Time delay: 4 seconds on homepage
-    const timer = setTimeout(showPopup, 4000);
+    // Time delay: 8 seconds (longer on non-homepage to let them read)
+    const isHomepage = typeof window !== "undefined" && window.location.pathname === "/";
+    const delay = isHomepage ? 4000 : 10000;
+    const timer = setTimeout(showPopup, delay);
     // Exit intent: cursor moves toward top of viewport
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 10) showPopup();
     };
-    // Scroll depth: fires at 50% page scroll
+    // Scroll depth: fires at 60% page scroll
     const handleScroll = () => {
       const scrolled = window.scrollY + window.innerHeight;
       const total = document.documentElement.scrollHeight;
-      if (scrolled / total >= 0.50) showPopup();
+      if (scrolled / total >= 0.60) showPopup();
     };
     document.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -108,7 +115,8 @@ export default function AuditPopup() {
           email: form.email,
           website: form.url,
           industry: form.industry,
-          message: `New Website Audit Request\n\nName: ${form.name}\nEmail: ${form.email}\nWebsite: ${form.url}\nIndustry: ${form.industry}\n\nOpen Dashboard: https://backlinkdash-9wienkvu.manus.space/`,
+          source_page: typeof window !== "undefined" ? window.location.pathname : "unknown",
+          message: `New Website Audit Request\n\nName: ${form.name}\nEmail: ${form.email}\nWebsite: ${form.url}\nIndustry: ${form.industry}\nSource Page: ${typeof window !== "undefined" ? window.location.href : "unknown"}\n\nOpen Dashboard: https://backlinkdash-9wienkvu.manus.space/`,
           botcheck: "",
         }),
       });
@@ -314,24 +322,22 @@ export default function AuditPopup() {
                 <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
               </div>
 
-              <div>
-                <p className="text-sm font-semibold text-white mb-1">Skip the wait.</p>
-                <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>
-                  Book a free 20-minute discovery call and we'll walk through your audit live.
-                </p>
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block w-full py-3 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110"
-                  style={{ background: "linear-gradient(135deg, #4ade80, #22d3ee)" }}
-                >
-                  Book a Discovery Call →
-                </a>
-              </div>
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full py-3 rounded-xl text-sm font-semibold text-center transition-all hover:brightness-110"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  color: "rgba(255,255,255,0.75)",
+                }}
+              >
+                Book a Strategy Call Now →
+              </a>
 
               <button onClick={dismiss}
-                className="text-xs transition-colors"
+                className="w-full text-xs text-center transition-colors"
                 style={{ color: "rgba(255,255,255,0.3)" }}
                 onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
                 onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}>
