@@ -305,7 +305,7 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
 </head>
   <body>
     <Navbar client:load />
-    <main><slot /></main>
+    <main class="pt-16"><slot /></main>
     <Footer client:load />
     <AuditPopup client:load />
     <StickyCtaBar client:load />
