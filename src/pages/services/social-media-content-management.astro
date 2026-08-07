@@ -1,0 +1,253 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SocialsForm from '../../components/SocialsForm';
+
+const title = "Social Media Content Management — AI-Driven Posting for Australian Brands | PresciaIQ";
+const description = "PresciaIQ creates, schedules, and publishes high-performance social media content for Australian businesses. Combat sports, fitness, trades, and professional services. Powered by AI. Delivered via Blotato.";
+const canonical = "https://www.presciaiq.com.au/services/social-media-content-management/";
+---
+
+<!-- JSON-LD: Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Social Media Content Management",
+  "alternateName": "AI Social Media Marketing Australia",
+  "provider": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "url": "https://www.presciaiq.com.au",
+    "logo": "https://www.presciaiq.com.au/og-image.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "sales@presciaiq.com.au",
+      "contactType": "sales",
+      "areaServed": "AU"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Australia"
+  },
+  "description": "PresciaIQ creates, schedules, and publishes AI-generated social media content for Australian businesses — combat sports brands, gyms, trades, and professional services. Content is produced using a proprietary design system and scheduled via Blotato across Instagram, TikTok, LinkedIn, and YouTube.",
+  "serviceType": "Social Media Content Management",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "AUD",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "PresciaIQ"
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Social Media Content Packages",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "3 Posts Per Week — Starter" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "5 Posts Per Week — Growth" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Daily Posting — Authority" } }
+    ]
+  },
+  "dateModified": "2026-08-07",
+  "relatedLink": [
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/services/aeo-seo-predictive-search-architecture/", "name": "AEO/SEO — Predictive Search Architecture" },
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/industries/marketing-agencies/", "name": "AI for Marketing Agencies" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage Schema (AEO — answers AI engines will cite) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AI social media content management?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI social media content management uses artificial intelligence to generate, design, schedule, and publish social media posts on behalf of a business. PresciaIQ combines a proprietary visual design system with AI-generated copy and automated scheduling via Blotato to deliver consistent, on-brand content across Instagram, TikTok, LinkedIn, and YouTube — without the business needing to lift a finger."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does PresciaIQ create social media content for Australian businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PresciaIQ uses a structured intake process to capture your brand voice, content goals, posting schedule, and visual assets. We then produce a batch of posts using our editorial design system — dark cinematic backgrounds, branded typography, and data-driven copy — and schedule them directly to your social accounts via Blotato. Every post is reviewed and approved before going live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which social media platforms does PresciaIQ post to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PresciaIQ currently supports Instagram, TikTok, LinkedIn, YouTube, and Facebook. Content is formatted natively for each platform — square and portrait carousels for Instagram, vertical video for TikTok and Reels, and long-form document carousels for LinkedIn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many posts per week does PresciaIQ produce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PresciaIQ offers flexible posting cadences starting from 3 posts per week up to daily posting. The right cadence depends on your audience size, content goals, and available assets. Most growth-focused clients start at 5 posts per week across Instagram and one secondary platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is PresciaIQ's social media service suitable for combat sports and fitness brands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. PresciaIQ's social media content service was originally developed for combat sports coaches, gyms, and performance nutrition brands. Our design system is built for high-intensity, authority-driven content — fight week nutrition, weight cut protocols, training load management, and supplement stacks. We understand the audience and the language."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Blotato and how does it work with PresciaIQ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Blotato is a social media scheduling and publishing platform with an API that allows AI agents to post directly to Instagram, TikTok, LinkedIn, YouTube, and Facebook on behalf of a connected account. PresciaIQ uses the Blotato API to schedule and publish your content automatically once it has been approved, eliminating the need for manual uploading."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get started with PresciaIQ social media content management?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Complete the intake brief on this page. It takes approximately 5 minutes and covers your brand, content goals, posting schedule, and available assets. Once submitted, a PresciaIQ strategist will review your brief and be in touch within one business day to confirm the scope and begin production."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.presciaiq.com.au/services/" },
+    { "@type": "ListItem", "position": 3, "name": "Social Media Content Management", "item": "https://www.presciaiq.com.au/services/social-media-content-management/" }
+  ]
+}
+</script>
+
+<Layout title={title} description={description} canonical={canonical}>
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-20 px-6 overflow-hidden" style="background: #080808;">
+    <div class="absolute inset-0 opacity-20" style="background: radial-gradient(ellipse 80% 60% at 50% 0%, #5C7A5C22 0%, transparent 70%);"></div>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#5C7A5C] mb-4">PresciaIQ — Social Media</p>
+      <h1 class="text-5xl md:text-6xl font-black text-white leading-[1.05] mb-6" style="font-family: 'Noto Serif', serif;">
+        Social media content<br />
+        <span style="color: #8FAF8F;">that compounds.</span>
+      </h1>
+      <p class="text-lg text-[#888] max-w-2xl leading-relaxed mb-10">
+        We create, schedule, and publish high-performance social media content for Australian businesses. AI-generated design. Brand-specific copy. Automated delivery via Blotato. You own the audience.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#brief" class="inline-flex items-center px-8 py-3 rounded-full text-sm font-semibold tracking-widest uppercase transition-all" style="background: rgba(92,122,92,0.85); color: #fff;">
+          Start Your Brief
+        </a>
+        <a href="/contact" class="inline-flex items-center px-8 py-3 rounded-full text-sm font-semibold tracking-widest uppercase border border-[#5C7A5C] text-[#8FAF8F] transition-all hover:bg-[#5C7A5C]/10">
+          Book a Strategy Call
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-[1px] max-w-4xl mx-auto" style="background: linear-gradient(to right, transparent, #5C7A5C44, transparent);"></div>
+
+  <!-- What We Do -->
+  <section class="py-20 px-6" style="background: #080808;">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#5C7A5C] mb-3">The Method</p>
+      <h2 class="text-3xl font-black text-white mb-12" style="font-family: 'Noto Serif', serif;">How it works.</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {[
+          { n: "01", title: "Brief", body: "Complete a 5-minute intake form covering your brand, goals, posting cadence, and available assets. No calls required to get started." },
+          { n: "02", title: "Produce", body: "We generate a full batch of posts using our editorial design system — cinematic backgrounds, branded typography, and platform-native formats." },
+          { n: "03", title: "Schedule", body: "Posts are reviewed, approved, and scheduled directly to your social accounts via the Blotato API. Nothing goes live without your sign-off." },
+        ].map(({ n, title, body }) => (
+          <div class="border-t border-[#1a1a1a] pt-6">
+            <p class="text-4xl font-black text-[#5C7A5C] mb-3 opacity-70" style="font-family: 'Noto Serif', serif;">{n}</p>
+            <h3 class="text-lg font-black text-white mb-2" style="font-family: 'Noto Serif', serif;">{title}</h3>
+            <p class="text-sm text-[#888] leading-relaxed">{body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-[1px] max-w-4xl mx-auto" style="background: linear-gradient(to right, transparent, #5C7A5C44, transparent);"></div>
+
+  <!-- Who It's For -->
+  <section class="py-20 px-6" style="background: #080808;">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#5C7A5C] mb-3">Ideal Clients</p>
+      <h2 class="text-3xl font-black text-white mb-4" style="font-family: 'Noto Serif', serif;">Built for brands that need authority, not noise.</h2>
+      <p class="text-[#888] mb-12 max-w-2xl">Our content system was developed for high-intensity, authority-driven brands. If your audience demands credibility and specificity, this is built for you.</p>
+      <div class="grid md:grid-cols-2 gap-4">
+        {[
+          { label: "Combat Sports Coaches & Gyms", desc: "Fight week nutrition, weight cut protocols, training load content, supplement stacks." },
+          { label: "Performance & Fitness Brands", desc: "Macro breakdowns, recovery science, off-season programming, athlete results." },
+          { label: "Trades & Field Services", desc: "Job site content, team culture, before/after project showcases, client testimonials." },
+          { label: "Professional Services", desc: "Thought leadership, case studies, process explainers, industry positioning." },
+        ].map(({ label, desc }) => (
+          <div class="p-5 border border-[#1a1a1a] rounded" style="background: #111411;">
+            <p class="text-sm font-semibold text-white mb-1">{label}</p>
+            <p class="text-xs text-[#666]">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-[1px] max-w-4xl mx-auto" style="background: linear-gradient(to right, transparent, #5C7A5C44, transparent);"></div>
+
+  <!-- FAQ (AEO) -->
+  <section class="py-20 px-6" style="background: #080808;">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#5C7A5C] mb-3">Common Questions</p>
+      <h2 class="text-3xl font-black text-white mb-12" style="font-family: 'Noto Serif', serif;">What you need to know.</h2>
+      <div class="space-y-6">
+        {[
+          { q: "Which platforms do you post to?", a: "Instagram, TikTok, LinkedIn, YouTube, and Facebook. Content is formatted natively for each — carousels for Instagram and LinkedIn, vertical video for TikTok and Reels." },
+          { q: "How many posts per week?", a: "We offer 3x, 5x, 7x, and daily posting cadences. Most growth-focused clients start at 5 posts per week across Instagram and one secondary platform." },
+          { q: "Do I need to provide photos?", a: "No. If you have a library of photos or videos, we use them. If not, we generate cinematic AI backgrounds and branded graphics that match your identity." },
+          { q: "How does scheduling work?", a: "We use the Blotato API to schedule and publish directly to your connected social accounts. Nothing goes live without your approval." },
+          { q: "What does it cost?", a: "Pricing is scoped based on posting cadence, number of platforms, and content complexity. Complete the brief below and we will provide a tailored quote within one business day." },
+        ].map(({ q, a }) => (
+          <div class="border-b border-[#1a1a1a] pb-6">
+            <p class="text-sm font-semibold text-white mb-2">{q}</p>
+            <p class="text-sm text-[#888] leading-relaxed">{a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="h-[1px] max-w-4xl mx-auto" style="background: linear-gradient(to right, transparent, #5C7A5C44, transparent);"></div>
+
+  <!-- Intake Form -->
+  <section id="brief" class="py-20 px-6" style="background: #080808;">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#5C7A5C] mb-3">Get Started</p>
+      <h2 class="text-3xl font-black text-white mb-2" style="font-family: 'Noto Serif', serif;">Submit your content brief.</h2>
+      <p class="text-[#888] mb-12 max-w-xl">Takes 5 minutes. A PresciaIQ strategist will review your brief and be in touch within one business day.</p>
+      <SocialsForm client:load />
+    </div>
+  </section>
+
+</Layout>
+

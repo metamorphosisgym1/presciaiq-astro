@@ -50,8 +50,9 @@ const Navbar = () => {
                   <a href="/services/ai-app-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI App Development</span><span className="text-xs text-muted-foreground">Intelligent mobile &amp; web apps</span></a>
                   <a href="/services/ai-web-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Web Development</span><span className="text-xs text-muted-foreground">Predictive web platforms</span></a>
                   <div className="border-t border-border my-1"></div>
-                  <a href="/services/aeo-seo-predictive-search-architecture" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">AEO/SEO — Predictive Search Architecture</span><span className="text-xs text-muted-foreground">Own every search result before your competitor knows the query exists</span></a>
-                </div>
+                 <a href="/services/aeo-seo-predictive-search-architecture" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">AEO/SEO — Predictive Search Architecture</span><span className="text-xs text-muted-foreground">Own every search result before your competitor knows the query exists</span></a>
+                 <a href="/services/social-media-content-management/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold" style={{color:"#8FAF8F"}}>Social Media Content</span><span className="text-xs text-muted-foreground">AI-driven posting for Australian brands</span></a>
+               </div>
               )}
             </div>
             <div className="relative">
@@ -103,8 +104,9 @@ const Navbar = () => {
             <a href="/services/ai-software-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Software Development</a>
             <a href="/services/ai-app-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI App Development</a>
             <a href="/services/ai-web-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Web Development</a>
-            <a href="/services/aeo-seo-predictive-search-architecture" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent pl-6">↳ AEO/SEO — Predictive Search Architecture</a>
-            <a href="/about" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">About</a>
+           <a href="/services/aeo-seo-predictive-search-architecture" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent pl-6">↳ AEO/SEO — Predictive Search Architecture</a>
+           <a href="/services/social-media-content-management/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6" style={{color:"#8FAF8F"}}>↳ Social Media Content</a>
+           <a href="/about" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">About</a>
             <a href="/industries/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Industries</a>
             <a href="/industries/construction/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ Construction & Property</a>
             <a href="/industries/marketing-agencies/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ Marketing & Advertising</a>
