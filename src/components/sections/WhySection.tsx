@@ -20,11 +20,13 @@ const team = [
   {
     name: "Alex Cutajar",
     role: "Co-Founder",
+    photo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/IihzdnaSZSRuFkSo.webp",
     bio: "Ten years of running SMB and FMCG businesses taught Alex the lesson Prescia IQ is built around: operators make the most important decisions of the week without the data to back them. After launching his first software product in 2022 and spending two years inside applied AI through Flourish, he stopped consulting and started building. He leads product, architecture, and the AI systems under every Prescia IQ vertical."
   },
   {
     name: "Macauley Burke",
     role: "Co-Founder",
+    photo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/yxiDEixgZXyqOgLt.JPG",
     bio: "Seven years of direct B2B sales inside Australian SMBs through Modern Body Method put Macca in front of the people who buy decisions, not tools. Every engagement ran on the same question Prescia IQ now answers at a deeper layer: where is this business leaking money, time, or attention, and how do you show that to a decision-maker with ten minutes to care. He leads commercial, partnerships, and customer."
   }
 ];
@@ -142,6 +144,15 @@ const WhySection = () => {
               <div key={t.name} className="glass-card p-8 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
+                  {t.photo && (
+                    <div className="mb-6">
+                      <img
+                        src={t.photo}
+                        alt={t.name}
+                        className="w-24 h-24 rounded-full object-cover object-top border-2 border-primary/30"
+                      />
+                    </div>
+                  )}
                   <h4 className="font-display text-2xl font-bold text-foreground mb-1">{t.name}</h4>
                   <p className="text-primary font-semibold text-sm mb-6 uppercase tracking-wider">{t.role}</p>
                   <p className="text-sm md:text-base text-muted-foreground font-sans leading-relaxed">
