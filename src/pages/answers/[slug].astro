@@ -12,9 +12,13 @@ export function getStaticPaths() {
 }
 
 const { answer } = Astro.props;
+// Normalize field names — support both old format (shortAnswer/fullAnswer/relatedQuestions) and new format (answer/relatedSlugs)
+const shortAnswer = shortAnswer ?? answer.answer ?? '';
+const fullAnswer = fullAnswer ?? answer.answer ?? '';
+const relatedQuestions = relatedQuestions ?? answer.relatedSlugs?.map((s: string) => s.replace(/-/g, ' ')) ?? [];
 
 const title = `${answer.question} | PresciaIQ`;
-const description = answer.shortAnswer;
+const description = shortAnswer;
 const canonicalURL = `https://www.presciaiq.com.au/answers/${answer.slug}/`;
 
 const faqSchema = {
@@ -26,15 +30,15 @@ const faqSchema = {
       "name": answer.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": answer.fullAnswer
+        "text": fullAnswer
       }
     },
-    ...answer.relatedQuestions.map(q => ({
+    ...relatedQuestions.map(q => ({
       "@type": "Question",
       "name": q,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": `${answer.shortAnswer} For more detail, see our full answer on ${answer.question.toLowerCase()}.`
+        "text": `${shortAnswer} For more detail, see our full answer on ${answer.question.toLowerCase()}.`
       }
     }))
   ]
@@ -81,18 +85,18 @@ const breadcrumbSchema = {
         </h1>
 
         <div class="answer-short bg-black/40 border-l-4 border-[#00ff88] p-6 mb-10 rounded-r-lg">
-          <p class="text-lg text-white font-medium leading-relaxed">{answer.shortAnswer}</p>
+          <p class="text-lg text-white font-medium leading-relaxed">{shortAnswer}</p>
         </div>
 
         <div class="answer-full prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-12">
-          <p>{answer.fullAnswer}</p>
+          <p>{fullAnswer}</p>
         </div>
 
-        {answer.relatedQuestions && answer.relatedQuestions.length > 0 && (
+        {relatedQuestions && relatedQuestions.length > 0 && (
           <div class="mb-12">
             <h2 class="text-xl font-bold text-white mb-6">Related Questions</h2>
             <div class="space-y-3">
-              {answer.relatedQuestions.map((q) => (
+              {relatedQuestions.map((q) => (
                 <div class="border border-white/10 rounded-lg p-4">
                   <p class="text-gray-300 font-medium">{q}</p>
                 </div>
@@ -197,11 +201,11 @@ const breadcrumbSchema = {
         }
 
         {/* Related answers cross-links */}
-        {answer.relatedQuestions && answer.relatedQuestions.length > 0 && (
+        {relatedQuestions && relatedQuestions.length > 0 && (
           <div class="mb-8 border border-white/10 rounded-xl p-6">
             <h2 class="text-lg font-bold text-white mb-4">More questions answered</h2>
             <div class="space-y-2">
-              {answer.relatedQuestions.slice(0, 3).map((q) => (
+              {relatedQuestions.slice(0, 3).map((q) => (
                 <a href="/answers/" class="block text-gray-400 hover:text-[#00ff88] transition-colors text-sm py-1">
                   → {q}
                 </a>
