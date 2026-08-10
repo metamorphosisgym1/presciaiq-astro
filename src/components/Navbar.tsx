@@ -78,6 +78,9 @@ const Navbar = () => {
               {isInsightsOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-lg shadow-lg py-2 z-50" onMouseLeave={() => setIsInsightsOpen(false)}>
                   <a href="/insights/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">All Insights</span><span className="text-xs text-muted-foreground">Articles & analysis</span></a>
+                   <a href="/case-studies/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">Case Studies</span><span className="text-xs text-muted-foreground">Real results from real clients</span></a>
+                   <a href="/testimonials/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">Testimonials</span><span className="text-xs text-muted-foreground">What our clients say</span></a>
+                   <a href="/reaction-tax-calculator/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">Reaction Tax Calculator</span><span className="text-xs text-muted-foreground">Calculate your hidden losses</span></a>
                   <a href="/insights/case-studies/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">Case Studies</span><span className="text-xs text-muted-foreground">Real client results</span></a>
                   <a href="/answers/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Answers</span><span className="text-xs text-muted-foreground">Expert Q&A</span></a>
                 </div>
