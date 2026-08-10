@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Predictive AI & SEO/AEO for Perth Businesses — PresciaIQ | WA";
+const description = "PresciaIQ delivers predictive AI and SEO/AEO services for Perth businesses across mining, construction, energy, agriculture, and professional services.";
+const canonicalURL = "/locations/perth/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "PresciaIQ — Perth",
+  "description": description,
+  "url": `https://www.presciaiq.com.au${canonicalURL}`,
+  "areaServed": { "@type": "City", "name": "Perth", "addressRegion": "WA", "addressCountry": "AU" },
+  "serviceType": ["Predictive AI", "SEO", "AEO", "GEO", "AI Automation"],
+  "parentOrganization": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" }
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground pt-12 pb-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Hero -->
+      <div class="mb-12">
+        <span class="text-xs uppercase tracking-[0.25em] text-primary font-mono font-semibold">Perth, WA</span>
+        <h1 class="font-display text-4xl md:text-5xl font-black text-foreground mt-3 mb-4">
+          Predictive AI for<br /><span class="text-primary">Perth businesses.</span>
+        </h1>
+        <p class="text-lg text-muted-foreground font-sans max-w-2xl">
+          Perth is Australia's resource capital with a strong mining and construction sector. PresciaIQ's predictive intelligence platform helps Perth businesses in resource-adjacent industries manage cost and operational uncertainty. Perth's mining, construction, energy, agriculture, and professional services sectors are among the highest Reaction Tax industries in Australia — and PresciaIQ is built to fix that.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-3 gap-6 mb-16 p-8 glass-card">
+        <div class="text-center">
+          <div class="font-display text-4xl font-black text-primary mb-1">18,000+</div>
+          <div class="text-sm text-muted-foreground font-sans">SMBs in Greater Perth</div>
+        </div>
+        <div class="text-center">
+          <div class="font-display text-4xl font-black text-primary mb-1">21%</div>
+          <div class="text-sm text-muted-foreground font-sans">Average Reaction Tax rate</div>
+        </div>
+        <div class="text-center">
+          <div class="font-display text-4xl font-black text-primary mb-1">$295K</div>
+          <div class="text-sm text-muted-foreground font-sans">Avg annual Reaction Tax (Perth SMB)</div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="mb-16">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-8">What PresciaIQ does for Perth businesses</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="/products/buildpredictiq" class="glass-card p-6 hover:border-primary/30 transition-colors group block">
+            <h3 class="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">BuildPredictIQ</h3>
+            <p class="text-sm text-muted-foreground font-sans">Predict construction project risks, cost blowouts, and delays before they happen. Built for Perth's construction sector.</p>
+          </a>
+          <a href="/products/adsiq" class="glass-card p-6 hover:border-primary/30 transition-colors group block">
+            <h3 class="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">AdsIQ</h3>
+            <p class="text-sm text-muted-foreground font-sans">Predict ROAS and campaign performance before you spend. Stop wasting ad budget on campaigns that won't deliver.</p>
+          </a>
+          <a href="/products/ai-automations" class="glass-card p-6 hover:border-primary/30 transition-colors group block">
+            <h3 class="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">AI Automations</h3>
+            <p class="text-sm text-muted-foreground font-sans">Automate invoicing, customer support, CRM data entry, and more. Built for Perth SMBs using Xero and HubSpot.</p>
+          </a>
+          <a href="/aeo-seo" class="glass-card p-6 hover:border-primary/30 transition-colors group block">
+            <h3 class="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">SEO/AEO/GEO</h3>
+            <p class="text-sm text-muted-foreground font-sans">Programmatic SEO, AEO answer pages, and GEO architecture to drive organic traffic and AI citations for Perth businesses.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center glass-card p-12">
+        <h2 class="font-display text-3xl font-black text-foreground mb-4">Ready to eliminate your Reaction Tax?</h2>
+        <p class="text-muted-foreground font-sans mb-8 max-w-xl mx-auto">Book a free 30-minute strategy call. We'll show you exactly what PresciaIQ can do for your Perth business — no obligation.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/start" class="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-mono font-bold px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors text-sm uppercase tracking-wider">
+            Book a Free Strategy Call &rarr;
+          </a>
+          <a href="/reaction-tax-calculator" class="inline-flex items-center justify-center gap-2 border border-white/20 text-foreground font-mono font-bold px-8 py-4 rounded-lg hover:border-primary/50 transition-colors text-sm uppercase tracking-wider">
+            Calculate Your Reaction Tax
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</Layout>
