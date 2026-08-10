@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Reaction Tax Calculator — How Much Is Reactive Decision-Making Costing You? | PresciaIQ";
+const description = "Calculate your business's annual Reaction Tax — the hidden cost of making decisions without predictive intelligence. Free calculator for Australian businesses.";
+const canonicalURL = "/reaction-tax-calculator/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Reaction Tax Calculator",
+  "description": description,
+  "url": `https://www.presciaiq.com.au${canonicalURL}`,
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "AUD" },
+  "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" }
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground pt-12 pb-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <span class="text-xs uppercase tracking-[0.25em] text-primary font-mono font-semibold">Free Tool</span>
+        <h1 class="font-display text-4xl md:text-5xl font-black text-foreground mt-3 mb-4">
+          What's your<br /><span class="text-primary">Reaction Tax?</span>
+        </h1>
+        <p class="text-lg text-muted-foreground font-sans max-w-xl mx-auto">
+          The Reaction Tax is the hidden cost your business pays every time you make a decision without the data to back it up. Calculate yours in 60 seconds.
+        </p>
+      </div>
+
+      <!-- Calculator -->
+      <div class="glass-card p-8 md:p-10" id="calculator">
+
+        <!-- Step 1: Industry -->
+        <div class="mb-8" id="step-industry">
+          <label class="block text-sm font-mono font-semibold text-foreground mb-3 uppercase tracking-wider">1. Your Industry</label>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="industry-grid">
+            <button onclick="selectIndustry(this, 0.18)" data-rate="0.18" class="industry-btn px-4 py-3 rounded-lg border border-white/10 text-sm font-sans text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all text-left">Construction & Trades</button>
+            <button onclick="selectIndustry(this, 0.22)" data-rate="0.22" class="industry-btn px-4 py-3 rounded-lg border border-white/10 text-sm font-sans text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all text-left">Marketing & Advertising</button>
+            <button onclick="selectIndustry(this, 0.15)" data-rate="0.15" class="industry-btn px-4 py-3 rounded-lg border border-white/10 text-sm font-sans text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all text-left">Retail & E-commerce</button>
+            <button onclick="selectIndustry(this, 0.20)" data-rate="0.20" class="industry-btn px-4 py-3 rounded-lg border border-white/10 text-sm font-sans text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all text-left">Professional Services</button>
+            <button onclick="selectIndustry(this, 0.17)" data-rate="0.17" class="industry-btn px-4 py-3 rounded-lg border border-white/10 text-sm font-sans text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all text-left">Manufacturing & Logistics</button>
+            <button onclick="selectIndustry(this, 0.19)" data-rate="0.19" class="industry-btn px-4 py-3 rounded-lg border border-white/10 text-sm font-sans text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all text-left">Fitness & Health</button>
+            <button onclick="selectIndustry(this, 0.16)" data-rate="0.16" class="industry-btn px-4 py-3 rounded-lg border border-white/10 text-sm font-sans text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all text-left">Hospitality & Food</button>
+            <button onclick="selectIndustry(this, 0.21)" data-rate="0.21" class="industry-btn px-4 py-3 rounded-lg border border-white/10 text-sm font-sans text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all text-left">Technology & SaaS</button>
+            <button onclick="selectIndustry(this, 0.18)" data-rate="0.18" class="industry-btn px-4 py-3 rounded-lg border border-white/10 text-sm font-sans text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all text-left">Other</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Revenue -->
+        <div class="mb-8">
+          <label class="block text-sm font-mono font-semibold text-foreground mb-3 uppercase tracking-wider">2. Annual Revenue (AUD)</label>
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-mono">$</span>
+            <input type="number" id="revenue-input" placeholder="1,000,000" min="100000" max="100000000" step="100000"
+              class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 pl-8 text-foreground font-mono text-lg focus:outline-none focus:border-primary/50 transition-colors"
+              oninput="calculateTax()" />
+          </div>
+          <p class="text-xs text-muted-foreground font-sans mt-2">Enter your approximate annual revenue in Australian dollars</p>
+        </div>
+
+        <!-- Step 3: Team size -->
+        <div class="mb-10">
+          <label class="block text-sm font-mono font-semibold text-foreground mb-3 uppercase tracking-wider">3. Team Size</label>
+          <div class="grid grid-cols-4 gap-3">
+            <button onclick="selectTeam(this, 1.0)" class="team-btn px-3 py-3 rounded-lg border border-white/10 text-sm font-mono text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all">1–5</button>
+            <button onclick="selectTeam(this, 1.1)" class="team-btn px-3 py-3 rounded-lg border border-white/10 text-sm font-mono text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all">6–20</button>
+            <button onclick="selectTeam(this, 1.2)" class="team-btn px-3 py-3 rounded-lg border border-white/10 text-sm font-mono text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all">21–50</button>
+            <button onclick="selectTeam(this, 1.35)" class="team-btn px-3 py-3 rounded-lg border border-white/10 text-sm font-mono text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all">50+</button>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div id="result" class="hidden border-t border-white/10 pt-8">
+          <p class="text-sm font-mono text-muted-foreground uppercase tracking-wider mb-2">Your estimated annual Reaction Tax</p>
+          <div class="font-display text-5xl md:text-6xl font-black text-primary mb-2" id="tax-amount">$0</div>
+          <p class="text-sm text-muted-foreground font-sans mb-6" id="tax-description"></p>
+
+          <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="bg-white/5 rounded-lg p-4 text-center">
+              <div class="font-display text-2xl font-bold text-foreground mb-1" id="roi-amount">$0</div>
+              <div class="text-xs text-muted-foreground font-sans">Potential annual savings</div>
+            </div>
+            <div class="bg-white/5 rounded-lg p-4 text-center">
+              <div class="font-display text-2xl font-bold text-foreground mb-1" id="payback-months">0</div>
+              <div class="text-xs text-muted-foreground font-sans">Months to payback</div>
+            </div>
+            <div class="bg-white/5 rounded-lg p-4 text-center">
+              <div class="font-display text-2xl font-bold text-foreground mb-1" id="roi-multiple">0x</div>
+              <div class="text-xs text-muted-foreground font-sans">ROI in year one</div>
+            </div>
+          </div>
+
+          <a href="/start" class="block w-full text-center bg-primary text-primary-foreground font-mono font-bold px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors text-sm uppercase tracking-wider">
+            Book a Free Strategy Call — Eliminate Your Reaction Tax &rarr;
+          </a>
+          <p class="text-xs text-muted-foreground font-sans text-center mt-3">No obligation. 30-minute call. We'll show you exactly what's possible.</p>
+        </div>
+
+      </div>
+
+      <!-- Explainer -->
+      <div class="mt-16 prose prose-invert prose-lg max-w-none font-sans text-muted-foreground">
+        <h2 class="font-display text-2xl font-bold text-foreground">What is the Reaction Tax?</h2>
+        <p>The Reaction Tax is the cumulative cost a business pays when it consistently makes decisions after problems have already occurred, rather than before. It includes emergency hiring costs, last-minute supplier orders at premium prices, campaign pivots after budget has been wasted, overtime from unplanned workload spikes, and customer churn from service failures that could have been predicted.</p>
+        <p>Research across Australian SMBs suggests that businesses operating reactively lose between 15% and 25% of annual revenue to avoidable costs. For a $2M business, that's $300,000–$500,000 per year in preventable losses.</p>
+        <p>PresciaIQ's predictive intelligence platform is designed to eliminate the Reaction Tax by giving Australian business owners the data they need to make decisions before problems occur — not after.</p>
+        <p><a href="/start" class="text-primary hover:underline">Book a free strategy call</a> to see how much of your Reaction Tax we can eliminate.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    let industryRate = 0;
+    let teamMultiplier = 1.0;
+
+    function selectIndustry(btn, rate) {
+      document.querySelectorAll('.industry-btn').forEach(b => {
+        b.classList.remove('border-primary', 'text-foreground', 'bg-primary/10');
+        b.classList.add('border-white/10', 'text-muted-foreground');
+      });
+      btn.classList.add('border-primary', 'text-foreground', 'bg-primary/10');
+      btn.classList.remove('border-white/10', 'text-muted-foreground');
+      industryRate = rate;
+      calculateTax();
+    }
+
+    function selectTeam(btn, multiplier) {
+      document.querySelectorAll('.team-btn').forEach(b => {
+        b.classList.remove('border-primary', 'text-foreground', 'bg-primary/10');
+        b.classList.add('border-white/10', 'text-muted-foreground');
+      });
+      btn.classList.add('border-primary', 'text-foreground', 'bg-primary/10');
+      btn.classList.remove('border-white/10', 'text-muted-foreground');
+      teamMultiplier = multiplier;
+      calculateTax();
+    }
+
+    function formatCurrency(n) {
+      if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+      if (n >= 1000) return '$' + Math.round(n / 1000) + 'K';
+      return '$' + Math.round(n);
+    }
+
+    function calculateTax() {
+      const revenue = parseFloat(document.getElementById('revenue-input').value) || 0;
+      if (!revenue || !industryRate || !teamMultiplier) return;
+
+      const tax = Math.round(revenue * industryRate * teamMultiplier);
+      const savings = Math.round(tax * 0.65); // PresciaIQ eliminates ~65% of Reaction Tax
+      const presciaiqCost = 890 * 12; // $890/month annual
+      const payback = Math.round(presciaiqCost / (savings / 12));
+      const roiMultiple = Math.round(savings / presciaiqCost * 10) / 10;
+
+      document.getElementById('tax-amount').textContent = formatCurrency(tax);
+      document.getElementById('roi-amount').textContent = formatCurrency(savings);
+      document.getElementById('payback-months').textContent = payback + ' mo';
+      document.getElementById('roi-multiple').textContent = roiMultiple + 'x';
+      document.getElementById('tax-description').textContent = 
+        `Based on your industry and revenue, your business is likely losing ${formatCurrency(tax)} per year to reactive decision-making. PresciaIQ can eliminate up to 65% of this — saving you ${formatCurrency(savings)} annually.`;
+      document.getElementById('result').classList.remove('hidden');
+    }
+  </script>
+</Layout>
