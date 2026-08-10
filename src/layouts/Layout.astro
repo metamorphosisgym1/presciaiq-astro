@@ -302,6 +302,37 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- Person Schema — Founders -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.presciaiq.com.au/#alex-cutajar",
+        "name": "Alex Cutajar",
+        "jobTitle": "Co-Founder & CEO",
+        "worksFor": {"@id": "https://www.presciaiq.com.au/#organization"},
+        "url": "https://www.presciaiq.com.au/about",
+        "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/SwyIDFXzKmIrniOC.webp",
+        "sameAs": ["https://www.linkedin.com/in/alex-cutajar/"],
+        "description": "Co-founder of PresciaIQ with ten years running SMB and FMCG businesses. Leads product, architecture, and AI systems."
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.presciaiq.com.au/#macauley-burke",
+        "name": "Macauley Burke",
+        "jobTitle": "Co-Founder & CCO",
+        "worksFor": {"@id": "https://www.presciaiq.com.au/#organization"},
+        "url": "https://www.presciaiq.com.au/about",
+        "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/xjVQsXYtaEfhKerq.JPG",
+        "sameAs": ["https://www.linkedin.com/in/macauley-burke/"],
+        "description": "Co-founder of PresciaIQ with seven years of B2B sales inside Australian SMBs through Modern Body Method. Leads commercial, partnerships, and customer success."
+      }
+    ]
+  }
+  </script>
 </head>
   <body>
     <Navbar client:load />
