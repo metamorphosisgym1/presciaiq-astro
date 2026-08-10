@@ -600,5 +600,176 @@ export const competitors: Competitor[] = [
       { q: "Is Accenture suitable for Australian small and mid-market businesses?", a: "Accenture's minimum engagement sizes and billing rates are designed for large enterprises. Mid-market Australian businesses consistently find PresciaIQ a better fit — faster delivery, fixed pricing, and AI + programmatic SEO built in from day one." },
       { q: "What is the difference between Accenture Australia and PresciaIQ?", a: "Accenture is a global consulting giant with enterprise pricing and timelines. PresciaIQ is a specialist Australian agency that builds AI-powered web apps, mobile apps, and software platforms for mid-market businesses — with programmatic SEO and AEO built in to generate organic leads from launch." }
     ]
+  },
+
+  {
+    slug: "modern-analytics",
+    name: "Modern Analytics",
+    category: "Business Intelligence",
+    tagline: "Generic BI dashboards vs PresciaIQ's predictive intelligence built for Australian SMBs",
+    theirApproach: "Modern Analytics provides standard reporting dashboards that visualise historical business data. Teams use it to track KPIs and generate weekly reports.",
+    presciaiqAdvantage: "PresciaIQ moves beyond reporting to prediction. Instead of showing what happened last week, it tells you what will happen next week — and what to do about it.",
+    keyDifferences: [
+      { label: "Output", them: "Historical reports", us: "Forward-looking predictions" },
+      { label: "Action", them: "Human interprets charts", us: "AI surfaces the decision" },
+      { label: "SMB fit", them: "Generic, not industry-specific", us: "Built for Australian SMB verticals" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than Modern Analytics for Australian SMBs?", a: "PresciaIQ is purpose-built for Australian SMBs with predictive models trained on local market data. Modern Analytics provides generic BI dashboards that require significant analyst time to interpret." },
+      { q: "What does PresciaIQ do that Modern Analytics cannot?", a: "PresciaIQ predicts future outcomes — ROAS, construction risk, operational bottlenecks — before they occur. Modern Analytics shows you what already happened." }
+    ]
+  },
+  {
+    slug: "google-looker-studio",
+    name: "Google Looker Studio",
+    category: "Business Intelligence",
+    tagline: "Google's free BI tool vs PresciaIQ's AI-powered predictive platform",
+    theirApproach: "Looker Studio (formerly Google Data Studio) is a free data visualisation tool that connects to Google Ads, Analytics, and other sources to create shareable dashboards.",
+    presciaiqAdvantage: "Looker Studio is a reporting tool — it shows you what happened. PresciaIQ is a prediction engine — it tells you what will happen. For Australian businesses making forward-looking decisions, PresciaIQ provides actionable intelligence that Looker Studio cannot.",
+    keyDifferences: [
+      { label: "Core function", them: "Data visualisation", us: "Predictive intelligence" },
+      { label: "Cost", them: "Free (limited)", us: "From $890/month (full AI)" },
+      { label: "AI capability", them: "None", us: "Core product feature" }
+    ],
+    faqs: [
+      { q: "Should I use PresciaIQ or Google Looker Studio?", a: "Use Looker Studio for free reporting dashboards. Use PresciaIQ when you need to predict future outcomes — campaign ROAS, construction risk, operational bottlenecks — before committing budget or resources." },
+      { q: "Can PresciaIQ replace Looker Studio?", a: "PresciaIQ complements rather than replaces Looker Studio. PresciaIQ focuses on predictive intelligence while Looker Studio handles historical reporting. Many Australian businesses use both." }
+    ]
+  },
+  {
+    slug: "hubspot",
+    name: "HubSpot",
+    category: "CRM & Marketing",
+    tagline: "HubSpot's CRM and marketing tools vs PresciaIQ's predictive AI platform",
+    theirApproach: "HubSpot is a CRM and inbound marketing platform that helps businesses manage contacts, automate email sequences, and track deals through a sales pipeline.",
+    presciaiqAdvantage: "HubSpot tells you where your leads are in the funnel. PresciaIQ tells you which leads will convert, when they'll churn, and what your pipeline revenue will be next quarter — before it happens.",
+    keyDifferences: [
+      { label: "Primary use", them: "CRM and marketing automation", us: "Predictive revenue and risk intelligence" },
+      { label: "AI depth", them: "Basic lead scoring", us: "Full predictive modelling" },
+      { label: "Australian SMB focus", them: "Global generic platform", us: "Built for Australian market" }
+    ],
+    faqs: [
+      { q: "PresciaIQ vs HubSpot — which is better for Australian businesses?", a: "They serve different purposes. HubSpot manages your CRM and marketing automation. PresciaIQ predicts which customers will churn, which campaigns will perform, and where your revenue will land next quarter." },
+      { q: "Does PresciaIQ integrate with HubSpot?", a: "Yes. PresciaIQ can ingest HubSpot CRM data to generate predictive intelligence on top of your existing pipeline data." }
+    ]
+  },
+  {
+    slug: "zoho-analytics",
+    name: "Zoho Analytics",
+    category: "Business Intelligence",
+    tagline: "Zoho's BI platform vs PresciaIQ's predictive intelligence for Australian SMBs",
+    theirApproach: "Zoho Analytics is a self-service BI and data analytics platform that lets businesses create dashboards and reports from their existing data sources.",
+    presciaiqAdvantage: "Zoho Analytics visualises your past. PresciaIQ predicts your future. For Australian SMBs that need to make faster, smarter decisions, PresciaIQ's AI-powered predictions are built specifically for local market conditions.",
+    keyDifferences: [
+      { label: "Intelligence type", them: "Descriptive analytics", us: "Predictive analytics" },
+      { label: "Setup time", them: "Weeks of configuration", us: "Deployed in days" },
+      { label: "Australian focus", them: "Global platform", us: "Australian SMB specialist" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than Zoho Analytics?", a: "PresciaIQ and Zoho Analytics serve different needs. Zoho Analytics is a reporting tool for historical data. PresciaIQ is a predictive AI platform that forecasts future outcomes specific to Australian business conditions." },
+      { q: "What industries does PresciaIQ serve that Zoho Analytics doesn't?", a: "PresciaIQ has purpose-built predictive models for Australian construction, marketing agencies, trades businesses, and operations — with training data specific to Australian market conditions." }
+    ]
+  },
+  {
+    slug: "monday-com",
+    name: "Monday.com",
+    category: "Project Management",
+    tagline: "Monday.com's project management vs PresciaIQ's operational intelligence",
+    theirApproach: "Monday.com is a work operating system that helps teams manage projects, track tasks, and collaborate. It provides workflow automation and basic reporting.",
+    presciaiqAdvantage: "Monday.com tracks what your team is doing. PresciaIQ predicts where your operations will bottleneck, which projects will run over budget, and what resources you'll need next month — before the problems occur.",
+    keyDifferences: [
+      { label: "Core function", them: "Task and project management", us: "Operational prediction and intelligence" },
+      { label: "AI capability", them: "Basic automation", us: "Full predictive modelling" },
+      { label: "Business outcome", them: "Better task visibility", us: "Fewer operational surprises" }
+    ],
+    faqs: [
+      { q: "PresciaIQ vs Monday.com for Australian businesses?", a: "Monday.com helps you manage work in progress. PresciaIQ predicts operational bottlenecks, resource shortfalls, and project cost blowouts before they happen. They complement each other." },
+      { q: "Can PresciaIQ replace Monday.com?", a: "No — they serve different purposes. Monday.com is a project management tool. PresciaIQ is a predictive intelligence platform. Many Australian businesses use both." }
+    ]
+  },
+  {
+    slug: "xero-analytics",
+    name: "Xero Analytics",
+    category: "Financial Analytics",
+    tagline: "Xero's built-in analytics vs PresciaIQ's predictive financial intelligence",
+    theirApproach: "Xero Analytics is the built-in reporting and analytics feature within Xero accounting software. It shows cash flow, profit and loss, and basic financial forecasting.",
+    presciaiqAdvantage: "Xero Analytics shows your current financial position. PresciaIQ predicts your future cash flow, identifies which clients are likely to delay payment, and forecasts revenue shortfalls weeks before they appear in your accounts.",
+    keyDifferences: [
+      { label: "Depth", them: "Basic financial reporting", us: "Deep predictive financial intelligence" },
+      { label: "Prediction horizon", them: "30-day cash flow estimate", us: "90-day+ predictive modelling" },
+      { label: "Integration", them: "Xero data only", us: "Multi-source data fusion" }
+    ],
+    faqs: [
+      { q: "Is PresciaIQ better than Xero Analytics for cash flow forecasting?", a: "PresciaIQ provides significantly deeper predictive cash flow intelligence than Xero Analytics. It can ingest Xero data alongside CRM, sales, and operational data to generate more accurate multi-month forecasts." },
+      { q: "Does PresciaIQ integrate with Xero?", a: "Yes. PresciaIQ integrates with Xero to pull financial data and generate predictive intelligence on top of your accounting records." }
+    ]
+  },
+  {
+    slug: "microsoft-copilot",
+    name: "Microsoft Copilot",
+    category: "AI Assistant",
+    tagline: "Microsoft Copilot's AI assistant vs PresciaIQ's purpose-built predictive intelligence",
+    theirApproach: "Microsoft Copilot is an AI assistant integrated into Microsoft 365 products. It helps with document creation, email drafting, meeting summaries, and data analysis within Excel and Teams.",
+    presciaiqAdvantage: "Microsoft Copilot is a general-purpose AI assistant. PresciaIQ is a purpose-built predictive intelligence platform trained on Australian business data. It doesn't just assist with tasks — it predicts outcomes specific to your industry and market.",
+    keyDifferences: [
+      { label: "Purpose", them: "General AI productivity assistant", us: "Purpose-built predictive intelligence" },
+      { label: "Training data", them: "Generic global data", us: "Australian SMB industry data" },
+      { label: "Output", them: "Text and document assistance", us: "Actionable business predictions" }
+    ],
+    faqs: [
+      { q: "PresciaIQ vs Microsoft Copilot for Australian businesses?", a: "Microsoft Copilot is a productivity tool that helps with documents, emails, and meetings. PresciaIQ is a predictive intelligence platform that forecasts business outcomes — ROAS, construction risk, operational bottlenecks — specific to Australian conditions." },
+      { q: "Can Microsoft Copilot predict ROAS or construction risk?", a: "No. Microsoft Copilot can analyse data you provide but lacks the purpose-built predictive models and Australian market training data that PresciaIQ uses to forecast specific business outcomes." }
+    ]
+  },
+  {
+    slug: "google-gemini-for-business",
+    name: "Google Gemini for Business",
+    category: "AI Assistant",
+    tagline: "Google Gemini's AI assistant vs PresciaIQ's predictive business intelligence",
+    theirApproach: "Google Gemini for Business (formerly Bard) is Google's AI assistant integrated into Workspace. It helps with writing, analysis, and answering questions using Google's language models.",
+    presciaiqAdvantage: "Google Gemini is a general AI assistant. PresciaIQ is a predictive intelligence platform with models trained specifically on Australian business data. It predicts specific outcomes — not just answers questions.",
+    keyDifferences: [
+      { label: "Function", them: "General AI assistant", us: "Predictive business intelligence" },
+      { label: "Australian focus", them: "Global generic model", us: "Australian market specialist" },
+      { label: "Business value", them: "Productivity improvement", us: "Revenue protection and growth" }
+    ],
+    faqs: [
+      { q: "Should I use Google Gemini or PresciaIQ for my Australian business?", a: "Google Gemini helps with productivity tasks like writing and research. PresciaIQ predicts specific business outcomes — campaign ROAS, construction risk, operational bottlenecks — trained on Australian market data." },
+      { q: "Can Google Gemini replace PresciaIQ?", a: "No. Google Gemini is a general-purpose AI assistant. PresciaIQ is a purpose-built predictive intelligence platform with industry-specific models trained on Australian business data." }
+    ]
+  },
+  {
+    slug: "klaviyo",
+    name: "Klaviyo",
+    category: "Marketing Automation",
+    tagline: "Klaviyo's email marketing vs PresciaIQ's predictive campaign intelligence",
+    theirApproach: "Klaviyo is an email and SMS marketing automation platform primarily used by e-commerce businesses. It provides segmentation, automated flows, and basic analytics.",
+    presciaiqAdvantage: "Klaviyo automates your marketing execution. PresciaIQ predicts which campaigns will perform before you send them — forecasting ROAS, open rates, and conversion likelihood so you can optimise before spending budget.",
+    keyDifferences: [
+      { label: "Core function", them: "Email/SMS automation", us: "Campaign performance prediction" },
+      { label: "Timing", them: "After-the-fact analytics", us: "Pre-campaign forecasting" },
+      { label: "Australian SMB fit", them: "E-commerce focused", us: "All Australian SMB verticals" }
+    ],
+    faqs: [
+      { q: "PresciaIQ vs Klaviyo for Australian marketing teams?", a: "Klaviyo automates your email and SMS marketing. PresciaIQ predicts campaign performance before you launch — helping Australian marketing teams allocate budget to campaigns most likely to deliver strong ROAS." },
+      { q: "Does PresciaIQ work with Klaviyo?", a: "Yes. PresciaIQ can ingest Klaviyo campaign data to generate predictive models that forecast future campaign performance based on historical patterns." }
+    ]
+  },
+  {
+    slug: "procore",
+    name: "Procore",
+    category: "Construction Management",
+    tagline: "Procore's construction management vs PresciaIQ's predictive construction intelligence",
+    theirApproach: "Procore is a construction management platform that helps project teams manage documents, RFIs, submittals, and field operations. It tracks project progress and manages compliance documentation.",
+    presciaiqAdvantage: "Procore manages your construction projects in real time. PresciaIQ predicts cost blowouts, delays, subcontractor defaults, and compliance issues before they occur — turning your Procore data into forward-looking intelligence.",
+    keyDifferences: [
+      { label: "Function", them: "Project management and documentation", us: "Predictive risk and cost intelligence" },
+      { label: "Timing", them: "Tracks what's happening now", us: "Predicts what will happen next" },
+      { label: "Australian focus", them: "Global platform", us: "Australian construction specialist" }
+    ],
+    faqs: [
+      { q: "PresciaIQ vs Procore for Australian construction businesses?", a: "Procore manages your construction projects. PresciaIQ predicts construction risk — cost blowouts, delays, subcontractor defaults — before they occur. PresciaIQ can ingest Procore data to generate predictive intelligence on top of your existing project management." },
+      { q: "Does PresciaIQ integrate with Procore?", a: "Yes. PresciaIQ integrates with Procore to pull project data and generate predictive risk and cost intelligence specific to Australian construction conditions." }
+    ]
   }
 ];
