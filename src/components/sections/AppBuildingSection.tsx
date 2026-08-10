@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Zap, BarChart3, Cpu, ExternalLink } from "lucide-react";
 import SectionWrapper from "../SectionWrapper";
-const portfolioLongevity = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/vDHclkMohssphMMN.png";
+const portfolioLongevity = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/ilWiMAbGlOZdPRae.webp";
 const portfolioBuildhire = "/portfolio-buildhire.png";
 const portfolioLoop = "/portfolio-loop.png";
 
