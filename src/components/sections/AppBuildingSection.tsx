@@ -2,18 +2,18 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Zap, BarChart3, Cpu, ExternalLink } from "lucide-react";
 import SectionWrapper from "../SectionWrapper";
-const portfolioLongevity = "/portfolio-longevity.png";
+const portfolioLongevity = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/vDHclkMohssphMMN.png";
 const portfolioBuildhire = "/portfolio-buildhire.png";
 const portfolioLoop = "/portfolio-loop.png";
 
 const projects = [
   {
-    name: "Longevity Australia",
-    url: "longevityaus.org",
+    name: "Modern Body Method",
+    url: "modernbodymethod.com",
     image: portfolioLongevity,
     description:
-      "A secure, high-performance e-commerce platform for research-grade peptides, featuring complex bundle logic and a clinical, trustworthy aesthetic.",
-    tags: ["React", "Next.js", "Tailwind", "Stripe"],
+      "Elite online fitness coaching platform with AI-powered 12-week transformation forecasting, dynamic service pages, and 1,500+ programmatic SEO pages.",
+    tags: ["React", "TanStack", "Tailwind", "Vercel"],
   },
   {
     name: "BuildHire",
