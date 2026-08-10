@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Client Case Studies — PresciaIQ | Real Results for Australian Businesses";
+const description = "See how PresciaIQ has delivered measurable SEO, AEO, and AI results for Australian businesses across construction, fitness, consulting, fashion, automotive, and more.";
+const canonicalURL = "/case-studies/";
+
+const clients = [
+  { slug: "buildhire", name: "BuildHire", tag: "pSEO Architecture", industry: "Equipment Hire · NSW", headline: "From $90 CPC to zero", url: "/results/buildhire" },
+  { slug: "loop-bc", name: "Loop BC", tag: "SEO & AEO Architecture", industry: "Business Consulting · NSW", headline: "From invisible to AI-cited", url: "/case-studies/loop-bc" },
+  { slug: "modern-body-method", name: "Modern Body Method", tag: "pSEO & Web Migration", industry: "Fitness Coaching · Australia", headline: "1,500+ pages, zero ad spend", url: "/case-studies/modern-body-method" },
+  { slug: "vale-tudo-training", name: "Vale Tudo Training", tag: "Digital Presence", industry: "Martial Arts · Australia", headline: "Built for search from day one", url: "/case-studies/vale-tudo-training" },
+  { slug: "the-silk-studio", name: "The Silk Studio", tag: "E-commerce SEO", industry: "Fashion & Lifestyle · Australia", headline: "Organic traffic that converts", url: "/case-studies/the-silk-studio" },
+  { slug: "hypertint", name: "Hypertint", tag: "Local SEO", industry: "Automotive Services · Australia", headline: "Dominating local search", url: "/case-studies/hypertint" },
+];
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <main class="min-h-screen bg-background text-foreground pt-12 pb-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <span class="text-xs uppercase tracking-[0.25em] text-primary font-mono font-semibold">Client Results</span>
+        <h1 class="font-display text-4xl md:text-5xl font-black text-foreground mt-3 mb-4">Real results.<br /><span class="text-primary">Real Australian businesses.</span></h1>
+        <p class="text-lg text-muted-foreground font-sans max-w-2xl">PresciaIQ has delivered measurable SEO, AEO, and AI results for Australian businesses across construction, fitness, consulting, fashion, automotive, and more.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {clients.map(client => (
+          <a href={client.url} class="glass-card p-6 hover:border-primary/30 transition-colors group block">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="px-2 py-1 rounded text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">{client.tag}</span>
+            </div>
+            <h2 class="font-display text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{client.name}</h2>
+            <p class="text-xs text-muted-foreground font-mono mb-3">{client.industry}</p>
+            <p class="text-sm text-muted-foreground font-sans">{client.headline}</p>
+            <span class="inline-flex items-center gap-1 text-xs text-primary font-mono mt-4">Read case study &rarr;</span>
+          </a>
+        ))}
+      </div>
+      <div class="mt-16 text-center">
+        <h2 class="font-display text-2xl font-bold text-foreground mb-4">Ready to be our next case study?</h2>
+        <p class="text-muted-foreground font-sans mb-6">Book a free strategy call and we'll show you exactly what's possible for your business.</p>
+        <a href="/start" class="inline-flex items-center gap-2 bg-primary text-primary-foreground font-mono font-bold px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors text-sm uppercase tracking-wider">
+          Book a Free Strategy Call &rarr;
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>
