@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Client Testimonials & Reviews — PresciaIQ | Real Results from Australian Businesses";
+const description = "Read what Australian business owners say about PresciaIQ's predictive AI, SEO/AEO, and AI automation services. Real results, real clients.";
+const canonicalURL = "/testimonials/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": `https://www.presciaiq.com.au${canonicalURL}`,
+  "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewBody": "PresciaIQ took our Lovable site and turned it into a serious SEO machine without changing a single pixel of the design. The 1,500+ page architecture is exactly what we needed.",
+      "author": { "@type": "Person", "name": "Macauley Burke" },
+      "itemReviewed": { "@type": "Organization", "name": "PresciaIQ" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+    },
+    {
+      "@type": "Review",
+      "reviewBody": "The content architecture PresciaIQ built positions Loop BC exactly where our clients are looking — in AI search results and Google for operating model queries.",
+      "author": { "@type": "Organization", "name": "Loop BC" },
+      "itemReviewed": { "@type": "Organization", "name": "PresciaIQ" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+    }
+  ]
+};
+
+const testimonials = [
+  {
+    quote: "PresciaIQ took our Lovable site and turned it into a serious SEO machine without changing a single pixel of the design. The 1,500+ page architecture is exactly what we needed to compete for organic fitness coaching traffic across Australia.",
+    author: "Macauley Burke",
+    role: "Founder, Modern Body Method",
+    company: "modernbodymethod.com",
+    service: "pSEO & Web Migration",
+    stars: 5
+  },
+  {
+    quote: "The content architecture PresciaIQ built positions Loop BC exactly where our clients are looking — in AI search results and Google for operating model queries. We went from invisible to cited in a matter of weeks.",
+    author: "Loop BC",
+    role: "Business Consulting",
+    company: "loopbc.com.au",
+    service: "SEO & AEO Architecture",
+    stars: 5
+  },
+  {
+    quote: "BuildHire went from spending $90 per click on Google Ads to generating organic traffic across 84,000 programmatic pages. The ROI is extraordinary — we've essentially eliminated our paid search dependency.",
+    author: "BuildHire",
+    role: "Equipment Hire",
+    company: "buildhire.com.au",
+    service: "Programmatic SEO",
+    stars: 5
+  },
+  {
+    quote: "PresciaIQ understood what we needed and delivered a professional digital presence that works for our business. The local SEO architecture they built is already driving enquiries.",
+    author: "Vale Tudo Training",
+    role: "Martial Arts Academy",
+    company: "valetraining.com.au",
+    service: "Digital Presence & SEO",
+    stars: 5
+  },
+  {
+    quote: "PresciaIQ gave us a roadmap to reduce our dependence on paid ads and build a sustainable organic traffic channel. The strategy is clear and the execution has been flawless.",
+    author: "The Silk Studio",
+    role: "Fashion & Lifestyle",
+    company: "thesilkstudio.com.au",
+    service: "E-commerce SEO",
+    stars: 5
+  },
+  {
+    quote: "PresciaIQ understood the local search landscape for our industry and built a strategy that positions us where our customers are looking. The multi-location architecture is exactly what we needed.",
+    author: "Hypertint",
+    role: "Automotive Services",
+    company: "hypertint.com.au",
+    service: "Local SEO",
+    stars: 5
+  }
+];
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="min-h-screen bg-background text-foreground pt-12 pb-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <span class="text-xs uppercase tracking-[0.25em] text-primary font-mono font-semibold">Client Reviews</span>
+        <h1 class="font-display text-4xl md:text-5xl font-black text-foreground mt-3 mb-4">
+          What our clients say.
+        </h1>
+        <p class="text-lg text-muted-foreground font-sans max-w-2xl mx-auto">
+          Real results from real Australian businesses. PresciaIQ has delivered measurable SEO, AEO, and AI outcomes for clients across construction, fitness, consulting, fashion, automotive, and more.
+        </p>
+        <div class="flex items-center justify-center gap-2 mt-6">
+          <div class="flex gap-1">
+            {"★★★★★".split("").map(() => <span class="text-primary text-xl">★</span>)}
+          </div>
+          <span class="text-muted-foreground font-mono text-sm">5.0 / 5.0 — 6 clients</span>
+        </div>
+      </div>
+
+      <!-- Testimonials grid -->
+      <div class="grid md:grid-cols-2 gap-6 mb-16">
+        {testimonials.map(t => (
+          <div class="glass-card p-8">
+            <div class="flex gap-1 mb-4">
+              {[1,2,3,4,5].map(() => <span class="text-primary">★</span>)}
+            </div>
+            <blockquote class="text-foreground font-sans leading-relaxed mb-6">
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="font-display font-bold text-foreground text-sm">{t.author}</div>
+                <div class="text-xs text-muted-foreground font-sans">{t.role}</div>
+              </div>
+              <span class="px-2 py-1 rounded text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">{t.service}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center glass-card p-12">
+        <h2 class="font-display text-3xl font-black text-foreground mb-4">Ready to get results like these?</h2>
+        <p class="text-muted-foreground font-sans mb-8 max-w-xl mx-auto">Book a free 30-minute strategy call. We'll show you exactly what PresciaIQ can do for your business — no obligation.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/start" class="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-mono font-bold px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors text-sm uppercase tracking-wider">
+            Book a Free Strategy Call &rarr;
+          </a>
+          <a href="/case-studies" class="inline-flex items-center justify-center gap-2 border border-white/20 text-foreground font-mono font-bold px-8 py-4 rounded-lg hover:border-primary/50 transition-colors text-sm uppercase tracking-wider">
+            View Case Studies
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</Layout>
