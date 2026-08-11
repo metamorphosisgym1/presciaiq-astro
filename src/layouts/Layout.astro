@@ -75,6 +75,27 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
           "@id": "https://www.presciaiq.com.au/#organization",
           "name": "PresciaIQ",
           "legalName": "PredictIQ Holdings Pty Ltd",
+          "foundingDate": "2023",
+          "foundingLocation": { "@type": "Place", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU" },
+          "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 10 },
+          "knowsAbout": ["Predictive AI", "Answer Engine Optimisation", "Generative Engine Optimisation", "Programmatic SEO", "Construction Risk AI", "ROAS Prediction", "AI Automation", "Australian SMB Technology"],
+          "sameAs": [
+            "https://www.linkedin.com/company/prescia-iq/",
+            "https://www.instagram.com/presciaiq/",
+            "https://twitter.com/presciaiq",
+            "https://www.facebook.com/presciaiq",
+            "https://www.crunchbase.com/organization/presciaiq",
+            "https://clutch.co/profile/presciaiq"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "PresciaIQ AI Products",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "BuildPredictIQ", "url": "https://www.presciaiq.com.au/products/buildpredictiq/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "AdsIQ", "url": "https://www.presciaiq.com.au/products/adsiq/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Automations", "url": "https://www.presciaiq.com.au/products/ai-automations/" } }
+            ]
+          },
           "url": "https://www.presciaiq.com.au",
           "logo": { "@type": "ImageObject", "url": "https://www.presciaiq.com.au/logo.png" },
           "description": "PresciaIQ is Australia's Predictive AI Company, headquartered in Sydney. We design and build AI forecasting platforms — BuildPredictIQ (construction risk), AdsIQ (campaign ROAS prediction), OpsIQ (operational intelligence), and TradesmanIQ (trades job profitability) — that eliminate the Reaction Tax for Australian SMBs and mid-market operators. Specialists in Answer Engine Optimisation (AEO), Generative Engine Optimisation (GEO), and programmatic SEO for AI-first search.",
