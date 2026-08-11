@@ -10,10 +10,28 @@ export default defineConfig({
     tailwind(),
     sitemap({
       filter: (page) => {
-        // Week 3 staged rollout:
-        // - All /aeo-seo/[industry]/[location]/ pages indexed (180 high-intent service pages)
-        // - ALL /for/ persona pages indexed: 24 job titles × 20 industries × 6 locations = 2,880 pages
-        // - /solutions/ and /use-case/ deferred to weeks 4-5
+        // PRIORITY 1: Core conversion pages — always include
+        const corePaths = ['/', '/about/', '/pricing/', '/contact/', '/start/', '/reaction-tax-calculator/', '/testimonials/', '/partners/'];
+        if (corePaths.some(p => page.endsWith(p))) return true;
+        // PRIORITY 2: Product pages
+        if (page.includes('/products/')) return true;
+        // PRIORITY 3: Case studies
+        if (page.includes('/case-studies/')) return true;
+        // PRIORITY 4: City landing pages
+        if (page.includes('/locations/')) return true;
+        // PRIORITY 5: AEO answers hub (all 90+ entries)
+        if (page.includes('/answers/')) return true;
+        // PRIORITY 6: Problems cluster
+        if (page.includes('/problems/')) return true;
+        // PRIORITY 7: Compare pages (top-level only, no deep /compare/x/y/z)
+        if (page.match(/\/compare\/[^\/]+\/?$/) && !page.match(/\/compare\/[^\/]+\/[^\/]+/)) return true;
+        // PRIORITY 8: Blog/insights
+        if (page.includes('/insights/')) return true;
+        // PRIORITY 9: Results pages
+        if (page.includes('/results/')) return true;
+        // PRIORITY 10: Top aeo-seo industry × location pages (high-intent)
+        if (page.match(/\/aeo-seo\/[^\/]+\/[^\/]+\//)) return true;
+        // PRIORITY 11: Top /for/ persona pages (24 job titles × 20 industries × 6 locations)
         const priorityJobTitles = [
           'cfo','ceo','operations-manager','marketing-director','head-of-sales',
           'supply-chain-manager','it-director','risk-manager','cto','coo',
@@ -29,78 +47,32 @@ export default defineConfig({
           'wholesale-distribution','food-beverage','automotive','media-advertising','government'
         ];
         const priorityLocations = ['sydney','melbourne','brisbane','perth','adelaide','australia'];
-        // Always include: hand-crafted AEO pages, comparison pages, case studies, results, partners
-        if (page.includes('/answers/')) return true;
-        if (page.includes('/problems/')) return true;
-        // /compare/ hub pages only (e.g. /compare/accenture-australia or /compare/accenture-australia/)
-        // Deep /compare/[comp]/[ind]/[loc]/ pages have noindex=true so must NOT be in sitemap
-        // Note: vercel.json has trailingSlash:false so URLs may arrive without trailing slash
-        if (page.match(/\/compare\/[^\/]+(\/?$)/) && !page.match(/\/compare\/[^\/]+\/[^\/]+/)) return true;
-        if (page.includes('/partners')) return true;
-        if (page.includes('/results/')) return true;
-        if (page.includes('/insights/case-studies/')) return true;
-        // Week 2: Include all /aeo-seo/[industry]/[location]/ pages
-        if (page.match(/\/aeo-seo\/[^\/]+\/[^\/]+\//)) return true;
-        // Week 3: Include ALL /for/ persona pages (24 job titles × 20 industries × 6 locations = 2,880 pages)
         const forMatch = page.match(/\/for\/([^\/]+)\/([^\/]+)\/([^\/]+)\//);
         if (forMatch) {
           const [, jt, ind, loc] = forMatch;
           return priorityJobTitles.includes(jt) && priorityIndustries.includes(ind) && priorityLocations.includes(loc);
         }
-        // Exclude remaining large programmatic clusters (/solutions/, /use-case/) — weeks 4-5
-        if (page.includes('/solutions/') || page.includes('/use-case/')) return false;
-        // Explicitly exclude deep /compare/[comp]/[ind]/[loc]/ pages (noindex=true, waste crawl budget)
-        if (page.match(/\/compare\/[^\/]+\/[^\/]+/)) return false;
-        return true;
+        // Exclude all other large programmatic clusters to focus crawl budget
+        return false;
       },
-      changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
-      serialize(item) {
-        if (item.url === 'https://www.presciaiq.com.au/') {
-          return { ...item, priority: 1.0, changefreq: 'daily' };
-        }
-        if (item.url.includes('/insights/')) {
-          return { ...item, priority: 0.8, changefreq: 'monthly' };
-        }
-        if (item.url.includes('/services/')) {
-          return { ...item, priority: 0.9, changefreq: 'monthly' };
-        }
-        if (item.url.includes('/compare/')) {
-          return { ...item, priority: 0.8, changefreq: 'monthly' };
-        }
-        if (item.url.includes('/problems/')) {
-          return { ...item, priority: 0.8, changefreq: 'monthly' };
-        }
-        if (item.url.includes('/answers/')) {
-          return { ...item, priority: 0.8, changefreq: 'weekly' }; // AEO answer pages
-        }
-        // /for/[jobtitle]/[industry]/[location] — buyer persona pages (high commercial intent)
-        if (item.url.match(/\/for\/[^\/]+\/[^\/]+\/[^\/]+\/$/) ) {
-          return { ...item, priority: 0.85, changefreq: 'monthly' };
-        }
-        // /use-case/[usecase]/[industry]/[location] — use case pages
-        if (item.url.match(/\/use-case\/[^\/]+\/[^\/]+\/[^\/]+\/$/) ) {
-          return { ...item, priority: 0.8, changefreq: 'monthly' };
-        }
-        // /solutions/[service]/[industry]/[location] — triple pillar pages
-        if (item.url.match(/\/solutions\/[^\/]+\/[^\/]+\/[^\/]+\/$/) ) {
-          return { ...item, priority: 0.8, changefreq: 'monthly' };
-        }
-        // /solutions/ deep cluster pages (4-segment paths with problem or tech)
-        if (item.url.includes('/solutions/')) {
-          return { ...item, priority: 0.65, changefreq: 'monthly' };
-        }
-        // /aeo-seo/[industry]/[location] — AEO/SEO service landing pages
-        if (item.url.match(/\/aeo-seo\/[^\/]+\/[^\/]+\/$/) ) {
-          return { ...item, priority: 0.85, changefreq: 'monthly' };
-        }
-        // /aeo-seo/ single-dimension pages
-        if (item.url.includes('/aeo-seo/')) {
-          return { ...item, priority: 0.75, changefreq: 'monthly' };
-        }
-        return item;
-      },
+      customPages: [
+        'https://www.presciaiq.com.au/',
+        'https://www.presciaiq.com.au/about/',
+        'https://www.presciaiq.com.au/pricing/',
+        'https://www.presciaiq.com.au/contact/',
+        'https://www.presciaiq.com.au/start/',
+        'https://www.presciaiq.com.au/reaction-tax-calculator/',
+        'https://www.presciaiq.com.au/testimonials/',
+        'https://www.presciaiq.com.au/partners/',
+        'https://www.presciaiq.com.au/products/buildpredictiq/',
+        'https://www.presciaiq.com.au/products/adsiq/',
+        'https://www.presciaiq.com.au/products/ai-automations/',
+        'https://www.presciaiq.com.au/case-studies/',
+        'https://www.presciaiq.com.au/locations/sydney/',
+        'https://www.presciaiq.com.au/locations/melbourne/',
+        'https://www.presciaiq.com.au/locations/brisbane/',
+        'https://www.presciaiq.com.au/locations/perth/',
+      ],
     }),
   ],
 });
