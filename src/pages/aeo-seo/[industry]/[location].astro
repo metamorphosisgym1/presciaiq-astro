@@ -18,8 +18,9 @@ export function getStaticPaths() {
 
 const { industry, location } = Astro.props;
 const title = `AEO/SEO for ${industry.name} ${location.preposition} ${location.name} | PresciaIQ`;
-const description = `PresciaIQ builds programmatic SEO and AEO architectures for ${industry.plural} ${location.preposition} ${location.name}. Deploy hundreds of targeted, schema-rich pages that dominate ${industry.name.toLowerCase()} search in ${location.name}. From $4,999.`;
+const description = `PresciaIQ helps ${industry.plural} ${location.preposition} ${location.name} plan a practical, evidence-led SEO and AEO architecture around their services, buyers and search demand.`;
 const canonicalURL = `https://www.presciaiq.com.au/aeo-seo/${industry.slug}/${location.slug}/`;
+const noindex = location.countryCode !== 'AU';
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -42,13 +43,7 @@ const serviceSchema = {
     "name": "PresciaIQ",
     "url": "https://www.presciaiq.com.au"
   },
-  "areaServed": location.name,
-  "offers": {
-    "@type": "Offer",
-    "price": "4999",
-    "priceCurrency": "AUD",
-    "priceSpecification": { "@type": "UnitPriceSpecification", "price": "4999", "priceCurrency": "AUD", "description": "From $4,999 one-off build" }
-  }
+  "areaServed": { "@type": "AdministrativeArea", "name": location.name }
 };
 
 const faqSchema = {
@@ -73,18 +68,18 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": `What results can ${industry.plural} ${location.preposition} ${location.name} expect?`,
+      "name": `What should ${industry.plural} ${location.preposition} ${location.name} measure from an AEO/SEO programme?`,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": `${industry.exampleUseCase} PresciaIQ clients in the ${industry.name.toLowerCase()} sector typically see a 5x–15x increase in indexed pages and a 3x–10x increase in organic traffic within 90 days of deployment.`
+        "text": `A useful programme measures qualified search impressions, clicks, landing-page conversion, sales-qualified enquiries and revenue outcomes—not page count alone. The right targets depend on the business model, existing authority, implementation quality and sales follow-up process.`
       }
     },
     {
       "@type": "Question",
-      "name": `How much does it cost to build an AEO/SEO architecture for ${industry.plural} ${location.preposition} ${location.name}?`,
+      "name": `How is an AEO/SEO architecture scoped for ${industry.plural} ${location.preposition} ${location.name}?`,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": `PresciaIQ's Predictive Search Architecture for ${industry.plural} ${location.preposition} ${location.name} starts from $4,999 as a one-off build. This includes full programmatic page generation, schema markup, AEO optimisation for AI answer engines, and a 90-day indexing strategy. Unlike monthly SEO retainers, you pay once and the architecture compounds in value over time.`
+        "text": `Scope begins with a review of the business's services, priority buyers, existing technical foundation, proof assets and serviceable markets. The resulting plan should identify the pages to improve, consolidate or exclude from search before any broad page expansion.`
       }
     },
     {
@@ -92,13 +87,13 @@ const faqSchema = {
       "name": `How long does it take to see results from programmatic SEO for ${industry.name.toLowerCase()} ${location.preposition} ${location.name}?`,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": `Most ${industry.plural} ${location.preposition} ${location.name} see Google begin indexing new pages within 2–4 weeks of deployment. Meaningful organic traffic increases typically appear within 60–90 days. Full compounding effect — where the architecture dominates the majority of ${industry.name.toLowerCase()} search queries in ${location.name} — builds over 6–12 months as domain authority compounds.`
+        "text": `Crawling and indexation timing vary by site, page quality, technical health and competing content. The programme should monitor priority pages in Search Console and adjust based on qualified traffic and enquiry outcomes rather than promise a fixed ranking or traffic timeline.`
       }
     }
   ]
 };
 ---
-<Layout title={title} description={description} canonicalURL={canonicalURL}>
+<Layout title={title} description={description} canonicalURL={canonicalURL} noindex={noindex}>
   <div class="pt-32 pb-24 min-h-screen">
     <div class="max-w-4xl mx-auto px-6">
 
@@ -107,13 +102,13 @@ const faqSchema = {
           <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">AEO/SEO</span>
           <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{industry.name}</span>
           <span class="text-white/70 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">{location.name}</span>
-          <span class="text-white/50 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">From $4,999</span>
+          <span class="text-white/50 font-semibold uppercase tracking-widest text-xs bg-white/5 px-3 py-1 rounded-full">Strategy-led architecture</span>
         </div>
         <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
           Predictive Search Architecture for {industry.name} {location.preposition} {location.name}
         </h1>
         <p class="text-xl text-gray-400 mb-10 font-medium leading-relaxed">
-          Own every search result in the {industry.name.toLowerCase()} sector {location.preposition} {location.name}. We build programmatic SEO and AEO architectures specifically for {industry.plural} {location.preposition} {location.name} — deploying hundreds to thousands of targeted, schema-rich pages in a single build.
+          We help {industry.plural} {location.preposition} {location.name} organise their services, buyer questions and proof into a search architecture designed for people first and made clearer to search engines and answer engines.
         </p>
 
         <div class="bg-black/40 border-l-4 border-[#00ff88] p-6 mb-12 rounded-r-lg">
@@ -123,56 +118,28 @@ const faqSchema = {
           </p>
         </div>
 
-        {industry.localStats && (
-          <div class="bg-[#00ff88]/5 border border-[#00ff88]/20 rounded-xl p-6 mb-12">
-            <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-3">Industry Data</p>
-            <p class="text-gray-300 leading-relaxed font-medium">{industry.localStats}</p>
-          </div>
-        )}
-
         <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-12">
-          <p>Most {industry.plural} {location.preposition} {location.name} are invisible on Google for the majority of the search queries their prospects are using. They have a handful of generic pages targeting broad keywords — and they're losing to competitors with deeper structural authority every single day.</p>
+          <p>Search performance improves when a business gives prospective buyers a clear answer, supporting evidence and an obvious next step. That requires useful service pages, decision guidance and proof—not a large number of near-identical location pages.</p>
 
-          <p>Predictive Search Architecture changes this. We map every dimension of your {industry.name.toLowerCase()} business — every service you offer, every location in your market, every problem you solve, every persona you target — and deploy a unique, highly optimised page for each combination. The result is a website that captures the full search demand landscape for the {industry.name.toLowerCase()} sector {location.preposition} {location.name}.</p>
+          <p>PresciaIQ maps the services you can deliver, the locations you genuinely serve, the problems buyers are trying to solve and the evidence you can stand behind. The output is a controlled, measurable architecture rather than a promise to publish every possible page combination.</p>
 
           <h3 class="text-2xl font-bold text-white mt-12 mb-6">What We Build for {industry.name} Businesses {location.preposition} {location.name}</h3>
           <ul class="list-disc pl-6 space-y-3 mb-8">
             <li>Industry-specific service pages demonstrating deep {industry.name.toLowerCase()} expertise</li>
-            <li>Location × Industry pages capturing local {industry.name.toLowerCase()} search demand in {location.name}</li>
+            <li>Location and industry pages only where the business has a genuine service and proof context</li>
             <li>Problem → Solution pages targeting the specific challenges {industry.plural} face</li>
-            <li>FAQ / AEO pages structured for ChatGPT, Perplexity, and Google AI Overviews</li>
+            <li>Question-led answer pages with clear sources, authorship and practical next steps</li>
             <li>Competitor comparison pages intercepting {industry.plural} at the decision stage</li>
             <li>Persona pages speaking to every decision-maker in {industry.name.toLowerCase()} businesses</li>
           </ul>
         </div>
-
-        {industry.keyBenefits && industry.keyBenefits.length > 0 && (
-          <div class="mb-12">
-            <h3 class="text-2xl font-bold text-white mb-6">Key Benefits for {industry.plural} {location.preposition} {location.name}</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {industry.keyBenefits.map((benefit: string) => (
-                <div class="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-white/10">
-                  <span class="text-[#00ff88] font-bold text-lg mt-0.5 flex-shrink-0">✓</span>
-                  <p class="text-gray-300 text-sm leading-relaxed">{benefit}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {industry.caseStudySnippet && (
-          <div class="bg-black/60 border border-white/10 rounded-xl p-8 mb-12">
-            <p class="text-[11px] uppercase tracking-[0.2em] text-[#00ff88] font-sans font-semibold mb-4">Client Result</p>
-            <p class="text-gray-300 leading-relaxed font-medium italic">"{industry.caseStudySnippet}"</p>
-          </div>
-        )}
 
         <div class="prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-16">
           <h3 class="text-2xl font-bold text-white mt-4 mb-6">Industry Insight</h3>
           <p>{industry.exampleUseCase}</p>
 
           <p class="text-white font-medium border-l-2 border-white/20 pl-4 py-2 mt-8">
-            Unlike traditional SEO retainers, this is an infrastructural build. You pay once for the architecture, and it compounds in value over time — dominating both traditional search and AI Answer Engines across the entire {industry.name.toLowerCase()} sector {location.preposition} {location.name}.
+            A useful architecture is measured by whether the right prospects find a helpful answer, understand the relevant offer and take a meaningful next step—not by a page-count target.
           </p>
         </div>
 
@@ -188,8 +155,8 @@ const faqSchema = {
         )}
 
         <div class="bg-gradient-to-r from-[#00ff88]/20 to-transparent p-8 rounded-xl border border-[#00ff88]/30 mb-16">
-          <h3 class="text-2xl font-bold text-white mb-4">Ready to dominate {industry.name.toLowerCase()} search {location.preposition} {location.name}?</h3>
-          <p class="text-gray-300 mb-6">Let's build the search architecture that generates compounding organic leads for your {industry.name.toLowerCase()} business {location.preposition} {location.name} — starting from $4,999.</p>
+          <h3 class="text-2xl font-bold text-white mb-4">Ready to clarify your {industry.name.toLowerCase()} search opportunity {location.preposition} {location.name}?</h3>
+          <p class="text-gray-300 mb-6">Let’s review your current search foundation, commercial priorities and proof assets before deciding what to build, consolidate or exclude.</p>
           <div class="flex flex-wrap gap-4">
             <a href="/contact" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors">
               Book a Strategy Call
@@ -212,16 +179,16 @@ const faqSchema = {
               <p class="text-gray-400 leading-relaxed">{industry.plural} {location.preposition} {location.name} that deploy Predictive Search Architecture stop {industry.painPoint} and start to {industry.outcome}. {location.marketContext}</p>
             </div>
             <div>
-              <h3 class="text-xl font-bold text-white mb-3">What results can {industry.plural} {location.preposition} {location.name} expect?</h3>
-              <p class="text-gray-400 leading-relaxed">{industry.exampleUseCase} PresciaIQ clients in the {industry.name.toLowerCase()} sector typically see a 5x–15x increase in indexed pages and a 3x–10x increase in organic traffic within 90 days of deployment.</p>
+              <h3 class="text-xl font-bold text-white mb-3">What should {industry.plural} {location.preposition} {location.name} measure from an AEO/SEO programme?</h3>
+              <p class="text-gray-400 leading-relaxed">A useful programme measures qualified search impressions, clicks, landing-page conversion, sales-qualified enquiries and revenue outcomes—not page count alone. The right targets depend on the business model, existing authority, implementation quality and sales follow-up process.</p>
             </div>
             <div>
-              <h3 class="text-xl font-bold text-white mb-3">How much does it cost to build an AEO/SEO architecture for {industry.plural} {location.preposition} {location.name}?</h3>
-              <p class="text-gray-400 leading-relaxed">PresciaIQ's Predictive Search Architecture for {industry.plural} {location.preposition} {location.name} starts from $4,999 as a one-off build. This includes full programmatic page generation, schema markup, AEO optimisation for AI answer engines, and a 90-day indexing strategy. Unlike monthly SEO retainers, you pay once and the architecture compounds in value over time.</p>
+              <h3 class="text-xl font-bold text-white mb-3">How is an AEO/SEO architecture scoped for {industry.plural} {location.preposition} {location.name}?</h3>
+              <p class="text-gray-400 leading-relaxed">Scope begins with a review of the business’s services, priority buyers, existing technical foundation, proof assets and serviceable markets. The resulting plan should identify the pages to improve, consolidate or exclude from search before any broad page expansion.</p>
             </div>
             <div>
               <h3 class="text-xl font-bold text-white mb-3">How long does it take to see results from programmatic SEO for {industry.name.toLowerCase()} {location.preposition} {location.name}?</h3>
-              <p class="text-gray-400 leading-relaxed">Most {industry.plural} {location.preposition} {location.name} see Google begin indexing new pages within 2–4 weeks of deployment. Meaningful organic traffic increases typically appear within 60–90 days. Full compounding effect builds over 6–12 months as domain authority compounds.</p>
+              <p class="text-gray-400 leading-relaxed">Crawling and indexation timing vary by site, page quality, technical health and competing content. The programme should monitor priority pages in Search Console and adjust based on qualified traffic and enquiry outcomes rather than promise a fixed ranking or traffic timeline.</p>
             </div>
           </div>
         </div>

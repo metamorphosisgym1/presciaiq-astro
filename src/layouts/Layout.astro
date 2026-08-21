@@ -54,7 +54,7 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={resolvedCanonical} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="PresciaIQ design and build AI platforms for Australian businesses that need more than off-the-shelf can deliver." />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content="https://www.presciaiq.com.au/og-image.jpg" />
     <meta property="og:site_name" content="PresciaIQ" />
     <meta property="og:locale" content="en_AU" />
@@ -63,7 +63,7 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={resolvedCanonical} />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content="PresciaIQ design and build AI platforms for Australian businesses that need more than off-the-shelf can deliver." />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://www.presciaiq.com.au/og-image.jpg" />
 
     <!-- AEO: JSON-LD Structured Data -->
@@ -167,69 +167,6 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
           "inLanguage": "en-AU"
         },
         {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is PresciaIQ?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "PresciaIQ is Australia's predictive AI intelligence company, based in Sydney. We build AI forecasting tools across four verticals — construction risk (BuildPredictIQ ), marketing spend (AdsIQ), operations (OpsIQ), and trades (TradesmanIQ) — to help Australian SMBs act on intelligence before problems occur."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the Reaction Tax?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The Reaction Tax is the hidden cost every business pays when it learns something after it has already happened — the ad spend burned on a failing campaign, the build that slips because nobody saw the supplier delay, or the warehouse that ran dry when demand spiked. PresciaIQ was built to eliminate the Reaction Tax by giving Australian operators predictive intelligence before decisions need to be made."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What products does PresciaIQ offer?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "PresciaIQ offers four AI intelligence products: BuildPredictIQ (construction risk and budget forecasting), AdsIQ (campaign timing and spend prediction for marketing teams), OpsIQ (operational bottleneck prediction for logistics-heavy businesses), and TradesmanIQ (job profitability and scheduling intelligence for trades, launching 2026)."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is PresciaIQ built for Australian businesses?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. PresciaIQ is built in Sydney specifically for Australian SMB and mid-market operating conditions. Every product is designed around Australian regulations, market dynamics, and the specific decisions Australian operators make — not retrofitted from US-built enterprise tooling."
-              }
-            },
-      {
-        "@type": "Question",
-        "name": "How does BuildPredictIQ calculate geotechnical risk?",
-        "acceptedAnswer": { "@type": "Answer", "text": "BuildPredictIQ analyses historical site data, local geological surveys, and weather patterns using predictive AI to forecast potential geotechnical risks before excavation begins, giving builders early warning to adjust scope and budget." }
-      },
-      {
-        "@type": "Question",
-        "name": "What data does AdsIQ use to predict ROAS?",
-        "acceptedAnswer": { "@type": "Answer", "text": "AdsIQ aggregates historical campaign performance, market seasonality, competitor spend velocity, and platform algorithm signals to forecast Return on Ad Spend, helping marketing teams allocate budget before campaigns launch." }
-      },
-      {
-        "@type": "Question",
-        "name": "Is PresciaIQ suitable for small businesses in Australia?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. PresciaIQ is purpose-built for Australian SMBs and mid-market operators. Every product is priced and designed for businesses that need enterprise-grade intelligence without enterprise-grade cost or complexity." }
-      },
-      {
-        "@type": "Question",
-        "name": "What is predictive analytics?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Predictive analytics uses historical data, statistical algorithms, and machine learning to forecast the likelihood of future outcomes. For businesses, this means anticipating risk, demand, and cost before they materialise rather than reacting after the fact." }
-      },
-
-      {
-        "@type": "Question",
-        "name": "Where is PresciaIQ based?",
-        "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ is headquartered in Sydney, Australia at 100 Harris St, Pyrmont NSW 2009. The company is Australian-built and designed specifically for Australian business conditions, regulations, and markets." }
-      }
-          ]
-        },
-        {
           "@type": "Service",
           "@id": "https://www.presciaiq.com.au/#service",
           "name": "Predictive AI & AEO/SEO Architecture",
@@ -267,33 +204,12 @@ const resolvedCanonical = canonicalURL || Astro.url.href;
 
   
   <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "BuildPredictIQ",
-      "operatingSystem": "Web",
-      "applicationCategory": "BusinessApplication",
-      "description": "AI-powered construction risk and budget intelligence platform for Australian builders and developers.",
-      "offers": { "@type": "Offer", "price": "4999", "priceCurrency": "AUD" }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "AdsIQ",
-      "operatingSystem": "Web",
-      "applicationCategory": "BusinessApplication",
-      "description": "Campaign timing and ROAS forecasting platform for Australian marketing teams and media buyers.",
-      "offers": { "@type": "Offer", "price": "4999", "priceCurrency": "AUD" }
-    }
-  ]
-  </script>
-
-  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://www.presciaiq.com.au/#localbusiness",
     "name": "PresciaIQ",
+    "parentOrganization": {"@id": "https://www.presciaiq.com.au/#organization"},
     "image": "https://presciaiq.com.au/og-image.jpg",
     "url": "https://presciaiq.com.au",
     "telephone": "+61400457006",

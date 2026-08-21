@@ -10,6 +10,9 @@ export default defineConfig({
     tailwind(),
     sitemap({
       filter: (page) => {
+        const noindexAeoLocations = [
+          'new-zealand','united-kingdom','united-states','canada','singapore','south-africa','global'
+        ];
         // PRIORITY 1: Core conversion pages — always include
         const corePaths = ['/', '/about/', '/pricing/', '/contact/', '/start/', '/reaction-tax-calculator/', '/testimonials/', '/partners/'];
         if (corePaths.some(p => page.endsWith(p))) return true;
@@ -30,7 +33,8 @@ export default defineConfig({
         // PRIORITY 9: Results pages
         if (page.includes('/results/')) return true;
         // PRIORITY 10: Top aeo-seo industry × location pages (high-intent)
-        if (page.match(/\/aeo-seo\/[^\/]+\/[^\/]+\//)) return true;
+        const aeoMatch = page.match(/\/aeo-seo\/[^\/]+\/([^\/]+)\//);
+        if (aeoMatch) return !noindexAeoLocations.includes(aeoMatch[1]);
         // PRIORITY 11: Top /for/ persona pages (24 job titles × 20 industries × 6 locations)
         const priorityJobTitles = [
           'cfo','ceo','operations-manager','marketing-director','head-of-sales',

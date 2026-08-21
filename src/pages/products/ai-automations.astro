@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 
 const title = "AI Automations by PresciaIQ | Custom Workflows & Agents for Australian Businesses";
-const description = "We build custom AI automations, agents, and workflows that eliminate manual data entry, streamline customer service, and connect your existing software stack. Project-based pricing for Australian businesses.";
+const description = "PresciaIQ designs custom AI automations, agents and workflows that connect existing software, reduce repetitive work and support practical operating decisions for Australian businesses.";
 const canonicalURL = new URL("/products/ai-automations/", Astro.site).href;
 
 const schema = {
@@ -37,7 +37,7 @@ const schema = {
     {
       "@type": "Question",
       "name": "What is AI Automations by PresciaIQ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "It is a standalone service where we build custom AI workflows, agents, and software integrations for your business. We connect your existing tools (CRM, email, accounting) and add AI capabilities to eliminate manual data entry, automate customer support, and streamline operations." }
+      "acceptedAnswer": { "@type": "Answer", "text": "It is a standalone service where PresciaIQ scopes and builds custom AI workflows, agents and software integrations around a business's existing operating processes. The appropriate automation, controls and integration approach are confirmed during discovery." }
     },
     {
       "@type": "Question",
@@ -47,7 +47,7 @@ const schema = {
     {
       "@type": "Question",
       "name": "What software can you automate?",
-      "acceptedAnswer": { "@type": "Answer", "text": "We can automate almost any modern software with an API. This includes HubSpot, Salesforce, Xero, Xero Practice Manager, ServiceM8, Simpro, Gmail, Outlook, Slack, Teams, and hundreds of others using platforms like Make.com, Zapier, or custom code." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Integration suitability depends on the software, available access, data quality and required controls. During scoping, PresciaIQ reviews the current stack and confirms a practical implementation approach for relevant systems such as CRM, accounting, field-service, email and collaboration tools." }
     }
   ]
 }
@@ -78,7 +78,7 @@ const schema = {
           Stop Doing Work <span class="text-gradient-primary">Software Can Do For You</span>
         </h1>
         <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
-          We build custom AI agents, voice assistants, and workflow automations that connect your existing software stack. Eliminate manual data entry, automate customer service, and scale your operations without scaling headcount.
+          We design custom AI agents, voice assistants and workflow automations that connect your existing software stack. Start with a practical process review, then build the controls and integrations that suit your operating model.
         </p>
         <div class="flex flex-col sm:flex-row items-start gap-6 mb-8">
           <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
@@ -96,10 +96,10 @@ const schema = {
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { stat: "100+", label: "Software integrations supported" },
-            { stat: "24/7", label: "Automated customer support" },
-            { stat: "Zero", label: "Ongoing retainers required" },
-            { stat: "10x", label: "Faster document processing" },
+            { stat: "Scope-led", label: "Integration and workflow review" },
+            { stat: "Human-led", label: "Controls and escalation design" },
+            { stat: "Project", label: "Defined delivery approach" },
+            { stat: "Measured", label: "Success criteria agreed before build" },
           ].map(item => (
             <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
               <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
@@ -192,4 +192,3 @@ const schema = {
     </div>
   </section>
 </Layout>
-
