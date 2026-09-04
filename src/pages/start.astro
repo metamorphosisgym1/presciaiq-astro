@@ -40,5 +40,37 @@ import IntakeQuiz from '../components/sections/IntakeQuiz';
     <!-- Quiz -->
     <IntakeQuiz client:load />
 
+    <script>
+      const offer = new URLSearchParams(window.location.search).get('offer');
+      if (offer) {
+        const originalFetch = window.fetch.bind(window);
+        window.fetch = async (input, init) => {
+          const requestUrl = typeof input === 'string'
+            ? input
+            : input instanceof Request
+              ? input.url
+              : String(input);
+
+          if (requestUrl === 'https://api.web3forms.com/submit' && typeof init?.body === 'string') {
+            try {
+              const payload = JSON.parse(init.body);
+              init = {
+                ...init,
+                body: JSON.stringify({
+                  ...payload,
+                  'Offer Interest': offer.slice(0, 120),
+                  'Landing Page': window.location.href,
+                }),
+              };
+            } catch {
+              // Preserve the existing lead flow if a submission body is not JSON.
+            }
+          }
+
+          return originalFetch(input, init);
+        };
+      }
+    </script>
+
   </main>
 </Layout>
