@@ -2,10 +2,21 @@
 import Layout from '../../layouts/Layout.astro';
 import { aeoAnswers } from '../../data/aeo-answers';
 import { aeoAnswersNew } from '../../data/aeo-answers-new';
+import ReactMarkdown from 'react-markdown';
+
+const allAnswers = [...aeoAnswers, ...aeoAnswersNew];
+const normaliseQuestion = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+
+// Newer answer records intentionally supersede an older record with the same URL slug.
+const answerBySlug = new Map(allAnswers.map((item) => [item.slug, item]));
+const slugByQuestion = new Map(
+  Array.from(answerBySlug.values()).map((item) => [normaliseQuestion(item.question), item.slug]),
+);
 
 export function getStaticPaths() {
-  const allAnswers = [...aeoAnswers, ...aeoAnswersNew];
-  return allAnswers.map(answer => ({
+  // Exported static-path functions run in an isolated build-time scope.
+  const staticAnswerBySlug = new Map([...aeoAnswers, ...aeoAnswersNew].map((item) => [item.slug, item]));
+  return Array.from(staticAnswerBySlug.values()).map((answer) => ({
     params: { slug: answer.slug },
     props: { answer },
   }));
@@ -15,11 +26,17 @@ const { answer } = Astro.props;
 // Normalize field names — support both old format (shortAnswer/fullAnswer/relatedQuestions) and new format (answer/relatedSlugs)
 const _shortAnswer = answer.shortAnswer ?? (answer as any).answer ?? '';
 const _fullAnswer = answer.fullAnswer ?? (answer as any).answer ?? '';
-const _relatedQuestions: string[] = answer.relatedQuestions ?? (answer as any).relatedSlugs?.map((s: string) => s.replace(/-/g, ' ')) ?? [];
+const configuredRelated: string[] = (answer as any).relatedSlugs ?? answer.relatedQuestions ?? [];
+const relatedAnswers = configuredRelated.map((value) => {
+  const slug = answerBySlug.has(value) ? value : slugByQuestion.get(normaliseQuestion(value));
+  const related = slug ? answerBySlug.get(slug) : undefined;
+  return related ? { slug, question: related.question } : undefined;
+}).filter((related): related is { slug: string; question: string } => Boolean(related));
 
 const title = `${answer.question} | PresciaIQ`;
 const description = _shortAnswer;
 const canonicalURL = `https://www.presciaiq.com.au/answers/${answer.slug}/`;
+const hasExpandedAnswer = _fullAnswer.trim() !== _shortAnswer.trim();
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -80,20 +97,9 @@ const breadcrumbSchema = {
           <p class="text-lg text-white font-medium leading-relaxed">{_shortAnswer}</p>
         </div>
 
-        <div class="answer-full prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-12">
-          <p>{_fullAnswer}</p>
-        </div>
-
-        {_relatedQuestions && _relatedQuestions.length > 0 && (
-          <div class="mb-12">
-            <h2 class="text-xl font-bold text-white mb-6">Related Questions</h2>
-            <div class="space-y-3">
-              {_relatedQuestions.map((q) => (
-                <div class="border border-white/10 rounded-lg p-4">
-                  <p class="text-gray-300 font-medium">{q}</p>
-                </div>
-              ))}
-            </div>
+        {hasExpandedAnswer && (
+          <div class="answer-full prose prose-invert prose-lg max-w-none font-sans text-gray-400 leading-relaxed mb-12">
+            <ReactMarkdown>{_fullAnswer}</ReactMarkdown>
           </div>
         )}
 
@@ -116,8 +122,8 @@ const breadcrumbSchema = {
                 <h2 class="text-lg font-bold text-white mb-2">BuildPredictIQ — AI Risk Engine for Construction</h2>
                 <p class="text-sm text-gray-400 mb-4">Explore how an evidence-led construction risk workflow can help your team assess assumptions, data readiness and decision points before project commitment.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/products/buildpredictiq" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See BuildPredictIQ →</a>
-                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                  <a href="/products/buildpredictiq/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See BuildPredictIQ →</a>
+                  <a href="/start/?offer=BuildPredictIQ" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Book a Free Risk Assessment</a>
                 </div>
               </div>
             );
@@ -127,8 +133,8 @@ const breadcrumbSchema = {
                 <h2 class="text-lg font-bold text-white mb-2">AdsIQ — Predictive ROAS Intelligence</h2>
                 <p class="text-sm text-gray-400 mb-4">Explore a practical framework for reviewing campaign data, measurement readiness and decision points before allocating budget.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/products/adsiq" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See AdsIQ →</a>
-                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                  <a href="/products/adsiq/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See AdsIQ →</a>
+                  <a href="/start/?offer=AdsIQ" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Request a Campaign Prediction</a>
                 </div>
               </div>
             );
@@ -138,8 +144,8 @@ const breadcrumbSchema = {
                 <h2 class="text-lg font-bold text-white mb-2">OpsIQ — Operational Intelligence Platform</h2>
                 <p class="text-sm text-gray-400 mb-4">Explore how operational data can support more timely decisions across logistics, manufacturing and service operations.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/products/opsiq" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See OpsIQ →</a>
-                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                  <a href="/products/opsiq/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See OpsIQ →</a>
+                  <a href="/start/?offer=OpsIQ" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Book an Operations Review</a>
                 </div>
               </div>
             );
@@ -149,8 +155,8 @@ const breadcrumbSchema = {
                 <h2 class="text-lg font-bold text-white mb-2">TradesmanIQ — AI Planning for Trades</h2>
                 <p class="text-sm text-gray-400 mb-4">Discuss the operational decisions, quoting workflow and job data your trades business wants to improve before selecting an AI approach.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/products/tradesmaniq" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See TradesmanIQ →</a>
-                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                  <a href="/products/tradesmaniq/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See TradesmanIQ →</a>
+                  <a href="/start/?offer=TradesmanIQ" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Book a Trades Workflow Review</a>
                 </div>
               </div>
             );
@@ -160,8 +166,8 @@ const breadcrumbSchema = {
                 <h2 class="text-lg font-bold text-white mb-2">AEO/SEO — Predictive Search Architecture</h2>
                 <p class="text-sm text-gray-400 mb-4">Build a people-first answer architecture that makes your services, expertise and evidence easier for buyers, search engines and answer engines to understand.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/services/aeo-seo-predictive-search-architecture" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See the Service →</a>
-                  <a href="/start" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Get a Free Audit</a>
+                  <a href="/services/aeo-seo-predictive-search-architecture/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See the Service →</a>
+                  <a href="/start/?offer=Predictive%20Search%20Architecture" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Book a Search Architecture Diagnostic</a>
                 </div>
               </div>
             );
@@ -172,8 +178,8 @@ const breadcrumbSchema = {
                 <p class="text-sm text-gray-400 mb-4">PresciaIQ builds AI-native websites, web apps, and custom software for Australian businesses — with predictive intelligence baked in from day one.</p>
                 <div class="flex flex-wrap gap-3">
                   <a href="/services/ai-web-development" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See Web Development →</a>
-                  <a href="/services/ai-app-development" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">See App Development →</a>
-                  <a href="/start" class="text-sm border border-white/20 text-gray-300 px-5 py-2.5 rounded-lg hover:bg-white/5 transition-colors">Get a Free Audit</a>
+                  <a href="/services/ai-app-development/" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">See App Development →</a>
+                  <a href="/start/?offer=AI%20Web%20%26%20App%20Development" class="text-sm border border-white/20 text-gray-300 px-5 py-2.5 rounded-lg hover:bg-white/5 transition-colors">Book a Development Scoping Call</a>
                 </div>
               </div>
             );
@@ -193,13 +199,13 @@ const breadcrumbSchema = {
         }
 
         {/* Related answers cross-links */}
-        {_relatedQuestions && _relatedQuestions.length > 0 && (
+        {relatedAnswers.length > 0 && (
           <div class="mb-8 border border-white/10 rounded-xl p-6">
             <h2 class="text-lg font-bold text-white mb-4">More questions answered</h2>
             <div class="space-y-2">
-              {_relatedQuestions.slice(0, 3).map((q) => (
-                <a href="/answers/" class="block text-gray-400 hover:text-[#00ff88] transition-colors text-sm py-1">
-                  → {q}
+              {relatedAnswers.slice(0, 3).map((related) => (
+                <a href={`/answers/${related.slug}/`} class="block text-gray-400 hover:text-[#00ff88] transition-colors text-sm py-1">
+                  → {related.question}
                 </a>
               ))}
             </div>
