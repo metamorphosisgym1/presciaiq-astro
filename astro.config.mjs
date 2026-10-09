@@ -20,7 +20,6 @@ const curatedContentPrefixes = [
   '/case-studies/',
   '/industries/',
   '/insights/',
-  '/locations/',
   '/problems/',
   '/products/',
   '/results/',
