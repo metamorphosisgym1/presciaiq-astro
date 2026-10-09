@@ -2,9 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import { aeoAnswers } from '../../data/aeo-answers';
 import { aeoAnswersNew } from '../../data/aeo-answers-new';
+import { KEEP_ANSWER_SLUGS } from '../../data/answers-keep';
 import ReactMarkdown from 'react-markdown';
 
-const allAnswers = [...aeoAnswers, ...aeoAnswersNew];
+const allAnswers = [...aeoAnswers, ...aeoAnswersNew].filter((item) => KEEP_ANSWER_SLUGS.has(item.slug));
 const normaliseQuestion = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
 // Newer answer records intentionally supersede an older record with the same URL slug.
@@ -15,7 +16,7 @@ const slugByQuestion = new Map(
 
 export function getStaticPaths() {
   // Exported static-path functions run in an isolated build-time scope.
-  const staticAnswerBySlug = new Map([...aeoAnswers, ...aeoAnswersNew].map((item) => [item.slug, item]));
+  const staticAnswerBySlug = new Map([...aeoAnswers, ...aeoAnswersNew].filter((item) => KEEP_ANSWER_SLUGS.has(item.slug)).map((item) => [item.slug, item]));
   return Array.from(staticAnswerBySlug.values()).map((answer) => ({
     params: { slug: answer.slug },
     props: { answer },
