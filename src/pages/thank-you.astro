@@ -6,23 +6,9 @@ import Layout from '../layouts/Layout.astro';
   title="Thank You | PresciaIQ — We'll Be In Touch Within 24 Hours"
   description="Thank you for reaching out to PresciaIQ. Our team will respond within 24 hours with a tailored recommendation for your business."
   canonicalURL="https://www.presciaiq.com.au/thank-you/"
+  noindex={true}
 >
-  <!-- GA4 conversion event: fires on page load, tracks form submissions and bookings -->
-  <script>
-    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-      (window as any).gtag('event', 'conversion', {
-        event_category: 'lead',
-        event_label: 'form_submission',
-        value: 1
-      });
-      (window as any).gtag('event', 'generate_lead', {
-        currency: 'AUD',
-        value: 500
-      });
-    }
-  </script>
-
-  <div class="pt-16 pb-24 min-h-screen">
+    <div class="pt-16 pb-24 min-h-screen">
     <div class="max-w-2xl mx-auto px-6 text-center">
 
       <!-- Confirmation icon -->

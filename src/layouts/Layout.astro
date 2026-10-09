@@ -41,6 +41,34 @@ const resolvedCanonical = new URL(
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+      
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VGKZVCWFXQ"></script>
+<script is:inline>
+  // is:inline keeps gtag global. Astro used to bundle this as a module, so window.gtag never existed
+  // and every lead event on the site was silently dropped (fixed 10 Oct 2026).
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ window.dataLayer.push(arguments); };
+  // Only the production host reports to GA4, so localhost and Vercel previews stop polluting the data.
+  if (location.hostname === 'www.presciaiq.com.au') {
+    gtag('js', new Date());
+    gtag('config', 'G-VGKZVCWFXQ');
+    // Lead events: a successful Web3Forms submit is a lead; a Calendly link click is a booking intent.
+    var nativeFetch = window.fetch;
+    window.fetch = function(input, init) {
+      var url = typeof input === 'string' ? input : (input && input.url) || '';
+      var p = nativeFetch.apply(this, arguments);
+      if (url.indexOf('api.web3forms.com/submit') !== -1) {
+        p.then(function(res){ if (res && res.ok) { gtag('event', 'generate_lead', { lead_source: 'web_form', page_path: location.pathname }); } }).catch(function(){});
+      }
+      return p;
+    };
+    document.addEventListener('click', function(e){
+      var a = e.target && e.target.closest ? e.target.closest('a[href*="calendly.com"]') : null;
+      if (a) { gtag('event', 'book_call_click', { page_path: location.pathname }); }
+    }, true);
+  }
+</script>
 
     <!-- Google tag (gtag.js) -->
     <script
