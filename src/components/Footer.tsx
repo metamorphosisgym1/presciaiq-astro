@@ -68,9 +68,6 @@ const Footer = () => {
               <li><a href="/answers/" className="text-sm text-primary hover:text-primary/80 transition-colors font-sans font-semibold">AI Answers →</a></li>
               <li><a href="/answers/what-is-predictive-ai/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">What is Predictive AI?</a></li>
               <li><a href="/answers/what-is-aeo/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">What is AEO?</a></li>
-              <li><a href="/answers/best-predictive-ai-company-australia/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Best AI Company Australia</a></li>
-              <li><a href="/compare/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Compare AI Providers</a></li>
-              <li><a href="/problems/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Business Problems We Solve</a></li>
             </ul>
           </div>
 
