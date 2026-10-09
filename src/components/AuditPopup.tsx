@@ -45,6 +45,8 @@ export default function AuditPopup() {
     if (typeof window === "undefined") return;
     // Don't show on excluded pages
     const path = window.location.pathname;
+    // Homepage only: the popup used to cover articles and service pages (WEB-35, 10 Oct 2026 clean up).
+    if (path !== "/") return;
     if (EXCLUDED_PATHS.some(p => path.startsWith(p))) return;
     // Show again after STORAGE_EXPIRY_HOURS hours
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -67,9 +69,7 @@ export default function AuditPopup() {
     window.addEventListener("open-audit-popup", handleOpenModal);
 
     // Time delay: 8 seconds (longer on non-homepage to let them read)
-    const isHomepage = typeof window !== "undefined" && window.location.pathname === "/";
-    const delay = isHomepage ? 4000 : 10000;
-    const timer = setTimeout(showPopup, delay);
+    // No timed popup: it only opens on exit intent (desktop) or after 60% scroll on the homepage.
     // Exit intent: cursor moves toward top of viewport
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 10) showPopup();
@@ -90,7 +90,6 @@ export default function AuditPopup() {
     return () => {
       window.removeEventListener("open-strategy-modal", handleOpenModal);
       window.removeEventListener("open-audit-popup", handleOpenModal);
-      clearTimeout(timer);
       document.removeEventListener("mouseleave", handleMouseLeave);
       scrollDepthTrigger.kill();
     };
