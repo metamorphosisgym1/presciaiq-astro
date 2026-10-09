@@ -64,7 +64,7 @@ export default function StickyCtaBar() {
         {/* Right: CTAs */}
         <div className="flex items-center gap-2 shrink-0">
           <a
-            href="/start"
+            href="/start/"
             className="px-4 py-2 rounded-lg text-xs font-bold text-black transition-all hover:brightness-110 active:scale-[0.97] whitespace-nowrap"
             style={{ background: "linear-gradient(135deg, #4ade80, #22d3ee)" }}
           >
