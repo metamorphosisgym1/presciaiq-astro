@@ -4,7 +4,12 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "presciaiq.com.au" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "presciaiq.com.au"
+        }
+      ],
       "destination": "https://www.presciaiq.com.au/:path*",
       "permanent": true
     },
@@ -22,6 +27,936 @@
       "source": "/careers",
       "destination": "/about",
       "permanent": true
+    },
+    {
+      "source": "/answers/what-is-programmatic-seo",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-programmatic-seo/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-predictive-ai-reduce-customer-churn",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-predictive-ai-reduce-customer-churn/",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-predictive-maintenance",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-predictive-maintenance/",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/best-predictive-ai-company-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/best-predictive-ai-company-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-long-does-ai-implementation-take",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-long-does-ai-implementation-take/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-vs-traditional-business-intelligence",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-vs-traditional-business-intelligence/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-much-does-predictive-ai-cost-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-much-does-predictive-ai-cost-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/can-ai-predict-demand-for-retail",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/can-ai-predict-demand-for-retail/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-ai-for-construction",
+      "destination": "/products/buildpredictiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-ai-for-construction/",
+      "destination": "/products/buildpredictiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/presciaiq-vs-salesforce-einstein",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/presciaiq-vs-salesforce-einstein/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-healthcare-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-healthcare-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-financial-services-australia",
+      "destination": "/industries/financial-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-financial-services-australia/",
+      "destination": "/industries/financial-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-logistics-australia",
+      "destination": "/industries/logistics/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-logistics-australia/",
+      "destination": "/industries/logistics/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-manufacturing-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-manufacturing-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-agriculture-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-agriculture-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-get-cited-by-chatgpt",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-get-cited-by-chatgpt/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-speakable-schema",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-speakable-schema/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-real-estate-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-real-estate-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-mining-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-mining-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-adsiq",
+      "destination": "/products/adsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-adsiq/",
+      "destination": "/products/adsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-buildpredictiq",
+      "destination": "/products/buildpredictiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-buildpredictiq/",
+      "destination": "/products/buildpredictiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-faqpage-schema",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-faqpage-schema/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-build-website-that-generates-leads-australia",
+      "destination": "/services/ai-web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-build-website-that-generates-leads-australia/",
+      "destination": "/services/ai-web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-much-does-a-website-cost-australia",
+      "destination": "/services/ai-web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-much-does-a-website-cost-australia/",
+      "destination": "/services/ai-web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-build-ai-app-australia",
+      "destination": "/services/ai-app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-build-ai-app-australia/",
+      "destination": "/services/ai-app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-build-ai-software-australia",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-build-ai-software-australia/",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-react-native-app-development",
+      "destination": "/services/ai-app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-react-native-app-development/",
+      "destination": "/services/ai-app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-pseo-work-for-service-businesses",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-pseo-work-for-service-businesses/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-entity-seo",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-entity-seo/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-use-ai-for-marketing-australia",
+      "destination": "/products/adsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-use-ai-for-marketing-australia/",
+      "destination": "/products/adsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-operational-intelligence",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-operational-intelligence/",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-ai-improve-supply-chain",
+      "destination": "/industries/logistics/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-ai-improve-supply-chain/",
+      "destination": "/industries/logistics/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-ai-for-hospitality-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-ai-for-hospitality-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-use-ai-for-small-business-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-use-ai-for-small-business-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-ai-for-energy-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-ai-for-energy-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-ai-app-development",
+      "destination": "/services/ai-app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-ai-app-development/",
+      "destination": "/services/ai-app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-predictive-analytics-platform",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-predictive-analytics-platform/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-roi-can-i-expect-from-predictive-ai",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-roi-can-i-expect-from-predictive-ai/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-ai-help-cfo-financial-planning",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-ai-help-cfo-financial-planning/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-ai-help-operations-manager",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-ai-help-operations-manager/",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-digital-transformation-with-ai",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-digital-transformation-with-ai/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-predictive-ai-for-hr-workforce",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-predictive-ai-for-hr-workforce/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-long-does-it-take-to-build-a-web-app-australia",
+      "destination": "/services/ai-app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-long-does-it-take-to-build-a-web-app-australia/",
+      "destination": "/services/ai-app-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-many-pages-for-programmatic-seo-to-work",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-many-pages-for-programmatic-seo-to-work/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-appear-in-chatgpt-answers-australia",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-appear-in-chatgpt-answers-australia/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-answer-engine-optimisation-australia",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-answer-engine-optimisation-australia/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-ai-helps-lead-generation-australia",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-ai-helps-lead-generation-australia/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-choose-web-development-agency-melbourne",
+      "destination": "/services/ai-web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-choose-web-development-agency-melbourne/",
+      "destination": "/services/ai-web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-automotive-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-automotive-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-energy-sector-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-energy-sector-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-government-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-government-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-education-sector-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-education-sector-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-insurance-australia",
+      "destination": "/industries/financial-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-insurance-australia/",
+      "destination": "/industries/financial-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-food-beverage-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-food-beverage-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-wholesale-distribution-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-wholesale-distribution-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-hospitality-industry-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-hospitality-industry-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-real-estate-industry-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-real-estate-industry-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-operations-managers-australia",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-operations-managers-australia/",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-sales-leaders-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-sales-leaders-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-supply-chain-managers-australia",
+      "destination": "/industries/logistics/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-supply-chain-managers-australia/",
+      "destination": "/industries/logistics/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-procurement-managers-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-procurement-managers-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-plant-managers-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-plant-managers-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-small-business-owners-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-small-business-owners-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-get-cited-by-perplexity-australia",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-get-cited-by-perplexity-australia/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-get-cited-by-google-ai-overviews-australia",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-get-cited-by-google-ai-overviews-australia/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-entity-seo-australia",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-entity-seo-australia/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-rank-for-ai-search-australia",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-rank-for-ai-search-australia/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-presciaiq-aeo-seo-service",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-presciaiq-aeo-seo-service/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-reduce-dependence-on-google-ads-australia",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-reduce-dependence-on-google-ads-australia/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-vs-business-intelligence-tools",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-vs-business-intelligence-tools/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-choose-ai-company-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-to-choose-ai-company-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-mining-sector-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-mining-sector-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-presciaiq",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-presciaiq/",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-professional-services-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-professional-services-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/cost-of-not-using-ai-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/cost-of-not-using-ai-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/presciaiq-vs-datarobot-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/presciaiq-vs-datarobot-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/presciaiq-aeo-seo-service-explained",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/presciaiq-aeo-seo-service-explained/",
+      "destination": "/services/aeo-seo-predictive-search-architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-construction-project-management-australia",
+      "destination": "/industries/construction/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-for-construction-project-management-australia/",
+      "destination": "/industries/construction/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-credit-risk-scoring-australia",
+      "destination": "/industries/financial-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-credit-risk-scoring-australia/",
+      "destination": "/industries/financial-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/customer-churn-prediction-australia",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/customer-churn-prediction-australia/",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/revenue-forecasting-ai-australia",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/revenue-forecasting-ai-australia/",
+      "destination": "/answers/what-is-predictive-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-integration-with-sap-australia",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-integration-with-sap-australia/",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-modern-body-method",
+      "destination": "/case-studies/modern-body-method/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-modern-body-method/",
+      "destination": "/case-studies/modern-body-method/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-the-reaction-tax",
+      "destination": "/insights/the-reaction-tax/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-the-reaction-tax/",
+      "destination": "/insights/the-reaction-tax/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-operational-intelligence-australia",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-operational-intelligence-australia/",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-presciaiq-work",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-does-presciaiq-work/",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-automation-for-trades-businesses-australia",
+      "destination": "/industries/trades/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-automation-for-trades-businesses-australia/",
+      "destination": "/industries/trades/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-aeo-answer-engine-optimisation-for-business",
+      "destination": "/answers/what-is-aeo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/what-is-aeo-answer-engine-optimisation-for-business/",
+      "destination": "/answers/what-is-aeo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-long-does-presciaiq-take-to-implement",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/how-long-does-presciaiq-take-to-implement/",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-marketing-agencies-australia",
+      "destination": "/industries/marketing-agencies/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/predictive-ai-for-marketing-agencies-australia/",
+      "destination": "/industries/marketing-agencies/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/presciaiq-for-construction-companies-australia",
+      "destination": "/industries/construction/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/presciaiq-for-construction-companies-australia/",
+      "destination": "/industries/construction/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/does-presciaiq-work-for-small-businesses-australia",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/does-presciaiq-work-for-small-businesses-australia/",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-automation-customer-support-australia",
+      "destination": "/products/ai-automations/",
+      "statusCode": 301
+    },
+    {
+      "source": "/answers/ai-automation-customer-support-australia/",
+      "destination": "/products/ai-automations/",
+      "statusCode": 301
     }
   ],
   "headers": [
