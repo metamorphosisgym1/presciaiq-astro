@@ -44,13 +44,13 @@ const Navbar = () => {
               </button>
               {isServicesOpen && (
                 <div className="absolute top-full left-0 mt-2 w-80 bg-card border border-border rounded-lg shadow-lg py-2 z-50" onMouseLeave={() => setIsServicesOpen(false)}>
-                  <a href="/development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">All Development Services</span><span className="text-xs text-muted-foreground">Web, App &amp; Software</span></a>
+                  <a href="/development/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">All Development Services</span><span className="text-xs text-muted-foreground">Web, App &amp; Software</span></a>
                   <div className="border-t border-border my-1"></div>
-                  <a href="/services/ai-software-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Software Development</span><span className="text-xs text-muted-foreground">Custom enterprise AI systems</span></a>
-                  <a href="/services/ai-app-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI App Development</span><span className="text-xs text-muted-foreground">Intelligent mobile &amp; web apps</span></a>
-                  <a href="/services/ai-web-development" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Web Development</span><span className="text-xs text-muted-foreground">Predictive web platforms</span></a>
+                  <a href="/services/ai-software-development/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Software Development</span><span className="text-xs text-muted-foreground">Custom enterprise AI systems</span></a>
+                  <a href="/services/ai-app-development/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI App Development</span><span className="text-xs text-muted-foreground">Intelligent mobile &amp; web apps</span></a>
+                  <a href="/services/ai-web-development/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Web Development</span><span className="text-xs text-muted-foreground">Predictive web platforms</span></a>
                   <div className="border-t border-border my-1"></div>
-                 <a href="/services/aeo-seo-predictive-search-architecture" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">AEO/SEO — Predictive Search Architecture</span><span className="text-xs text-muted-foreground">Own every search result before your competitor knows the query exists</span></a>
+                 <a href="/services/aeo-seo-predictive-search-architecture/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">AEO/SEO — Predictive Search Architecture</span><span className="text-xs text-muted-foreground">Own every search result before your competitor knows the query exists</span></a>
                  <a href="/services/social-media-content-management/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold" style={{color:"#8FAF8F"}}>Social Media Content</span><span className="text-xs text-muted-foreground">AI-driven posting for Australian brands</span></a>
                </div>
               )}
@@ -86,11 +86,11 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <a href="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">About</a>
-            <a href="/pricing" className="text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors">Pricing</a>
-            <a href="/contact" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Contact</a>
-            <a href="/start" className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Start a Project</a>
-            <a href="/contact" className="inline-flex items-center justify-center whitespace-nowrap bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#00ff88]/90 transition-colors text-sm">Book a Strategy Call</a>
+            <a href="/about/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">About</a>
+            <a href="/pricing/" className="text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors">Pricing</a>
+            <a href="/contact/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Contact</a>
+            <a href="/start/" className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Start a Project</a>
+            <a href="/contact/" className="inline-flex items-center justify-center whitespace-nowrap bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#00ff88]/90 transition-colors text-sm">Book a Strategy Call</a>
           </div>
           <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>{isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
         </div>
@@ -103,13 +103,13 @@ const Navbar = () => {
             <a href="https://www.daywinlabs.com" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">FinanceIQ</a>
             <a href="/products/ai-automations/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent">AI Automations</a>
             <div className="border-t border-border my-2"></div>
-            <a href="/development" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Development</a>
-            <a href="/services/ai-software-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Software Development</a>
-            <a href="/services/ai-app-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI App Development</a>
-            <a href="/services/ai-web-development" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Web Development</a>
-           <a href="/services/aeo-seo-predictive-search-architecture" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent pl-6">↳ AEO/SEO — Predictive Search Architecture</a>
+            <a href="/development/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Development</a>
+            <a href="/services/ai-software-development/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Software Development</a>
+            <a href="/services/ai-app-development/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI App Development</a>
+            <a href="/services/ai-web-development/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Web Development</a>
+           <a href="/services/aeo-seo-predictive-search-architecture/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent pl-6">↳ AEO/SEO — Predictive Search Architecture</a>
            <a href="/services/social-media-content-management/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6" style={{color:"#8FAF8F"}}>↳ Social Media Content</a>
-           <a href="/about" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">About</a>
+           <a href="/about/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">About</a>
             <a href="/industries/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Industries</a>
             <a href="/industries/construction/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ Construction & Property</a>
             <a href="/industries/marketing-agencies/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ Marketing & Advertising</a>
@@ -120,10 +120,10 @@ const Navbar = () => {
             <a href="/insights/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Insights</a>
             <a href="/insights/case-studies/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent pl-6">↳ Case Studies</a>
             <a href="/answers/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Answers</a>
-            <a href="/pricing" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Pricing</a>
-            <a href="/contact" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Contact</a>
-            <a href="/start" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Start a Project</a>
-            <div className="px-4 pt-2"><a href="/contact" onClick={close} className="block w-full bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg text-sm text-center">Book a Strategy Call</a></div>
+            <a href="/pricing/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Pricing</a>
+            <a href="/contact/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Contact</a>
+            <a href="/start/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Start a Project</a>
+            <div className="px-4 pt-2"><a href="/contact/" onClick={close} className="block w-full bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg text-sm text-center">Book a Strategy Call</a></div>
           </div>
          )}
       </div>

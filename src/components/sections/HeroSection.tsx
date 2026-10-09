@@ -150,15 +150,15 @@ const HeroSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-8">
         <div className="grid lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-3">
-            <motion.p
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-xs uppercase tracking-[0.3em] font-sans font-semibold mb-6 text-gradient-primary inline-block"
             >
-              Australia's Predictive AI Company
-            </motion.p>
-            <motion.h1
+              Predictive AI and AI Development Company, Australia
+            </motion.h1>
+            <motion.p
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.9 }}
@@ -166,14 +166,14 @@ const HeroSection = () => {
             >
               Eliminate the{" "}
               <em className="text-primary italic font-display neon-glow">Reaction</em> Tax.
-            </motion.h1>
+            </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed mb-10 font-sans"
             >
-              Stop paying the hidden cost of learning things after they happen. We build AI forecasting platforms that give Australian operators predictive intelligence before decisions need to be made.
+              We build predictive AI, custom apps, websites and automations for Australian businesses. Stop paying the hidden cost of learning things after they happen.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -182,7 +182,7 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <MagneticButton
-                href="/start"
+                href="/start/"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-xl hover:shadow-[0_0_30px_rgba(0,255,136,0.3)] transition-all duration-500 font-sans"
               >
                 Calculate Your AI ROI

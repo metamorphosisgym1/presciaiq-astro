@@ -205,7 +205,7 @@ const DirectorySection = () => {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mb-6"
         >
-          <a href="/development" className="block no-underline" aria-label="Scope Your Project - Web & App Development">
+          <a href="/development/" className="block no-underline" aria-label="Scope Your Project - Web & App Development">
             <div className="glass-card p-6 md:p-8 group transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,255,136,0.12)] hover:border-primary/20">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div className="flex-1">

@@ -72,7 +72,7 @@ const VideoSection = () => {
                   <p>Every month, Australian businesses burn millions of dollars on a hidden expense we call the <strong className="text-foreground">Reaction Tax</strong>.</p>
                   <p>It is the cost of learning things after they happen — the ad budget spent on a failing campaign, the margin lost to a supplier delay you didn't see coming, the warehouse that ran dry during a demand spike.</p>
                   <p>PresciaIQ was built to eliminate this tax. Our four intelligence platforms use your historical data to forecast risk, cost, and profitability before you make a decision.</p>
-                  <p className="pt-4"><a href="/start" className="text-primary font-bold hover:underline">Calculate your Reaction Tax →</a></p>
+                  <p className="pt-4"><a href="/start/" className="text-primary font-bold hover:underline">Calculate your Reaction Tax →</a></p>
                 </div>
               </div>
             </div>
