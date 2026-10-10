@@ -957,6 +957,36 @@
       "source": "/answers/ai-automation-customer-support-australia/",
       "destination": "/products/ai-automations/",
       "statusCode": 301
+    },
+    {
+      "source": "/problems/construction-budget-blowouts",
+      "destination": "/products/buildpredictiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/problems/construction-budget-blowouts/",
+      "destination": "/products/buildpredictiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/problems/supply-chain-disruption",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/problems/supply-chain-disruption/",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/problems/wholesale-distribution-inventory",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
+    },
+    {
+      "source": "/problems/wholesale-distribution-inventory/",
+      "destination": "/products/opsiq/",
+      "statusCode": 301
     }
   ],
   "headers": [

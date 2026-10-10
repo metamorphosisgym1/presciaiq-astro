@@ -2,6 +2,8 @@ import { next } from '@vercel/functions';
 
 // 10 Oct 2026 clean up (PresciaIQ drop diagnosis): pages removed on purpose answer 410 Gone,
 // so Google drops them faster than a 404 (CQ-01). Answers that had impressions are 301'd in vercel.json instead.
+// 10 Oct 2026 patch 3: 21 /problems/ template pages added (no product or proof behind them, no meaningful clicks in 12 months).
+// The 3 /problems/ pages that match a real product and had impressions are 301'd in vercel.json.
 
 const GONE_PREFIXES = ["/for", "/solutions", "/use-case", "/compare", "/aeo-seo", "/locations"];
 
@@ -119,7 +121,28 @@ const GONE_PATHS = new Set<string>([
   "/insights/why-attribution-model-wrong-direction",
   "/insights/why-enterprise-ai-tools-fail-australian-mid-market",
   "/insights/why-procore-data-valuable-undiscovered-asset",
-  "/insights/why-trades-quotes-lose-money-ai-fix"
+  "/insights/why-trades-quotes-lose-money-ai-fix",
+  "/problems/agriculture-yield-forecasting",
+  "/problems/construction-labour-cost-blowouts",
+  "/problems/construction-schedule-delays",
+  "/problems/education-student-attrition",
+  "/problems/energy-demand-forecasting",
+  "/problems/financial-services-risk-management",
+  "/problems/food-beverage-waste-reduction",
+  "/problems/healthcare-patient-demand-forecasting",
+  "/problems/insurance-claims-fraud",
+  "/problems/logistics-route-optimisation",
+  "/problems/manufacturing-demand-forecasting",
+  "/problems/manufacturing-equipment-downtime",
+  "/problems/marketing-lead-generation-ai",
+  "/problems/marketing-roas-waste",
+  "/problems/mining-equipment-maintenance",
+  "/problems/operations-bottleneck-prediction",
+  "/problems/professional-services-revenue-forecasting",
+  "/problems/real-estate-market-prediction",
+  "/problems/retail-inventory-management",
+  "/problems/retail-shrinkage-loss-prevention",
+  "/problems/workforce-planning-prediction"
 ]);
 
 const GONE_BODY = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Page removed | PresciaIQ</title></head><body style="font-family:sans-serif;padding:3rem"><h1>This page has been removed</h1><p><a href="https://www.presciaiq.com.au/">Go to the PresciaIQ homepage</a></p></body></html>';
@@ -137,5 +160,5 @@ export default function middleware(request: Request) {
 }
 
 export const config = {
-  matcher: ['/for/:path*', '/solutions/:path*', '/use-case/:path*', '/compare/:path*', '/aeo-seo/:path*', '/locations/:path*', '/answers/:path*', '/insights/:path*'],
+  matcher: ['/for/:path*', '/solutions/:path*', '/use-case/:path*', '/compare/:path*', '/aeo-seo/:path*', '/locations/:path*', '/answers/:path*', '/insights/:path*', '/problems/:path*'],
 };
