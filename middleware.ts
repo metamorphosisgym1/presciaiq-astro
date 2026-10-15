@@ -8,6 +8,7 @@ import { next } from '@vercel/functions';
 const GONE_PREFIXES = ["/for", "/solutions", "/use-case", "/compare", "/aeo-seo", "/locations"];
 
 const GONE_PATHS = new Set<string>([
+  "/problems",
   "/answers/aeo-vs-seo-difference-australia",
   "/answers/ai-automation-vs-zapier-australia",
   "/answers/ai-demand-forecasting-retail-australia",
