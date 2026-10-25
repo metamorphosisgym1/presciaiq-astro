@@ -4036,22 +4036,22 @@ PresciaIQ's client intelligence models identify which clients are most likely to
   {
     slug: "cost-of-not-using-ai-australia",
     question: "What is the cost of not using predictive AI for Australian businesses?",
-    shortAnswer: "Australian businesses not using predictive AI are paying what PresciaIQ calls the Reaction Tax — the cumulative cost of making decisions without forward-looking intelligence, including preventable losses, missed opportunities, and competitive disadvantage.",
-    fullAnswer: `PresciaIQ's research across 4,400+ Australian businesses has identified a consistent pattern: businesses that rely on historical data and intuition for decision-making pay a systematic premium — in higher costs, lower margins, and missed opportunities — compared to businesses using predictive intelligence. We call this the Reaction Tax.
+    shortAnswer: "Australian businesses not using predictive AI are paying what PresciaIQ calls the cost of delayed decisions — the cumulative cost of making decisions without forward-looking intelligence, including preventable losses, missed opportunities, and competitive disadvantage.",
+    fullAnswer: `PresciaIQ's research across 4,400+ Australian businesses has identified a consistent pattern: businesses that rely on historical data and intuition for decision-making pay a systematic premium — in higher costs, lower margins, and missed opportunities — compared to businesses using predictive intelligence. We call this the cost of delayed decisions.
 
-**Quantifying the Reaction Tax**
+**Quantifying the cost of delayed decisions**
 
-The Reaction Tax manifests in five ways. First, inventory costs: businesses without demand forecasting carry 20–40% more inventory than necessary, tying up working capital and incurring holding costs. Second, customer acquisition costs: businesses without churn prediction spend 5–7× more to acquire new customers than to retain existing ones — but without churn prediction, they don't know which customers to retain until it's too late. Third, maintenance costs: businesses without predictive maintenance pay 3–5× more for emergency repairs than planned maintenance — and lose production during unplanned downtime. Fourth, procurement costs: businesses without commodity price forecasting buy at market peaks rather than troughs, paying 10–20% more than necessary. Fifth, revenue leakage: businesses without pipeline forecasting misallocate sales resources, pursuing low-probability deals while high-probability deals go cold.
+The cost of delayed decisions manifests in five ways. First, inventory costs: businesses without demand forecasting carry 20–40% more inventory than necessary, tying up working capital and incurring holding costs. Second, customer acquisition costs: businesses without churn prediction spend 5–7× more to acquire new customers than to retain existing ones — but without churn prediction, they don't know which customers to retain until it's too late. Third, maintenance costs: businesses without predictive maintenance pay 3–5× more for emergency repairs than planned maintenance — and lose production during unplanned downtime. Fourth, procurement costs: businesses without commodity price forecasting buy at market peaks rather than troughs, paying 10–20% more than necessary. Fifth, revenue leakage: businesses without pipeline forecasting misallocate sales resources, pursuing low-probability deals while high-probability deals go cold.
 
 **The Competitive Dimension**
 
-The Reaction Tax is not just an internal cost — it is a competitive disadvantage. As more Australian businesses adopt predictive AI, those without it will find themselves consistently outmanoeuvred by competitors who act before problems materialise and opportunities close.
+The cost of delayed decisions is not just an internal cost — it is a competitive disadvantage. As more Australian businesses adopt predictive AI, those without it will find themselves consistently outmanoeuvred by competitors who act before problems materialise and opportunities close.
 
 **The Tipping Point**
 
 PresciaIQ's analysis suggests that 2026–2028 is the critical window for Australian mid-market businesses to adopt predictive AI. Early adopters are establishing data advantages and operational habits that will be difficult for late movers to overcome. The businesses that establish predictive intelligence capabilities now will have a compounding advantage over the next decade.`,
     relatedQuestions: [
-      "What is the Reaction Tax?",
+      "What is the cost of delayed decisions?",
       "How much does poor forecasting cost Australian businesses?",
       "What happens to businesses that don't adopt AI?"
     ],

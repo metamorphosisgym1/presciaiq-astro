@@ -119,7 +119,7 @@ const LeadCaptureSection = () => {
         <div className="text-center mb-12">
           <p className="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Calculate ROI</p>
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
-            Ready to eliminate the Reaction Tax?
+            Ready to move first?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-sans">
             Book a predictive intelligence briefing with our Sydney team. We will map your current operational bottlenecks, assess your existing data, and calculate the exact financial ROI of deploying predictive AI in your business.
@@ -127,7 +127,7 @@ const LeadCaptureSection = () => {
         </div>
 
         <div className="glass-card p-6 md:p-10 relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(0,255,136,0.03) 0%, transparent 60%)' }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(91,227,232,0.03) 0%, transparent 60%)' }} />
 
           {/* Tab Toggle */}
           <div className="relative z-10 flex items-center justify-center mb-8">
@@ -136,7 +136,7 @@ const LeadCaptureSection = () => {
                 onClick={() => setActiveTab("strategy")}
                 className={`px-5 py-2.5 rounded-lg text-sm font-semibold font-sans transition-all duration-300 ${
                   activeTab === "strategy"
-                    ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(0,255,136,0.2)]"
+                    ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(91,227,232,0.2)]"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -146,7 +146,7 @@ const LeadCaptureSection = () => {
                 onClick={() => setActiveTab("scoping")}
                 className={`px-5 py-2.5 rounded-lg text-sm font-semibold font-sans transition-all duration-300 ${
                   activeTab === "scoping"
-                    ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(0,255,136,0.2)]"
+                    ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(91,227,232,0.2)]"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -157,7 +157,7 @@ const LeadCaptureSection = () => {
 
           <div className="relative z-10">
             {successMessage && (
-              <div className="mb-6 p-4 rounded-xl text-center text-sm font-sans font-semibold text-primary" style={{ background: 'rgba(0,255,136,0.08)', border: '1px solid rgba(0,255,136,0.2)' }}>
+              <div className="mb-6 p-4 rounded-xl text-center text-sm font-sans font-semibold text-primary" style={{ background: 'rgba(91,227,232,0.08)', border: '1px solid rgba(91,227,232,0.2)' }}>
                 {successMessage}
               </div>
             )}
@@ -168,7 +168,7 @@ const LeadCaptureSection = () => {
                     Calculate Your AI ROI
                   </h3>
                   <p className="text-sm text-muted-foreground font-sans">
-                    In 15 minutes, we'll calculate the exact margin you are losing to the Reaction Tax, and show you how to win it back.
+                    In 15 minutes, we'll map where predictive intelligence can improve the decisions that matter most to your business.
                   </p>
                 </div>
                 <form onSubmit={handleStrategySubmit} className="space-y-5">
@@ -198,7 +198,7 @@ const LeadCaptureSection = () => {
                     <option value="all">All of the Above</option>
                   </select>
                   <button type="submit" disabled={submitting}
-                    className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,255,136,0.3)] transition-all duration-500 text-sm uppercase tracking-widest font-sans disabled:opacity-50 flex items-center justify-center gap-2">
+                    className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-xl hover:shadow-[0_0_30px_rgba(91,227,232,0.3)] transition-all duration-500 text-sm uppercase tracking-widest font-sans disabled:opacity-50 flex items-center justify-center gap-2">
                     {submitting ? (
                       <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>
                     ) : "Book Your Predictive ROI Briefing"}
@@ -263,7 +263,7 @@ const LeadCaptureSection = () => {
                     style={inputStyle}
                   />
                   <button type="submit" disabled={submitting}
-                    className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-xl hover:shadow-[0_0_30px_rgba(0,255,136,0.3)] transition-all duration-500 text-sm uppercase tracking-widest font-sans disabled:opacity-50 flex items-center justify-center gap-2">
+                    className="w-full py-4 bg-primary text-primary-foreground font-bold rounded-xl hover:shadow-[0_0_30px_rgba(91,227,232,0.3)] transition-all duration-500 text-sm uppercase tracking-widest font-sans disabled:opacity-50 flex items-center justify-center gap-2">
                     {submitting ? (
                       <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>
                     ) : (

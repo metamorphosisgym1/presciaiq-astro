@@ -45,12 +45,12 @@ export default function StickyCtaBar() {
             className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold shrink-0"
             style={{ background: "rgba(74,222,128,0.1)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-signal-400 animate-pulse" />
             Free
           </span>
           <p className="text-sm text-white/80 truncate">
-            <span className="font-semibold text-white">Calculate your Reaction Tax</span>
-            <span className="hidden md:inline"> — see exactly how much margin you are losing to reactive decisions.</span>
+            <span className="font-semibold text-white">Calculate your AI ROI</span>
+            <span className="hidden md:inline"> — see the potential value of acting earlier with better information.</span>
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function StickyCtaBar() {
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all hover:border-green-400/50"
+            className="hidden sm:inline-flex px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all hover:border-signal-400/50"
             style={{
               background: "rgba(255,255,255,0.05)",
               border: "1px solid rgba(255,255,255,0.12)",

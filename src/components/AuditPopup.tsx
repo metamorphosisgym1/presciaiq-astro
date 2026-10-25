@@ -164,7 +164,7 @@ export default function AuditPopup() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold"
                 style={{ background: "rgba(74,222,128,0.1)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}>
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-signal-400 animate-pulse" />
                 Free Digital Health Score
               </div>
 
@@ -218,7 +218,7 @@ export default function AuditPopup() {
             <form onSubmit={handleDetailsSubmit} className="space-y-5">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-green-400 text-sm">✓</span>
+                  <span className="text-signal-400 text-sm">✓</span>
                   <span className="text-xs text-white/40 truncate">{form.url}</span>
                 </div>
                 <h2 className="text-xl font-black text-white leading-tight">
@@ -309,7 +309,7 @@ export default function AuditPopup() {
                 <h2 className="text-xl font-black text-white">Audit request received.</h2>
                 <p className="mt-3 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
                   We're running your Digital Health Score now. Expect your results at{" "}
-                  <span className="text-green-400 font-medium">{form.email}</span>{" "}
+                  <span className="text-signal-400 font-medium">{form.email}</span>{" "}
                   within 24 hours.
                 </p>
               </div>

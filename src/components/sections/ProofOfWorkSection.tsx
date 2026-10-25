@@ -52,7 +52,7 @@ const RiskMatrixDemo = () => {
     >
       {/* Header */}
       <div className="flex items-center gap-3 mb-1">
-        <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(0,255,136,0.1)", border: "1px solid rgba(0,255,136,0.2)" }}>
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(91,227,232,0.1)", border: "1px solid rgba(91,227,232,0.2)" }}>
           <Shield className="w-4 h-4 text-primary" />
         </div>
         <p className="text-xs uppercase tracking-[0.2em] text-primary font-sans font-semibold">
@@ -74,7 +74,7 @@ const RiskMatrixDemo = () => {
             onClick={() => setType(t)}
             className={`px-4 py-2 rounded-xl text-xs font-sans font-semibold uppercase tracking-wider transition-all duration-300 ${
               type === t
-                ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(0,255,136,0.2)]"
+                ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(91,227,232,0.2)]"
                 : "text-muted-foreground hover:text-foreground"
             }`}
             style={type !== t ? { background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" } : undefined}
@@ -85,7 +85,7 @@ const RiskMatrixDemo = () => {
       </div>
 
       {/* Overall score bar */}
-      <div className="flex items-center gap-3 mb-5 px-4 py-3 rounded-xl" style={{ background: "rgba(0,255,136,0.04)", border: "1px solid rgba(0,255,136,0.1)" }}>
+      <div className="flex items-center gap-3 mb-5 px-4 py-3 rounded-xl" style={{ background: "rgba(91,227,232,0.04)", border: "1px solid rgba(91,227,232,0.1)" }}>
         <span className="text-xs uppercase tracking-wider text-muted-foreground font-sans font-semibold">Composite Risk Score</span>
         <div className="flex-1 h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.05)" }}>
           <motion.div
@@ -93,7 +93,7 @@ const RiskMatrixDemo = () => {
             animate={isInView ? { width: `${overallScore}%` } : {}}
             transition={{ duration: 1, ease: "easeOut" }}
             className="h-full rounded-full bg-primary"
-            style={{ boxShadow: "0 0 12px rgba(0,255,136,0.4)" }}
+            style={{ boxShadow: "0 0 12px rgba(91,227,232,0.4)" }}
           />
         </div>
         <span className="font-mono text-lg font-bold text-primary neon-glow">{overallScore}%</span>
@@ -122,7 +122,7 @@ const RiskMatrixDemo = () => {
                       animate={isInView ? { width: `${risk.probability}%` } : {}}
                       transition={{ delay: 0.3 + i * 0.08, duration: 0.7 }}
                       className="h-full rounded-full bg-primary"
-                      style={{ boxShadow: "0 0 8px rgba(0,255,136,0.3)" }}
+                      style={{ boxShadow: "0 0 8px rgba(91,227,232,0.3)" }}
                     />
                   </div>
                   <span className="font-mono text-xs text-primary w-8 text-right">{risk.probability}%</span>
@@ -142,7 +142,7 @@ const RiskMatrixDemo = () => {
           href="https://buildpredictiq.com.au/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500 font-sans"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:shadow-[0_0_20px_rgba(91,227,232,0.3)] transition-all duration-500 font-sans"
         >
           Get Your Project Report
           <ArrowRight className="w-4 h-4" />
@@ -172,7 +172,7 @@ const CircularGauge = ({ score, isVisible }: { score: number; isVisible: boolean
           initial={{ strokeDashoffset: circumference }}
           animate={isVisible ? { strokeDashoffset: circumference - progress } : {}}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-          style={{ filter: "drop-shadow(0 0 8px rgba(0,255,136,0.4))" }}
+          style={{ filter: "drop-shadow(0 0 8px rgba(91,227,232,0.4))" }}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -211,7 +211,7 @@ const AdsIQDemo = () => {
     >
       {/* Header */}
       <div className="flex items-center gap-3 mb-1">
-        <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(0,255,136,0.1)", border: "1px solid rgba(0,255,136,0.2)" }}>
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(91,227,232,0.1)", border: "1px solid rgba(91,227,232,0.2)" }}>
           <Zap className="w-4 h-4 text-primary" />
         </div>
         <p className="text-xs uppercase tracking-[0.2em] text-primary font-sans font-semibold">
@@ -233,7 +233,7 @@ const AdsIQDemo = () => {
             <button
               onClick={() => setFilled(true)}
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-[10px] uppercase tracking-wider font-sans font-semibold text-primary transition-all duration-300 hover:bg-primary/10"
-              style={{ border: "1px solid rgba(0,255,136,0.2)", background: "rgba(0,255,136,0.04)" }}
+              style={{ border: "1px solid rgba(91,227,232,0.2)", background: "rgba(91,227,232,0.04)" }}
             >
               <Zap className="w-3 h-3" /> Auto-Fill Demo
             </button>
@@ -273,7 +273,7 @@ const AdsIQDemo = () => {
             >
               <span
                 className="text-[9px] uppercase tracking-wider font-sans font-bold px-3 py-1 rounded-full text-primary"
-                style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.2)" }}
+                style={{ background: "rgba(91,227,232,0.08)", border: "1px solid rgba(91,227,232,0.2)" }}
               >
                 {demoData.confidence}
               </span>
@@ -300,7 +300,7 @@ const AdsIQDemo = () => {
             href="https://adsiq.com.au/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500 font-sans"
+            className="mt-4 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:shadow-[0_0_20px_rgba(91,227,232,0.3)] transition-all duration-500 font-sans"
           >
             Run Your Free Prediction
             <ArrowRight className="w-4 h-4" />

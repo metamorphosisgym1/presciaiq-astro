@@ -5,6 +5,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AuditPopup from '../components/AuditPopup';
 import StickyCtaBar from '../components/StickyCtaBar';
+import AmbientBackground from '../components/AmbientBackground.astro';
+import SmoothScroll from '../components/SmoothScroll';
 
 export interface Props {
   title?: string;
@@ -15,7 +17,7 @@ export interface Props {
 
 const {
   title = "PresciaIQ — Australia's Predictive AI Company | BuildPredictIQ, AdsIQ, OpsIQ, TradesmanIQ",
-  description = "PresciaIQ builds predictive AI platforms for Australian businesses — construction risk forecasting, ROAS prediction, operational intelligence, and trades job profitability. Eliminate the Reaction Tax. Based in Sydney, built for Australia.",
+  description = "PresciaIQ builds predictive AI platforms for Australian businesses — construction risk forecasting, ROAS prediction, operational intelligence, and trades job profitability. Intelligence that moves first. Based in Sydney, built for Australia.",
   canonicalURL,
   noindex = false,
 } = Astro.props;
@@ -118,7 +120,7 @@ const resolvedCanonical = new URL(
           },
           "url": "https://www.presciaiq.com.au",
           "logo": { "@type": "ImageObject", "url": "https://www.presciaiq.com.au/logo.png" },
-          "description": "PresciaIQ is Australia's Predictive AI Company, headquartered in Sydney. We design and build AI forecasting platforms — BuildPredictIQ (construction risk), AdsIQ (campaign ROAS prediction), OpsIQ (operational intelligence), and TradesmanIQ (trades job profitability) — that eliminate the Reaction Tax for Australian SMBs and mid-market operators. Specialists in Answer Engine Optimisation (AEO), Generative Engine Optimisation (GEO), and programmatic SEO for AI-first search.",
+          "description": "PresciaIQ is Australia's Predictive AI Company, headquartered in Sydney. We design and build AI forecasting platforms — BuildPredictIQ (construction risk), AdsIQ (campaign ROAS prediction), OpsIQ (operational intelligence), and TradesmanIQ (trades job profitability) — that help Australian SMBs and mid-market operators act before issues materialise. Specialists in Answer Engine Optimisation (AEO), Generative Engine Optimisation (GEO), and programmatic SEO for AI-first search.",
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+61400457006",
@@ -262,10 +264,12 @@ const resolvedCanonical = new URL(
   }
   </script>
 </head>
-  <body>
-    <Navbar client:load />
-    <main style="padding-top: 64px;"><slot /></main>
-    <Footer client:load />
+	<body class="bg-ink-950 text-foreground font-sans antialiased overflow-x-clip">
+	  <AmbientBackground />
+	  <SmoothScroll client:load />
+	    <Navbar client:load />
+	    <main class="w-full overflow-x-clip" style="padding-top: 80px;"><slot /></main>
+	    <Footer client:load />
     <AuditPopup client:load />
     <StickyCtaBar client:load />
     <Analytics />

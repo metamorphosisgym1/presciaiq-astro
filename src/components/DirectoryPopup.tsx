@@ -39,63 +39,63 @@ const DirectoryPopup = () => {
                 href="https://buildpredictiq.com.au/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-4 bg-background border border-border rounded-xl hover:border-[#00ff88]/50 transition-colors group"
+                className="flex items-center justify-between p-4 bg-background border border-border rounded-xl hover:border-[#5BE3E8]/50 transition-colors group"
               >
                 <div>
                   <div className="font-semibold text-sm">BuildPredictIQ</div>
                   <div className="text-xs text-muted-foreground">Construction Intelligence</div>
                 </div>
-                <span className="text-[#00ff88] text-sm group-hover:translate-x-1 transition-transform">→</span>
+                <span className="text-[#5BE3E8] text-sm group-hover:translate-x-1 transition-transform">→</span>
               </a>
 
               <a
                 href="https://adsiq.com.au/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-4 bg-background border border-border rounded-xl hover:border-[#00ff88]/50 transition-colors group"
+                className="flex items-center justify-between p-4 bg-background border border-border rounded-xl hover:border-[#5BE3E8]/50 transition-colors group"
               >
                 <div>
                   <div className="font-semibold text-sm">AdsIQ</div>
                   <div className="text-xs text-muted-foreground">Marketing Intelligence</div>
                 </div>
-                <span className="text-[#00ff88] text-sm group-hover:translate-x-1 transition-transform">→</span>
+                <span className="text-[#5BE3E8] text-sm group-hover:translate-x-1 transition-transform">→</span>
               </a>
 
               <a
                 href="#opsiq"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-4 bg-background border border-border rounded-xl hover:border-[#00ff88]/50 transition-colors group"
+                className="flex items-center justify-between p-4 bg-background border border-border rounded-xl hover:border-[#5BE3E8]/50 transition-colors group"
               >
                 <div>
                   <div className="font-semibold text-sm">OpsIQ</div>
                   <div className="text-xs text-muted-foreground">Operations Intelligence</div>
                 </div>
-                <span className="text-[#00ff88] text-sm group-hover:translate-x-1 transition-transform">→</span>
+                <span className="text-[#5BE3E8] text-sm group-hover:translate-x-1 transition-transform">→</span>
               </a>
 
               <a
                 href="https://tradesmaniq.com.au/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-4 bg-background border border-border rounded-xl hover:border-[#00ff88]/50 transition-colors group"
+                className="flex items-center justify-between p-4 bg-background border border-border rounded-xl hover:border-[#5BE3E8]/50 transition-colors group"
               >
                 <div>
                   <div className="font-semibold text-sm">TradesmanIQ</div>
                   <div className="text-xs text-muted-foreground">Trades Intelligence</div>
                 </div>
-                <span className="text-[#00ff88] text-sm group-hover:translate-x-1 transition-transform">→</span>
+                <span className="text-[#5BE3E8] text-sm group-hover:translate-x-1 transition-transform">→</span>
               </a>
 
               <button
                 onClick={( ) => { setIsOpen(false); navigate("/development"); }}
-                className="flex items-center justify-between w-full p-4 bg-background border border-border rounded-xl hover:border-[#00ff88]/50 transition-colors group text-left"
+                className="flex items-center justify-between w-full p-4 bg-background border border-border rounded-xl hover:border-[#5BE3E8]/50 transition-colors group text-left"
               >
                 <div>
                   <div className="font-semibold text-sm">Web & App Development</div>
                   <div className="text-xs text-muted-foreground">Custom builds for Australian businesses</div>
                 </div>
-                <span className="text-[#00ff88] text-sm group-hover:translate-x-1 transition-transform">→</span>
+                <span className="text-[#5BE3E8] text-sm group-hover:translate-x-1 transition-transform">→</span>
               </button>
             </div>
           </div>

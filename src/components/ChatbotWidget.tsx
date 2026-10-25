@@ -14,7 +14,7 @@ const ChatbotWidget = () => (
     href={WHATSAPP_URL}
     target="_blank"
     rel="noopener noreferrer"
-    className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-sm shadow-lg hover:shadow-[0_0_30px_rgba(0,255,136,0.4)] transition-shadow duration-300"
+    className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-primary-foreground font-sans font-semibold text-sm shadow-lg hover:shadow-[0_0_30px_rgba(91,227,232,0.4)] transition-shadow duration-300"
     aria-label="Chat with PresciaIQ on WhatsApp"
   >
     <MessageCircle className="w-5 h-5" aria-hidden="true" />

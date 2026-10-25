@@ -19,14 +19,12 @@ const products = [
 const team = [
   {
     name: "Alex Cutajar",
-    photo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/SwyIDFXzKmIrniOC.webp",
     role: "Co-Founder",
     photo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/IihzdnaSZSRuFkSo.webp",
     bio: "Ten years of running SMB and FMCG businesses taught Alex the lesson Prescia IQ is built around: operators make the most important decisions of the week without the data to back them. After launching his first software product in 2022 and spending two years inside applied AI through Flourish, he stopped consulting and started building. He leads product, architecture, and the AI systems under every Prescia IQ vertical."
   },
   {
     name: "Macauley Burke",
-    photo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/xjVQsXYtaEfhKerq.JPG",
     role: "Co-Founder",
     photo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/yxiDEixgZXyqOgLt.JPG",
     bio: "Seven years of direct B2B sales inside Australian SMBs through Modern Body Method put Macca in front of the people who buy decisions, not tools. Every engagement ran on the same question Prescia IQ now answers at a deeper layer: where is this business leaking money, time, or attention, and how do you show that to a decision-maker with ten minutes to care. He leads commercial, partnerships, and customer."
@@ -41,7 +39,7 @@ const WhySection = () => {
     <SectionWrapper id="intelligence" className="py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* The Reaction Tax */}
+        {/* Why prediction matters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -49,19 +47,19 @@ const WhySection = () => {
           className="max-w-4xl mb-24"
         >
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            The Reaction Tax
+            Build before the problem.
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans mb-6">
-            Every business in Australia pays a tax that never appears on a P&L.
+            Every business in Australia has decisions that cannot wait for a retrospective report.
           </p>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans mb-6">
             It is the ad spend burned for two weeks before the campaign is pulled. The build that slips six weeks because nobody saw the supplier delay forming. The trades crew on a site that was never going to be ready. The warehouse that ran dry the day demand spiked, and the one next door that sat full while the market moved on.
           </p>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans mb-6">
-            We call it the Reaction Tax. The price a business pays every time it learns something after it has already happened.
+            The cost arrives when a business learns what matters only after the window to act has closed.
           </p>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-sans mb-6">
-            Australian SMB and mid-market operators pay the highest Reaction Tax in the market. Not because the data does not exist, but because the tools that would surface it in time are either priced for enterprise, built for US operating conditions, or too generic to answer the specific decision an Australian operator is making this week.
+            Australian SMB and mid-market operators face this challenge every day. The data often exists, but the tools that surface it in time are either priced for enterprise, built for US operating conditions, or too generic to answer the specific decision an Australian operator is making this week.
           </p>
           <p className="text-xl md:text-2xl text-foreground font-semibold leading-relaxed font-sans">
             Prescia IQ was built to close that gap.
@@ -81,11 +79,11 @@ const WhySection = () => {
               What we build
             </h3>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-sans mb-8">
-              Prescia IQ is Australia's predictive intelligence company. We build AI forecasting tools across four verticals where the Reaction Tax hits hardest.
+              Prescia IQ is Australia's predictive intelligence company. We build AI forecasting tools across four verticals where earlier, better-informed decisions matter most.
             </p>
             <div className="space-y-6">
               {products.map((p, i) => (
-                <div key={p.name} className="glass-card-hover p-5" style={{ borderLeft: "2px solid rgba(0,255,136,0.3)" }}>
+                <div key={p.name} className="glass-card-hover p-5" style={{ borderLeft: "2px solid rgba(91,227,232,0.3)" }}>
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-sans text-base font-bold text-foreground">{p.name}</h4>
                     <span className="text-xs font-semibold px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">

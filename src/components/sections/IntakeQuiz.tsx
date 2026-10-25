@@ -400,7 +400,7 @@ export default function IntakeQuiz() {
               type="button"
               disabled={!canAdvance()}
               onClick={() => setStep((s) => s + 1)}
-              className="flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-xs font-bold rounded-lg uppercase tracking-widest font-sans hover:shadow-[0_0_24px_rgba(0,255,136,0.30)] transition-all duration-300 disabled:opacity-25 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-xs font-bold rounded-lg uppercase tracking-widest font-sans hover:shadow-[0_0_24px_rgba(91,227,232,0.30)] transition-all duration-300 disabled:opacity-25 disabled:cursor-not-allowed"
             >
               Continue <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -409,7 +409,7 @@ export default function IntakeQuiz() {
               type="button"
               disabled={!canAdvance() || submitting}
               onClick={handleSubmit}
-              className="flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-xs font-bold rounded-lg uppercase tracking-widest font-sans hover:shadow-[0_0_24px_rgba(0,255,136,0.30)] transition-all duration-300 disabled:opacity-25 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-xs font-bold rounded-lg uppercase tracking-widest font-sans hover:shadow-[0_0_24px_rgba(91,227,232,0.30)] transition-all duration-300 disabled:opacity-25 disabled:cursor-not-allowed"
             >
               {submitting
                 ? <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Sending...</>

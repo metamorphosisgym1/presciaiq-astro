@@ -67,15 +67,15 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.15, duration: 0.6 }}
-      className="glass-card-hover p-5 md:p-6 group relative overflow-hidden cursor-pointer block transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+      className="glass-card-hover p-5 md:p-6 group relative overflow-hidden cursor-pointer block transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(91,227,232,0.3)]"
     >
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(0,255,136,0.04) 0%, transparent 70%)' }} />
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(91,227,232,0.04) 0%, transparent 70%)' }} />
 
       <div className="relative z-10 mb-4 rounded-lg overflow-hidden" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="flex items-center gap-1.5 px-3 py-2" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
           <div className="w-2 h-2 rounded-full bg-red-500/60" />
           <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
-          <div className="w-2 h-2 rounded-full bg-green-500/60" />
+          <div className="w-2 h-2 rounded-full bg-signal-500/60" />
           <span className="ml-2 text-[10px] text-muted-foreground font-mono">{project.url}</span>
         </div>
         <img
@@ -99,7 +99,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
             <span
               key={tag}
               className="text-[11px] uppercase tracking-wider font-mono font-semibold px-2.5 py-1 rounded-md text-primary"
-              style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)' }}
+              style={{ background: 'rgba(91,227,232,0.08)', border: '1px solid rgba(91,227,232,0.2)' }}
             >
               {tag}
             </span>
@@ -122,11 +122,11 @@ const ValuePropCard = ({ vp, index }: { vp: typeof valueProps[0]; index: number 
       className="glass-card p-6 text-center relative overflow-hidden"
     >
       {/* Top border gradient */}
-      <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, rgba(0,255,136,0.6) 0%, rgba(0,255,136,0.1) 50%, transparent 100%)' }} />
+      <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, rgba(91,227,232,0.6) 0%, rgba(91,227,232,0.1) 50%, transparent 100%)' }} />
 
       <div
         className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-        style={{ background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.2)', boxShadow: '0 0 25px rgba(0,255,136,0.1)' }}
+        style={{ background: 'rgba(91,227,232,0.1)', border: '1px solid rgba(91,227,232,0.2)', boxShadow: '0 0 25px rgba(91,227,232,0.1)' }}
       >
         <vp.icon className="w-8 h-8 text-primary" />
       </div>

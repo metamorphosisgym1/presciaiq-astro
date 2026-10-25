@@ -72,7 +72,7 @@ function toggle(arr: string[], val: string) {
 }
 
 function Label({ children }: { children: React.ReactNode }) {
-  return <label className="block text-xs font-semibold tracking-widest uppercase mb-2 text-[#8FAF8F]">{children}</label>;
+  return <label className="block text-xs font-semibold tracking-widest uppercase mb-2 text-[#5BE3E8]">{children}</label>;
 }
 function Field({ children }: { children: React.ReactNode }) {
   return <div className="mb-5">{children}</div>;
@@ -80,19 +80,19 @@ function Field({ children }: { children: React.ReactNode }) {
 function Input({ value, onChange, placeholder, type = "text" }: { value: string; onChange: (v: string) => void; placeholder?: string; type?: string }) {
   return (
     <input type={type} value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder}
-      className="w-full px-4 py-3 text-sm bg-[#111411] border border-[#222] rounded text-[#F0EDE6] placeholder-[#555] outline-none focus:border-[#5C7A5C] transition-colors" />
+      className="w-full px-4 py-3 text-sm bg-[#111411] border border-[#222] rounded text-[#F0EDE6] placeholder-[#555] outline-none focus:border-[#5BE3E8] transition-colors" />
   );
 }
 function Textarea({ value, onChange, placeholder }: { value: string; onChange: (v: string) => void; placeholder?: string }) {
   return (
     <textarea value={value} onChange={e => onChange(e.target.value)} placeholder={placeholder} rows={4}
-      className="w-full px-4 py-3 text-sm bg-[#111411] border border-[#222] rounded text-[#F0EDE6] placeholder-[#555] outline-none focus:border-[#5C7A5C] transition-colors resize-none" />
+      className="w-full px-4 py-3 text-sm bg-[#111411] border border-[#222] rounded text-[#F0EDE6] placeholder-[#555] outline-none focus:border-[#5BE3E8] transition-colors resize-none" />
   );
 }
 function Select({ value, onChange, options, placeholder }: { value: string; onChange: (v: string) => void; options: {value:string;label:string}[]; placeholder?: string }) {
   return (
     <select value={value} onChange={e => onChange(e.target.value)}
-      className="w-full px-4 py-3 text-sm bg-[#111411] border border-[#222] rounded outline-none focus:border-[#5C7A5C] transition-colors"
+      className="w-full px-4 py-3 text-sm bg-[#111411] border border-[#222] rounded outline-none focus:border-[#5BE3E8] transition-colors"
       style={{ color: value ? "#F0EDE6" : "#888" }}>
       {placeholder && <option value="" disabled>{placeholder}</option>}
       {options.map(o => <option key={o.value} value={o.value} style={{ background: "#111411" }}>{o.label}</option>)}
@@ -103,7 +103,7 @@ function Chip({ label, selected, onClick }: { label: string; selected: boolean; 
   return (
     <button type="button" onClick={onClick}
       className="px-3 py-1.5 text-xs font-semibold tracking-wide uppercase transition-all duration-150 active:scale-95"
-      style={{ border: `1px solid ${selected ? "#5C7A5C" : "#222"}`, background: selected ? "rgba(92,122,92,0.15)" : "#111411", color: selected ? "#8FAF8F" : "#666", borderRadius: "4px" }}>
+      style={{ border: `1px solid ${selected ? "#5BE3E8" : "#222"}`, background: selected ? "rgba(92,122,92,0.15)" : "#111411", color: selected ? "#5BE3E8" : "#666", borderRadius: "4px" }}>
       {label}
     </button>
   );
@@ -112,8 +112,8 @@ function Radio({ label, desc, selected, onClick }: { label: string; desc?: strin
   return (
     <button type="button" onClick={onClick}
       className="w-full text-left px-4 py-3 transition-all duration-150"
-      style={{ border: `1px solid ${selected ? "#5C7A5C" : "#222"}`, borderLeftWidth: selected ? "3px" : "1px", background: selected ? "rgba(92,122,92,0.08)" : "#111411", borderRadius: "4px" }}>
-      <span className="block text-sm font-semibold" style={{ color: selected ? "#8FAF8F" : "#F0EDE6" }}>{label}</span>
+      style={{ border: `1px solid ${selected ? "#5BE3E8" : "#222"}`, borderLeftWidth: selected ? "3px" : "1px", background: selected ? "rgba(92,122,92,0.08)" : "#111411", borderRadius: "4px" }}>
+      <span className="block text-sm font-semibold" style={{ color: selected ? "#5BE3E8" : "#F0EDE6" }}>{label}</span>
       {desc && <span className="block text-xs mt-0.5 text-[#666]">{desc}</span>}
     </button>
   );
@@ -167,13 +167,13 @@ export default function SocialsForm() {
   if (submitted) {
     return (
       <div className="text-center py-20">
-        <div className="mx-auto mb-8 flex items-center justify-center w-16 h-16 rounded-full border-2 border-[#5C7A5C]">
+        <div className="mx-auto mb-8 flex items-center justify-center w-16 h-16 rounded-full border-2 border-[#5BE3E8]">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <path d="M5 14L11 20L23 8" stroke="#5C7A5C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M5 14L11 20L23 8" stroke="#5BE3E8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
         <h3 className="text-3xl font-black text-white mb-3" style={{ fontFamily: "'Noto Serif', serif" }}>Brief received.</h3>
-        <p className="text-[#8FAF8F] italic" style={{ fontFamily: "'Noto Serif', serif" }}>We will be in touch within one business day.</p>
+        <p className="text-[#5BE3E8] italic" style={{ fontFamily: "'Noto Serif', serif" }}>We will be in touch within one business day.</p>
         <p className="mt-6 text-xs tracking-widest uppercase text-[#555]">presciaiq.com.au</p>
       </div>
     );
@@ -188,16 +188,16 @@ export default function SocialsForm() {
           <span>{STEPS[step - 1]}</span>
         </div>
         <div className="h-[2px] bg-[#1a1a1a] rounded-full">
-          <div className="h-full bg-[#5C7A5C] rounded-full transition-all duration-500" style={{ width: `${progress}%` }} />
+          <div className="h-full bg-[#5BE3E8] rounded-full transition-all duration-500" style={{ width: `${progress}%` }} />
         </div>
       </div>
 
       {/* Step 1 */}
       {step === 1 && (
         <div>
-          <p className="text-5xl font-black text-[#5C7A5C] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>01</p>
+          <p className="text-5xl font-black text-[#5BE3E8] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>01</p>
           <h3 className="text-2xl font-black text-white mb-1" style={{ fontFamily: "'Noto Serif', serif" }}>Tell us about your brand.</h3>
-          <p className="text-sm italic text-[#8FAF8F] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>We build content around your business, not a template.</p>
+          <p className="text-sm italic text-[#5BE3E8] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>We build content around your business, not a template.</p>
           <Field><Label>Brand / Business Name</Label><Input value={data.brandName} onChange={v => update({ brandName: v })} placeholder="Modern Body Method" /></Field>
           <Field><Label>Instagram Handle</Label><Input value={data.instagramHandle} onChange={v => update({ instagramHandle: v })} placeholder="@modernbodymethod" /></Field>
           <Field><Label>What best describes your business?</Label><Select value={data.businessType} onChange={v => update({ businessType: v })} options={BUSINESS_TYPES} placeholder="Select one" /></Field>
@@ -211,9 +211,9 @@ export default function SocialsForm() {
       {/* Step 2 */}
       {step === 2 && (
         <div>
-          <p className="text-5xl font-black text-[#5C7A5C] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>02</p>
+          <p className="text-5xl font-black text-[#5BE3E8] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>02</p>
           <h3 className="text-2xl font-black text-white mb-1" style={{ fontFamily: "'Noto Serif', serif" }}>What do you want your content to do?</h3>
-          <p className="text-sm italic text-[#8FAF8F] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>Be specific. Vague goals produce vague content.</p>
+          <p className="text-sm italic text-[#5BE3E8] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>Be specific. Vague goals produce vague content.</p>
           <Field>
             <Label>Primary Goals (select all that apply)</Label>
             <div className="flex flex-wrap gap-2">{GOALS.map(g => <Chip key={g} label={g} selected={data.goals.includes(g)} onClick={() => update({ goals: toggle(data.goals, g) })} />)}</div>
@@ -227,7 +227,7 @@ export default function SocialsForm() {
             <div className="flex flex-wrap gap-2">{TOPICS.map(t => <Chip key={t} label={t} selected={data.topics.includes(t)} onClick={() => update({ topics: toggle(data.topics, t) })} />)}</div>
           </Field>
           <div className="flex gap-3">
-            <button onClick={back} className="px-6 py-3 text-sm font-semibold tracking-widest uppercase rounded-full border border-[#5C7A5C] text-[#8FAF8F] bg-transparent transition-all">Back</button>
+            <button onClick={back} className="px-6 py-3 text-sm font-semibold tracking-widest uppercase rounded-full border border-[#5BE3E8] text-[#5BE3E8] bg-transparent transition-all">Back</button>
             <button onClick={next} disabled={!(data.goals.length && data.tone && data.topics.length)}
               className="flex-1 py-3 text-sm font-semibold tracking-widest uppercase rounded-full transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               style={{ background: "rgba(92,122,92,0.85)", color: "#fff" }}>Next: Posting Schedule</button>
@@ -238,15 +238,15 @@ export default function SocialsForm() {
       {/* Step 3 */}
       {step === 3 && (
         <div>
-          <p className="text-5xl font-black text-[#5C7A5C] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>03</p>
+          <p className="text-5xl font-black text-[#5BE3E8] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>03</p>
           <h3 className="text-2xl font-black text-white mb-1" style={{ fontFamily: "'Noto Serif', serif" }}>How do you want to post?</h3>
-          <p className="text-sm italic text-[#8FAF8F] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>Consistency beats volume. Pick a cadence you can sustain.</p>
+          <p className="text-sm italic text-[#5BE3E8] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>Consistency beats volume. Pick a cadence you can sustain.</p>
           <Field>
             <Label>Posts Per Week</Label>
             <div className="flex gap-2">{FREQ.map(f => (
               <button key={f} onClick={() => update({ postsPerWeek: f })}
                 className="flex-1 py-3 text-sm font-black transition-all"
-                style={{ border: `1px solid ${data.postsPerWeek === f ? "#5C7A5C" : "#222"}`, background: data.postsPerWeek === f ? "rgba(92,122,92,0.15)" : "#111411", color: data.postsPerWeek === f ? "#8FAF8F" : "#666", borderRadius: "4px" }}>
+                style={{ border: `1px solid ${data.postsPerWeek === f ? "#5BE3E8" : "#222"}`, background: data.postsPerWeek === f ? "rgba(92,122,92,0.15)" : "#111411", color: data.postsPerWeek === f ? "#5BE3E8" : "#666", borderRadius: "4px" }}>
                 {f === "Daily" ? "Daily" : `${f}x`}
               </button>
             ))}</div>
@@ -264,7 +264,7 @@ export default function SocialsForm() {
             <div className="flex flex-wrap gap-2">{PLATFORMS.map(p => <Chip key={p} label={p} selected={data.platforms.includes(p)} onClick={() => update({ platforms: toggle(data.platforms, p) })} />)}</div>
           </Field>
           <div className="flex gap-3">
-            <button onClick={back} className="px-6 py-3 text-sm font-semibold tracking-widest uppercase rounded-full border border-[#5C7A5C] text-[#8FAF8F] bg-transparent">Back</button>
+            <button onClick={back} className="px-6 py-3 text-sm font-semibold tracking-widest uppercase rounded-full border border-[#5BE3E8] text-[#5BE3E8] bg-transparent">Back</button>
             <button onClick={next} disabled={!(data.postingDays.length && data.postingTime && data.platforms.length)}
               className="flex-1 py-3 text-sm font-semibold tracking-widest uppercase rounded-full transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               style={{ background: "rgba(92,122,92,0.85)", color: "#fff" }}>Next: Your Assets</button>
@@ -275,9 +275,9 @@ export default function SocialsForm() {
       {/* Step 4 */}
       {step === 4 && (
         <div>
-          <p className="text-5xl font-black text-[#5C7A5C] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>04</p>
+          <p className="text-5xl font-black text-[#5BE3E8] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>04</p>
           <h3 className="text-2xl font-black text-white mb-1" style={{ fontFamily: "'Noto Serif', serif" }}>What are you working with?</h3>
-          <p className="text-sm italic text-[#8FAF8F] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>The more we know upfront, the faster we move.</p>
+          <p className="text-sm italic text-[#5BE3E8] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>The more we know upfront, the faster we move.</p>
           <Field>
             <Label>Do you have existing photos or videos?</Label>
             <div className="flex flex-col gap-2">{PHOTO_OPTIONS.map(o => <Radio key={o.value} label={o.label} desc={o.desc} selected={data.hasPhotos === o.value} onClick={() => update({ hasPhotos: o.value })} />)}</div>
@@ -287,7 +287,7 @@ export default function SocialsForm() {
             <div className="flex flex-col gap-2">{GUIDE_OPTIONS.map(o => <Radio key={o.value} label={o.label} desc={o.desc} selected={data.hasBrandGuidelines === o.value} onClick={() => update({ hasBrandGuidelines: o.value })} />)}</div>
           </Field>
           <div className="flex gap-3">
-            <button onClick={back} className="px-6 py-3 text-sm font-semibold tracking-widest uppercase rounded-full border border-[#5C7A5C] text-[#8FAF8F] bg-transparent">Back</button>
+            <button onClick={back} className="px-6 py-3 text-sm font-semibold tracking-widest uppercase rounded-full border border-[#5BE3E8] text-[#5BE3E8] bg-transparent">Back</button>
             <button onClick={next} disabled={!(data.hasPhotos && data.hasBrandGuidelines)}
               className="flex-1 py-3 text-sm font-semibold tracking-widest uppercase rounded-full transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               style={{ background: "rgba(92,122,92,0.85)", color: "#fff" }}>Review & Submit</button>
@@ -298,9 +298,9 @@ export default function SocialsForm() {
       {/* Step 5 */}
       {step === 5 && (
         <div>
-          <p className="text-5xl font-black text-[#5C7A5C] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>05</p>
+          <p className="text-5xl font-black text-[#5BE3E8] mb-1" style={{ fontFamily: "'Noto Serif', serif", opacity: 0.8 }}>05</p>
           <h3 className="text-2xl font-black text-white mb-1" style={{ fontFamily: "'Noto Serif', serif" }}>Review your brief.</h3>
-          <p className="text-sm italic text-[#8FAF8F] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>Confirm the details. We will be in touch within one business day.</p>
+          <p className="text-sm italic text-[#5BE3E8] mb-8" style={{ fontFamily: "'Noto Serif', serif" }}>Confirm the details. We will be in touch within one business day.</p>
           <div className="mb-6 bg-[#111411] border border-[#1a1a1a] rounded p-4 text-sm space-y-2">
             {[
               ["Brand", data.brandName], ["Instagram", data.instagramHandle], ["Business Type", data.businessType],
@@ -319,7 +319,7 @@ export default function SocialsForm() {
           <Field><Label>Email Address</Label><Input value={data.contactEmail} onChange={v => update({ contactEmail: v })} placeholder="your@email.com" type="email" /></Field>
           <Field><Label>Phone (optional)</Label><Input value={data.contactPhone} onChange={v => update({ contactPhone: v })} placeholder="+61 4xx xxx xxx" type="tel" /></Field>
           <div className="flex gap-3">
-            <button onClick={back} className="px-6 py-3 text-sm font-semibold tracking-widest uppercase rounded-full border border-[#5C7A5C] text-[#8FAF8F] bg-transparent">Back</button>
+            <button onClick={back} className="px-6 py-3 text-sm font-semibold tracking-widest uppercase rounded-full border border-[#5BE3E8] text-[#5BE3E8] bg-transparent">Back</button>
             <button onClick={handleSubmit} disabled={!(data.contactName && data.contactEmail) || submitting}
               className="flex-1 py-3 text-sm font-semibold tracking-widest uppercase rounded-full transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               style={{ background: "rgba(92,122,92,0.85)", color: "#fff" }}>

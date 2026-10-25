@@ -18,10 +18,10 @@ const Navbar = () => {
   const close = () => { setIsMobileMenuOpen(false); setIsProductsOpen(false); setIsServicesOpen(false); setIsIndustriesOpen(false); setIsInsightsOpen(false); };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled ? "border-b border-white/10" : ""}`} style={isScrolled ? { backgroundColor: '#050508' } : {}}>
+    <nav className={`fixed top-0 left-0 right-0 z-[100] bg-ink-950/90 backdrop-blur-md transition-all duration-300 ${isScrolled ? "border-b border-white/10 shadow-lg" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <a href="/"><img src="/logo.png" alt="PresciaIQ" className="h-8 w-auto" /></a>
+        <div className="flex items-center justify-between h-20">
+          <a href="/"><img src="/assets/presciaiq-logo-transparent.png" alt="PRESCIAIQ" className="h-8 w-auto" /></a>
           <div className="hidden md:flex items-center space-x-8">
             <div className="relative">
               <button onClick={() => setIsProductsOpen(!isProductsOpen)} className="flex items-center space-x-1 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
@@ -34,24 +34,24 @@ const Navbar = () => {
                   <a href="https://opsiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">OpsIQ</span><span className="text-xs text-muted-foreground">Operations Intelligence</span></a>
                   <a href="https://tradesmaniq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">TradesmanIQ</span><span className="text-xs text-muted-foreground">Trades Intelligence</span></a>
                   <a href="https://www.daywinlabs.com" target="_blank" rel="noopener noreferrer" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">FinanceIQ</span><span className="text-xs text-muted-foreground">Finance Intelligence, your digital CFO</span></a>
-                  <a href="/products/ai-automations/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">AI Automations</span><span className="text-xs text-muted-foreground">Custom workflows & agents</span></a>
+                  <a href="/products/ai-automations/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#5BE3E8]">AI Automations</span><span className="text-xs text-muted-foreground">Custom workflows & agents</span></a>
                 </div>
                )}
             </div>
             <div className="relative">
-              <button onClick={() => setIsServicesOpen(!isServicesOpen)} className="flex items-center space-x-1 text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors">
+              <button onClick={() => setIsServicesOpen(!isServicesOpen)} className="flex items-center space-x-1 text-sm font-medium text-[#5BE3E8] hover:text-[#5BE3E8]/80 transition-colors">
                 <span>Development</span><ChevronDown className="h-4 w-4" />
               </button>
               {isServicesOpen && (
                 <div className="absolute top-full left-0 mt-2 w-80 bg-card border border-border rounded-lg shadow-lg py-2 z-50" onMouseLeave={() => setIsServicesOpen(false)}>
-                  <a href="/development/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">All Development Services</span><span className="text-xs text-muted-foreground">Web, App &amp; Software</span></a>
+                  <a href="/development/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#5BE3E8]">All Development Services</span><span className="text-xs text-muted-foreground">Web, App &amp; Software</span></a>
                   <div className="border-t border-border my-1"></div>
                   <a href="/services/ai-software-development/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Software Development</span><span className="text-xs text-muted-foreground">Custom enterprise AI systems</span></a>
                   <a href="/services/ai-app-development/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI App Development</span><span className="text-xs text-muted-foreground">Intelligent mobile &amp; web apps</span></a>
                   <a href="/services/ai-web-development/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Web Development</span><span className="text-xs text-muted-foreground">Predictive web platforms</span></a>
                   <div className="border-t border-border my-1"></div>
-                 <a href="/services/aeo-seo-predictive-search-architecture/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">AEO/SEO — Predictive Search Architecture</span><span className="text-xs text-muted-foreground">Own every search result before your competitor knows the query exists</span></a>
-                 <a href="/services/social-media-content-management/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold" style={{color:"#8FAF8F"}}>Social Media Content</span><span className="text-xs text-muted-foreground">AI-driven posting for Australian brands</span></a>
+                 <a href="/services/aeo-seo-predictive-search-architecture/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#5BE3E8]">AEO/SEO — Predictive Search Architecture</span><span className="text-xs text-muted-foreground">Own every search result before your competitor knows the query exists</span></a>
+                 <a href="/services/social-media-content-management/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold" style={{color:"#5BE3E8"}}>Social Media Content</span><span className="text-xs text-muted-foreground">AI-driven posting for Australian brands</span></a>
                </div>
               )}
             </div>
@@ -61,7 +61,7 @@ const Navbar = () => {
               </button>
               {isIndustriesOpen && (
                 <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-lg shadow-lg py-2 z-50" onMouseLeave={() => setIsIndustriesOpen(false)}>
-                  <a href="/industries/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">All Industries</span><span className="text-xs text-muted-foreground">View all sectors</span></a>
+                  <a href="/industries/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#5BE3E8]">All Industries</span><span className="text-xs text-muted-foreground">View all sectors</span></a>
                   <div className="border-t border-border my-1"></div>
                   <a href="/industries/construction/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">Construction & Property</span><span className="text-xs text-muted-foreground">Cost & risk forecasting</span></a>
                   <a href="/industries/marketing-agencies/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">Marketing & Advertising</span><span className="text-xs text-muted-foreground">Campaign performance AI</span></a>
@@ -78,19 +78,19 @@ const Navbar = () => {
               {isInsightsOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-lg shadow-lg py-2 z-50" onMouseLeave={() => setIsInsightsOpen(false)}>
                   <a href="/insights/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">All Insights</span><span className="text-xs text-muted-foreground">Articles & analysis</span></a>
-                   <a href="/case-studies/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">Case Studies</span><span className="text-xs text-muted-foreground">Real results from real clients</span></a>
+                   <a href="/case-studies/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#5BE3E8]">Case Studies</span><span className="text-xs text-muted-foreground">Real results from real clients</span></a>
                    <a href="/testimonials/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">Testimonials</span><span className="text-xs text-muted-foreground">What our clients say</span></a>
-                   <a href="/reaction-tax-calculator/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">Reaction Tax Calculator</span><span className="text-xs text-muted-foreground">Calculate your hidden losses</span></a>
-                  <a href="/insights/case-studies/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#00ff88]">Case Studies</span><span className="text-xs text-muted-foreground">Real client results</span></a>
+                   <a href="/ai-roi-calculator/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#5BE3E8]">AI ROI Calculator</span><span className="text-xs text-muted-foreground">Estimate your potential return</span></a>
+                  <a href="/insights/case-studies/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold text-[#5BE3E8]">Case Studies</span><span className="text-xs text-muted-foreground">Real client results</span></a>
                   <a href="/answers/" onClick={close} className="flex flex-col px-4 py-3 hover:bg-accent transition-colors"><span className="text-sm font-semibold">AI Answers</span><span className="text-xs text-muted-foreground">Expert Q&A</span></a>
                 </div>
               )}
             </div>
             <a href="/about/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">About</a>
-            <a href="/pricing/" className="text-sm font-medium text-[#00ff88] hover:text-[#00ff88]/80 transition-colors">Pricing</a>
+            <a href="/pricing/" className="text-sm font-medium text-[#5BE3E8] hover:text-[#5BE3E8]/80 transition-colors">Pricing</a>
             <a href="/contact/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Contact</a>
             <a href="/start/" className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">Start a Project</a>
-            <a href="/contact/" className="inline-flex items-center justify-center whitespace-nowrap bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#00ff88]/90 transition-colors text-sm">Book a Strategy Call</a>
+            <a href="/contact/" className="inline-flex items-center justify-center whitespace-nowrap bg-[#5BE3E8] text-black font-semibold px-4 py-2 rounded-lg hover:bg-[#5BE3E8]/90 transition-colors text-sm">Book a Strategy Call</a>
           </div>
           <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>{isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
         </div>
@@ -101,14 +101,14 @@ const Navbar = () => {
             <a href="https://opsiq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">OpsIQ</a>
             <a href="https://tradesmaniq.com.au/" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">TradesmanIQ</a>
             <a href="https://www.daywinlabs.com" target="_blank" rel="noopener noreferrer" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">FinanceIQ</a>
-            <a href="/products/ai-automations/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent">AI Automations</a>
+            <a href="/products/ai-automations/" onClick={close} className="block px-4 py-2 text-sm text-[#5BE3E8] hover:bg-accent">AI Automations</a>
             <div className="border-t border-border my-2"></div>
-            <a href="/development/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Development</a>
+            <a href="/development/" onClick={close} className="block px-4 py-2 text-sm text-[#5BE3E8]">Development</a>
             <a href="/services/ai-software-development/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Software Development</a>
             <a href="/services/ai-app-development/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI App Development</a>
             <a href="/services/ai-web-development/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Web Development</a>
-           <a href="/services/aeo-seo-predictive-search-architecture/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent pl-6">↳ AEO/SEO — Predictive Search Architecture</a>
-           <a href="/services/social-media-content-management/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6" style={{color:"#8FAF8F"}}>↳ Social Media Content</a>
+           <a href="/services/aeo-seo-predictive-search-architecture/" onClick={close} className="block px-4 py-2 text-sm text-[#5BE3E8] hover:bg-accent pl-6">↳ AEO/SEO — Predictive Search Architecture</a>
+           <a href="/services/social-media-content-management/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6" style={{color:"#5BE3E8"}}>↳ Social Media Content</a>
            <a href="/about/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">About</a>
             <a href="/industries/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Industries</a>
             <a href="/industries/construction/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ Construction & Property</a>
@@ -118,12 +118,12 @@ const Navbar = () => {
             <a href="/industries/financial-services/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ Financial Services</a>
             <div className="border-t border-border my-2"></div>
             <a href="/insights/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Insights</a>
-            <a href="/insights/case-studies/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88] hover:bg-accent pl-6">↳ Case Studies</a>
+            <a href="/insights/case-studies/" onClick={close} className="block px-4 py-2 text-sm text-[#5BE3E8] hover:bg-accent pl-6">↳ Case Studies</a>
             <a href="/answers/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent pl-6">↳ AI Answers</a>
-            <a href="/pricing/" onClick={close} className="block px-4 py-2 text-sm text-[#00ff88]">Pricing</a>
+            <a href="/pricing/" onClick={close} className="block px-4 py-2 text-sm text-[#5BE3E8]">Pricing</a>
             <a href="/contact/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Contact</a>
             <a href="/start/" onClick={close} className="block px-4 py-2 text-sm hover:bg-accent">Start a Project</a>
-            <div className="px-4 pt-2"><a href="/contact/" onClick={close} className="block w-full bg-[#00ff88] text-black font-semibold px-4 py-2 rounded-lg text-sm text-center">Book a Strategy Call</a></div>
+            <div className="px-4 pt-2"><a href="/contact/" onClick={close} className="block w-full bg-[#5BE3E8] text-black font-semibold px-4 py-2 rounded-lg text-sm text-center">Book a Strategy Call</a></div>
           </div>
          )}
       </div>

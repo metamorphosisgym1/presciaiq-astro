@@ -85,16 +85,16 @@ const breadcrumbSchema = {
   <div class="pt-16 pb-24 min-h-screen">
     <div class="max-w-3xl mx-auto px-6">
 
-      <div class="glass-card p-8 md:p-12 border border-[#00ff88]/20 mb-12">
+      <div class="glass-card p-8 md:p-12 border border-[#5BE3E8]/20 mb-12">
         <div class="mb-8">
-          <span class="text-[#00ff88] font-semibold uppercase tracking-widest text-xs bg-[#00ff88]/10 px-3 py-1 rounded-full">{answer.category}</span>
+          <span class="text-[#5BE3E8] font-semibold uppercase tracking-widest text-xs bg-[#5BE3E8]/10 px-3 py-1 rounded-full">{answer.category}</span>
         </div>
 
         <h1 class="font-display text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
           {answer.question}
         </h1>
 
-        <div class="answer-short bg-black/40 border-l-4 border-[#00ff88] p-6 mb-10 rounded-r-lg">
+        <div class="answer-short bg-black/40 border-l-4 border-[#5BE3E8] p-6 mb-10 rounded-r-lg">
           <p class="text-lg text-white font-medium leading-relaxed">{_shortAnswer}</p>
         </div>
 
@@ -118,68 +118,68 @@ const breadcrumbSchema = {
             const isWebBuild = cat === 'web-builds' || cat === 'app-builds' || cat === 'software-builds' || slug.includes('web-app') || slug.includes('website') || slug.includes('app-development') || slug.includes('software');
 
             if (isConstruction) return (
-              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
-                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Product</p>
+              <div class="mb-8 bg-black/40 border border-[#5BE3E8]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#5BE3E8] uppercase tracking-widest mb-3">Relevant Product</p>
                 <h2 class="text-lg font-bold text-white mb-2">BuildPredictIQ — AI Risk Engine for Construction</h2>
                 <p class="text-sm text-gray-400 mb-4">Explore how an evidence-led construction risk workflow can help your team assess assumptions, data readiness and decision points before project commitment.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/products/buildpredictiq/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See BuildPredictIQ →</a>
-                  <a href="/start/?offer=BuildPredictIQ" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Book a Free Risk Assessment</a>
+                  <a href="/products/buildpredictiq/" class="text-sm bg-[#5BE3E8] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/90 transition-colors">See BuildPredictIQ →</a>
+                  <a href="/start/?offer=BuildPredictIQ" class="text-sm border border-[#5BE3E8]/40 text-[#5BE3E8] px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">Book a Free Risk Assessment</a>
                 </div>
               </div>
             );
             if (isMarketing) return (
-              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
-                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Product</p>
+              <div class="mb-8 bg-black/40 border border-[#5BE3E8]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#5BE3E8] uppercase tracking-widest mb-3">Relevant Product</p>
                 <h2 class="text-lg font-bold text-white mb-2">AdsIQ — Predictive ROAS Intelligence</h2>
                 <p class="text-sm text-gray-400 mb-4">Explore a practical framework for reviewing campaign data, measurement readiness and decision points before allocating budget.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/products/adsiq/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See AdsIQ →</a>
-                  <a href="/start/?offer=AdsIQ" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Request a Campaign Prediction</a>
+                  <a href="/products/adsiq/" class="text-sm bg-[#5BE3E8] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/90 transition-colors">See AdsIQ →</a>
+                  <a href="/start/?offer=AdsIQ" class="text-sm border border-[#5BE3E8]/40 text-[#5BE3E8] px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">Request a Campaign Prediction</a>
                 </div>
               </div>
             );
             if (isOps) return (
-              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
-                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Product</p>
+              <div class="mb-8 bg-black/40 border border-[#5BE3E8]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#5BE3E8] uppercase tracking-widest mb-3">Relevant Product</p>
                 <h2 class="text-lg font-bold text-white mb-2">OpsIQ — Operational Intelligence Platform</h2>
                 <p class="text-sm text-gray-400 mb-4">Explore how operational data can support more timely decisions across logistics, manufacturing and service operations.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/products/opsiq/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See OpsIQ →</a>
-                  <a href="/start/?offer=OpsIQ" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Book an Operations Review</a>
+                  <a href="/products/opsiq/" class="text-sm bg-[#5BE3E8] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/90 transition-colors">See OpsIQ →</a>
+                  <a href="/start/?offer=OpsIQ" class="text-sm border border-[#5BE3E8]/40 text-[#5BE3E8] px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">Book an Operations Review</a>
                 </div>
               </div>
             );
             if (isTrades) return (
-              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
-                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Product</p>
+              <div class="mb-8 bg-black/40 border border-[#5BE3E8]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#5BE3E8] uppercase tracking-widest mb-3">Relevant Product</p>
                 <h2 class="text-lg font-bold text-white mb-2">TradesmanIQ — AI Planning for Trades</h2>
                 <p class="text-sm text-gray-400 mb-4">Discuss the operational decisions, quoting workflow and job data your trades business wants to improve before selecting an AI approach.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/products/tradesmaniq/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See TradesmanIQ →</a>
-                  <a href="/start/?offer=TradesmanIQ" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Book a Trades Workflow Review</a>
+                  <a href="/products/tradesmaniq/" class="text-sm bg-[#5BE3E8] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/90 transition-colors">See TradesmanIQ →</a>
+                  <a href="/start/?offer=TradesmanIQ" class="text-sm border border-[#5BE3E8]/40 text-[#5BE3E8] px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">Book a Trades Workflow Review</a>
                 </div>
               </div>
             );
             if (isAeoSeo) return (
-              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
-                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Service</p>
+              <div class="mb-8 bg-black/40 border border-[#5BE3E8]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#5BE3E8] uppercase tracking-widest mb-3">Relevant Service</p>
                 <h2 class="text-lg font-bold text-white mb-2">AEO/SEO — Predictive Search Architecture</h2>
                 <p class="text-sm text-gray-400 mb-4">Build a people-first answer architecture that makes your services, expertise and evidence easier for buyers, search engines and answer engines to understand.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/services/aeo-seo-predictive-search-architecture/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See the Service →</a>
-                  <a href="/start/?offer=Predictive%20Search%20Architecture" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">Book a Search Architecture Diagnostic</a>
+                  <a href="/services/aeo-seo-predictive-search-architecture/" class="text-sm bg-[#5BE3E8] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/90 transition-colors">See the Service →</a>
+                  <a href="/start/?offer=Predictive%20Search%20Architecture" class="text-sm border border-[#5BE3E8]/40 text-[#5BE3E8] px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">Book a Search Architecture Diagnostic</a>
                 </div>
               </div>
             );
             if (isWebBuild) return (
-              <div class="mb-8 bg-black/40 border border-[#00ff88]/20 rounded-xl p-6">
-                <p class="text-xs font-mono text-[#00ff88] uppercase tracking-widest mb-3">Relevant Service</p>
+              <div class="mb-8 bg-black/40 border border-[#5BE3E8]/20 rounded-xl p-6">
+                <p class="text-xs font-mono text-[#5BE3E8] uppercase tracking-widest mb-3">Relevant Service</p>
                 <h2 class="text-lg font-bold text-white mb-2">AI-Powered Web &amp; App Development</h2>
                 <p class="text-sm text-gray-400 mb-4">PresciaIQ builds AI-native websites, web apps, and custom software for Australian businesses — with predictive intelligence baked in from day one.</p>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/services/ai-web-development/" class="text-sm bg-[#00ff88] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/90 transition-colors">See Web Development →</a>
-                  <a href="/services/ai-app-development/" class="text-sm border border-[#00ff88]/40 text-[#00ff88] px-5 py-2.5 rounded-lg hover:bg-[#00ff88]/10 transition-colors">See App Development →</a>
+                  <a href="/services/ai-web-development/" class="text-sm bg-[#5BE3E8] text-black font-bold px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/90 transition-colors">See Web Development →</a>
+                  <a href="/services/ai-app-development/" class="text-sm border border-[#5BE3E8]/40 text-[#5BE3E8] px-5 py-2.5 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">See App Development →</a>
                   <a href="/start/?offer=AI%20Web%20%26%20App%20Development" class="text-sm border border-white/20 text-gray-300 px-5 py-2.5 rounded-lg hover:bg-white/5 transition-colors">Book a Development Scoping Call</a>
                 </div>
               </div>
@@ -189,10 +189,10 @@ const breadcrumbSchema = {
               <div class="mb-8 border border-white/10 rounded-xl p-6">
                 <h2 class="text-lg font-bold text-white mb-4">Explore PresciaIQ</h2>
                 <div class="flex flex-wrap gap-3">
-                  <a href="/products/buildpredictiq/" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">BuildPredictIQ →</a>
-                  <a href="/products/adsiq/" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">AdsIQ →</a>
-                  <a href="/services/aeo-seo-predictive-search-architecture/" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">pSEO &amp; AEO →</a>
-                  <a href="/services/ai-software-development/" class="text-sm text-[#00ff88] border border-[#00ff88]/30 px-4 py-2 rounded-lg hover:bg-[#00ff88]/10 transition-colors">AI Software →</a>
+                  <a href="/products/buildpredictiq/" class="text-sm text-[#5BE3E8] border border-[#5BE3E8]/30 px-4 py-2 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">BuildPredictIQ →</a>
+                  <a href="/products/adsiq/" class="text-sm text-[#5BE3E8] border border-[#5BE3E8]/30 px-4 py-2 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">AdsIQ →</a>
+                  <a href="/services/aeo-seo-predictive-search-architecture/" class="text-sm text-[#5BE3E8] border border-[#5BE3E8]/30 px-4 py-2 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">pSEO &amp; AEO →</a>
+                  <a href="/services/ai-software-development/" class="text-sm text-[#5BE3E8] border border-[#5BE3E8]/30 px-4 py-2 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors">AI Software →</a>
                 </div>
               </div>
             );
@@ -205,7 +205,7 @@ const breadcrumbSchema = {
             <h2 class="text-lg font-bold text-white mb-4">More questions answered</h2>
             <div class="space-y-2">
               {relatedAnswers.slice(0, 3).map((related) => (
-                <a href={`/answers/${related.slug}/`} class="block text-gray-400 hover:text-[#00ff88] transition-colors text-sm py-1">
+                <a href={`/answers/${related.slug}/`} class="block text-gray-400 hover:text-[#5BE3E8] transition-colors text-sm py-1">
                   → {related.question}
                 </a>
               ))}
@@ -213,14 +213,14 @@ const breadcrumbSchema = {
           </div>
         )}
 
-        <div class="bg-gradient-to-r from-[#00ff88]/10 to-transparent border border-[#00ff88]/20 rounded-xl p-8">
+        <div class="bg-gradient-to-r from-[#5BE3E8]/10 to-transparent border border-[#5BE3E8]/20 rounded-xl p-8">
           <h2 class="text-2xl font-bold text-white mb-4">Ready to get started?</h2>
           <p class="text-gray-400 mb-6">Book a discovery call to discuss your current data, commercial priorities and the next practical step for your Australian business.</p>
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/start/" class="inline-block bg-[#00ff88] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#00ff88]/90 transition-colors text-center">
+            <a href="/start/" class="inline-block bg-[#5BE3E8] text-black font-bold px-8 py-4 rounded-lg hover:bg-[#5BE3E8]/90 transition-colors text-center">
               Book a Free Discovery Call
             </a>
-            <a href="/services/aeo-seo-predictive-search-architecture/" class="inline-block border border-[#00ff88]/40 text-[#00ff88] font-semibold px-8 py-4 rounded-lg hover:bg-[#00ff88]/10 transition-colors text-center">
+            <a href="/services/aeo-seo-predictive-search-architecture/" class="inline-block border border-[#5BE3E8]/40 text-[#5BE3E8] font-semibold px-8 py-4 rounded-lg hover:bg-[#5BE3E8]/10 transition-colors text-center">
               See How pSEO Works
             </a>
           </div>

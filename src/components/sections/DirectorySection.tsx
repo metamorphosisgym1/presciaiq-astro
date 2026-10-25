@@ -82,7 +82,7 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const content = (
-    <div className="relative h-full glass-card p-6 md:p-8 group transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,255,136,0.12)] hover:border-primary/20">
+    <div className="relative h-full glass-card p-6 md:p-8 group transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,227,232,0.12)] hover:border-primary/20">
       {/* Status badge */}
       <div className="absolute top-4 right-4">
         <span
@@ -90,8 +90,8 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
             product.statusType === "live" ? "text-primary" : "text-muted-foreground"
           }`}
           style={{
-            background: product.statusType === "live" ? "rgba(0,255,136,0.08)" : "rgba(255,255,255,0.03)",
-            border: product.statusType === "live" ? "1px solid rgba(0,255,136,0.2)" : "1px solid rgba(255,255,255,0.06)",
+            background: product.statusType === "live" ? "rgba(91,227,232,0.08)" : "rgba(255,255,255,0.03)",
+            border: product.statusType === "live" ? "1px solid rgba(91,227,232,0.2)" : "1px solid rgba(255,255,255,0.06)",
           }}
         >
           {product.status}
@@ -101,7 +101,7 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
       <div className="flex items-center gap-3 mb-4">
         <div
           className="w-10 h-10 rounded-xl flex items-center justify-center"
-          style={{ background: "rgba(0,255,136,0.05)", border: "1px solid rgba(0,255,136,0.15)" }}
+          style={{ background: "rgba(91,227,232,0.05)", border: "1px solid rgba(91,227,232,0.15)" }}
         >
           <product.icon className="w-5 h-5 text-primary" />
         </div>
@@ -126,7 +126,7 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
 
       <div className="mt-auto">
         {product.statusType === "live" ? (
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-xl font-sans group-hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300">
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-xl font-sans group-hover:shadow-[0_0_20px_rgba(91,227,232,0.3)] transition-all duration-300">
             {product.ctaLabel} <ArrowRight className="w-4 h-4" />
           </span>
         ) : (
@@ -206,20 +206,20 @@ const DirectorySection = () => {
           className="mb-6"
         >
           <a href="/development/" className="block no-underline" aria-label="Scope Your Project - Web & App Development">
-            <div className="glass-card p-6 md:p-8 group transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,255,136,0.12)] hover:border-primary/20">
+            <div className="glass-card p-6 md:p-8 group transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,227,232,0.12)] hover:border-primary/20">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <div
                       className="w-10 h-10 rounded-xl flex items-center justify-center"
-                      style={{ background: "rgba(0,255,136,0.05)", border: "1px solid rgba(0,255,136,0.15)" }}
+                      style={{ background: "rgba(91,227,232,0.05)", border: "1px solid rgba(91,227,232,0.15)" }}
                     >
                       <Code2 className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <span
                         className="text-[10px] uppercase tracking-wider font-sans font-semibold px-3 py-1 rounded-full text-primary"
-                        style={{ background: "rgba(0,255,136,0.08)", border: "1px solid rgba(0,255,136,0.2)" }}
+                        style={{ background: "rgba(91,227,232,0.08)", border: "1px solid rgba(91,227,232,0.2)" }}
                       >
                         THE FOUNDATION OF INTELLIGENCE
                       </span>
@@ -244,7 +244,7 @@ const DirectorySection = () => {
                   </p>
                 </div>
                 <div className="flex-shrink-0">
-                  <span className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded-xl font-sans group-hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300">
+                  <span className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded-xl font-sans group-hover:shadow-[0_0_20px_rgba(91,227,232,0.3)] transition-all duration-300">
                     Scope Your Project <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>

@@ -14,6 +14,21 @@
       "permanent": true
     },
     {
+      "source": "/reaction-tax-calculator/",
+      "destination": "/ai-roi-calculator/",
+      "statusCode": 301
+    },
+    {
+      "source": "/insights/the-reaction-tax/",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
+      "source": "/insights/where-the-reaction-tax-hides/",
+      "destination": "/about/",
+      "statusCode": 301
+    },
+    {
       "source": "/privacy-policy",
       "destination": "/privacy",
       "permanent": true
@@ -860,12 +875,12 @@
     },
     {
       "source": "/answers/what-is-the-reaction-tax",
-      "destination": "/insights/the-reaction-tax/",
+      "destination": "/about/",
       "statusCode": 301
     },
     {
       "source": "/answers/what-is-the-reaction-tax/",
-      "destination": "/insights/the-reaction-tax/",
+      "destination": "/about/",
       "statusCode": 301
     },
     {

@@ -59,13 +59,13 @@ const collectionSchema = {
     <!-- Hero -->
     <section class="pt-8 pb-12 px-6 max-w-5xl mx-auto">
       <nav class="text-sm text-white/40 mb-6 font-mono">
-        <a href="/" class="hover:text-[#00ff88] transition-colors">Home</a>
+        <a href="/" class="hover:text-[#5BE3E8] transition-colors">Home</a>
         <span class="mx-2">/</span>
         <span class="text-white/70">Answers</span>
       </nav>
-      <div class="inline-flex items-center gap-2 bg-[#00ff88]/10 border border-[#00ff88]/20 rounded-full px-4 py-1.5 mb-6">
-        <span class="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse"></span>
-        <span class="text-[#00ff88] text-xs font-mono tracking-widest uppercase">Knowledge Base</span>
+      <div class="inline-flex items-center gap-2 bg-[#5BE3E8]/10 border border-[#5BE3E8]/20 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-2 h-2 rounded-full bg-[#5BE3E8] animate-pulse"></span>
+        <span class="text-[#5BE3E8] text-xs font-mono tracking-widest uppercase">Knowledge Base</span>
       </div>
       <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
         AI & AEO Answers
@@ -88,16 +88,16 @@ const collectionSchema = {
     <section class="px-6 max-w-5xl mx-auto pb-24">
       {categoryOrder.filter(cat => categories[cat]?.length > 0).map(cat => (
         <div class="mb-14">
-          <h2 class="text-xs font-mono tracking-widest uppercase text-[#00ff88] mb-6">
+          <h2 class="text-xs font-mono tracking-widest uppercase text-[#5BE3E8] mb-6">
             {categoryLabels[cat] || cat} <span class="text-white/30 ml-2">({categories[cat].length})</span>
           </h2>
           <div class="grid gap-3">
             {categories[cat].map(answer => (
               <a
                 href={`/answers/${answer.slug}/`}
-                class="group flex items-start gap-4 p-4 border border-white/10 rounded-lg hover:border-[#00ff88]/40 hover:bg-white/[0.02] transition-all duration-200"
+                class="group flex items-start gap-4 p-4 border border-white/10 rounded-lg hover:border-[#5BE3E8]/40 hover:bg-white/[0.02] transition-all duration-200"
               >
-                <span class="text-[#00ff88]/50 mt-0.5 text-lg leading-none group-hover:text-[#00ff88] transition-colors">→</span>
+                <span class="text-[#5BE3E8]/50 mt-0.5 text-lg leading-none group-hover:text-[#5BE3E8] transition-colors">→</span>
                 <div class="flex-1 min-w-0">
                   <p class="text-white/90 font-medium group-hover:text-white transition-colors leading-snug">
                     {answer.question}
@@ -120,7 +120,7 @@ const collectionSchema = {
       <p class="text-white/50 mb-8 max-w-md mx-auto">We build custom AI solutions for Australian businesses. Tell us what you're trying to solve.</p>
       <a
         href="/start/"
-        class="inline-flex items-center gap-2 bg-[#00ff88] text-black font-bold px-8 py-3 rounded-sm hover:bg-[#00ff88]/90 transition-colors text-sm tracking-wide uppercase"
+        class="inline-flex items-center gap-2 bg-[#5BE3E8] text-black font-bold px-8 py-3 rounded-sm hover:bg-[#5BE3E8]/90 transition-colors text-sm tracking-wide uppercase"
       >
         Start a Brief →
       </a>

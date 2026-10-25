@@ -68,7 +68,7 @@ const PricingSection = () => (
             key={card.product}
             className="glass-card rounded-2xl p-8 flex flex-col"
             style={{
-              border: "1px solid rgba(0,255,136,0.1)",
+              border: "1px solid rgba(91,227,232,0.1)",
             }}
           >
             <h3 className="font-display text-2xl font-bold text-foreground mb-1">
@@ -111,7 +111,7 @@ const PricingSection = () => (
               href={card.href}
               target={(card as any).isInternal ? undefined : "_blank"}
               rel={(card as any).isInternal ? undefined : "noopener noreferrer"}
-              className="mt-8 inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 text-sm font-semibold bg-primary text-primary-foreground rounded-xl hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500 font-sans"
+              className="mt-8 inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 text-sm font-semibold bg-primary text-primary-foreground rounded-xl hover:shadow-[0_0_20px_rgba(91,227,232,0.3)] transition-all duration-500 font-sans"
             >
               {card.cta}
               <ArrowRight className="w-4 h-4 shrink-0" />

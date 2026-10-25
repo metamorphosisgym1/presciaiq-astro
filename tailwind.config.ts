@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{astro,ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -14,11 +14,33 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Playfair Display", "serif"],
-        sans: ["Inter", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        display: ["Geist", "Inter", "system-ui", "sans-serif"],
+        serif: ["Geist", "Inter", "system-ui", "sans-serif"],
+        sans: ["Geist", "Inter", "system-ui", "sans-serif"],
+        mono: ["Michroma", "Geist Mono", "monospace"],
       },
       colors: {
+        ink: {
+          950: "#080B0E",
+          900: "#080B0E",
+          850: "#0D1218",
+          800: "#111820",
+        },
+        surface: {
+          DEFAULT: "#111820",
+          raised: "#17212B",
+          glass: "rgba(17, 24, 32, 0.72)",
+        },
+        signal: {
+          300: "#B9F2F4",
+          400: "#8BE9ED",
+          500: "#5BE3E8",
+          600: "#3ACED4",
+          DEFAULT: "#5BE3E8",
+          soft: "#9BECEF",
+          dim: "rgba(91, 227, 232, 0.12)",
+        },
+        paper: "#F4F6F7",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -67,6 +89,8 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        card: "16px",
+        pill: "999px",
       },
       keyframes: {
         "accordion-down": {
@@ -98,8 +122,8 @@ export default {
           "100%": { transform: "translateX(-50%)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(0, 255, 136, 0.3)" },
-          "50%": { boxShadow: "0 0 40px rgba(0, 255, 136, 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(91, 227, 232, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(91, 227, 232, 0.6)" },
         },
       },
       animation: {

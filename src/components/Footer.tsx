@@ -1,10 +1,10 @@
 import { Linkedin, Twitter, Instagram } from "lucide-react";
-const logo = "/logo.png";
+const logo = "/assets/presciaiq-logo-transparent.png";
 
 
 const Footer = () => {
   return (
-    <footer style={{ background: 'rgba(5,5,8,0.9)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+    <footer style={{ background: 'rgba(8,11,14,0.94)', borderTop: '1px solid rgba(244,246,247,0.1)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-8 lg:gap-6">
           <div className="sm:col-span-2 lg:col-span-1">
