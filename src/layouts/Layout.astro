@@ -32,11 +32,8 @@ const resolvedCanonical = new URL(
 <!doctype html>
 <html lang="en" class="overflow-x-clip">
   <head>
-    <meta name="msvalidate.01" content="D131AC8A623B85D9575E1D1CA1EC6377" />
-    <meta
-      name="google-site-verification"
-      content="YkvGLb0AsKnv6O2YYsrsXeVaAMxlK3v1xhrrqkcarak"
-    />
+    <meta name="msvalidate.01" content="6A226AD1669C04549CCAB8D2556C5BB6" />
+    <meta name="google-site-verification" content="YkvGLb0AsKnv6O2YYsrsXeVaAMxlK3v1xhrrqkcarak" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -70,27 +67,9 @@ const resolvedCanonical = new URL(
   }
 </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-VGKZVCWFXQ"
-      is:inline></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-VGKZVCWFXQ");
-    </script>
 
     <!-- SEO: Primary Meta Tags -->
-    <meta
-      name="robots"
-      content={noindex
-        ? "noindex, nofollow"
-        : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
-    />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
     <meta name="language" content="en-AU" />
     <link rel="canonical" href={resolvedCanonical} />
     <link rel="alternate" hreflang="en-AU" href={resolvedCanonical} />
@@ -101,10 +80,7 @@ const resolvedCanonical = new URL(
     <meta property="og:url" content={resolvedCanonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content="https://www.presciaiq.com.au/og-image.jpg"
-    />
+    <meta property="og:image" content="https://www.presciaiq.com.au/og-image.jpg" />
     <meta property="og:site_name" content="PresciaIQ" />
     <meta property="og:locale" content="en_AU" />
 
@@ -113,266 +89,183 @@ const resolvedCanonical = new URL(
     <meta name="twitter:url" content={resolvedCanonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content="https://www.presciaiq.com.au/og-image.jpg"
-    />
+    <meta name="twitter:image" content="https://www.presciaiq.com.au/og-image.jpg" />
 
     <!-- AEO: JSON-LD Structured Data -->
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "@id": "https://www.presciaiq.com.au/#organization",
-            name: "PresciaIQ",
-            legalName: "PredictIQ Holdings Pty Ltd",
-            foundingLocation: {
-              "@type": "Place",
-              addressLocality: "Sydney",
-              addressRegion: "NSW",
-              addressCountry: "AU",
-            },
-            numberOfEmployees: {
-              "@type": "QuantitativeValue",
-              minValue: 2,
-              maxValue: 10,
-            },
-            knowsAbout: [
-              "Predictive AI",
-              "Answer Engine Optimisation",
-              "Generative Engine Optimisation",
-              "Programmatic SEO",
-              "Construction Risk AI",
-              "ROAS Prediction",
-              "AI Automation",
-              "Australian SMB Technology",
-            ],
-            sameAs: [
-              "https://www.linkedin.com/company/prescia-iq/",
-              "https://www.instagram.com/presciaiq/",
-              "https://twitter.com/presciaiq",
-              "https://www.facebook.com/presciaiq",
-              "https://www.crunchbase.com/organization/presciaiq",
-              "https://clutch.co/profile/presciaiq",
-            ],
-            hasOfferCatalog: {
-              "@type": "OfferCatalog",
-              name: "PresciaIQ AI Products",
-              itemListElement: [
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "SoftwareApplication",
-                    name: "BuildPredictIQ",
-                    url: "https://www.presciaiq.com.au/products/buildpredictiq/",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "SoftwareApplication",
-                    name: "AdsIQ",
-                    url: "https://www.presciaiq.com.au/products/adsiq/",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "AI Automations",
-                    url: "https://www.presciaiq.com.au/products/ai-automations/",
-                  },
-                },
-              ],
-            },
-            url: "https://www.presciaiq.com.au",
-            logo: {
-              "@type": "ImageObject",
-              url: "https://www.presciaiq.com.au/logo.png",
-            },
-            description:
-              "PresciaIQ is Australia's Predictive AI Company, headquartered in Sydney. We design and build enterprise AI platforms — BuildPredictIQ (construction risk), AdsIQ (campaign ROAS prediction), AI Automations, and HELM OS (enterprise operations) — delivering seamless scale for Australian SMBs and mid-market operators. Specialists in Answer Engine Optimisation (AEO), Generative Engine Optimisation (GEO), and programmatic SEO for AI-first search.",
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+61400457006",
-              contactType: "sales",
-              areaServed: "AU",
-              availableLanguage: "en",
-            },
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Sydney",
-              addressRegion: "NSW",
-              addressCountry: "AU",
-            },
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.presciaiq.com.au/#organization",
+          "name": "PresciaIQ",
+          "legalName": "PredictIQ Holdings Pty Ltd",
+          "foundingLocation": { "@type": "Place", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU" },
+          "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 10 },
+          "knowsAbout": ["Predictive AI", "Answer Engine Optimisation", "Generative Engine Optimisation", "Programmatic SEO", "Construction Risk AI", "ROAS Prediction", "AI Automation", "Australian SMB Technology"],
+          "sameAs": [
+            "https://www.linkedin.com/company/prescia-iq/",
+            "https://www.instagram.com/presciaiq/",
+            "https://twitter.com/presciaiq",
+            "https://www.facebook.com/presciaiq",
+            "https://www.crunchbase.com/organization/presciaiq",
+            "https://clutch.co/profile/presciaiq"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "PresciaIQ AI Products",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "BuildPredictIQ", "url": "https://www.presciaiq.com.au/products/buildpredictiq/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "AdsIQ", "url": "https://www.presciaiq.com.au/products/adsiq/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Automations", "url": "https://www.presciaiq.com.au/products/ai-automations/" } }
+            ]
           },
-          {
-            "@type": "WebPage",
-            "@id": `${resolvedCanonical}#webpage`,
-            url: resolvedCanonical,
-            name: title,
-            description: description,
-            isPartOf: { "@id": "https://www.presciaiq.com.au/#website" },
-            about: { "@id": "https://www.presciaiq.com.au/#organization" },
-            dateModified: "2026-07-27",
-            inLanguage: "en-AU",
-            speakable: {
-              "@type": "SpeakableSpecification",
-              cssSelector: [
-                "h1",
-                "h2",
-                ".answer-short",
-                ".answer-full",
-                "[data-speakable]",
-              ],
-            },
+          "url": "https://www.presciaiq.com.au",
+          "logo": { "@type": "ImageObject", "url": "https://www.presciaiq.com.au/logo.png" },
+          "description": "PresciaIQ is Australia's Predictive AI Company, headquartered in Sydney. We design and build AI forecasting platforms — BuildPredictIQ (construction risk), AdsIQ (campaign ROAS prediction), OpsIQ (operational intelligence), and TradesmanIQ (trades job profitability) — that eliminate the Reaction Tax for Australian SMBs and mid-market operators. Specialists in Answer Engine Optimisation (AEO), Generative Engine Optimisation (GEO), and programmatic SEO for AI-first search.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+61400457006",
+            "contactType": "sales",
+            "areaServed": "AU",
+            "availableLanguage": "en"
           },
-          {
-            "@type": "WebSite",
-            "@id": "https://www.presciaiq.com.au/#website",
-            url: "https://www.presciaiq.com.au",
-            name: "PresciaIQ",
-            description: "Australia's AI Intelligence & Development Company",
-            publisher: { "@id": "https://www.presciaiq.com.au/#organization" },
-            inLanguage: "en-AU",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sydney",
+            "addressRegion": "NSW",
+            "addressCountry": "AU"
           },
-          {
-            "@type": "Service",
-            "@id": "https://www.presciaiq.com.au/#service",
-            name: "Predictive AI & AEO/SEO Architecture",
-            provider: { "@id": "https://www.presciaiq.com.au/#organization" },
-            serviceType: "AI Software Development",
-            description:
-              "PresciaIQ designs and builds predictive AI platforms, programmatic SEO/AEO architectures, and custom AI forecasting tools for Australian businesses.",
-            areaServed: {
-              "@type": "Country",
-              name: "Australia",
-            },
-            hasOfferCatalog: {
-              "@type": "OfferCatalog",
-              name: "PresciaIQ Services",
-              itemListElement: [
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "Predictive AI Platform Development",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "AEO/SEO Architecture & Programmatic SEO",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "AI Forecasting & Business Intelligence",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "Custom AI Web Application Development",
-                  },
-                },
-              ],
-            },
-          },
-          {
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: "https://www.presciaiq.com.au/",
-              },
-            ],
-          },
-        ],
-      })}
-    />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "https://www.presciaiq.com.au/#localbusiness",
-        "name": "PresciaIQ",
-        "parentOrganization": {
-          "@id": "https://www.presciaiq.com.au/#organization"
         },
-        "image": "https://presciaiq.com.au/og-image.jpg",
-        "url": "https://presciaiq.com.au",
-        "telephone": "+61400457006",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "100 Harris St",
-          "addressLocality": "Pyrmont",
-          "addressRegion": "NSW",
-          "postalCode": "2009",
-          "addressCountry": "AU"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -33.8688,
-          "longitude": 151.1957
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "17:00"
-        }
-      }
-    </script>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
-    <!-- Person Schema — Founders -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Person",
-            "@id": "https://www.presciaiq.com.au/#alex-cutajar",
-            "name": "Alex Cutajar",
-            "jobTitle": "Co-Founder & CEO",
-            "worksFor": { "@id": "https://www.presciaiq.com.au/#organization" },
-            "url": "https://www.presciaiq.com.au/about",
-            "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/SwyIDFXzKmIrniOC.webp",
-            "sameAs": ["https://www.linkedin.com/in/alex-cutajar/"],
-            "description": "Co-founder of PresciaIQ with ten years running SMB and FMCG businesses. Leads product, architecture, and AI systems."
-          },
-          {
-            "@type": "Person",
-            "@id": "https://www.presciaiq.com.au/#macauley-burke",
-            "name": "Macauley Burke",
-            "jobTitle": "Co-Founder & CCO",
-            "worksFor": { "@id": "https://www.presciaiq.com.au/#organization" },
-            "url": "https://www.presciaiq.com.au/about",
-            "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/xjVQsXYtaEfhKerq.JPG",
-            "sameAs": ["https://www.linkedin.com/in/macauley-burke/"],
-            "description": "Co-founder of PresciaIQ with seven years of B2B sales inside Australian SMBs through Modern Body Method. Leads commercial, partnerships, and customer success."
+        {
+          "@type": "WebPage",
+          "@id": `${resolvedCanonical}#webpage`,
+          "url": resolvedCanonical,
+          "name": title,
+          "description": description,
+          "isPartOf": { "@id": "https://www.presciaiq.com.au/#website" },
+          "about": { "@id": "https://www.presciaiq.com.au/#organization" },
+          "dateModified": "2026-07-27",
+          "inLanguage": "en-AU",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", "h2", ".answer-short", ".answer-full", "[data-speakable]"]
           }
-        ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.presciaiq.com.au/#website",
+          "url": "https://www.presciaiq.com.au",
+          "name": "PresciaIQ",
+          "description": "Australia's AI Intelligence & Development Company",
+          "publisher": { "@id": "https://www.presciaiq.com.au/#organization" },
+          "inLanguage": "en-AU"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://www.presciaiq.com.au/#service",
+          "name": "Predictive AI & AEO/SEO Architecture",
+          "provider": { "@id": "https://www.presciaiq.com.au/#organization" },
+          "serviceType": "AI Software Development",
+          "description": "PresciaIQ designs and builds predictive AI platforms, programmatic SEO/AEO architectures, and custom AI forecasting tools for Australian businesses.",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Australia"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "PresciaIQ Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Predictive AI Platform Development" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AEO/SEO Architecture & Programmatic SEO" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Forecasting & Business Intelligence" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom AI Web Application Development" } }
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.presciaiq.com.au/"
+            }
+          ]
+        }
+      ]
+    })} />
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.presciaiq.com.au/#localbusiness",
+    "name": "PresciaIQ",
+    "parentOrganization": {"@id": "https://www.presciaiq.com.au/#organization"},
+    "image": "https://www.presciaiq.com.au/og-image.jpg",
+    "url": "https://www.presciaiq.com.au",
+    "telephone": "+61400457006",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "100 Harris St",
+      "addressLocality": "Pyrmont",
+      "addressRegion": "NSW",
+      "postalCode": "2009",
+      "addressCountry": "AU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.8688,
+      "longitude": 151.1957
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  }
+  </script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- Person Schema — Founders -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.presciaiq.com.au/#alex-cutajar",
+        "name": "Alex Cutajar",
+        "jobTitle": "Co-Founder & CEO",
+        "worksFor": {"@id": "https://www.presciaiq.com.au/#organization"},
+        "url": "https://www.presciaiq.com.au/about",
+        "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/SwyIDFXzKmIrniOC.webp",
+        "sameAs": ["https://www.linkedin.com/in/alex-cutajar/"],
+        "description": "Co-founder of PresciaIQ with ten years running SMB and FMCG businesses. Leads product, architecture, and AI systems."
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.presciaiq.com.au/#macauley-burke",
+        "name": "Macauley Burke",
+        "jobTitle": "Co-Founder & CCO",
+        "worksFor": {"@id": "https://www.presciaiq.com.au/#organization"},
+        "url": "https://www.presciaiq.com.au/about",
+        "image": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/xjVQsXYtaEfhKerq.JPG",
+        "sameAs": ["https://www.linkedin.com/in/macauley-burke/"],
+        "description": "Co-founder of PresciaIQ with seven years of B2B sales inside Australian SMBs through Modern Body Method. Leads commercial, partnerships, and customer success."
       }
-    </script>
-    <!-- Page-specific head tags (article meta, extra JSON-LD). -->
-    <slot name="head" />
-  </head>
+    ]
+  }
+  </script>
+</head>
   <body class="bg-[#030705] text-[#C9CCC8] font-sans antialiased selection:bg-[#00FF88]/20 selection:text-[#00FF88] overflow-x-clip">
     <AmbientBackground />
     <SmoothScroll client:load />
