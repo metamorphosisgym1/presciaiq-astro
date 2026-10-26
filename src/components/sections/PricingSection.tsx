@@ -31,7 +31,7 @@ const cards = [
     tiers: [
       { name: "Starter Website", price: "From $5K", unit: "one-off" },
       { name: "App Store Build", price: "From $15K", unit: "scoped project" },
-      { name: "Enterprise / HELM", price: "Custom", unit: "scoped architecture" },
+      { name: "Enterprise / Daynori", price: "Custom", unit: "scoped architecture" },
     ],
     cta: "Scope Your Project",
     href: "/contact",

@@ -61,18 +61,17 @@ const platforms: ProjectPlatform[] = [
   },
   {
     id: "helm-os",
-    name: "HELM OS",
+    name: "Daynori",
     tagline:
-      "Centralized enterprise operational cockpit uniting team task routing, live resource telemetry, and delivery orchestration under a single pane of glass.",
-    video: "/videos/helm.mp4",
-    portrait: true,
+      "The operating system for work, decisions, and momentum.",
+    video: "/videos/daynori.mp4",
     href: "/services/ai-software-development/",
-    ctaText: "Explore HELM OS",
+    ctaText: "Explore Daynori",
     isExternal: false,
   },
 ];
 
-// The coordinate dot grid from the Core Pillars HELM OS slide, with its
+// The coordinate dot grid from the Core Pillars Daynori slide, with its
 // radial falloff into the dark.
 const DOT_MATRIX = {
   backgroundImage: "radial-gradient(circle, rgba(255, 255, 255, 0.32) 1.25px, transparent 1.5px)",

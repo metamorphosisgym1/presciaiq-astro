@@ -12,7 +12,7 @@ interface NavLink {
 const features: NavLink[] = [
   { label: "BuildPredictIQ", href: "https://buildpredictiq.com.au/", badge: "Live", external: true },
   { label: "AdsIQ", href: "https://adsiq.com.au/", badge: "Live", external: true },
-  { label: "HELM OS", href: "/services/ai-software-development/", badge: "Enterprise" },
+  { label: "Daynori", href: "/services/ai-software-development/", badge: "Enterprise" },
   { label: "AI Automations & Agents", href: "/products/ai-automations/" },
   { label: "High-Performance Platforms", href: "/development/" },
 ];

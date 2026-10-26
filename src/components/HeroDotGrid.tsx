@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 /**
  * The hero's 24px background dot grid, drawn on a canvas so a press can send
- * a water ripple through it. Matches the HELM OS / automation panel dot grid
+ * a water ripple through it. Matches the Daynori / automation panel dot grid
  * (1.25px white dots at 32% opacity, centred in each 24px tile) so the
  * texture is continuous down the page, and only animates while a ripple is
  * live.

@@ -2383,7 +2383,7 @@ The best way to get an accurate quote is to book a strategy call with PresciaIQ.
   {
     slug: "what-is-operational-intelligence-australia",
     question: "What is operational intelligence for Australian businesses?",
-    answer: "Operational intelligence is the real-time and predictive analysis of business operations to identify inefficiencies, bottlenecks, and opportunities before they impact performance. For Australian businesses, operational intelligence means knowing which jobs will run over budget before they start, which staff will be needed next week before the schedule is set, and which suppliers are likely to cause delays before the order is placed. PresciaIQ's HELM OS platform delivers operational intelligence for Australian enterprises across construction, logistics, and professional services — predicting operational outcomes rather than just reporting on them.",
+    answer: "Operational intelligence is the real-time and predictive analysis of business operations to identify inefficiencies, bottlenecks, and opportunities before they impact performance. For Australian businesses, operational intelligence means knowing which jobs will run over budget before they start, which staff will be needed next week before the schedule is set, and which suppliers are likely to cause delays before the order is placed. PresciaIQ's Daynori platform delivers operational intelligence for Australian enterprises across construction, logistics, and professional services — predicting operational outcomes rather than just reporting on them.",
     category: "Predictive AI Concepts",
     relatedSlugs: ["what-is-predictive-ai-australia", "presciaiq-pricing-australia"]
   },
@@ -2453,7 +2453,7 @@ The best way to get an accurate quote is to book a strategy call with PresciaIQ.
   {
     slug: "presciaiq-for-construction-companies-australia",
     question: "How does PresciaIQ help Australian construction companies?",
-    answer: "PresciaIQ helps Australian construction and property companies through BuildPredictIQ (construction risk and cost forecasting) and HELM OS (enterprise operational intelligence platform). BuildPredictIQ predicts cost blowouts, project delays, subcontractor defaults, and compliance issues before they occur — using data from Procore, Xero, and project management systems. HELM OS provides autonomous operational cockpit routing and real-time risk heatmaps. Both platforms are trained on Australian construction data including NCC compliance requirements, Australian subcontractor market conditions, and local material pricing. Clients typically reduce cost blowouts by 20–35% within the first 6 months.",
+    answer: "PresciaIQ helps Australian construction and property companies through BuildPredictIQ (construction risk and cost forecasting) and Daynori (enterprise operational intelligence platform). BuildPredictIQ predicts cost blowouts, project delays, subcontractor defaults, and compliance issues before they occur — using data from Procore, Xero, and project management systems. Daynori provides autonomous operational cockpit routing and real-time risk heatmaps. Both platforms are trained on Australian construction data including NCC compliance requirements, Australian subcontractor market conditions, and local material pricing. Clients typically reduce cost blowouts by 20–35% within the first 6 months.",
     category: "Industries",
     relatedSlugs: ["what-is-presciaiq-buildpredictiq", "predictive-ai-construction-australia"]
   },

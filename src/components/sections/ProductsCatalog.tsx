@@ -96,7 +96,7 @@ const pillars: ProductPillar[] = [
   {
     slug: "helm-os",
     num: "04",
-    name: "HELM OS",
+    name: "Daynori",
     tagline: "Enterprise Operating Intelligence Cockpit",
     badge: "Enterprise Platform",
     icon: LayoutDashboard,
@@ -114,7 +114,7 @@ const pillars: ProductPillar[] = [
     priceDetail: "Single-tenant sovereign cluster deployment with custom integrations and 99.99% uptime SLA.",
     href: "/services/ai-software-development/",
     isExternal: false,
-    actionLabel: "Explore HELM OS →",
+    actionLabel: "Explore Daynori →",
     secondaryLabel: "Enterprise Software →",
   },
 ];
@@ -141,7 +141,7 @@ export default function ProductsCatalog() {
             Four Purpose-Built Enterprise Engines
           </h2>
           <p className="text-neutral-600 font-sans text-base sm:text-lg leading-relaxed">
-            Each PresciaIQ platform is purpose-engineered to eliminate operational latency, reduce financial variance, and automate mission-critical enterprise workflows. Deploy individually or harmonize across HELM OS.
+            Each PresciaIQ platform is purpose-engineered to eliminate operational latency, reduce financial variance, and automate mission-critical enterprise workflows. Deploy individually or harmonize across Daynori.
           </p>
         </div>
 

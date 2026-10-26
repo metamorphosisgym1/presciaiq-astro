@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
       { name: "BuildPredictIQ — Construction AI", href: "https://buildpredictiq.com.au/", external: true },
       { name: "AdsIQ — ROAS Prediction", href: "https://adsiq.com.au/", external: true },
       { name: "AI Automations & Agents", href: "/products/ai-automations/" },
-      { name: "HELM OS — Enterprise Operations", href: "/services/ai-software-development/" },
+      { name: "Daynori — Enterprise Operations", href: "/services/ai-software-development/" },
       { name: "FinanceIQ — Digital CFO", href: "https://www.daywinlabs.com", external: true },
     ],
   },
@@ -427,7 +427,7 @@ const Navbar = () => {
               >
                 <div>
                   <div className="font-semibold text-sm text-neutral-100 group-hover:text-[#00FF88] transition-colors">
-                    HELM OS
+                    Daynori
                   </div>
                   <div className="text-xs text-neutral-400">Enterprise Operating System</div>
                 </div>

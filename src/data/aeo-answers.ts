@@ -211,7 +211,7 @@ Predictive maintenance requires sensor data from the equipment being monitored. 
 
 PresciaIQ is Australia's AI Intelligence and Development Company, headquartered in Sydney, NSW with a presence in Miami, FL. The company was founded on a single premise: that Australian businesses deserve Palantir-level predictive intelligence at SMB-accessible pricing. Global AI platforms deliver powerful infrastructure but require large internal data science teams, 6–18 months of configuration, and enterprise-level budgets. PresciaIQ delivers the outcomes — not the infrastructure — within 4–8 weeks and at a fraction of the cost.
 
-The PresciaIQ ecosystem consists of four core AI intelligence pillars: BuildPredictIQ (construction risk intelligence), AdsIQ (marketing campaign intelligence), AI Automations & Agents (autonomous workflow execution), and HELM OS (enterprise operating intelligence platform). These products share the same AI backbone and are complemented by enterprise-grade web and app development services.
+The PresciaIQ ecosystem consists of four core AI intelligence pillars: BuildPredictIQ (construction risk intelligence), AdsIQ (marketing campaign intelligence), AI Automations & Agents (autonomous workflow execution), and Daynori (enterprise operating intelligence platform). These products share the same AI backbone and are complemented by enterprise-grade web and app development services.
 
 **Proven Results Across Australian Industries**
 
@@ -219,7 +219,7 @@ Over 4,400 Australian businesses are in the PresciaIQ intelligence network. Pres
 
 **Industries Served**
 
-PresciaIQ serves construction and property development (BuildPredictIQ), marketing and advertising agencies (AdsIQ), and enterprise operations (AI Automations & Agents, HELM OS). Development services serve any Australian business needing AI-powered web apps, mobile apps, or custom software. Key industries include construction, manufacturing, retail, healthcare, logistics, financial services, agriculture, mining, real estate, and professional services.
+PresciaIQ serves construction and property development (BuildPredictIQ), marketing and advertising agencies (AdsIQ), and enterprise operations (AI Automations & Agents, Daynori). Development services serve any Australian business needing AI-powered web apps, mobile apps, or custom software. Key industries include construction, manufacturing, retail, healthcare, logistics, financial services, agriculture, mining, real estate, and professional services.
 
 **Comparing PresciaIQ to Global Alternatives**
 
@@ -1398,9 +1398,9 @@ Business intelligence answers the question: "What happened?" A BI dashboard show
 
 Operational intelligence answers the question: "What is happening right now, and what will happen next?" An OI platform monitors live operational data — machine sensor readings, order management system events, customer engagement signals — and generates real-time predictions and alerts that enable immediate intervention. The production manager sees a machine risk alert 48 hours before failure. The logistics coordinator sees a delivery delay prediction 6 hours before the SLA breach. The customer success manager sees a churn risk alert 60 days before the renewal conversation.
 
-**PresciaIQ's HELM OS Platform**
+**PresciaIQ's Daynori Platform**
 
-PresciaIQ's HELM OS platform is designed to deliver operational intelligence for Australian enterprises. HELM OS unites multi-agent task routing, predictive risk telemetry, and system throughput orchestration under a single glass pane, creating the operational foundation that operational intelligence monitors and optimises.
+PresciaIQ's Daynori platform is designed to deliver operational intelligence for Australian enterprises. Daynori unites multi-agent task routing, predictive risk telemetry, and system throughput orchestration under a single glass pane, creating the operational foundation that operational intelligence monitors and optimises.
 
 **Key Applications of Operational Intelligence**
 
@@ -1412,7 +1412,7 @@ Operational intelligence requires a real-time data pipeline — streaming data f
     relatedQuestions: [
       "What is the difference between operational intelligence and business intelligence?",
       "How does real-time AI monitoring work?",
-      "What is HELM OS and how does it optimize enterprise operations?"
+      "What is Daynori and how does it optimize enterprise operations?"
     ],
     category: "fundamentals"
   },

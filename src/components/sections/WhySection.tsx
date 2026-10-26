@@ -88,7 +88,7 @@ const capabilities: CapabilityCard[] = [
   },
   {
     id: "helm-os",
-    title: "HELM OS Operational Backbone",
+    title: "Daynori Operational Backbone",
     description:
       "One live command layer for leadership, project managers and frontline teams.",
     href: "/services/ai-software-development/",
@@ -523,7 +523,7 @@ const WhySection = () => {
                 It is the marketing budget misallocated without predictive conversion modeling. The project that slips weeks because field data was trapped in silos. The engineering team rebuilding boilerplate instead of deploying high-performance digital platforms.
               </p>
               <p className="text-neutral-400">
-                We engineer <span className="text-white font-semibold">Intelligent Systems</span> designed for seamless execution and built for scale. From high-speed web and native app architectures to robust operational automation and HELM OS, our infrastructure gives Australian enterprises the velocity required to scale with certainty.
+                We engineer <span className="text-white font-semibold">Intelligent Systems</span> designed for seamless execution and built for scale. From high-speed web and native app architectures to robust operational automation and Daynori, our infrastructure gives Australian enterprises the velocity required to scale with certainty.
               </p>
               <p className="text-neutral-400">
                 Australian SMB and mid-market operators deserve enterprise-grade software built specifically for Australian conditions, engineered with zero compromise.

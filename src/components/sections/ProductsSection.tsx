@@ -45,11 +45,11 @@ const engines: EngineCard[] = [
   },
   {
     id: "helm-os",
-    title: "HELM OS",
+    title: "Daynori",
     description:
       "Centralized enterprise operating intelligence platform uniting autonomous agents, real-time telemetry, and operational execution.",
     href: "/services/ai-software-development/",
-    ctaText: "Explore HELM OS",
+    ctaText: "Explore Daynori",
     isExternal: false,
   },
 ];
@@ -58,7 +58,7 @@ const engineMarkers = [
   { initial: "01", label: "WEB / AEO" },
   { initial: "02", label: "APPS / DEV" },
   { initial: "03", label: "AI AGENTS" },
-  { initial: "04", label: "HELM OS" },
+  { initial: "04", label: "Daynori" },
 ];
 const SLIDES = engines.length;
 // The intro, then one panel per engine, laid side by side on the track.
