@@ -1,13 +1,149 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PricingSection from '../components/sections/PricingSection';
-import LeadCaptureSection from '../components/sections/LeadCaptureSection';
+
+const title = "Transparent Pricing Across the PresciaIQ Ecosystem | From $890/mo";
+const description = "Transparent, performance-focused pricing for the PresciaIQ predictive AI ecosystem: BuildPredictIQ, AdsIQ, Custom AI Development, and AEO/SEO Architecture.";
+const canonicalURL = "https://www.presciaiq.com.au/pricing/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": canonicalURL,
+      "dateModified": "2026-09-26",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+          { "@type": "ListItem", "position": 2, "name": "Pricing", "item": canonicalURL }
+        ]
+      }
+    }
+  ]
+};
 ---
-<Layout title="Pricing | PresciaIQ AI Tools — From $890/month"
-  description="Transparent pricing for PresciaIQ's predictive AI suite. AEO/SEO architecture from $4,999. AI products from $890/month. Built for Australian SMBs.">
-  <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-8">PresciaIQ Pricing — AI Intelligence Tools for Australian SMBs</h1>
-  <div class="pt-4">
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="relative bg-background text-[#F0EDE6] overflow-x-hidden min-h-screen">
+    <!-- Ambient: top-right mint radial glow -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Subtle intelligence grid backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Breadcrumb: Centered cleanly below navbar -->
+    <section class="pt-32 pb-2 max-w-[1650px] mx-auto px-6 sm:px-10 lg:px-16 text-center relative z-10">
+      <nav
+        class="w-full flex justify-center items-center gap-2 text-center mx-auto text-xs font-mono text-[#8FAF8F] tracking-wide"
+        aria-label="Breadcrumb"
+      >
+        <a href="/" class="hover:text-[#00FF88] transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <span class="text-[#F0EDE6]">Pricing</span>
+      </nav>
+    </section>
+
+    <!-- Pricing Section Component (Client-loaded with animations) -->
     <PricingSection client:load />
-    <LeadCaptureSection client:load />
-  </div>
+
+    <!-- ROI Quantification Banner -->
+    <section class="relative z-10 px-6 sm:px-10 lg:px-16 py-12 border-b border-white/5">
+      <div
+        class="max-w-5xl mx-auto rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-2xl hover:border-[#00FF88]/40 transition-colors"
+      >
+        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(0,255,136,0.08),transparent_70%)]"></div>
+
+        <div class="relative z-10 text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs font-mono text-[#00FF88] uppercase tracking-wider mb-3 font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+            ROI QUANTIFICATION
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-serif font-semibold text-[#F0EDE6] mb-2 leading-snug">
+            How Much is Operational Drag Costing Your Enterprise?
+          </h2>
+          <p class="text-xs md:text-sm text-[#C9CCC8] max-w-xl font-sans leading-relaxed">
+            Use our interactive Predictive ROI Calculator to model project delays, marketing variance, and document bottlenecks. Receive an immediate estimate of recoverable EBITDA and projected PresciaIQ ROI.
+          </p>
+        </div>
+
+        <div class="relative z-10 shrink-0">
+          <a
+            href="/reaction-tax-calculator/"
+            class="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#00FF88] hover:bg-[#42FFAA] text-[#050508] font-mono text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap active:scale-95 hover:shadow-[0_0_25px_rgba(0,255,136,0.35)]"
+          >
+            Calculate ROI Now →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enterprise & Institutional Scoping Card -->
+    <section class="relative z-10 px-6 sm:px-10 lg:px-16 py-16">
+      <div
+        class="rounded-3xl border border-white/10 bg-[#111411]/90 backdrop-blur-2xl p-8 sm:p-12 max-w-5xl mx-auto shadow-2xl relative overflow-hidden text-left"
+      >
+        <div class="max-w-3xl mb-8 relative z-10">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-[#00FF88] font-mono text-[11px] tracking-[0.2em] uppercase mb-4 font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+            ENTERPRISE &amp; INSTITUTIONAL SCOPING
+          </div>
+          <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+            Have Custom Architecture, Multi-Tenant or On-Premise Requirements?
+          </h2>
+          <p class="text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed">
+            For organizations with specialized sovereign security mandates, high-throughput streaming requirements, or legacy ERP integrations (SAP, Oracle, custom mainframe databases), our Sydney engineering team designs tailored deployment pipelines.
+          </p>
+        </div>
+
+        <!-- 3 Pillar Tiles -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 pt-4 border-t border-white/5 relative z-10">
+          <div class="rounded-xl border border-white/10 bg-white/[0.02] p-5 hover:border-[#00FF88]/30 transition-all">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-[#00FF88] mb-1 font-semibold">Architecture</div>
+            <div class="text-sm font-semibold text-[#F0EDE6] mb-1 font-serif">Dedicated Tenant VPC</div>
+            <p class="text-xs text-[#C9CCC8] leading-relaxed font-sans">Isolated VPC clusters deployed inside your corporate cloud perimeter.</p>
+          </div>
+
+          <div class="rounded-xl border border-white/10 bg-white/[0.02] p-5 hover:border-[#00FF88]/30 transition-all">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-[#00FF88] mb-1 font-semibold">Reliability</div>
+            <div class="text-sm font-semibold text-[#F0EDE6] mb-1 font-serif">99.95% Guaranteed SLA</div>
+            <p class="text-xs text-[#C9CCC8] leading-relaxed font-sans">Enterprise SLA with 1-hour priority engineering response windows.</p>
+          </div>
+
+          <div class="rounded-xl border border-white/10 bg-white/[0.02] p-5 hover:border-[#00FF88]/30 transition-all">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-[#00FF88] mb-1 font-semibold">Governance</div>
+            <div class="text-sm font-semibold text-[#F0EDE6] mb-1 font-serif">Custom Fine-Tuning</div>
+            <p class="text-xs text-[#C9CCC8] leading-relaxed font-sans">Private weights fine-tuned exclusively on your internal operational datasets.</p>
+          </div>
+        </div>
+
+        <!-- Scoping CTA -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 relative z-10">
+          <a
+            href="/contact/?scope=enterprise"
+            class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#00FF88] hover:bg-[#42FFAA] text-[#050508] font-mono text-xs font-semibold uppercase tracking-wider transition-all active:scale-95 hover:shadow-[0_0_25px_rgba(0,255,136,0.35)]"
+          >
+            Request Enterprise Scope Briefing →
+          </a>
+          <a
+            href="mailto:contact@presciaiq.com.au"
+            class="text-xs font-mono text-[#8FAF8F] hover:text-[#00FF88] transition-colors"
+          >
+            Or email enterprise@presciaiq.com.au
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>

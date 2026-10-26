@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const STORAGE_KEY = "presciaiq_sticky_cta_dismissed";
 const CALENDLY_URL = "https://calendly.com/presciaiq-sales/discoverycall";
@@ -10,13 +14,16 @@ export default function StickyCtaBar() {
   useEffect(() => {
     // Don't show if dismissed this session
     if (sessionStorage.getItem(STORAGE_KEY)) return;
-    // Show after scrolling 200px
-    const handleScroll = () => {
-      if (window.scrollY > 200 && !dismissed) setVisible(true);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [dismissed]);
+    // Show after scrolling 200px.
+    if (window.scrollY > 200) setVisible(true);
+    const trigger = ScrollTrigger.create({
+      start: 200,
+      onEnter: () => {
+        if (!sessionStorage.getItem(STORAGE_KEY)) setVisible(true);
+      },
+    });
+    return () => trigger.kill();
+  }, []);
 
   function dismiss() {
     setDismissed(true);
@@ -49,8 +56,8 @@ export default function StickyCtaBar() {
             Free
           </span>
           <p className="text-sm text-white/80 truncate">
-            <span className="font-semibold text-white">Calculate your Reaction Tax</span>
-            <span className="hidden md:inline"> — see exactly how much margin you are losing to reactive decisions.</span>
+            <span className="font-semibold text-white">Scale Your Digital Infrastructure</span>
+            <span className="hidden md:inline"> — see how predictive AI & automated systems accelerate growth.</span>
           </p>
         </div>
 

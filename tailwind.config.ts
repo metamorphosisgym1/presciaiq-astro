@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./components/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./app/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -14,11 +19,35 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Playfair Display", "serif"],
-        sans: ["Inter", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"DM Sans"', '"Inter"', 'sans-serif'],
+        mono: ['"DM Mono"', '"JetBrains Mono"', 'monospace'],
       },
       colors: {
+        ink: {
+          950: '#050508',
+          900: '#080808',
+          850: '#0D0D0D',
+          800: '#111411',
+        },
+        surface: {
+          DEFAULT: '#111411',
+          raised: '#171B18',
+          glass: 'rgba(17, 20, 17, 0.65)',
+        },
+        sage: {
+          700: '#3E5A45',
+          500: '#5C7A5C',
+          400: '#739673',
+          300: '#8FAF8F',
+        },
+        mint: {
+          DEFAULT: '#00FF88',
+          soft: '#00F5A0',
+          dim: 'rgba(0, 255, 136, 0.12)',
+        },
+        cream: '#F0EDE6',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -67,6 +96,8 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        card: "16px",
+        pill: "999px",
       },
       keyframes: {
         "accordion-down": {

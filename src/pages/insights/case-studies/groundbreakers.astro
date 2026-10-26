@@ -1,0 +1,628 @@
+---
+/**
+ * Case Study: Groundbreakers Plant Hire
+ * Route: /insights/case-studies/groundbreakers/
+ *
+ * Content lives in the data blocks below so copy and figures can be
+ * updated without touching markup. Every figure in `metrics` must be
+ * checked against the client's real reporting before this page ships.
+ */
+import Layout from '../../../layouts/Layout.astro';
+
+// ---------------------------------------------------------------------------
+// Page + SEO
+// ---------------------------------------------------------------------------
+const site = Astro.site ?? new URL('https://www.presciaiq.com.au');
+// trailingSlash is 'always' in astro.config, so every internal URL ends in /.
+const canonicalPath = '/insights/case-studies/groundbreakers/';
+const canonical = new URL(canonicalPath, site).href;
+const liveUrl = 'https://groundbreakersph.com.au';
+const liveHost = 'groundbreakersph.com.au';
+
+const meta = {
+  title: 'Groundbreakers Plant Hire case study | PresciaIQ',
+  description:
+    'How PresciaIQ moved a NSW plant hire business off phone tag and paper pre-starts onto a fast hire platform with digital dispatch and suburb-level search capture across the Central Coast, Newcastle and Sydney.',
+  // Site-wide share image until a case-study image exists. Layout renders the
+  // og:/twitter: image tags; this feeds the Article schema.
+  ogImage: new URL('/og-image.jpg', site).href,
+  published: '2026-10-22',
+  modified: '2026-10-22',
+};
+
+// Set to a screenshot path to replace the live iframe (recommended if the
+// client site sends X-Frame-Options / frame-ancestors headers).
+const previewImage: string | null = null; // e.g. '/images/case-studies/groundbreakers-home.webp'
+
+// ---------------------------------------------------------------------------
+// Content
+// ---------------------------------------------------------------------------
+// VERIFY BEFORE PUBLISHING: replace with figures the client has signed off.
+const metrics = [
+  { value: '42%', label: 'Faster from enquiry to confirmed dispatch' },
+  { value: '100%', label: 'Pre-starts completed and stored digitally' },
+  { value: '90+', label: 'Five-star Google reviews surfaced on site' },
+  { value: '<1s', label: 'Typical page load on 4G from site' },
+];
+
+const frictions = [
+  {
+    title: 'Every booking started as a phone call',
+    body:
+      'Customers rang to ask whether the U17 was free on Thursday. If the phone went unanswered because someone was on the tools or towing a trailer up the M1, the job often went to whoever picked up first.',
+  },
+  {
+    title: 'Availability lived on a whiteboard',
+    body:
+      'Which machine was on which site, and when it was due back, was tracked in the yard. Confirming a hire meant checking the board, calling the operator, then calling the customer back. Three conversations for one yes.',
+  },
+  {
+    title: 'Pre-starts were paper, and paper goes missing',
+    body:
+      'Plant pre-start checks were filled in on carbon books, left in utes and collected when someone remembered. When a principal contractor asked for evidence, finding the right sheet took longer than the inspection itself.',
+  },
+  {
+    title: 'The same docket was written up twice',
+    body:
+      'Hire details were taken by phone, written on a docket, then typed again into invoicing. Each re-key was a chance for the wrong hire period or a missed delivery fee.',
+  },
+];
+
+// A real sequence, so it is numbered.
+const dispatchFlow = [
+  {
+    step: 'Request',
+    body:
+      'The customer picks the machine, dates, wet or dry hire and site address. Attachments and delivery are added in the same form, so nothing is left for a follow-up call.',
+  },
+  {
+    step: 'Check',
+    body:
+      'Live availability is checked against current bookings. Clashes are caught before a quote goes out, not after a float is already on the road.',
+  },
+  {
+    step: 'Confirm',
+    body:
+      'The quote is approved in one tap. The booking, customer details and hire terms land in one record that invoicing reads from directly.',
+  },
+  {
+    step: 'Dispatch',
+    body:
+      'The operator or driver receives the job with the address, access notes and contact on site. Delivery is logged when the machine is dropped.',
+  },
+  {
+    step: 'Pre-start',
+    body:
+      'The pre-start checklist is completed on a phone at the machine, timestamped and attached to the hire. Defects flag the machine before it goes out again.',
+  },
+];
+
+const regions = [
+  {
+    name: 'Central Coast',
+    suburbs: ['Gosford', 'Erina', 'Wyong', 'Terrigal', 'Tuggerah'],
+  },
+  {
+    name: 'Lake Macquarie',
+    suburbs: ['Charlestown', 'Belmont', 'Toronto', 'Morisset', 'Warners Bay'],
+  },
+  {
+    name: 'Newcastle',
+    suburbs: ['Hamilton', 'Merewether', 'Wallsend', 'Maitland', 'Kotara'],
+  },
+  {
+    name: 'Sydney',
+    suburbs: ['Hornsby', 'Northern Beaches', 'Hills District', 'Parramatta'],
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Structured data (schema.org has no CaseStudy type; Article is the
+// supported equivalent, with `about` describing the client).
+// ---------------------------------------------------------------------------
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      '@id': `${canonical}#article`,
+      headline: 'Groundbreakers Plant Hire: from phone tag and paper pre-starts to digital dispatch',
+      description: meta.description,
+      image: meta.ogImage,
+      datePublished: meta.published,
+      dateModified: meta.modified,
+      mainEntityOfPage: canonical,
+      articleSection: 'Case Studies',
+      inLanguage: 'en-AU',
+      author: { '@type': 'Organization', name: 'PresciaIQ', url: site.href },
+      publisher: {
+        '@type': 'Organization',
+        name: 'PresciaIQ',
+        url: site.href,
+        logo: { '@type': 'ImageObject', url: new URL('/assets/presciaiq-logo-transparent.png', site).href },
+      },
+      about: { '@id': `${liveUrl}/#business` },
+    },
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${liveUrl}/#business`,
+      name: 'Groundbreakers Plant Hire',
+      url: liveUrl,
+      description:
+        'Mini excavator, plant and machinery dry and wet hire, tight-access excavation, scaffold towers, trailers, site preparation and earthworks.',
+      areaServed: ['Central Coast NSW', 'Lake Macquarie NSW', 'Newcastle NSW', 'Sydney NSW'],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Insights', item: new URL('/insights/', site).href },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Case studies',
+          item: new URL('/insights/case-studies/', site).href,
+        },
+        { '@type': 'ListItem', position: 3, name: 'Groundbreakers Plant Hire', item: canonical },
+      ],
+    },
+  ],
+};
+---
+
+<Layout title={meta.title} description={meta.description} canonicalURL={canonicalPath}>
+  <!-- Layout already renders canonical, description, og: and twitter: tags from
+       its props; only what it does not cover goes here. -->
+  <Fragment slot="head">
+    <meta property="article:published_time" content={meta.published} />
+    <meta property="article:modified_time" content={meta.modified} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <!-- Layout supplies the page's <main>. -->
+  <div class="gb relative bg-[#07090A] text-neutral-300 antialiased">
+    <!-- ===================================================================
+         HERO
+    ==================================================================== -->
+    <header class="relative overflow-hidden border-b border-white/10">
+      <div class="gb-contours pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+      <div class="relative mx-auto max-w-7xl px-6 pb-16 pt-28 sm:px-10 md:pt-36 lg:pb-24">
+        <nav aria-label="Breadcrumb" class="mb-12 text-sm text-neutral-500">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li><a href="/insights/" class="gb-link">Insights</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/insights/case-studies/" class="gb-link">Case studies</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="text-neutral-300">Groundbreakers</li>
+          </ol>
+        </nav>
+
+        <p class="mb-6 text-xs font-medium tracking-[0.2em] text-[#00FF88]">
+          CIVIL INFRASTRUCTURE &amp; FLEET OPERATIONS
+        </p>
+
+        <h1 class="gb-serif max-w-5xl text-[2.6rem] leading-[1.04] text-white sm:text-6xl lg:text-[5.25rem]">
+          Getting the machine to site before the phone stops ringing.
+        </h1>
+
+        <div class="mt-10 grid gap-10 lg:grid-cols-12 lg:items-end">
+          <p class="max-w-2xl text-lg leading-relaxed text-neutral-400 lg:col-span-7">
+            Groundbreakers Plant Hire runs mini excavators, tight-access gear, scaffold towers and
+            trailers for builders, landscapers and homeowners from the Central Coast to Sydney. We
+            rebuilt how a hire gets booked, dispatched and signed off, so the yard spends its day
+            moving machines instead of paperwork.
+          </p>
+
+          <div class="lg:col-span-5 lg:justify-self-end">
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener"
+              class="gb-pill group inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] py-2.5 pl-4 pr-5 text-sm text-white backdrop-blur-md"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-[#00FF88]" aria-hidden="true"></span>
+              <span>{liveHost}</span>
+              <span class="text-[#00FF88] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true">↗</span>
+              <span class="sr-only">(opens the live site in a new tab)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick metrics -->
+        <dl class="mt-20 grid grid-cols-2 border-t border-white/10 lg:grid-cols-4">
+          {metrics.map((m, i) => (
+            <div
+              class:list={[
+                'py-8 pr-6',
+                i % 2 === 1 && 'border-l border-white/10 pl-6',
+                i > 1 && 'border-t border-white/10 lg:border-t-0',
+                i === 2 && 'lg:border-l lg:pl-6',
+              ]}
+            >
+              <dt class="order-2 mt-3 max-w-[16rem] text-sm leading-snug text-neutral-400">{m.label}</dt>
+              <dd class="gb-serif order-1 text-4xl text-white sm:text-5xl">{m.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </header>
+
+    <!-- ===================================================================
+         CLIENT SNAPSHOT
+    ==================================================================== -->
+    <section class="border-b border-white/10" aria-labelledby="snapshot-heading">
+      <h2 id="snapshot-heading" class="sr-only">Client snapshot</h2>
+      <div class="mx-auto grid max-w-7xl gap-px bg-white/10 sm:grid-cols-3">
+        <div class="bg-[#07090A] px-6 py-8 sm:px-10">
+          <p class="text-sm text-neutral-500">Client</p>
+          <p class="mt-2 text-white">Groundbreakers Plant Hire</p>
+        </div>
+        <div class="bg-[#07090A] px-6 py-8 sm:px-10">
+          <p class="text-sm text-neutral-500">Service area</p>
+          <p class="mt-2 text-white">Central Coast, Lake Macquarie, Newcastle and Sydney</p>
+        </div>
+        <div class="bg-[#07090A] px-6 py-8 sm:px-10">
+          <p class="text-sm text-neutral-500">Fleet</p>
+          <p class="mt-2 text-white">Kubota U17-3 mini excavators, scaffold towers, trailers, earthworks gear</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         THE OPERATIONAL CHALLENGE
+    ==================================================================== -->
+    <section class="border-b border-white/10" aria-labelledby="challenge-heading">
+      <div class="mx-auto grid max-w-7xl gap-16 px-6 py-24 sm:px-10 lg:grid-cols-12 lg:py-32">
+        <div class="lg:col-span-5">
+          <div class="lg:sticky lg:top-28">
+            <h2 id="challenge-heading" class="gb-serif text-4xl leading-tight text-white sm:text-5xl">
+              The operational challenge
+            </h2>
+            <p class="mt-6 max-w-md text-lg leading-relaxed text-neutral-400">
+              Plant hire is won on response time. A builder who needs a 1.7 tonne excavator through a
+              side gate tomorrow morning will book whoever confirms first. Groundbreakers had the
+              machines and the reputation. What slowed them down was everything between the
+              enquiry and the float leaving the yard.
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <ul class="divide-y divide-white/10 border-y border-white/10">
+            {frictions.map((f) => (
+              <li class="py-10">
+                <h3 class="text-xl font-medium text-white">{f.title}</h3>
+                <p class="mt-3 max-w-[62ch] leading-relaxed text-neutral-400">{f.body}</p>
+              </li>
+            ))}
+          </ul>
+
+          <blockquote class="mt-14 border-l border-[#00FF88] pl-6">
+            <p class="gb-serif text-2xl leading-snug text-white sm:text-[1.75rem]">
+              None of this was a technology problem on its own. It was a business answering every
+              question by hand, every time, in a trade where an unanswered call is a lost job.
+            </p>
+            <footer class="mt-4 text-sm text-neutral-500">PresciaIQ discovery notes</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         THE ENGINEERED ARCHITECTURE
+    ==================================================================== -->
+    <section class="border-b border-white/10" aria-labelledby="architecture-heading">
+      <div class="mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:py-32">
+        <div class="max-w-3xl">
+          <h2 id="architecture-heading" class="gb-serif text-4xl leading-tight text-white sm:text-5xl">
+            The engineered architecture
+          </h2>
+          <p class="mt-6 text-lg leading-relaxed text-neutral-400">
+            We treated the website as the front counter of the yard. It had to load on a phone with
+            one bar of signal on a cleared block, be found by someone searching for an excavator in
+            their own suburb, and turn that search into a booked, dispatched and signed-off hire
+            without anyone re-typing it.
+          </p>
+        </div>
+
+        <!-- Three pillars -->
+        <div class="mt-20 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-3">
+          <article class="bg-[#07090A] p-8 sm:p-10">
+            <h3 class="gb-serif text-2xl text-white">Built for a job-site connection</h3>
+            <p class="mt-4 leading-relaxed text-neutral-400">
+              Pages are rendered ahead of time and served from the edge, with images sized for the
+              screen that asks for them and no script shipped unless a page needs it. The result is
+              a site that opens in under a second on 4G and stays usable on a patchy signal.
+            </p>
+            <ul class="mt-8 space-y-3 border-t border-white/10 pt-6 text-sm text-neutral-300">
+              <li>Static-first pages with selective interactivity</li>
+              <li>Responsive, modern-format imagery of the real fleet</li>
+              <li>Core Web Vitals tracked on every release</li>
+            </ul>
+          </article>
+
+          <article class="bg-[#07090A] p-8 sm:p-10">
+            <h3 class="gb-serif text-2xl text-white">Found suburb by suburb</h3>
+            <p class="mt-4 leading-relaxed text-neutral-400">
+              People search for “excavator hire Gosford”, not “plant hire NSW”. We generated local
+              landing pages from a single structured dataset of machines, services and service
+              areas, each with genuine local detail rather than a swapped suburb name.
+            </p>
+            <ul class="mt-8 space-y-3 border-t border-white/10 pt-6 text-sm text-neutral-300">
+              <li>Pages generated from one source of truth</li>
+              <li>LocalBusiness and Service structured data</li>
+              <li>Google reviews pulled in alongside each service</li>
+            </ul>
+          </article>
+
+          <article class="bg-[#07090A] p-8 sm:p-10">
+            <h3 class="gb-serif text-2xl text-white">One record from quote to pre-start</h3>
+            <p class="mt-4 leading-relaxed text-neutral-400">
+              The booking a customer submits becomes the dispatch job, the pre-start record and the
+              invoice line. The yard sees one hire, not four pieces of paper describing it slightly
+              differently.
+            </p>
+            <ul class="mt-8 space-y-3 border-t border-white/10 pt-6 text-sm text-neutral-300">
+              <li>Availability checked before a quote is sent</li>
+              <li>Mobile pre-start checklists with timestamps</li>
+              <li>Hire data flows straight to invoicing</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Regional coverage -->
+        <div class="mt-24 grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <h3 class="gb-serif text-3xl leading-tight text-white">Where the searches come from</h3>
+            <p class="mt-4 leading-relaxed text-neutral-400">
+              Each region gets its own pages, written around the work that actually happens there:
+              sloping blocks on the Coast, lakefront access around Lake Macquarie, tight terraces
+              in inner Newcastle and Sydney.
+            </p>
+          </div>
+          <div class="lg:col-span-8">
+            <div class="grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2">
+              {regions.map((r) => (
+                <div class="bg-[#07090A] p-6 sm:p-8">
+                  <p class="text-white">{r.name}</p>
+                  <p class="mt-3 text-sm leading-relaxed text-neutral-500">
+                    {r.suburbs.join(', ')}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         DISPATCH PIPELINE (sequential, so numbered)
+    ==================================================================== -->
+    <section class="border-b border-white/10" aria-labelledby="pipeline-heading">
+      <div class="mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:py-32">
+        <div class="grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <h2 id="pipeline-heading" class="gb-serif text-4xl leading-tight text-white sm:text-5xl">
+              From enquiry to machine on the float
+            </h2>
+            <p class="mt-6 leading-relaxed text-neutral-400">
+              The old process took several calls and a trip back to the yard. The new one is five
+              steps, and the customer only has to take part in the first and third.
+            </p>
+          </div>
+
+          <ol class="gb-flow relative lg:col-span-8">
+            {dispatchFlow.map((s, i) => (
+              <li class="relative grid grid-cols-[3rem_1fr] gap-6 pb-12 last:pb-0 sm:grid-cols-[4rem_1fr]">
+                <span
+                  class="gb-serif relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[#07090A] text-lg text-[#00FF88] sm:h-14 sm:w-14"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <div class="pt-2.5 sm:pt-3.5">
+                  <h3 class="text-xl font-medium text-white">
+                    <span class="sr-only">Step {i + 1}: </span>{s.step}
+                  </h3>
+                  <p class="mt-2 max-w-[60ch] leading-relaxed text-neutral-400">{s.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         LIVE PLATFORM SHOWCASE
+    ==================================================================== -->
+    <section aria-labelledby="showcase-heading">
+      <div class="mx-auto max-w-7xl px-6 py-24 sm:px-10 lg:py-32">
+        <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl sm:p-6 lg:p-8">
+          <div class="flex flex-col gap-6 px-2 pb-6 pt-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 id="showcase-heading" class="gb-serif text-3xl text-white sm:text-4xl">
+                The platform, live
+              </h2>
+              <p class="mt-3 max-w-xl leading-relaxed text-neutral-400">
+                Browse the fleet, check a suburb page or start a hire request the way Groundbreakers’
+                customers do.
+              </p>
+            </div>
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener"
+              class="gb-cta inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#00FF88] px-6 py-3 text-sm font-semibold text-[#07090A] transition-colors hover:bg-white"
+            >
+              Visit Live Platform <span aria-hidden="true">↗</span>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+          </div>
+
+          <!-- Browser frame -->
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0D1012]">
+            <div class="flex items-center gap-4 border-b border-white/10 px-4 py-3">
+              <div class="flex gap-1.5" aria-hidden="true">
+                <span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
+              </div>
+              <div class="flex-1 truncate rounded-md border border-white/10 bg-white/[0.03] px-3 py-1 text-center text-xs text-neutral-400">
+                {liveHost}
+              </div>
+              <span class="w-[42px]" aria-hidden="true"></span>
+            </div>
+
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener"
+              class="gb-preview group relative block aspect-[16/10] overflow-hidden bg-[#0D1012]"
+              aria-label="Open groundbreakersph.com.au in a new tab"
+            >
+              {previewImage ? (
+                <img
+                  src={previewImage}
+                  alt="Groundbreakers Plant Hire homepage"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-full w-full object-cover object-top"
+                />
+              ) : (
+                <iframe
+                  src={liveUrl}
+                  title="Live preview of the Groundbreakers Plant Hire website"
+                  loading="lazy"
+                  tabindex="-1"
+                  sandbox="allow-scripts allow-same-origin"
+                  referrerpolicy="no-referrer"
+                  class="gb-frame pointer-events-none absolute left-0 top-0 origin-top-left border-0"
+                />
+              )}
+              <span class="absolute inset-0 bg-[#07090A]/0 transition-colors duration-300 group-hover:bg-[#07090A]/30" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CLOSE
+    ==================================================================== -->
+    <section class="border-t border-white/10">
+      <div class="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-24 sm:px-10 lg:flex-row lg:items-end lg:justify-between lg:py-28">
+        <div class="max-w-2xl">
+          <h2 class="gb-serif text-4xl leading-tight text-white sm:text-5xl">
+            Running a fleet on phone calls and carbon books?
+          </h2>
+          <p class="mt-5 text-lg leading-relaxed text-neutral-400">
+            We work with hire, civil and trade businesses that have outgrown the whiteboard. Tell us
+            how a job moves through your yard today and we’ll show you where the time goes.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/contact/"
+            class="gb-cta inline-flex items-center rounded-full bg-[#00FF88] px-6 py-3 text-sm font-semibold text-[#07090A] transition-colors hover:bg-white"
+          >
+            Start a conversation
+          </a>
+          <a
+            href="/insights/case-studies/"
+            class="gb-cta inline-flex items-center rounded-full border border-white/10 px-6 py-3 text-sm text-white transition-colors hover:border-white/30"
+          >
+            More case studies
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  /* The site's editorial display serif (loaded globally in global.css), set
+     lighter than the default heading weight for a restrained case-study voice. */
+  .gb-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    font-optical-sizing: auto;
+  }
+
+  /* Faint survey contour lines behind the hero: a nod to site plans,
+     drawn in CSS so there is no image request. */
+  .gb-contours {
+    background-image:
+      repeating-radial-gradient(
+        ellipse 120% 80% at 85% 20%,
+        transparent 0 38px,
+        rgba(255, 255, 255, 0.035) 38px 39px
+      );
+    mask-image: linear-gradient(to bottom, black 30%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 95%);
+  }
+
+  /* Metric order: value above label while keeping dt/dd semantics */
+  dl > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Vertical rail connecting the numbered dispatch steps */
+  .gb-flow::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(0, 255, 136, 0.5), rgba(255, 255, 255, 0.08));
+  }
+  @media (min-width: 640px) {
+    .gb-flow::before {
+      left: 1.75rem;
+    }
+  }
+
+  /* Live iframe renders at desktop width, scaled to fit the frame */
+  .gb-frame {
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+  }
+  @media (max-width: 639px) {
+    .gb-frame {
+      width: 300%;
+      height: 300%;
+      transform: scale(0.3334);
+    }
+  }
+
+  .gb-link {
+    text-underline-offset: 4px;
+  }
+  .gb-link:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .gb-pill:hover {
+    border-color: rgba(0, 255, 136, 0.4);
+  }
+
+  .gb a:focus-visible {
+    outline: 2px solid #00ff88;
+    outline-offset: 3px;
+  }
+  .gb-preview:focus-visible {
+    outline-offset: -2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gb * {
+      transition: none !important;
+    }
+  }
+</style>

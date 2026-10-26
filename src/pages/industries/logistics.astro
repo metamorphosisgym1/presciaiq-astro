@@ -2,25 +2,25 @@
 import Layout from '../../layouts/Layout.astro';
 
 const title = "AI for Logistics & Supply Chain Australia | PresciaIQ";
-const description = "Predict supply chain disruptions, delivery delays, and inventory shortfalls 5–14 days out. OpsIQ by PresciaIQ — built for Australian logistics.";
-const canonicalURL = new URL("/industries/logistics/", Astro.site).href;
+const description = "Predict supply chain disruptions, delivery delays, and inventory shortfalls 5–14 days out. AI Automations & HELM OS by PresciaIQ — built for Australian logistics.";
+const canonicalURL = "https://www.presciaiq.com.au/industries/logistics/";
 
 const faqs = [
   {
-    q: "How does OpsIQ predict supply chain disruptions?",
-    a: "OpsIQ monitors 38 operational signals including supplier lead time variance, carrier performance history, port congestion data, weather events on key freight corridors, and inventory velocity. When a combination of signals indicates a disruption risk, OpsIQ alerts your operations team 5–14 days before the impact is felt."
+    q: "How does PresciaIQ predict supply chain disruptions?",
+    a: "PresciaIQ monitors 38 operational signals including supplier lead time variance, carrier performance history, port congestion data, weather events on key freight corridors, and inventory velocity. When a combination of signals indicates a disruption risk, the system alerts your operations team 5–14 days before the impact is felt."
   },
   {
-    q: "What types of logistics businesses does OpsIQ serve?",
-    a: "OpsIQ is built for Australian 3PL operators, freight forwarders, e-commerce fulfilment centres, and in-house logistics teams at manufacturers and retailers. The engine is particularly effective for businesses with 3+ supplier relationships and 2+ distribution points."
+    q: "What types of logistics businesses does PresciaIQ serve?",
+    a: "PresciaIQ is built for Australian 3PL operators, freight forwarders, e-commerce fulfilment centres, and in-house logistics teams at manufacturers and retailers. The engine is particularly effective for businesses with 3+ supplier relationships and 2+ distribution points."
   },
   {
-    q: "Can OpsIQ integrate with our warehouse management system?",
-    a: "OpsIQ integrates with major Australian WMS platforms including Manhattan Associates, Microlistics, and Pronto Xi. For businesses on custom WMS or ERP systems, we provide a REST API for bidirectional data exchange."
+    q: "Can PresciaIQ integrate with our warehouse management system?",
+    a: "PresciaIQ integrates with major Australian WMS platforms including Manhattan Associates, Microlistics, and Pronto Xi. For businesses on custom WMS or ERP systems, we provide a REST API for bidirectional data exchange."
   },
   {
-    q: "How does OpsIQ handle seasonal demand spikes?",
-    a: "OpsIQ's demand forecasting module analyses 3 years of historical order data, seasonal patterns, and external signals (economic indicators, competitor activity, weather) to produce a 90-day forward demand forecast. This allows procurement teams to pre-position inventory before demand spikes materialise."
+    q: "How does PresciaIQ handle seasonal demand spikes?",
+    a: "PresciaIQ's demand forecasting module analyses 3 years of historical order data, seasonal patterns, and external signals (economic indicators, competitor activity, weather) to produce a 90-day forward demand forecast. This allows procurement teams to pre-position inventory before demand spikes materialise."
   },
 ];
 
@@ -34,9 +34,9 @@ const schema = {
       "url": canonicalURL,
       "dateModified": "2026-05-27",
       "relatedLink": [
-      { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/what-is-operational-intelligence-platform/", "name": "What is an Operational Intelligence Platform" },
-      { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/business-intelligence-evolution-australia/", "name": "Business Intelligence Evolution in Australia" },
-      { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/three-tests-for-predictive-intelligence/", "name": "Three Tests for Predictive Intelligence" }
+        { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/what-is-operational-intelligence-platform/", "name": "What is an Operational Intelligence Platform" },
+        { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/business-intelligence-evolution-australia/", "name": "Business Intelligence Evolution in Australia" },
+        { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/three-tests-for-predictive-intelligence/", "name": "Three Tests for Predictive Intelligence" }
       ],
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -63,93 +63,310 @@ const schema = {
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <main class="min-h-screen bg-background text-foreground">
-    <div class="border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
-          <a href="/" class="hover:text-primary transition-colors">Home</a>
-          <span>/</span>
-          <a href="/industries/" class="hover:text-primary transition-colors">Industries</a>
-          <span>/</span>
-          <span class="text-foreground">Logistics & Supply Chain</span>
-        </nav>
-      </div>
-    </div>
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
 
-    <section class="py-16 md:py-24 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Logistics & Supply Chain</span>
-          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">OpsIQ</span>
+    <!-- ═══ AMBIENT ATMOSPHERIC BACKDROP ═══ -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ 1. HERO SECTION ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-14 text-left md:text-center">
+
+        <!-- Breadcrumb: Centered below navbar -->
+        <nav class="w-full flex justify-center text-center mx-auto mb-6 text-xs font-mono text-[#8FAF8F] tracking-wide inline-flex items-center gap-2" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-[#00FF88] transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <a href="/industries/" class="hover:text-[#00FF88] transition-colors">Industries</a>
+          <span class="text-white/20">/</span>
+          <span class="text-[#F0EDE6]">Logistics &amp; Supply Chain</span>
+        </nav>
+
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          LOGISTICS &amp; SUPPLY CHAIN // AI AUTOMATIONS &amp; HELM OS
         </div>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
-          Predict Bottlenecks <span class="text-gradient-primary">Before They Stop Your Operation</span>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          Predict Bottlenecks <span class="text-[#00FF88] italic">Before They Stop Your Operation</span>
         </h1>
-        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
-          OpsIQ delivers operational intelligence for Australian logistics operators — monitoring 38 supply chain signals to predict delivery delays, supplier failures, and inventory shortfalls 5–14 days before they cascade into shutdowns.
+
+        <!-- Subtitle -->
+        <p class="speakable-summary text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-8 leading-relaxed">
+          PresciaIQ delivers operational intelligence and autonomous workflows for Australian logistics operators — monitoring 38 supply chain signals to predict delivery delays, supplier failures, and inventory shortfalls 5–14 days before they cascade into shutdowns.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/start/"
+            id="hero-cta-logistics-assessment"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+          >
             Book a Free Supply Chain Assessment →
           </a>
-          <a href="/products/opsiq/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
-            View OpsIQ →
+          <a
+            href="/products/ai-automations/"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 hover:bg-white/[0.07] transition-all duration-300 backdrop-blur-md"
+          >
+            View AI Automations →
           </a>
         </div>
+
       </div>
     </section>
 
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {[
-            { stat: "5–14d", label: "Early warning lead time" },
-            { stat: "38", label: "Supply chain signals monitored" },
-            { stat: "91%", label: "Disruption prediction accuracy" },
-            { stat: "27%", label: "Average reduction in stockouts" },
-          ].map(item => (
-            <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
-              <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
-              <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
-            </div>
-          ))}
+    <!-- ═══ 2. 4 METRIC BENTO CARDS ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="text-left md:text-center max-w-3xl mx-auto mb-12" data-reveal="from-bottom">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88]"></span>
+          OPERATIONAL IMPACT
         </div>
+        <h2 class="text-3xl md:text-5xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          Predictive Supply Chain Signals
+        </h2>
+        <p class="text-[#C9CCC8] font-sans text-sm md:text-base leading-relaxed">
+          From transit corridors to multi-tier supplier reliability, PresciaIQ continuously models risk factors before operational bottlenecks take hold.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Metric 1: 5–14d -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="50"
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 group flex flex-col justify-between"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="absolute -right-16 -bottom-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none z-0" style="background: radial-gradient(circle, #00FF88 0%, transparent 70%);"></div>
+          <div class="relative z-20">
+            <p class="font-serif text-3xl md:text-4xl font-bold text-[#00FF88] mb-1 tracking-tight">5–14d</p>
+            <p class="text-xs md:text-sm text-[#C9CCC8] font-sans leading-snug">Early warning lead time</p>
+          </div>
+          <p class="text-[11px] font-mono text-[#8FAF8F] mt-4 pt-3 border-t border-white/5 relative z-20">
+            PREDICTIVE WINDOW
+          </p>
+        </div>
+
+        <!-- Metric 2: 38 -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="100"
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 group flex flex-col justify-between"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="absolute -right-16 -bottom-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none z-0" style="background: radial-gradient(circle, #00FF88 0%, transparent 70%);"></div>
+          <div class="relative z-20">
+            <p class="font-serif text-3xl md:text-4xl font-bold text-[#00FF88] mb-1 tracking-tight">38</p>
+            <p class="text-xs md:text-sm text-[#C9CCC8] font-sans leading-snug">Supply chain signals monitored</p>
+          </div>
+          <p class="text-[11px] font-mono text-[#8FAF8F] mt-4 pt-3 border-t border-white/5 relative z-20">
+            SUPPLIER, CORRIDOR &amp; PORT DATA
+          </p>
+        </div>
+
+        <!-- Metric 3: 91% -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="150"
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 group flex flex-col justify-between"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="absolute -right-16 -bottom-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none z-0" style="background: radial-gradient(circle, #00FF88 0%, transparent 70%);"></div>
+          <div class="relative z-20">
+            <p class="font-serif text-3xl md:text-4xl font-bold text-[#00FF88] mb-1 tracking-tight">91%</p>
+            <p class="text-xs md:text-sm text-[#C9CCC8] font-sans leading-snug">Disruption prediction accuracy</p>
+          </div>
+          <p class="text-[11px] font-mono text-[#8FAF8F] mt-4 pt-3 border-t border-white/5 relative z-20">
+            VERIFIED HOLDOUT VALIDATION
+          </p>
+        </div>
+
+        <!-- Metric 4: 27% -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="200"
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 group flex flex-col justify-between"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="absolute -right-16 -bottom-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none z-0" style="background: radial-gradient(circle, #00FF88 0%, transparent 70%);"></div>
+          <div class="relative z-20">
+            <p class="font-serif text-3xl md:text-4xl font-bold text-[#00FF88] mb-1 tracking-tight">27%</p>
+            <p class="text-xs md:text-sm text-[#C9CCC8] font-sans leading-snug">Average reduction in stockouts</p>
+          </div>
+          <p class="text-[11px] font-mono text-[#8FAF8F] mt-4 pt-3 border-t border-white/5 relative z-20">
+            AUSTRALIAN 3PL &amp; WAREHOUSING
+          </p>
+        </div>
+
       </div>
     </section>
 
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Frequently Asked Questions</p>
-        <h2 class="font-display text-3xl font-bold text-foreground mb-10">Logistics AI — Common Questions</h2>
-        <div class="space-y-6 max-w-3xl">
-          {faqs.map(faq => (
-            <div class="border-b border-white/5 pb-6">
-              <h3 class="font-display text-lg font-bold text-foreground mb-3">{faq.q}</h3>
-              <p class="text-muted-foreground font-sans leading-relaxed text-sm">{faq.a}</p>
-            </div>
-          ))}
+    <!-- ═══ 3. FREQUENTLY ASKED QUESTIONS ═══ -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="text-left md:text-center mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88]"></span>
+          FREQUENTLY ASKED QUESTIONS
         </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight">
+          Logistics AI — Common Questions
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq, idx) => (
+          <details
+            data-reveal="from-bottom"
+            data-reveal-delay={(idx * 50).toString()}
+            class="rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 mb-4 hover:border-white/20 transition-all group cursor-pointer"
+          >
+            <summary class="flex items-center justify-between text-lg font-serif font-semibold text-[#F0EDE6] group-open:text-[#00FF88] transition-colors list-none select-none mb-2">
+              <span>{faq.q}</span>
+              <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
+                ↓
+              </span>
+            </summary>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed pt-3 border-t border-white/5">
+              {faq.a}
+            </p>
+          </details>
+        ))}
       </div>
     </section>
 
-    <section class="py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
-        <div class="grid sm:grid-cols-3 gap-4">
-          <a href="/products/opsiq/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Product</p>
-            <p class="font-display font-bold text-foreground">OpsIQ →</p>
-          </a>
-          <a href="/industries/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Industries</p>
-            <p class="font-display font-bold text-foreground">All Industries →</p>
-          </a>
-          <a href="/start/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Get Started</p>
-            <p class="font-display font-bold text-foreground">Book Assessment →</p>
-          </a>
-        </div>
+    <!-- ═══ 4. RELATED LINKS (3 CARDS) ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <div class="text-left md:text-center mb-8">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] block mb-2 font-semibold">
+          EXPLORE FURTHER
+        </span>
+        <h2 class="font-serif text-2xl md:text-3xl font-semibold text-[#F0EDE6]">
+          Related Intelligence &amp; Solutions
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Card 1: AI Automations -->
+        <a
+          href="/products/ai-automations/"
+          data-reveal="from-bottom"
+          data-reveal-delay="0"
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 group block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2 font-semibold">Platform</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              AI Automations &amp; Agents
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans leading-relaxed">
+              Operational intelligence &amp; autonomous document processing pipelines.
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 2: All Industries -->
+        <a
+          href="/industries/"
+          data-reveal="from-bottom"
+          data-reveal-delay="80"
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 group block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2 font-semibold">Industries</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              All Industries
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans leading-relaxed">
+              Explore predictive AI solutions built for Australian commercial sectors.
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 3: Book Assessment -->
+        <a
+          href="/start/"
+          data-reveal="from-bottom"
+          data-reveal-delay="160"
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 group block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2 font-semibold">Get Started</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              Book Assessment
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans leading-relaxed">
+              Run an operational risk diagnostic across your logistics pipelines.
+            </p>
+          </div>
+        </a>
       </div>
     </section>
+
   </main>
+
+  <!-- ═══ 5. DIRECTIONAL SCROLL ENTRANCE SCRIPT ═══ -->
+  <script is:inline>
+    (function () {
+      const INIT = {
+        'from-left':   { transform: 'translateX(-20px)', opacity: '0' },
+        'from-right':  { transform: 'translateX(20px)',  opacity: '0' },
+        'from-bottom': { transform: 'translateY(20px)',  opacity: '0' },
+      };
+
+      const targets = document.querySelectorAll('[data-reveal]');
+
+      targets.forEach(el => {
+        const dir = el.getAttribute('data-reveal');
+        const init = INIT[dir];
+        if (!init) return;
+        Object.assign(el.style, init);
+        el.style.transition = 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.willChange = 'transform, opacity';
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => {
+              el.style.transform = 'translate(0, 0)';
+              el.style.opacity = '1';
+            }, delay);
+            observer.unobserve(el);
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      targets.forEach(el => observer.observe(el));
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(el => {
+          el.style.transform = 'none';
+          el.style.opacity = '1';
+          el.style.transition = 'none';
+        });
+      }
+    })();
+  </script>
 </Layout>

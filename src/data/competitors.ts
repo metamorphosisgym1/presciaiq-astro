@@ -268,7 +268,7 @@ export const competitors: Competitor[] = [
     category: "Business Intelligence",
     tagline: "Traditional BI dashboards vs PresciaIQ's predictive intelligence",
     theirApproach: "Traditional BI tools — including legacy platforms like Crystal Reports, SSRS, and older versions of Cognos — are built around scheduled reporting, static dashboards, and historical data analysis. They require significant IT and analyst resources to maintain.",
-    presciaiqAdvantage: "Traditional BI tools tell you what happened last quarter. PresciaIQ tells you what will happen next quarter and automates the operational response — eliminating the Reaction Tax that traditional BI perpetuates.",
+    presciaiqAdvantage: "Traditional BI tools tell you what happened last quarter. PresciaIQ tells you what will happen next quarter and automates the operational response — eliminating the operational drag and latency that traditional BI perpetuates.",
     keyDifferences: [
       { label: "Core function", them: "Historical reporting and static dashboards", us: "Predictive intelligence and decision automation" },
       { label: "Time horizon", them: "Backward-looking (what happened)", us: "Forward-looking (what will happen)" },
@@ -278,7 +278,7 @@ export const competitors: Competitor[] = [
       { label: "Maintenance cost", them: "High — IT team required", us: "Managed intelligence — we maintain it" }
     ],
     faqs: [
-      { q: "Why should Australian businesses replace traditional BI with PresciaIQ?", a: "Traditional BI tools were built for a world where data was scarce and decisions were made weekly. Today, Australian businesses generate vast operational data in real time — and traditional BI cannot process it fast enough to prevent costly reactive decisions. PresciaIQ replaces the Reaction Tax with predictive intelligence that acts before problems materialise." },
+      { q: "Why should Australian businesses replace traditional BI with PresciaIQ?", a: "Traditional BI tools were built for a world where data was scarce and decisions were made weekly. Today, Australian businesses generate vast operational data in real time — and traditional BI cannot process it fast enough to prevent costly reactive decisions. PresciaIQ eliminates operational latency with predictive intelligence that acts before problems materialise." },
       { q: "Is PresciaIQ a replacement for existing BI tools?", a: "For operational intelligence use cases, yes. PresciaIQ replaces the need for scheduled reports and manual dashboard interpretation by delivering predictions and recommended actions directly to operational teams. Many businesses run PresciaIQ alongside legacy BI tools during transition, then retire the old systems." },
       { q: "How long does it take to migrate from traditional BI to PresciaIQ?", a: "Most mid-market businesses can deploy PresciaIQ's core predictive intelligence layer in 4–8 weeks. PresciaIQ's pre-built industry models reduce the data modelling and configuration work that traditional BI migrations require — significantly shortening the transition timeline." }
     ]

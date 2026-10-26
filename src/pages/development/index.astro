@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AppBuildingSection from '../../components/sections/AppBuildingSection';
+import ProofOfWorkSection from '../../components/sections/ProofOfWorkSection';
+import PricingSection from '../../components/sections/PricingSection';
+import LeadCaptureSection from '../../components/sections/LeadCaptureSection';
+
+const title = "AI Development Services Australia | PresciaIQ";
+const description = "Custom AI development for Australian businesses. Predictive analytics, AI web apps, and intelligent software built by PresciaIQ's engineering team.";
+const canonicalURL = "https://presciaiq.com.au/development/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "PresciaIQ — AI Development Services",
+  "description": description,
+  "url": canonicalURL,
+  "serviceType": "AI Software Development",
+  "areaServed": { "@type": "Country", "name": "Australia" }
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="relative bg-background text-foreground overflow-x-hidden">
+
+    <!-- Ambient: top-right mint radial glow -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0"
+      aria-hidden="true"
+      style="background: radial-gradient(ellipse at top right, rgba(0,255,136,0.12), transparent 60%);"
+    ></div>
+
+    <!-- Subtle intelligence grid backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="flex flex-col items-center text-center mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-32 pb-14">
+
+        <!-- Breadcrumb -->
+        <nav class="w-full flex justify-center text-center mx-auto mb-6" aria-label="Breadcrumb">
+          <div class="text-xs font-mono text-[#8FAF8F] tracking-wide inline-flex items-center gap-2">
+            <a href="/" class="hover:text-[#00FF88] transition-colors">Home</a>
+            <span class="text-white/20">/</span>
+            <span class="text-[#F0EDE6]">Development</span>
+          </div>
+        </nav>
+
+        <!-- Eyebrow pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          THE FOUNDATION OF INTELLIGENCE
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          Web Apps &amp; <span class="text-[#00FF88] italic">High-Performance Platforms.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-8 leading-relaxed">
+          Enterprise-grade digital infrastructure engineered for speed, scale, and seamless AI integration — built specifically for high-growth Australian operators.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/start/"
+            id="hero-cta-dev-start"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+          >
+            Start a Project →
+          </a>
+          <a
+            href="#development-services"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 hover:bg-white/[0.07] transition-all duration-300 backdrop-blur-md"
+          >
+            View Services
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ COMPONENTS ═══ -->
+    <div class="relative z-10">
+      <AppBuildingSection client:load hideHeader={true} />
+      <ProofOfWorkSection client:load />
+      <PricingSection client:load />
+      <LeadCaptureSection client:load />
+    </div>
+
+  </main>
+</Layout>

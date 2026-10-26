@@ -1,4 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 // ── Types ────────────────────────────────────────────────────────────────────
 interface FormData {
@@ -54,6 +58,14 @@ export default function AuditPopup() {
   }, []);
 
   useEffect(() => {
+    // Custom event triggers (e.g. from CTA banner or navbar "Book a Strategy Call")
+    const handleOpenModal = () => {
+      setVisible(true);
+      setStep(1);
+    };
+    window.addEventListener("open-strategy-modal", handleOpenModal);
+    window.addEventListener("open-audit-popup", handleOpenModal);
+
     // Time delay: 8 seconds (longer on non-homepage to let them read)
     const isHomepage = typeof window !== "undefined" && window.location.pathname === "/";
     const delay = isHomepage ? 4000 : 10000;
@@ -62,18 +74,25 @@ export default function AuditPopup() {
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 10) showPopup();
     };
-    // Scroll depth: fires at 60% page scroll
-    const handleScroll = () => {
-      const scrolled = window.scrollY + window.innerHeight;
-      const total = document.documentElement.scrollHeight;
-      if (scrolled / total >= 0.60) showPopup();
+    // Scroll depth: fires once at 60% page scroll.
+    let scrollDepthTriggered = false;
+    const handleScrollDepth = () => {
+      if (scrollDepthTriggered) return;
+      scrollDepthTriggered = true;
+      showPopup();
     };
+    const scrollDepthTrigger = ScrollTrigger.create({
+      start: () => Math.max(0, document.documentElement.scrollHeight * 0.6 - window.innerHeight),
+      onEnter: handleScrollDepth,
+      onEnterBack: handleScrollDepth,
+    });
     document.addEventListener("mouseleave", handleMouseLeave);
-    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
+      window.removeEventListener("open-strategy-modal", handleOpenModal);
+      window.removeEventListener("open-audit-popup", handleOpenModal);
       clearTimeout(timer);
       document.removeEventListener("mouseleave", handleMouseLeave);
-      window.removeEventListener("scroll", handleScroll);
+      scrollDepthTrigger.kill();
     };
   }, [showPopup]);
 
@@ -135,24 +154,19 @@ export default function AuditPopup() {
   return (
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-      style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)" }}
+      style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)" }}
       onClick={(e) => { if (e.target === e.currentTarget) dismiss(); }}
     >
       <div
-        className="relative w-full max-w-md rounded-2xl overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #0a0f0a 0%, #0d1a10 50%, #0a0f0a 100%)",
-          border: "1px solid rgba(74,222,128,0.2)",
-          boxShadow: "0 0 60px rgba(74,222,128,0.08), 0 25px 50px rgba(0,0,0,0.6)",
-        }}
+        className="relative w-full max-w-md rounded-3xl overflow-hidden bg-[#111613] border border-[#232A25] shadow-[0_25px_60px_rgba(0,0,0,0.85)] text-left"
       >
-        {/* Green accent bar */}
-        <div className="h-1 w-full" style={{ background: "linear-gradient(90deg, #4ade80, #22d3ee, #4ade80)" }} />
+        {/* Accent bar */}
+        <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#8FAF8F] to-transparent" />
 
         {/* Close button */}
         <button
           onClick={dismiss}
-          className="absolute top-4 right-4 text-white/30 hover:text-white/70 transition-colors text-xl leading-none z-10"
+          className="absolute top-4 right-4 text-zinc-400 hover:text-[#F0EDE6] transition-colors text-2xl leading-none z-10 w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#1A231C]"
           aria-label="Close"
         >
           ×
@@ -163,20 +177,19 @@ export default function AuditPopup() {
           {step === 1 && (
             <form onSubmit={handleUrlSubmit} className="space-y-5">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold"
-                style={{ background: "rgba(74,222,128,0.1)", color: "#4ade80", border: "1px solid rgba(74,222,128,0.2)" }}>
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#131A15] text-[#8FAF8F] border border-[#233026]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#8FAF8F] animate-pulse" />
                 Free Digital Health Score
               </div>
 
               {/* Headline */}
               <div>
-                <h2 className="text-2xl font-black text-white leading-tight">
+                <h2 className="text-2xl font-serif font-bold text-[#F0EDE6] leading-tight">
                   Your website is losing you{" "}
-                  <span style={{ color: "#4ade80" }}>$8,000+ a month</span>{" "}
+                  <span className="text-[#8FAF8F] italic">$8,000+ a month</span>{" "}
                   in leads.
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">
                   Most trade and service businesses miss 4–6 enquiries a week from people who searched, landed on their site, and left. Enter your URL and we'll show you exactly where revenue is leaking.
                 </p>
               </div>
@@ -188,13 +201,7 @@ export default function AuditPopup() {
                   value={form.url}
                   onChange={e => setForm(f => ({ ...f, url: e.target.value }))}
                   placeholder="yourwebsite.com.au"
-                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder:text-white/25 focus:outline-none transition-all"
-                  style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(74,222,128,0.2)",
-                  }}
-                  onFocus={e => (e.currentTarget.style.borderColor = "rgba(74,222,128,0.5)")}
-                  onBlur={e => (e.currentTarget.style.borderColor = "rgba(74,222,128,0.2)")}
+                  className="w-full px-4 py-3 rounded-xl text-sm text-[#F0EDE6] bg-[#0C0F0D] border border-[#232A25] placeholder:text-zinc-500 focus:outline-none focus:border-[#8FAF8F] focus:bg-[#141A15] transition-all"
                   autoFocus
                 />
                 {error && <p className="mt-1.5 text-xs text-red-400">{error}</p>}
@@ -202,13 +209,12 @@ export default function AuditPopup() {
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98]"
-                style={{ background: "linear-gradient(135deg, #4ade80, #22d3ee)" }}
+                className="w-full py-3.5 rounded-xl text-sm font-semibold text-[#F0EDE6] bg-[#3D6346] hover:bg-[#4A7854] border border-[#52855D]/40 transition-all active:scale-[0.98] shadow-sm cursor-pointer"
               >
                 Get My Free Score →
               </button>
 
-              <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
+              <p className="text-center text-xs text-zinc-500">
                 No spam. No obligation. Results within 24 hours.
               </p>
             </form>
@@ -219,14 +225,14 @@ export default function AuditPopup() {
             <form onSubmit={handleDetailsSubmit} className="space-y-5">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-green-400 text-sm">✓</span>
-                  <span className="text-xs text-white/40 truncate">{form.url}</span>
+                  <span className="text-[#8FAF8F] text-sm">✓</span>
+                  <span className="text-xs text-zinc-400 truncate">{form.url}</span>
                 </div>
-                <h2 className="text-xl font-black text-white leading-tight">
+                <h2 className="text-xl font-serif font-bold text-[#F0EDE6] leading-tight">
                   Where should we send your{" "}
-                  <span style={{ color: "#4ade80" }}>Digital Health Score?</span>
+                  <span className="text-[#8FAF8F] italic font-serif">Digital Health Score?</span>
                 </h2>
-                <p className="mt-2 text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>
+                <p className="mt-2 text-sm text-zinc-400">
                   We'll audit your site across 3 dimensions and email you the findings within 24 hours.
                 </p>
               </div>
@@ -237,10 +243,7 @@ export default function AuditPopup() {
                   value={form.name}
                   onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                   placeholder="Your name"
-                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder:text-white/25 focus:outline-none transition-all"
-                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(74,222,128,0.2)" }}
-                  onFocus={e => (e.currentTarget.style.borderColor = "rgba(74,222,128,0.5)")}
-                  onBlur={e => (e.currentTarget.style.borderColor = "rgba(74,222,128,0.2)")}
+                  className="w-full px-4 py-3 rounded-xl text-sm text-[#F0EDE6] bg-[#0C0F0D] border border-[#232A25] placeholder:text-zinc-500 focus:outline-none focus:border-[#8FAF8F] focus:bg-[#141A15] transition-all"
                   autoFocus
                 />
                 <input
@@ -248,26 +251,16 @@ export default function AuditPopup() {
                   value={form.email}
                   onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                   placeholder="Email address"
-                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder:text-white/25 focus:outline-none transition-all"
-                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(74,222,128,0.2)" }}
-                  onFocus={e => (e.currentTarget.style.borderColor = "rgba(74,222,128,0.5)")}
-                  onBlur={e => (e.currentTarget.style.borderColor = "rgba(74,222,128,0.2)")}
+                  className="w-full px-4 py-3 rounded-xl text-sm text-[#F0EDE6] bg-[#0C0F0D] border border-[#232A25] placeholder:text-zinc-500 focus:outline-none focus:border-[#8FAF8F] focus:bg-[#141A15] transition-all"
                 />
                 <select
                   value={form.industry}
                   onChange={e => setForm(f => ({ ...f, industry: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl text-sm focus:outline-none transition-all appearance-none"
-                  style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(74,222,128,0.2)",
-                    color: form.industry ? "white" : "rgba(255,255,255,0.25)",
-                  }}
-                  onFocus={e => (e.currentTarget.style.borderColor = "rgba(74,222,128,0.5)")}
-                  onBlur={e => (e.currentTarget.style.borderColor = "rgba(74,222,128,0.2)")}
+                  className="w-full px-4 py-3 rounded-xl text-sm bg-[#0C0F0D] border border-[#232A25] text-[#F0EDE6] focus:outline-none focus:border-[#8FAF8F] focus:bg-[#141A15] transition-all appearance-none cursor-pointer"
                 >
-                  <option value="" disabled style={{ background: "#0a0f0a" }}>Your industry</option>
+                  <option value="" disabled className="text-zinc-500">Your industry</option>
                   {INDUSTRIES.map(i => (
-                    <option key={i} value={i} style={{ background: "#0a0f0a", color: "white" }}>{i}</option>
+                    <option key={i} value={i} className="bg-[#111613] text-[#F0EDE6]">{i}</option>
                   ))}
                 </select>
               </div>
@@ -277,17 +270,13 @@ export default function AuditPopup() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
-                style={{ background: "linear-gradient(135deg, #4ade80, #22d3ee)" }}
+                className="w-full py-3.5 rounded-xl text-sm font-semibold text-[#F0EDE6] bg-[#3D6346] hover:bg-[#4A7854] border border-[#52855D]/40 transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed shadow-sm cursor-pointer"
               >
                 {loading ? "Sending…" : "Send Me the Audit →"}
               </button>
 
               <button type="button" onClick={() => setStep(1)}
-                className="w-full text-xs text-center transition-colors"
-                style={{ color: "rgba(255,255,255,0.3)" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}>
+                className="w-full text-xs text-center text-zinc-500 hover:text-[#8FAF8F] transition-colors cursor-pointer">
                 ← Change URL
               </button>
             </form>
@@ -298,49 +287,40 @@ export default function AuditPopup() {
             <div className="space-y-5 text-center">
               {/* Tick */}
               <div className="flex justify-center">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{ background: "rgba(74,222,128,0.1)", border: "1px solid rgba(74,222,128,0.3)" }}>
-                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="#4ade80" strokeWidth={2.5}>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center bg-[#131A15] border border-[#233026]">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="#8FAF8F" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
               </div>
 
               <div>
-                <h2 className="text-xl font-black text-white">Audit request received.</h2>
-                <p className="mt-3 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                <h2 className="text-xl font-serif font-bold text-[#F0EDE6]">Audit request received.</h2>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">
                   We're running your Digital Health Score now. Expect your results at{" "}
-                  <span className="text-green-400 font-medium">{form.email}</span>{" "}
+                  <span className="text-[#8FAF8F] font-medium">{form.email}</span>{" "}
                   within 24 hours.
                 </p>
               </div>
 
               {/* Divider */}
               <div className="flex items-center gap-3">
-                <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
-                <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>or</span>
-                <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
+                <div className="flex-1 h-px bg-[#232A25]" />
+                <span className="text-xs text-zinc-500">or</span>
+                <div className="flex-1 h-px bg-[#232A25]" />
               </div>
 
               <a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full py-3 rounded-xl text-sm font-semibold text-center transition-all hover:brightness-110"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                  color: "rgba(255,255,255,0.75)",
-                }}
+                className="block w-full py-3 rounded-xl text-sm font-semibold text-center border border-[#232A25] bg-[#161D18] text-[#F0EDE6] hover:bg-[#1E2620] hover:border-[#3E5A45] transition-all"
               >
                 Book a Strategy Call Now →
               </a>
 
               <button onClick={dismiss}
-                className="w-full text-xs text-center transition-colors"
-                style={{ color: "rgba(255,255,255,0.3)" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}>
+                className="w-full text-xs text-center text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer">
                 Close
               </button>
             </div>

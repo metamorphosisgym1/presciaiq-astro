@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "lenis/dist/lenis.css";
 
 @tailwind base;
 @tailwind components;
@@ -6,23 +7,36 @@
 
 @layer base {
   :root {
-    --background: 240 50% 2%;
-    --foreground: 210 20% 95%;
+    --ink: #050508;
+    --ink-dark: #080808;
+    --surface: #111411;
+    --surface-raised: #171B18;
+    --line: #262626;
+    --line-subtle: #1F2421;
+    --line-strong: #3A3F3B;
+    --cream: #F0EDE6;
+    --text: #C9CCC8;
+    --muted: 240 20% 5%;
+    --muted-foreground: 220 10% 55%;
+    --sage: #5C7A5C;
+    --sage-light: #8FAF8F;
+    --mint: #00FF88;
+    --nav-offset: 4.75rem;
+
+    --background: 240 23% 2%;
+    --foreground: 40 20% 92%;
 
     --card: 240 30% 6%;
-    --card-foreground: 210 20% 95%;
+    --card-foreground: 40 20% 92%;
 
     --popover: 240 30% 6%;
-    --popover-foreground: 210 20% 95%;
+    --popover-foreground: 40 20% 92%;
 
     --primary: 153 100% 50%;
     --primary-foreground: 240 50% 2%;
 
     --secondary: 240 20% 10%;
-    --secondary-foreground: 210 20% 95%;
-
-    --muted: 240 20% 5%;
-    --muted-foreground: 220 10% 55%;
+    --secondary-foreground: 40 20% 92%;
 
     --accent: 153 100% 50%;
     --accent-foreground: 240 50% 2%;
@@ -31,17 +45,18 @@
     --destructive-foreground: 210 20% 95%;
 
     --border: 0 0% 15%;
+    --border-subtle: 144 6% 13%;
     --input: 240 20% 8%;
     --ring: 153 100% 50%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 240 20% 4%;
-    --sidebar-foreground: 210 20% 95%;
+    --sidebar-foreground: 40 20% 92%;
     --sidebar-primary: 153 100% 50%;
     --sidebar-primary-foreground: 240 50% 2%;
     --sidebar-accent: 240 20% 10%;
-    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-accent-foreground: 40 20% 92%;
     --sidebar-border: 0 0% 15%;
     --sidebar-ring: 153 100% 50%;
   }
@@ -52,27 +67,207 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-    background-color: #050508;
+  /* Lenis smooth scrolling rules & conflict prevention */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: clip;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
   }
 
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto !important;
+    background-color: #050508;
+    color: #C9CCC8;
   }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: #050508;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #C9CCC8;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #C9CCC8;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #F0EDE6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+
+  /* Neutralize accidental light theme defaults across page wrappers */
+  .bg-\[\#FAFAFA\],
+  .bg-\[\#fafafa\],
+  [data-light-mode="true"] {
+    background-color: #050508 !important;
+    color: #C9CCC8 !important;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full font-bold transition-all duration-200;
+    background-color: #00FF88;
+    color: #050508;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+    opacity: 0.95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full transition-all duration-200;
+    background-color: #111411;
+    border: 1px solid rgba(240, 237, 230, 0.24);
+    color: #F0EDE6;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(240, 237, 230, 0.4);
+    background-color: #171B18;
+  }
+
+  .eyebrow {
+    @apply font-mono uppercase tracking-wide;
+    color: #8FAF8F;
+  }
+
+  /* ==========================================================================
+     Global Glass Sheen / Left-to-Right Light Shimmer Beam
+     ========================================================================== */
+  .glass-card,
+  .surface-card,
+  .rounded-panel,
+  .glass-card-hover {
+    background-color: #111411;
+  }
+
+  .glass-card,
+  .surface-card,
+  .rounded-panel,
+  .glass-card-hover,
+  .glass-sheen {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.4s ease,
+      box-shadow 0.4s ease,
+      background-color 0.4s ease;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md rounded-card border border-white/10;
+  }
+
+  .surface-card,
+  .rounded-panel {
+    @apply backdrop-blur-md rounded-2xl border border-white/10;
+  }
+
+  /* Left-to-Right Glass Light Sweep Animated Pseudo-Element */
+  .glass-card::after,
+  .surface-card::after,
+  .rounded-panel::after,
+  .glass-card-hover::after,
+  .glass-sheen::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    bottom: -50%;
+    left: 0;
+    width: 60%;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 45%,
+        rgba(0, 255, 136, 0.15) 50%,
+        rgba(255, 255, 255, 0.08) 55%,
+        transparent 100%);
+    transform: translateX(-160%) skewX(-20deg);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: transform 0.85s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  /* Global Elevated Surfaces and Card Containers Hover Glow, Lift & Sheen */
+  /* NOTE: border-color has NO !important — Tailwind hover utilities take precedence */
+  .glass-card:hover,
+  .surface-card:hover,
+  .rounded-panel:hover,
+  .glass-card-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 255, 136, 0.4);
+    box-shadow: 0 12px 35px -10px rgba(0, 255, 136, 0.22),
+      0 0 20px -2px rgba(0, 255, 136, 0.1);
+  }
+
+  /* Glide smoothly all the way from LEFT to RIGHT (for class-based sheen only) */
+  .glass-card:hover::after,
+  .surface-card:hover::after,
+  .rounded-panel:hover::after,
+  .glass-card-hover:hover::after,
+  .glass-sheen:hover::after {
+    transform: translateX(260%) skewX(-20deg);
+    opacity: 1;
+  }
+
+  /* Ensure card corner badges, tags, and interactive indicators stay strictly on top (z-20) */
+  .glass-sheen [class*="rounded-full"],
+  .glass-card [class*="rounded-full"],
+  .surface-card [class*="rounded-full"],
+  .glass-sheen [class*="rounded-md"][class*="font-mono"],
+  .glass-card [class*="rounded-md"][class*="font-mono"] {
+    position: relative;
+    z-index: 20;
+  }
+
+  /* NOTE: Broad attribute-selector transition overrides removed.
+     Cards now declare transition via Tailwind's duration-300 utilities directly. */
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', Georgia, serif;
   }
 
   .font-sans {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', 'Inter', sans-serif;
   }
 
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', 'JetBrains Mono', monospace;
   }
 
   .text-gradient-primary {
@@ -80,20 +275,8 @@
     background-image: linear-gradient(135deg, hsl(153 100% 50%), hsl(170 100% 60%));
   }
 
-  .glass-card {
-    @apply backdrop-blur-2xl rounded-xl;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
   .glass-card-hover {
-    @apply glass-card transition-all duration-500;
-  }
-
-  .glass-card-hover:hover {
-    border-color: rgba(0, 255, 136, 0.15);
-    box-shadow: 0 0 40px -15px rgba(0, 255, 136, 0.1);
-    transform: translateY(-2px);
+    @apply glass-card;
   }
 
   .aurora-bg {
@@ -105,7 +288,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: 
+    background:
       radial-gradient(ellipse 80% 60% at 20% 80%, rgba(0, 255, 136, 0.06) 0%, transparent 70%),
       radial-gradient(ellipse 60% 80% at 80% 20%, rgba(0, 200, 255, 0.04) 0%, transparent 70%),
       radial-gradient(ellipse 70% 50% at 50% 50%, rgba(100, 50, 255, 0.03) 0%, transparent 70%);
@@ -114,7 +297,7 @@
   }
 
   .grid-overlay {
-    background-image: 
+    background-image:
       linear-gradient(rgba(0, 255, 136, 0.015) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 255, 136, 0.015) 1px, transparent 1px);
     background-size: 80px 80px;
@@ -145,4 +328,187 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 255, 136, 0.3);
+}
+
+/* ==========================================================================
+   Hero Cockpit Dynamic Motion Animations
+   ========================================================================== */
+
+/* Cockpit Ambient Floating Glow */
+@keyframes cockpitFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translate3d(10px, -8px, 0) scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+.animate-cockpit-float {
+  animation: cockpitFloat 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* ROAS Flowing Curve Pulse Animation */
+@keyframes flowCurve {
+  0% {
+    stroke-dashoffset: 320;
+  }
+
+  100% {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-flow-curve {
+  animation: flowCurve 2.8s linear infinite;
+}
+
+/* ==========================================================================
+   Scroll-Triggered Reveal Animations (Fast, Snappy & Directional)
+   ========================================================================== */
+
+/* Hero immediate visibility guarantee: never starts hidden or delayed */
+#hero,
+[data-hero],
+.hero-immediate {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  visibility: visible !important;
+}
+
+/* Base state for scroll reveal elements before triggering */
+.scroll-reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 380ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Left-side entrance: clean, subtle horizontal slide from left */
+.scroll-reveal-left {
+  transform: translate3d(-24px, 0, 0);
+}
+
+/* Right-side entrance: clean, subtle horizontal slide from right */
+.scroll-reveal-right {
+  transform: translate3d(24px, 0, 0);
+}
+
+/* Bottom entrance: snappy upward lift */
+.scroll-reveal-bottom {
+  transform: translate3d(0, 24px, 0);
+}
+
+/* Bottom-left entrance: snappy angled slide */
+.scroll-reveal-bottom-left {
+  transform: translate3d(-20px, 20px, 0);
+}
+
+/* Active revealed state: fully visible, sharp, in final position */
+.scroll-reveal.is-revealed {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* Accessibility: Respect prefers-reduced-motion across animations */
+@media (prefers-reduced-motion: reduce) {
+
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .glass-card,
+  .surface-card,
+  .rounded-panel,
+  .glass-card-hover,
+  .glass-sheen,
+  a[class*="rounded-2xl"][class*="border"],
+  div[class*="rounded-2xl"][class*="border"],
+  article[class*="rounded-2xl"][class*="border"] {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .glass-card::after,
+  .surface-card::after,
+  .rounded-panel::after,
+  .glass-card-hover::after,
+  .glass-sheen::after {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Global Stardust Particle Twinkling Keyframes
+   Used by .star-twinkle-1/2/3 classes across all sections + AmbientBackground
+   ========================================================================== */
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes starTwinkle2 {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.85);
+  }
+  40% {
+    opacity: 0.75;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes starTwinkle3 {
+  0%, 100% {
+    opacity: 0.18;
+    transform: scale(0.8);
+  }
+  60% {
+    opacity: 0.65;
+    transform: scale(1.15);
+  }
+}
+
+.star-twinkle-1 {
+  animation: starTwinkle 4s ease-in-out infinite;
+}
+
+.star-twinkle-2 {
+  animation: starTwinkle2 5.5s ease-in-out infinite 1.5s;
+}
+
+.star-twinkle-3 {
+  animation: starTwinkle3 6.5s ease-in-out infinite 3s;
+}
+
+/* ==========================================================================
+   Global Ambient Stardust Canvas — Fixed layer, behind all content
+   The .global-stardust div is mounted in AmbientBackground.astro
+   ========================================================================== */
+
+.global-stardust {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
 }

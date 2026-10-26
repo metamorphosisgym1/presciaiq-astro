@@ -1,267 +1,392 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const title = "Insights | Predictive AI & AEO | PresciaIQ";
+const description = "Expert insights on predictive analytics, AEO/SEO architecture, AI for construction, ROAS forecasting, and operational intelligence for Australian SMBs.";
+const canonicalURL = "https://www.presciaiq.com.au/insights/";
+
+const foundationSeries = [
+  {
+    issue: "Issue 01",
+    readTime: "8 min read",
+    title: "The Cost of Reactive Operations",
+    desc: "Why most Australian businesses are paying for lagging indicators — and the hidden cost of operational drag that never appears on a P&L.",
+    href: "/insights/the-reaction-tax/"
+  },
+  {
+    issue: "Issue 02",
+    readTime: "9 min read",
+    title: "Where Operational Drag Hides",
+    desc: "A self-audit for the six places latency compounds — marketing, sales, projects, operations, customer health, and cash flow.",
+    href: "/insights/where-the-reaction-tax-hides/"
+  },
+  {
+    issue: "Issue 03",
+    readTime: "8 min read",
+    title: "The Three Tests for Predictive Intelligence",
+    desc: "How to tell real predictive tools from dashboards in costume — before you spend a dollar on any of them.",
+    href: "/insights/three-tests-for-predictive-intelligence/"
+  },
+  {
+    issue: "Issue 04",
+    readTime: "9 min read",
+    title: "The Action Gap",
+    desc: "Why most predictive deployments fail, and the four conditions that fix them. The model worked. The org did not.",
+    href: "/insights/the-action-gap/"
+  }
+];
+
+const articles = [
+  {
+    category: "Construction",
+    readTime: "6 min read",
+    title: "AI Construction Risk Assessment in Australia",
+    desc: "How AI-powered construction risk assessment is helping Australian builders predict budget blowouts, delays, and compliance failures before they happen.",
+    href: "/insights/ai-construction-risk-assessment-australia/"
+  },
+  {
+    category: "Marketing Intelligence",
+    readTime: "5 min read",
+    title: "Why Every Australian Marketing Team Needs a ROAS Prediction Tool",
+    desc: "How ROAS prediction tools are helping Australian marketing teams forecast campaign returns before spend is committed.",
+    href: "/insights/roas-prediction-tool-australian-marketing/"
+  },
+  {
+    category: "AI for Business",
+    readTime: "7 min read",
+    title: "The Best AI Tools for Small Business in Australia",
+    desc: "A practical guide to the best AI tools available to Australian small businesses in 2026, covering operations, marketing, and predictive intelligence.",
+    href: "/insights/best-ai-tools-small-business-australia/"
+  },
+  {
+    category: "Explainer",
+    readTime: "5 min read",
+    title: "What is Predictive Analytics?",
+    desc: "A clear, jargon-free explanation of predictive analytics for Australian business owners — what it is, how it works, and where it delivers the most value.",
+    href: "/insights/what-is-predictive-analytics-business/"
+  },
+  {
+    category: "Operations",
+    readTime: "5 min read",
+    title: "What is an Operational Intelligence Platform?",
+    desc: "Understand what an operational intelligence platform does, how it differs from traditional BI, and whether your Australian SMB would benefit from one.",
+    href: "/insights/what-is-operational-intelligence-platform/"
+  },
+  {
+    category: "Operations",
+    readTime: "6 min read",
+    title: "AI Tools for Field Services & Operations in Australia",
+    desc: "A practical guide to AI tools that deliver real value for Australian operations — from job costing and scheduling to predictive risk and cash flow.",
+    href: "/insights/ai-tools-trades-businesses-australia/"
+  },
+  {
+    category: "Construction",
+    readTime: "6 min read",
+    title: "How to Eliminate Construction Budget Blowouts with AI",
+    desc: "The practical steps Australian builders can take to use AI to prevent construction budget blowouts — from early warning systems to real-time cost tracking.",
+    href: "/insights/eliminate-construction-budget-blowouts-ai/"
+  },
+  {
+    category: "Industry Perspective",
+    readTime: "5 min read",
+    title: "The Evolution of Business Intelligence in Australia",
+    desc: "Trace the evolution of business intelligence in Australia from manual reporting to predictive AI, and understand what this shift means for Australian SMBs.",
+    href: "/insights/business-intelligence-evolution-australia/"
+  },
+  {
+    category: "Strategy",
+    readTime: "8 min read",
+    title: "The Cost of Reactive Operations — Foundation Series Issue 01",
+    desc: "Every business in Australia pays an invisible price for lagging indicators. It is the cost an organization incurs every time it learns something after it has already happened.",
+    href: "/insights/the-reaction-tax/"
+  },
+  {
+    category: "AI Automation",
+    readTime: "8 min read",
+    title: "How Much Does AI Automation Cost in Australia? (2026 Pricing Guide)",
+    desc: "A transparent breakdown of AI automation costs for Australian businesses in 2026 — from simple workflow automations to full custom AI agents.",
+    href: "/insights/ai-automation-cost-australia-2026/"
+  },
+  {
+    category: "Marketing Intelligence",
+    readTime: "7 min read",
+    title: "ROAS Prediction Tools for Australian Marketers: What Works in 2026",
+    desc: "A practical guide to ROAS prediction tools available to Australian marketing teams — including what actually works and how AdsIQ compares.",
+    href: "/insights/roas-prediction-tool-australia/"
+  },
+  {
+    category: "Construction Intelligence",
+    readTime: "6 min read",
+    title: "BuildPredictIQ vs Manual Risk Assessment: What Australian Builders Are Choosing",
+    desc: "A direct comparison of AI-powered construction risk assessment versus traditional manual risk assessment for Australian builders and developers.",
+    href: "/insights/buildpredictiq-vs-manual-risk-assessment/"
+  },
+  {
+    category: "AI Automation",
+    readTime: "6 min read",
+    title: "How to Automate Invoicing in Xero Using AI (Australian Business Guide)",
+    desc: "A step-by-step guide for Australian businesses on automating invoice processing in Xero using AI — including tools, costs, and what to watch out for.",
+    href: "/insights/how-to-automate-invoicing-xero-ai/"
+  },
+  {
+    category: "AI Automation",
+    readTime: "7 min read",
+    title: "AI Customer Support Agent Cost in Australia: What to Expect in 2026",
+    desc: "A transparent guide to the cost of building and running an AI customer support agent for an Australian business in 2026, including ROI benchmarks.",
+    href: "/insights/ai-customer-support-agent-cost-australia/"
+  },
+  {
+    category: "Marketing Intelligence",
+    readTime: "8 min read",
+    title: "How to Reduce Ad Spend Waste for Australian Businesses in 2026",
+    desc: "A practical guide to identifying and eliminating wasted ad spend — covering attribution, audience targeting, creative fatigue, and predictive intelligence.",
+    href: "/insights/how-to-reduce-ad-spend-waste-australia/"
+  },
+  {
+    category: "Construction Intelligence",
+    readTime: "9 min read",
+    title: "Predictive AI for Construction in Australia: A 2026 Operator's Guide",
+    desc: "How Australian construction businesses are using predictive AI to reduce cost blowouts, manage subcontractor risk, and win more competitive tenders.",
+    href: "/insights/predictive-ai-construction-australia-guide/"
+  },
+  {
+    category: "AI Automation",
+    readTime: "7 min read",
+    title: "AI Automation vs Hiring a VA: What's Right for Your Australian Business?",
+    desc: "A practical comparison of AI automation versus hiring a virtual assistant for Australian businesses — covering cost, capability, and when each approach makes sense.",
+    href: "/insights/ai-automation-vs-hiring-va-australia/"
+  },
+  {
+    category: "About PresciaIQ",
+    readTime: "6 min read",
+    title: "PresciaIQ Review: Real Client Results from Australian Businesses",
+    desc: "An honest review of PresciaIQ's AI services — including real results from Australian clients across construction, marketing, e-commerce, and trades.",
+    href: "/insights/presciaiq-review-client-results/"
+  },
+  {
+    category: "AEO & GEO",
+    readTime: "7 min read",
+    title: "What is GEO (Generative Engine Optimisation) and Why It Matters for Australian Businesses",
+    desc: "A plain-English explanation of GEO — what it is, how it differs from SEO and AEO, and why Australian businesses need to understand it in 2026.",
+    href: "/insights/what-is-geo-generative-engine-optimisation-australia/"
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": canonicalURL }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "PresciaIQ Insights",
+      "description": description,
+      "url": canonicalURL,
+      "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" }
+    }
+  ]
+};
 ---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au" },
-    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.presciaiq.com.au/insights" }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "PresciaIQ Insights",
-  "description": "Expert insights on predictive analytics, AI for construction, marketing spend forecasting, and operational intelligence for Australian businesses.",
-  "url": "https://www.presciaiq.com.au/insights",
-  "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" }
-}
-</script>
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-<Layout title="Insights | Predictive AI & AEO | PresciaIQ"
-  description="Expert insights on predictive analytics, AEO/SEO architecture, AI for construction, ROAS forecasting, and operational intelligence for Australian SMBs.">
-  <div class="pt-32 pb-24 min-h-screen">
-    <div class="max-w-6xl mx-auto px-6">
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
+    <!-- ═══ ATMOSPHERIC AURA BACKDROP ═══ -->
+    <!-- Top-Right Mint Ambient Radial Aura -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
 
-      <!-- Page Header -->
-      <div class="mb-16 text-center">
-        <p class="text-primary font-bold uppercase tracking-widest text-xs mb-4 font-sans">Insights &amp; Intelligence</p>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6">The PresciaIQ Blog</h1>
-        <p class="text-lg text-muted-foreground font-sans max-w-2xl mx-auto">Deep dives into AI, predictive analytics, and the technology shaping Australian business.</p>
-      </div>
+    <!-- Subtle Intelligence Grid Backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
 
-      <!-- Foundation Series Section -->
-      <div class="mb-16">
-        <div class="flex items-center gap-4 mb-2">
-          <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Foundation Series</span>
-          <div class="flex-1 h-px bg-border"></div>
+    <!-- ═══ 1. HERO WRAPPER ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="pt-36 pb-14 max-w-4xl mx-auto text-center flex flex-col items-center px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumb: Centered cleanly below navbar -->
+        <nav
+          class="w-full flex justify-center text-center mx-auto mb-6 text-xs font-mono text-[#8FAF8F] tracking-wide flex-wrap items-center gap-2"
+          aria-label="Breadcrumb"
+        >
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <span class="text-foreground">Insights</span>
+        </nav>
+
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          INSIGHTS &amp; INTELLIGENCE
         </div>
-        <p class="text-sm text-muted-foreground font-sans mb-8">The complete argument for predictive intelligence as an operating discipline. Four issues, designed to be read in order.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-          <a href="/insights/the-reaction-tax" class="glass-card-hover p-6 flex flex-col group border-primary/20" style="text-decoration:none;">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Issue 01</span>
-              <span class="text-xs text-muted-foreground font-sans">8 min read</span>
-            </div>
-            <h2 class="font-display text-base font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Reaction Tax</h2>
-            <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Why most Australian businesses are paying to be surprised — and the hidden cost that never appears on a P&amp;L.</p>
-            <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read &rarr;</div>
-          </a>
-          <a href="/insights/where-the-reaction-tax-hides" class="glass-card-hover p-6 flex flex-col group border-primary/20" style="text-decoration:none;">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Issue 02</span>
-              <span class="text-xs text-muted-foreground font-sans">9 min read</span>
-            </div>
-            <h2 class="font-display text-base font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">Where the Reaction Tax Hides</h2>
-            <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A self-audit for the six places it shows up most — marketing, sales, projects, operations, customer health, and cash flow.</p>
-            <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read &rarr;</div>
-          </a>
-          <a href="/insights/three-tests-for-predictive-intelligence" class="glass-card-hover p-6 flex flex-col group border-primary/20" style="text-decoration:none;">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Issue 03</span>
-              <span class="text-xs text-muted-foreground font-sans">8 min read</span>
-            </div>
-            <h2 class="font-display text-base font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Three Tests for Predictive Intelligence</h2>
-            <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">How to tell real predictive tools from dashboards in costume — before you spend a dollar on any of them.</p>
-            <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read &rarr;</div>
-          </a>
-          <a href="/insights/the-action-gap" class="glass-card-hover p-6 flex flex-col group border-primary/20" style="text-decoration:none;">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Issue 04</span>
-              <span class="text-xs text-muted-foreground font-sans">9 min read</span>
-            </div>
-            <h2 class="font-display text-base font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Action Gap</h2>
-            <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Why most predictive deployments fail, and the four conditions that fix them. The model worked. The org did not.</p>
-            <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read &rarr;</div>
-          </a>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          The PresciaIQ <span class="text-[#00FF88] italic">Blog</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-12 leading-relaxed">
+          Deep dives into AI, predictive analytics, and the technology shaping Australian business.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ 2. "FOUNDATION SERIES" (4 HERO ISSUES GRID) ═══ -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="max-w-3xl mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-3">
+          FOUNDATION SERIES
         </div>
+        <h2 class="text-2xl md:text-3xl font-serif font-semibold text-[#F0EDE6] mb-2">
+          The Core Predictive Doctrine
+        </h2>
+        <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+          The complete argument for predictive intelligence as an operating discipline. Four issues, designed to be read in order.
+        </p>
       </div>
 
-      <!-- All Articles Section -->
-      <div class="flex items-center gap-4 mb-2">
-        <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">All Articles</span>
-        <div class="flex-1 h-px bg-border"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-10 items-stretch">
+        {foundationSeries.map((item, idx) => (
+          <a
+            key={idx}
+            href={item.href}
+            data-reveal="from-bottom"
+            data-reveal-delay={`${idx * 80}`}
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 block"
+            style="text-decoration:none;"
+          >
+            <!-- Left-to-Right Shimmer Glare Beam -->
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+            <div class="relative z-20">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-mono text-[#00FF88] font-bold uppercase tracking-wider">{item.issue}</span>
+                <span class="text-xs font-mono text-white/40">{item.readTime}</span>
+              </div>
+              <h3 class="text-lg font-serif font-semibold text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors mb-2 leading-snug">
+                {item.title}
+              </h3>
+              <p class="text-xs text-[#C9CCC8] font-sans leading-relaxed mb-6">
+                {item.desc}
+              </p>
+            </div>
+
+            <div class="relative z-20 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#00FF88] group-hover:translate-x-1 transition-transform mt-auto pt-4 border-t border-white/5">
+              Read →
+            </div>
+          </a>
+        ))}
       </div>
-      <p class="text-sm text-muted-foreground font-sans mb-8">Practical intelligence on AI, predictive analytics, and the decisions that determine whether Australian businesses grow or stall.</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="/insights/ai-construction-risk-assessment-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Construction</span>
-            <span class="text-xs text-muted-foreground font-sans">6 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">AI Construction Risk Assessment in Australia</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">How AI-powered construction risk assessment is helping Australian builders predict budget blowouts, delays, and compliance failures before they happen.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/roas-prediction-tool-australian-marketing" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Marketing Intelligence</span>
-            <span class="text-xs text-muted-foreground font-sans">5 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">Why Every Australian Marketing Team Needs a ROAS Prediction Tool</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">How ROAS prediction tools are helping Australian marketing teams forecast campaign returns before spend is committed.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/best-ai-tools-small-business-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">AI for Business</span>
-            <span class="text-xs text-muted-foreground font-sans">7 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Best AI Tools for Small Business in Australia</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A practical guide to the best AI tools available to Australian small businesses in 2026, covering operations, marketing, and predictive intelligence.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/what-is-predictive-analytics-business" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Explainer</span>
-            <span class="text-xs text-muted-foreground font-sans">5 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">What is Predictive Analytics?</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A clear, jargon-free explanation of predictive analytics for Australian business owners — what it is, how it works, and where it delivers the most value.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/what-is-operational-intelligence-platform" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Operations</span>
-            <span class="text-xs text-muted-foreground font-sans">5 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">What is an Operational Intelligence Platform?</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Understand what an operational intelligence platform does, how it differs from traditional BI, and whether your Australian SMB would benefit from one.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/ai-tools-trades-businesses-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Trades</span>
-            <span class="text-xs text-muted-foreground font-sans">6 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">AI Tools for Trades Businesses in Australia</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A practical guide to AI tools that deliver real value for Australian trades businesses — from job costing and scheduling to predictive risk and cash flow.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/eliminate-construction-budget-blowouts-ai" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Construction</span>
-            <span class="text-xs text-muted-foreground font-sans">6 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">How to Eliminate Construction Budget Blowouts with AI</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">The practical steps Australian builders can take to use AI to prevent construction budget blowouts — from early warning systems to real-time cost tracking.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/business-intelligence-evolution-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Industry Perspective</span>
-            <span class="text-xs text-muted-foreground font-sans">5 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Evolution of Business Intelligence in Australia</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Trace the evolution of business intelligence in Australia from manual reporting to predictive AI, and understand what this shift means for Australian SMBs.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/the-reaction-tax" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Strategy</span>
-            <span class="text-xs text-muted-foreground font-sans">8 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">The Reaction Tax — Foundation Series Issue 01</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">Every business in Australia pays a tax that never appears on a P&amp;L. It is the price a business pays every time it learns something after it has already happened.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/ai-automation-cost-australia-2026" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">AI Automation</span>
-            <span class="text-xs text-muted-foreground font-sans">8 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">How Much Does AI Automation Cost in Australia? (2026 Pricing Guide)</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A transparent breakdown of AI automation costs for Australian businesses in 2026 — from simple workflow automations to full custom AI agents.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/roas-prediction-tool-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Marketing Intelligence</span>
-            <span class="text-xs text-muted-foreground font-sans">7 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">ROAS Prediction Tools for Australian Marketers: What Works in 2026</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A practical guide to ROAS prediction tools available to Australian marketing teams — including what actually works and how AdsIQ compares.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/buildpredictiq-vs-manual-risk-assessment" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Construction Intelligence</span>
-            <span class="text-xs text-muted-foreground font-sans">6 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">BuildPredictIQ vs Manual Risk Assessment: What Australian Builders Are Choosing</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A direct comparison of AI-powered construction risk assessment versus traditional manual risk assessment for Australian builders and developers.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/how-to-automate-invoicing-xero-ai" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">AI Automation</span>
-            <span class="text-xs text-muted-foreground font-sans">6 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">How to Automate Invoicing in Xero Using AI (Australian Business Guide)</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A step-by-step guide for Australian businesses on automating invoice processing in Xero using AI — including tools, costs, and what to watch out for.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/ai-customer-support-agent-cost-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">AI Automation</span>
-            <span class="text-xs text-muted-foreground font-sans">7 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">AI Customer Support Agent Cost in Australia: What to Expect in 2026</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A transparent guide to the cost of building and running an AI customer support agent for an Australian business in 2026, including ROI benchmarks.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/how-to-reduce-ad-spend-waste-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Marketing Intelligence</span>
-            <span class="text-xs text-muted-foreground font-sans">8 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">How to Reduce Ad Spend Waste for Australian Businesses in 2026</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A practical guide to identifying and eliminating wasted ad spend — covering attribution, audience targeting, creative fatigue, and predictive intelligence.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/predictive-ai-construction-australia-guide" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">Construction Intelligence</span>
-            <span class="text-xs text-muted-foreground font-sans">9 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">Predictive AI for Construction in Australia: A 2026 Operator's Guide</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">How Australian construction businesses are using predictive AI to reduce cost blowouts, manage subcontractor risk, and win more competitive tenders.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/ai-automation-vs-hiring-va-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">AI Automation</span>
-            <span class="text-xs text-muted-foreground font-sans">7 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">AI Automation vs Hiring a VA: What's Right for Your Australian Business?</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A practical comparison of AI automation versus hiring a virtual assistant for Australian businesses — covering cost, capability, and when each approach makes sense.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/presciaiq-review-client-results" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">About PresciaIQ</span>
-            <span class="text-xs text-muted-foreground font-sans">6 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">PresciaIQ Review: Real Client Results from Australian Businesses</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">An honest review of PresciaIQ's AI services — including real results from Australian clients across construction, marketing, e-commerce, and trades.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
-        <a href="/insights/what-is-geo-generative-engine-optimisation-australia" class="glass-card-hover p-6 flex flex-col group" style="text-decoration:none;">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-primary uppercase tracking-widest font-sans">AEO &amp; GEO</span>
-            <span class="text-xs text-muted-foreground font-sans">7 min read</span>
-          </div>
-          <h2 class="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">What is GEO (Generative Engine Optimisation) and Why It Matters for Australian Businesses</h2>
-          <p class="text-sm text-muted-foreground font-sans mb-4 flex-1 leading-relaxed">A plain-English explanation of GEO — what it is, how it differs from SEO and AEO, and why Australian businesses need to understand it in 2026.</p>
-          <div class="flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors mt-auto font-sans">Read Article &rarr;</div>
-        </a>
+    </section>
+
+    <!-- ═══ 3. "ALL ARTICLES" RESPONSIVE BENTO GRID ═══ -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="max-w-3xl mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-3">
+          ALL ARTICLES
+        </div>
+        <h2 class="text-2xl md:text-3xl font-serif font-semibold text-[#F0EDE6] mb-2">
+          Field Reports &amp; Practical Intelligence
+        </h2>
+        <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+          Practical intelligence on AI, predictive analytics, and the decisions that determine whether Australian businesses grow or stall.
+        </p>
       </div>
 
-    </div>
-  </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8 items-stretch">
+        {articles.map((art, idx) => (
+          <a
+            key={idx}
+            href={art.href}
+            data-reveal="from-bottom"
+            data-reveal-delay={`${(idx % 6) * 60}`}
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 block"
+            style="text-decoration:none;"
+          >
+            <!-- Left-to-Right Shimmer Glare Beam -->
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+            <div class="relative z-20 flex-1 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-mono uppercase tracking-wider text-[#00FF88] px-2.5 py-0.5 rounded-full border border-[#00FF88]/20 bg-[#00FF88]/5">
+                  {art.category}
+                </span>
+                <span class="text-xs font-mono text-white/40">{art.readTime}</span>
+              </div>
+
+              <h3 class="text-lg font-serif font-semibold text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors mb-3 leading-snug">
+                {art.title}
+              </h3>
+
+              <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed mb-6 flex-1">
+                {art.desc}
+              </p>
+            </div>
+
+            <div class="relative z-20 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#00FF88] group-hover:translate-x-1 transition-transform mt-auto pt-4 border-t border-white/5">
+              Read Article →
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ 4. DIRECTIONAL SCROLL ENTRANCE SCRIPT (350-400MS DURATION) ═══ -->
+  <script is:inline>
+    (function () {
+      const INIT = {
+        'from-left':   { transform: 'translateX(-20px)', opacity: '0' },
+        'from-right':  { transform: 'translateX(20px)',  opacity: '0' },
+        'from-bottom': { transform: 'translateY(24px)',  opacity: '0' },
+      };
+
+      const targets = document.querySelectorAll('[data-reveal]');
+
+      targets.forEach(el => {
+        const dir = el.getAttribute('data-reveal');
+        const init = INIT[dir];
+        if (!init) return;
+        Object.assign(el.style, init);
+        el.style.transition = 'transform 380ms cubic-bezier(0.16, 1, 0.3, 1), opacity 380ms cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.willChange = 'transform, opacity';
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => {
+              el.style.transform = 'translate(0, 0)';
+              el.style.opacity = '1';
+            }, delay);
+            observer.unobserve(el);
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      targets.forEach(el => observer.observe(el));
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(el => {
+          el.style.transform = 'none';
+          el.style.opacity = '1';
+          el.style.transition = 'none';
+        });
+      }
+    })();
+  </script>
 </Layout>

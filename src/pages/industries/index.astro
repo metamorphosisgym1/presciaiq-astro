@@ -2,8 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 
 const title = "AI for Australian Industries | PresciaIQ";
-const description = "Predictive AI solutions built for Australian construction, marketing, logistics, trades, and financial services. See how PresciaIQ fits your industry.";
-const canonicalURL = new URL("/industries/", Astro.site).href;
+const description = "Predictive AI solutions built for Australian construction, marketing, logistics, enterprise operations, and financial services. See how PresciaIQ fits your industry.";
+const canonicalURL = "https://www.presciaiq.com.au/industries/";
 
 const industries = [
   {
@@ -27,24 +27,24 @@ const industries = [
     queries: ["AI ROAS prediction Australia", "predictive marketing analytics", "AdsIQ"],
   },
   {
-    slug: "trades",
-    name: "Trades & Field Services",
-    icon: "🔧",
-    tagline: "Turn every job into a profitable, compliant, on-time delivery.",
-    product: "TradesmanIQ",
-    productHref: "/products/tradesmaniq/",
-    description: "TradesmanIQ is built for Australian trades businesses — electricians, plumbers, builders, and HVAC operators — who need to predict job profitability, automate compliance documentation, and optimise crew scheduling.",
-    queries: ["AI for trades businesses Australia", "job profitability prediction trades", "TradesmanIQ"],
+    slug: "enterprise-operations",
+    name: "Enterprise Operations",
+    icon: "⚙️",
+    tagline: "Unify multi-agent autonomous workflows and eradicate operational latency.",
+    product: "HELM OS",
+    productHref: "/services/ai-software-development/",
+    description: "HELM OS and PresciaIQ custom software platforms empower high-growth Australian enterprises to replace fragmented manual workflows with autonomous agents, predictive risk telemetry, and unified operational orchestration.",
+    queries: ["AI enterprise operations Australia", "autonomous workflows ERP intelligence", "HELM OS"],
   },
   {
     slug: "logistics",
     name: "Logistics & Supply Chain",
     icon: "🚚",
-    tagline: "Predict bottlenecks before they stop your operation.",
-    product: "OpsIQ",
-    productHref: "/products/opsiq/",
-    description: "OpsIQ delivers operational intelligence for Australian logistics operators — predicting delivery delays, supplier failures, and inventory shortfalls before they cascade into operational shutdowns.",
-    queries: ["AI supply chain prediction Australia", "logistics operational intelligence", "OpsIQ"],
+    tagline: "Predict bottlenecks before they halt your distribution.",
+    product: "AI Automations & Agents",
+    productHref: "/products/ai-automations/",
+    description: "PresciaIQ delivers operational intelligence and autonomous document processing for Australian logistics operators — predicting delivery bottlenecks, supplier failures, and inventory shortfalls before they cascade into shutdowns.",
+    queries: ["AI supply chain prediction Australia", "logistics operational intelligence", "AI Automations"],
   },
   {
     slug: "financial-services",
@@ -87,7 +87,7 @@ const schema = {
     {
       "@type": "Question",
       "name": "Which industries does PresciaIQ serve?",
-      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ builds predictive AI solutions for Australian construction, marketing agencies, logistics and supply chain, trades businesses, and financial services. Each industry solution is trained on Australian data and calibrated to local market conditions." }
+      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ builds predictive AI solutions for Australian construction, marketing agencies, logistics and supply chain, enterprise operations, and financial services. Each industry solution is trained on Australian data and calibrated to local market conditions." }
     },
     {
       "@type": "Question",
@@ -97,62 +97,129 @@ const schema = {
   ]
 }
 </script>
+
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <main class="min-h-screen bg-background text-foreground">
-    <!-- Breadcrumb -->
-    <div class="border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans">
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
+
+    <!-- ═══ 1. ATMOSPHERIC AURA BACKDROP ═══ -->
+    <!-- Ambient: top-right mint radial glow -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Subtle intelligence grid backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ HERO WRAPPER ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-14 text-left md:text-center">
+
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-muted-foreground font-mono mb-8 md:justify-center flex-wrap" aria-label="Breadcrumb">
           <a href="/" class="hover:text-primary transition-colors">Home</a>
-          <span>/</span>
+          <span class="text-white/20">/</span>
           <span class="text-foreground">Industries</span>
         </nav>
-      </div>
-    </div>
 
-    <!-- Hero -->
-    <section class="pt-8 pb-16 md:pb-24 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Industries We Serve</p>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
-          Predictive AI Built for <span class="text-gradient-primary">Your Industry</span>
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          INDUSTRIES WE SERVE
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          Predictive AI Built for <span class="text-[#00FF88] italic">Your Industry</span>
         </h1>
-        <p class="text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+
+        <!-- Subtitle -->
+        <p class="text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-8 leading-relaxed">
           Every industry has a different set of variables that drive risk, cost, and revenue. PresciaIQ builds predictive AI engines, digital infrastructure, and search architecture tailored to the specific data patterns of your sector — not generic AI tools repurposed from another industry.
         </p>
-        <a href="/start/" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
-          Book a Free Industry Assessment →
-        </a>
+
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/start/"
+            id="hero-cta-industries-start"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+          >
+            Book a Free Industry Assessment →
+          </a>
+          <a
+            href="#industry-engines"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 hover:bg-white/[0.07] transition-all duration-300 backdrop-blur-md"
+          >
+            Explore Sectors
+          </a>
+        </div>
+
       </div>
     </section>
 
-    <!-- Industry Grid -->
-    <section class="py-16 md:py-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-8">
+    <!-- ═══ 2. THE 5 INDUSTRY ENGINE CARDS ═══ -->
+    <section id="industry-engines" class="relative z-10 py-16 md:py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6">
           {industries.map((industry, i) => (
             <a
               href={`/industries/${industry.slug}/`}
-              class="group block rounded-2xl border border-white/8 p-8 hover:border-primary/30 transition-all duration-300"
-              style="background: rgba(255,255,255,0.02);"
+              data-reveal="from-bottom"
+              data-reveal-delay={(i * 80).toString()}
+              class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 block"
             >
-              <div class="flex flex-col md:flex-row md:items-start gap-6">
-                <div class="text-4xl flex-shrink-0">{industry.icon}</div>
-                <div class="flex-1">
-                  <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
-                    <h2 class="font-display text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+              <!-- Left-to-Right glass light sweep — z-10, pointer-events-none -->
+              <div
+                class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"
+              ></div>
+
+              <!-- Subtle corner radial glow on hover -->
+              <div
+                class="absolute -right-20 -bottom-20 w-64 h-64 rounded-full opacity-0 group-hover:opacity-15 transition-opacity duration-500 pointer-events-none z-0"
+                style="background: radial-gradient(circle, #00FF88 0%, transparent 70%);"
+              ></div>
+
+              <!-- All content sits above shimmer on z-20 -->
+              <div class="relative z-20">
+                <!-- Top Header Row -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/[0.04] border border-white/10 group-hover:border-[#00FF88]/30 group-hover:bg-[#00FF88]/10 transition-colors text-xl shrink-0">
+                      {industry.icon}
+                    </div>
+                    <h2 class="text-2xl font-serif font-semibold text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors">
                       {industry.name}
                     </h2>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5 w-fit">
-                      {industry.product}
-                    </span>
                   </div>
-                  <p class="text-primary font-sans font-semibold text-sm mb-3 italic">"{industry.tagline}"</p>
-                  <p class="text-muted-foreground font-sans leading-relaxed mb-4">{industry.description}</p>
-                  <span class="inline-flex items-center gap-1 text-sm text-primary font-sans font-semibold group-hover:gap-2 transition-all">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono text-[#00FF88] w-fit">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88]"></span>
+                    {industry.product}
+                  </span>
+                </div>
+
+                <!-- Core Thesis Quote -->
+                <p class="text-sm font-mono text-[#00FF88] mb-3 italic">
+                  "{industry.tagline}"
+                </p>
+
+                <!-- Descriptive Narrative -->
+                <p class="text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed mb-6 max-w-3xl">
+                  {industry.description}
+                </p>
+
+                <!-- Action Link -->
+                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#00FF88] group-hover:translate-x-1 transition-transform">
                     Explore {industry.name} Solutions →
+                  </span>
+                  <span class="text-xs font-mono text-muted-foreground group-hover:text-[#00FF88] transition-colors hidden sm:inline-block">
+                    Powered by {industry.product}
                   </span>
                 </div>
               </div>
@@ -162,24 +229,97 @@ const schema = {
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 border-t border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Don't see your industry?
-        </h2>
-        <p class="text-muted-foreground font-sans max-w-xl mx-auto mb-8">
-          PresciaIQ's prediction engine is built to be trained on any industry's data. If your sector isn't listed, book a free assessment and we'll show you what's possible.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
-            Book a Free Assessment →
-          </a>
-          <a href="/products/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all duration-300">
-            View All Products
-          </a>
+    <!-- ═══ 4. UPGRADE BOTTOM "DON'T SEE YOUR INDUSTRY?" CALLOUT BOX ═══ -->
+    <section class="py-16 relative z-10 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+      <div
+        data-reveal="from-bottom"
+        class="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#111411]/90 backdrop-blur-2xl p-8 md:p-14 text-center max-w-4xl mx-auto my-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-[#00FF88]/50 hover:shadow-[0_12px_45px_-8px_rgba(0,255,136,0.25)] transition-all duration-300"
+      >
+        <!-- Light Shimmer -->
+        <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+        <!-- Ambient radial glow behind card content -->
+        <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(0,255,136,0.15),transparent_70%)] blur-2xl z-0" aria-hidden="true"></div>
+
+        <div class="relative z-20">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#00FF88]/20 bg-[#00FF88]/[0.06] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-5">
+            CUSTOM MODEL ARCHITECTURE
+          </div>
+          <h2 class="text-2xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-3">
+            Don't see your industry?
+          </h2>
+          <p class="text-[#C9CCC8] text-sm md:text-base max-w-xl mx-auto mb-8 font-sans leading-relaxed">
+            PresciaIQ's prediction engine is built to be trained on any industry's proprietary telemetry. If your sector isn't listed, book a free assessment and we'll show you what's possible.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="/start/"
+              id="cta-bottom-industries-assessment"
+              class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_25px_rgba(0,255,136,0.4)] transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Book a Free Assessment →
+            </a>
+            <a
+              href="/products/"
+              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 hover:bg-white/[0.07] transition-all duration-300"
+            >
+              View All Products
+            </a>
+          </div>
         </div>
       </div>
     </section>
+
   </main>
+
+  <!-- ═══ 5. DIRECTIONAL SCROLL ENTRANCE SCRIPT ═══ -->
+  <script is:inline>
+    (function () {
+      const INIT = {
+        'from-left':   { transform: 'translateX(-20px)', opacity: '0' },
+        'from-right':  { transform: 'translateX(20px)',  opacity: '0' },
+        'from-bottom': { transform: 'translateY(20px)',  opacity: '0' },
+      };
+
+      const targets = document.querySelectorAll('[data-reveal]');
+
+      // Apply initial hidden state without flash
+      targets.forEach(el => {
+        const dir = el.getAttribute('data-reveal');
+        const init = INIT[dir];
+        if (!init) return;
+        Object.assign(el.style, init);
+        el.style.transition = 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.willChange = 'transform, opacity';
+      });
+
+      // Observe and reveal on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => {
+              el.style.transform = 'translate(0, 0)';
+              el.style.opacity = '1';
+            }, delay);
+            observer.unobserve(el);
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      targets.forEach(el => observer.observe(el));
+
+      // Accessibility: skip animations for prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(el => {
+          el.style.transform = 'none';
+          el.style.opacity = '1';
+          el.style.transition = 'none';
+        });
+      }
+    })();
+  </script>
 </Layout>

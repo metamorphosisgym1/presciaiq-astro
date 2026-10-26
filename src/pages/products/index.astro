@@ -1,57 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ProductsHero from '../../components/sections/ProductsHero';
+import LiquidDivider from '../../components/LiquidDivider';
+import ProductsCatalog from '../../components/sections/ProductsCatalog';
+import LeadCaptureSection from '../../components/sections/LeadCaptureSection';
 
-const title = "AI Products for Australian Businesses | PresciaIQ";
-const description = "Predictive AI engines for construction, marketing, logistics, and trades. BuildPredictIQ, AdsIQ, OpsIQ, and TradesmanIQ — built in Australia.";
+const title = "Enterprise AI Products & Platforms | PresciaIQ";
+const description = "High-performance predictive AI engines and autonomous platforms for Australian enterprise. BuildPredictIQ, AdsIQ, AI Automations & Agents, and HELM OS.";
 const canonicalURL = new URL("/products/", Astro.site).href;
-
-const products = [
-  {
-    slug: "buildpredictiq",
-    name: "BuildPredictIQ",
-    tagline: "Construction & Property Risk Intelligence",
-    industry: "Construction",
-    industryHref: "/industries/construction/",
-    description: "Predicts project cost overruns, timeline blowouts, and subcontractor risk before a sod is turned. Integrates with Procore and Aconex. Trained on 12,000+ Australian construction projects.",
-    features: ["Cost overrun prediction", "Timeline confidence intervals", "Subcontractor risk scoring", "Procore & Aconex integration"],
-    price: "From $1,200/month",
-  },
-  {
-    slug: "adsiq",
-    name: "AdsIQ",
-    tagline: "Campaign Performance Prediction Engine",
-    industry: "Marketing & Advertising",
-    industryHref: "/industries/marketing-agencies/",
-    description: "Predicts ROAS, CTR, and conversion likelihood before campaign launch. Scored against 2.4M historical Australian campaign data points across Google, Meta, TikTok, and LinkedIn.",
-    features: ["Pre-launch ROAS prediction", "Creative format scoring", "Budget allocation modelling", "6 platform integrations"],
-    price: "From $890/month",
-  },
-  {
-    slug: "opsiq",
-    name: "OpsIQ",
-    tagline: "Supply Chain & Operational Intelligence",
-    industry: "Logistics",
-    industryHref: "/industries/logistics/",
-    description: "Monitors 38 supply chain signals to predict delivery delays, supplier failures, and inventory shortfalls 5–14 days before they cascade into operational shutdowns.",
-    features: ["5–14 day disruption warning", "Demand forecasting (90-day)", "Supplier risk scoring", "WMS & ERP integration"],
-    price: "From $1,500/month",
-  },
-  {
-    slug: "tradesmaniq",
-    name: "TradesmanIQ",
-    tagline: "Job Profitability & Compliance Intelligence",
-    industry: "Trades & Field Services",
-    industryHref: "/industries/trades/",
-    description: "Predicts job profitability before crew commitment, automates compliance documentation, and optimises scheduling for Australian electrical, plumbing, building, and HVAC businesses.",
-    features: ["Job margin prediction", "Compliance doc automation", "Crew scheduling optimisation", "ServiceM8 & Tradify integration"],
-    price: "From $490/month",
-  },
-];
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "PresciaIQ Products",
+  "name": "PresciaIQ Products & Platforms",
   "description": description,
   "url": canonicalURL,
   "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
@@ -73,97 +34,39 @@ const schema = {
     {
       "@type": "Question",
       "name": "What AI products does PresciaIQ offer?",
-      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ offers four predictive AI products for Australian businesses: BuildPredictIQ for construction cost overrun prediction, AdsIQ for marketing campaign ROAS prediction, OpsIQ for supply chain disruption prediction, and TradesmanIQ for trades job profitability prediction. All products are built and hosted in Australia." }
+      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ offers four core predictive AI and autonomous platforms for Australian enterprise: BuildPredictIQ for construction risk and cost overrun prediction, AdsIQ for marketing campaign ROAS forecasting, AI Automations & Agents for autonomous workflow orchestration and document processing, and HELM OS for centralized enterprise operational intelligence." }
     },
     {
       "@type": "Question",
       "name": "How much do PresciaIQ AI products cost?",
-      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ AI products start from $890 per month. Pricing varies by product and usage volume. AdsIQ starts from $890/month, BuildPredictIQ and OpsIQ are priced on project volume, and TradesmanIQ is priced per active user. Contact PresciaIQ for a tailored quote for your business." }
+      "acceptedAnswer": { "@type": "Answer", "text": "PresciaIQ products are calibrated to enterprise value: AdsIQ starts from $890/month, BuildPredictIQ starts from $2,500/report or annual subscription, and AI Automations & HELM OS are scoped based on organizational integration and workflow volume. Contact PresciaIQ for a tailored scoping assessment." }
     },
     {
       "@type": "Question",
       "name": "Are PresciaIQ products built for Australian businesses?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All PresciaIQ products are trained on Australian data, built to Australian compliance standards, and hosted on Australian infrastructure. This means predictions are calibrated to Australian market conditions, not US or UK benchmarks that may not reflect local realities." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All PresciaIQ products and platforms are trained on Australian data, built to Australian compliance standards (Privacy Act 1988 Cth, APP), and hosted 100% on Australian sovereign infrastructure (AWS Sydney ap-southeast-2). This ensures predictions and agent pipelines are calibrated to Australian market realities." }
     }
   ]
 }
 </script>
+
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <main class="min-h-screen bg-background text-foreground">
-    <div class="border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans">
-          <a href="/" class="hover:text-primary transition-colors">Home</a>
-          <span>/</span>
-          <span class="text-foreground">Products</span>
-        </nav>
-      </div>
-    </div>
+  <div class="relative w-full bg-[#050806] text-foreground overflow-x-hidden">
+    <!-- 1. Hero Section (Deep obsidian background, radial mint glow, interactive dot grid) -->
+    <ProductsHero client:load />
 
-    <section class="pt-8 pb-16 md:pb-24 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Our Products</p>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
-          Predictive AI Engines Built for <span class="text-gradient-primary">Australian Industry</span>
-        </h1>
-        <p class="text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
-          Each PresciaIQ product is a purpose-built prediction engine trained on Australian industry data — not a generic AI tool repurposed from a US market dataset. Every product integrates with the software your team already uses.
-        </p>
-        <a href="/start/" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
-          Book a Free Product Demo →
-        </a>
-      </div>
-    </section>
+    <!-- 2. Liquid Drip Transition (Dark to Light: obsidian dripping into crisp white) -->
+    <LiquidDivider client:load className="h-[40vh] min-h-[260px] max-h-[460px]" />
 
-    <section class="py-16 md:py-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-8">
-          {products.map((product) => (
-            <div class="rounded-2xl border border-white/8 p-8 hover:border-primary/20 transition-all duration-300" style="background: rgba(255,255,255,0.02);">
-              <div class="flex flex-col lg:flex-row lg:items-start gap-8">
-                <div class="flex-1">
-                  <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
-                    <h2 class="font-display text-2xl font-bold text-foreground">{product.name}</h2>
-                    <span class="text-xs text-muted-foreground font-sans border border-white/10 px-3 py-1 rounded-full w-fit">{product.tagline}</span>
-                  </div>
-                  <p class="text-muted-foreground font-sans leading-relaxed mb-5">{product.description}</p>
-                  <div class="flex flex-wrap gap-2 mb-6">
-                    {product.features.map(f => (
-                      <span class="text-xs font-sans px-3 py-1 rounded-full border border-primary/20 text-primary bg-primary/5">{f}</span>
-                    ))}
-                  </div>
-                  <div class="flex flex-col sm:flex-row gap-3">
-                    <a href={`/products/${product.slug}/`} class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
-                      View {product.name} →
-                    </a>
-                    <a href={product.industryHref} class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
-                      {product.industry} Industry →
-                    </a>
-                  </div>
-                </div>
-                <div class="lg:w-48 flex-shrink-0">
-                  <p class="text-xs uppercase tracking-wider text-muted-foreground font-sans mb-1">Starting from</p>
-                  <p class="font-mono text-2xl font-bold text-primary">{product.price}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <!-- 3. Core Product Catalog inside High-Contrast Crisp White Section -->
+    <ProductsCatalog client:load />
 
-    <section class="py-16 border-t border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="font-display text-3xl font-bold text-foreground mb-4">Need a Custom Prediction Engine?</h2>
-        <p class="text-muted-foreground font-sans max-w-xl mx-auto mb-8">
-          PresciaIQ builds bespoke AI prediction engines for industries not covered by our standard products. If your business has 2+ years of operational data, we can build a prediction engine for your specific use case.
-        </p>
-        <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
-          Discuss a Custom Build →
-        </a>
-      </div>
-    </section>
-  </main>
+    <!-- 4. Liquid Drip Transition (Light to Dark: crisp white dripping into obsidian dark) -->
+    <LiquidDivider client:load variant="light-to-dark" className="h-[40vh] min-h-[260px] max-h-[460px]" />
+
+    <!-- 5. Pre-Footer CTA Section (Particle vortex cloud & obsidian dark background) -->
+    <LeadCaptureSection client:visible />
+  </div>
 </Layout>

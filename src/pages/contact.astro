@@ -1,17 +1,285 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import LeadCaptureSection from '../components/sections/LeadCaptureSection';
+
+const title = "Contact PresciaIQ | Book a Predictive Strategy Call";
+const description = "Connect with PresciaIQ's Sydney engineering and strategy team. Book a 20-minute executive briefing on predictive AI, AEO architecture, or custom development.";
+const canonicalURL = "https://www.presciaiq.com.au/contact/";
+const CALENDLY_URL = "https://calendly.com/presciaiq-sales/discoverycall";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "name": title,
+      "description": description,
+      "url": canonicalURL,
+      "mainEntity": {
+        "@type": "LocalBusiness",
+        "name": "PresciaIQ",
+        "telephone": "+61400457006",
+        "email": "contact@presciaiq.com.au",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "100 Harris St",
+          "addressLocality": "Pyrmont",
+          "addressRegion": "NSW",
+          "postalCode": "2009",
+          "addressCountry": "AU"
+        }
+      }
+    }
+  ]
+};
 ---
-<Layout title="Contact PresciaIQ | Get a Free AI Audit"
-  description="Talk to PresciaIQ's team about predictive AI, AEO/SEO architecture, or custom AI development. Get a free Digital Health Score audit today.">
-  <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-8 text-center">Contact PresciaIQ — Book an AI Strategy Call</h1>
-  <div class="pt-4">
-    <LeadCaptureSection client:load />
-  </div>
 
-        <div class="mt-4 text-sm text-muted-foreground font-sans">
-          <strong class="text-foreground">Sydney Office</strong>  
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-          100 Harris St, Pyrmont NSW 2009, Australia
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
+    <!-- Top-Right Mint Ambient Radial Aura -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Subtle Intelligence Grid Backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ 1. HERO WRAPPER ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-14 text-left md:text-center">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-muted-foreground font-mono mb-8 md:justify-center flex-wrap" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <span class="text-foreground">Contact</span>
+        </nav>
+
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          CONTACT // Book a Strategy Call
         </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          Connect With Our <span class="text-[#00FF88] italic">Sydney Team</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-8 leading-relaxed">
+          Speak directly with our engineering and growth team in Pyrmont. Explore predictive modeling for your operational datasets or commission bespoke AI systems.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ 2. EXECUTIVE COCKPIT CARD & CONTACT INTERFACE ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left Column: Executive Details & Direct Lines -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="rounded-3xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-8">
+            <div class="text-[11px] font-mono uppercase tracking-widest text-[#00FF88] mb-4">
+              SYDNEY HEADQUARTERS
+            </div>
+            <h3 class="text-2xl font-serif font-bold text-[#F0EDE6] mb-3">
+              Direct Engineering Consultation
+            </h3>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed mb-6">
+              We do not route client inquiries through offshore ticket queues. Every consultation is conducted directly with an Australian AI architect or commercial partner.
+            </p>
+
+            <div class="space-y-4 pt-4 border-t border-white/5 text-sm font-sans">
+              <div class="flex items-start gap-3">
+                <span class="text-[#00FF88] font-mono text-base mt-0.5">📍</span>
+                <div>
+                  <div class="font-semibold text-[#F0EDE6]">Pyrmont Campus</div>
+                  <div class="text-xs text-[#8FAF8F]">100 Harris St, Pyrmont NSW 2009, Australia</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="text-[#00FF88] font-mono text-base mt-0.5">📞</span>
+                <div>
+                  <div class="font-semibold text-[#F0EDE6]">Direct Telephone</div>
+                  <a href="tel:+61400457006" class="text-xs text-[#8FAF8F] hover:text-[#00FF88] transition-colors">
+                    +61 400 457 006
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="text-[#00FF88] font-mono text-base mt-0.5">✉️</span>
+                <div>
+                  <div class="font-semibold text-[#F0EDE6]">Direct Transmission</div>
+                  <a href="mailto:contact@presciaiq.com.au" class="text-xs text-[#8FAF8F] hover:text-[#00FF88] transition-colors">
+                    contact@presciaiq.com.au
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="text-[#00FF88] font-mono text-base mt-0.5">⏱️</span>
+                <div>
+                  <div class="font-semibold text-[#F0EDE6]">SLA Response Window</div>
+                  <div class="text-xs text-[#8FAF8F]">&lt; 4 business hours (AEDT)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Instant Calendar Booking Card -->
+          <div class="rounded-3xl border border-[#00FF88]/20 bg-[#111411]/80 backdrop-blur-xl p-8 relative overflow-hidden">
+            <div class="text-xs font-mono uppercase tracking-widest text-[#00FF88] mb-2">INSTANT BOOKING</div>
+            <h4 class="text-xl font-serif font-bold text-[#F0EDE6] mb-2">Prefer to Pick a Time?</h4>
+            <p class="text-xs text-[#C9CCC8] font-sans leading-relaxed mb-6">
+              Skip email coordination. Secure a 20-minute slot directly on our Sydney engineering calendar.
+            </p>
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full border border-[#00FF88]/40 bg-[#00FF88]/10 text-[#00FF88] font-semibold text-xs font-mono uppercase tracking-wider hover:bg-[#00FF88] hover:text-[#050508] transition-all duration-300"
+            >
+              Open Live Calendar ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Form Container (Executive Dark Glass Cockpit Card) -->
+        <div class="lg:col-span-7">
+          <div class="relative rounded-3xl border border-white/15 bg-[#111411]/90 backdrop-blur-2xl p-8 sm:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+            <!-- Cockpit Ambient Glow -->
+            <div class="absolute -top-12 -right-12 w-64 h-64 bg-[radial-gradient(circle,rgba(0,255,136,0.08),transparent_70%)] pointer-events-none"></div>
+
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10 relative z-10">
+              <div>
+                <div class="text-[10px] font-mono uppercase tracking-widest text-[#00FF88]">STRATEGY INTAKE</div>
+                <h3 class="text-2xl font-serif font-bold text-[#F0EDE6]">Executive Cockpit</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#00FF88] animate-pulse"></span>
+                <span class="text-[11px] font-mono text-[#8FAF8F]">SYD // ENCRYPTED</span>
+              </div>
+            </div>
+
+            <form
+              action="/thank-you/"
+              method="GET"
+              class="space-y-5 relative z-10"
+            >
+              <!-- Field: Name -->
+              <div>
+                <label class="block text-xs font-mono text-[#8FAF8F] mb-1.5 uppercase tracking-wider">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="e.g. Lachlan Murdoch"
+                  class="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3.5 text-sm text-[#F0EDE6] placeholder-white/20 focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+                />
+              </div>
+
+              <!-- Field: Business Email & Company Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-mono text-[#8FAF8F] mb-1.5 uppercase tracking-wider">
+                    Business Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="name@company.com.au"
+                    class="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3.5 text-sm text-[#F0EDE6] placeholder-white/20 focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+                  />
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-[#8FAF8F] mb-1.5 uppercase tracking-wider">
+                    Company Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    required
+                    placeholder="Acme Construction Pty Ltd"
+                    class="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3.5 text-sm text-[#F0EDE6] placeholder-white/20 focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+                  />
+                </div>
+              </div>
+
+              <!-- Field: Phone Number -->
+              <div>
+                <label class="block text-xs font-mono text-[#8FAF8F] mb-1.5 uppercase tracking-wider">
+                  Direct Phone *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  placeholder="+61 400 000 000"
+                  class="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3.5 text-sm text-[#F0EDE6] placeholder-white/20 focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+                />
+              </div>
+
+              <!-- Field: Project Scope -->
+              <div>
+                <label class="block text-xs font-mono text-[#8FAF8F] mb-1.5 uppercase tracking-wider">
+                  Project Scope *
+                </label>
+                <select
+                  name="project_scope"
+                  required
+                  class="w-full rounded-xl bg-[#111411] border border-white/10 px-4 py-3.5 text-sm text-[#F0EDE6] focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+                >
+                  <option value="" disabled selected>Select primary requirement...</option>
+                  <option value="buildpredictiq">BuildPredictIQ (Construction Risk &amp; Budget Prediction)</option>
+                  <option value="adsiq">AdsIQ (Paid Media ROAS &amp; Budget Forecasting)</option>
+                  <option value="smb_operations">SMB Operations &amp; Cash Flow Forecasting</option>
+                  <option value="aeo_seo">AEO / SEO &amp; Answer Engine Architecture</option>
+                  <option value="custom_ai">Custom AI / Software Platform Development</option>
+                  <option value="enterprise_scoping">Enterprise Sovereign Scoping</option>
+                  <option value="partnership">Partner or Technology Integration</option>
+                </select>
+              </div>
+
+              <!-- Optional Context / Details -->
+              <div>
+                <label class="block text-xs font-mono text-[#8FAF8F] mb-1.5 uppercase tracking-wider">
+                  Project Notes &amp; Objectives (Optional)
+                </label>
+                <textarea
+                  name="notes"
+                  rows="3"
+                  placeholder="Outline key timelines, current data systems (e.g. Xero, Procore, Meta Ads), or current operational bottlenecks..."
+                  class="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-sm text-[#F0EDE6] placeholder-white/20 focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  class="w-full py-4 px-6 rounded-full bg-[#00FF88] text-[#050508] font-bold text-sm hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.5)] transition-all font-sans tracking-tight active:scale-95 flex items-center justify-center gap-2"
+                >
+                  Submit Strategy Briefing Request →
+                </button>
+                <p class="text-[10px] font-mono text-[#8FAF8F] text-center mt-3">
+                  Encrypted transmission. Australian data sovereignty guaranteed. No third-party marketing.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
 </Layout>

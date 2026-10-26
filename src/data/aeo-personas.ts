@@ -26,7 +26,7 @@ export const aeoPersonas: AeoPersona[] = [
     objectionResponse: "Traditional SEO retainers produce a handful of pages per month. Predictive Search Architecture deploys hundreds to thousands of targeted pages in a single build — generating structural authority that compounds over time, not month-by-month.",
     exampleUseCase: "A marketing manager at a B2B SaaS company replaced a $12,000/month ad spend with a one-off Predictive Search Architecture build. Within 90 days, organic traffic had tripled and cost-per-lead dropped by 74%.",
     relatedInsight: "/insights/where-the-reaction-tax-hides",
-    relatedInsightTitle: "Where the Reaction Tax Hides in Your Marketing Budget"
+    relatedInsightTitle: "Where Operational Drag Hides in Your Marketing Budget"
   },
   {
     slug: "business-owners",
@@ -110,7 +110,7 @@ export const aeoPersonas: AeoPersona[] = [
     objectionResponse: "The best time to build your search architecture is before your competitors do. Programmatic SEO compounds over time — the earlier you build it, the greater the structural advantage you accumulate.",
     exampleUseCase: "A SaaS founder deployed Predictive Search Architecture across 8 use cases, 20 industries, and 15 locations. Within 6 months, organic traffic accounted for 40% of new trial signups — reducing paid CAC by $180 per acquisition.",
     relatedInsight: "/insights/where-the-reaction-tax-hides",
-    relatedInsightTitle: "Where the Reaction Tax Hides in Your Marketing Budget"
+    relatedInsightTitle: "Where Operational Drag Hides in Your Marketing Budget"
   },
   {
     slug: "sales-directors",

@@ -1,237 +1,432 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import WhySection from '../components/sections/WhySection';
-import LeadCaptureSection from '../components/sections/LeadCaptureSection';
----
 
-<Layout title="About PresciaIQ | Australia's Predictive AI Company — Sydney"
-  description="PresciaIQ is Australia's Predictive AI Company, founded in Sydney. We build AI forecasting platforms — BuildPredictIQ, AdsIQ, OpsIQ, TradesmanIQ — that eliminate the Reaction Tax for Australian SMBs. Meet the founders and learn why we built it.">
-  <script type="application/ld+json">
-  [
+const title = "About PresciaIQ | High-Performance Digital Infrastructure & AI Architecture";
+const description = "PresciaIQ is Australia's High-Performance Digital Infrastructure & AI Architecture Company, headquartered in Sydney. We build predictive intelligence engines and autonomous enterprise platforms.";
+const canonicalURL = "https://www.presciaiq.com.au/about/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
       "@type": "Person",
       "@id": "https://www.presciaiq.com.au/about/#alex-cutajar",
       "name": "Alex Cutajar",
       "jobTitle": "Co-Founder & CEO",
       "url": "https://www.presciaiq.com.au/about/",
       "worksFor": { "@type": "Organization", "@id": "https://www.presciaiq.com.au/#organization", "name": "PresciaIQ" },
-      "description": "Alex Cutajar is Co-Founder and CEO of PresciaIQ, Australia's Predictive AI Company. With a background in SMB and FMCG operations and applied AI, Alex leads product strategy, AI development, and the technical architecture behind PresciaIQ's four intelligence platforms.",
-      "knowsAbout": ["Predictive Analytics", "AI Strategy", "SMB Operations", "Applied AI", "Business Intelligence", "FMCG", "Answer Engine Optimisation", "AI Platform Development"],
-      "sameAs": [
-        "https://www.linkedin.com/in/alex-cutajar",
-        "https://www.presciaiq.com.au/about/"
-      ]
+      "description": "Alex Cutajar is Co-Founder and CEO of PresciaIQ. With a background in SMB and FMCG operations and applied AI, Alex leads product strategy, AI development, and technical architecture.",
+      "sameAs": ["https://www.linkedin.com/in/alex-cutajar"]
     },
     {
-      "@context": "https://schema.org",
       "@type": "Person",
       "@id": "https://www.presciaiq.com.au/about/#macauley-burke",
       "name": "Macauley Burke",
       "jobTitle": "Co-Founder & Head of Growth",
       "url": "https://www.presciaiq.com.au/about/",
       "worksFor": { "@type": "Organization", "@id": "https://www.presciaiq.com.au/#organization", "name": "PresciaIQ" },
-      "description": "Macauley Burke is Co-Founder and Head of Growth at PresciaIQ. With a background in B2B sales and enterprise client development, Macauley leads commercial strategy, partnerships, and revenue growth across PresciaIQ's Australian client base.",
-      "knowsAbout": ["B2B Sales", "Enterprise Client Development", "AI Commercialisation", "Revenue Growth", "Marketing Strategy", "AEO", "Programmatic SEO"],
-      "sameAs": [
-        "https://www.linkedin.com/in/macauley-burke",
-        "https://www.presciaiq.com.au/about/"
-      ]
+      "description": "Macauley Burke is Co-Founder and Head of Growth at PresciaIQ. Macauley leads commercial strategy, partnerships, and revenue growth across PresciaIQ's Australian client base.",
+      "sameAs": ["https://www.linkedin.com/in/macauley-burke"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonicalURL}#webpage`,
+      "url": canonicalURL,
+      "name": title,
+      "description": description,
+      "isPartOf": { "@id": "https://www.presciaiq.com.au/#website" }
     }
   ]
-  </script>
+};
+---
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is PresciaIQ and what does it do?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "PresciaIQ is Australia's Predictive AI Company, headquartered in Sydney. We design and build AI forecasting platforms that help Australian SMBs and mid-market operators act on intelligence before problems occur — not after. Our four products are BuildPredictIQ (construction risk and budget forecasting), AdsIQ (campaign ROAS prediction), OpsIQ (operational bottleneck intelligence), and TradesmanIQ (job profitability and scheduling for trades)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who founded PresciaIQ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "PresciaIQ was co-founded by Alex Cutajar (CEO) and Macauley Burke (Head of Growth). Alex brings a background in SMB operations, FMCG, and applied AI. Macauley brings B2B sales and enterprise client development experience. Together they identified that most Australian businesses were paying a hidden 'Reaction Tax' — the cost of learning things after they had already happened — and built PresciaIQ to eliminate it."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Where is PresciaIQ based?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "PresciaIQ is headquartered in Sydney, Australia at 100 Harris St, Pyrmont NSW 2009. We are an Australian-built company designed specifically for Australian business conditions, regulations, and market dynamics."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What industries does PresciaIQ serve?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "PresciaIQ serves Australian businesses across construction and property development (BuildPredictIQ), marketing and media buying (AdsIQ), logistics and operations-heavy businesses (OpsIQ), and trades including plumbing, electrical, HVAC, landscaping, and cleaning (TradesmanIQ). We also serve financial services, professional services, and any Australian SMB that makes high-stakes decisions on incomplete information."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the Reaction Tax?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The Reaction Tax is the hidden cost every business pays when it learns something after it has already happened — the ad spend burned on a failing campaign, the build that slips because nobody saw the supplier delay, the warehouse that ran dry when demand spiked. PresciaIQ was built to eliminate the Reaction Tax by giving Australian operators predictive intelligence before decisions need to be made."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is PresciaIQ different from other AI companies in Australia?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most AI tools sold to Australian businesses are US-built enterprise platforms retrofitted for local use. PresciaIQ is built in Australia, for Australia — designed around Australian regulations, market dynamics, and the specific decisions Australian operators make. Our products are vertical-specific (not generic), priced for SMBs (not enterprise), and focused on prediction (not just reporting). We also specialise in Answer Engine Optimisation (AEO) and Generative Engine Optimisation (GEO) — helping Australian businesses get cited by AI engines like ChatGPT, Perplexity, and Gemini."
-        }
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
+    <!-- ═══ ATMOSPHERIC AURA BACKDROP ═══ -->
+    <!-- Top-Right Mint Ambient Radial Aura -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Subtle Intelligence Grid Backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ 1. HERO WRAPPER ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="pt-36 pb-16 max-w-4xl mx-auto text-center flex flex-col items-center px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumb: Centered cleanly below navbar -->
+        <nav
+          class="w-full flex justify-center text-center mx-auto mb-6 text-xs font-mono text-[#8FAF8F] tracking-wide flex-wrap items-center gap-2"
+          aria-label="Breadcrumb"
+        >
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <span class="text-foreground">About</span>
+        </nav>
+
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          ABOUT // THE TEAM &amp; MISSION
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          High-Performance Digital Infrastructure <span class="text-[#00FF88] italic">&amp; AI Architecture</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-10 leading-relaxed">
+          Most Australian enterprises operate looking through the rear-view mirror — discovering delays, burned ad spend, and cash bottlenecks after the damage is irreversible. We build the predictive machinery that flips the balance from reaction to foresight.
+        </p>
+
+        <!-- ═══ 2. HERO QUICK STATS (4 BALANCED FROSTED GLASS MICRO-CARDS) ═══ -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl mx-auto pt-2">
+          {[
+            { value: "4 Pillars", label: "Core Architecture", sub: "Integrated Platforms" },
+            { value: "99.9%", label: "High Availability", sub: "0-Latency Telemetry" },
+            { value: "100%", label: "Sovereign Cloud", sub: "AWS ap-southeast-2" },
+            { value: "Sydney", label: "Headquarters", sub: "Pyrmont NSW" },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              data-reveal="from-bottom"
+              data-reveal-delay={`${idx * 80}`}
+              class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 text-center transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+            >
+              <!-- Shimmer Layer: First child inside each card -->
+              <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+              <!-- Inner Elements: relative z-20 -->
+              <div class="relative z-20">
+                <div class="text-2xl md:text-3xl font-serif font-bold text-[#00FF88] mb-1">{item.value}</div>
+                <div class="text-xs font-mono uppercase text-[#F0EDE6] tracking-wider mb-0.5">{item.label}</div>
+                <div class="text-[10px] text-[#8FAF8F] font-mono">{item.sub}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 3. "WHY WE BUILT PRESCIAIQ" MISSION CONTAINER ═══ -->
+    <section class="relative z-10 px-4 sm:px-6 lg:px-8 border-b border-white/5">
+      <div
+        data-reveal="from-bottom"
+        class="max-w-4xl mx-auto my-16 rounded-3xl border border-white/10 bg-[#111411]/90 backdrop-blur-2xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden"
+      >
+        <div class="absolute top-0 right-0 w-72 h-72 bg-[radial-gradient(circle,rgba(0,255,136,0.06),transparent_70%)] pointer-events-none"></div>
+
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-6">
+          OUR MISSION
+        </div>
+
+        <h2 class="text-2xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-6 leading-snug">
+          Why We Built PresciaIQ: Ending Yesterday's Data in Today's Decisions
+        </h2>
+
+        <div class="space-y-5 text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed">
+          <p>
+            Every single day, Australian operators face compounding operational drag and friction. It is not an explicit line item on the profit and loss statement — rather, it appears as 20% construction cost blowouts, marketing campaigns running past peak efficiency before calibration, and uncoordinated manual document bottlenecks.
+          </p>
+          <p>
+            When Alex Cutajar and Macauley Burke surveyed the Australian technology market, they discovered an unacceptable divide: large multinational enterprises could afford bespoke $500,000 data science consultancies, while Australian SMBs and mid-market firms were stuck with basic backward-looking accounting software and spreadsheets.
+          </p>
+          <p>
+            PresciaIQ was established in Sydney with a singular directive: <span class="text-[#00FF88] font-medium">to replace reactive reporting with institutional predictive intelligence</span>. We build purpose-engineered intelligence platforms — <span class="text-[#00FF88] font-medium">BuildPredictIQ</span>, <span class="text-[#00FF88] font-medium">AdsIQ</span>, <span class="text-[#00FF88] font-medium">AI Automations &amp; Agents</span>, and <span class="text-[#00FF88] font-medium">HELM OS</span> — enabling Australian decision-makers to act weeks before problems compound.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 4. "OUR FOUR-STAGE PREDICTIVE METHODOLOGY" (4 BENTO CARDS GRID) ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          ENGINEERING ARCHITECTURE
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          Our Four-Stage Predictive Methodology
+        </h2>
+        <p class="text-sm md:text-base text-[#C9CCC8] font-sans">
+          How our models turn disconnected operational data into validated, high-confidence forecasts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          {
+            step: "01",
+            title: "Multi-Source Ingestion",
+            desc: "Continuous, read-only ingestion of financial ledgers, project management logs, and market telemetry through encrypted pipelines."
+          },
+          {
+            step: "02",
+            title: "Dynamic Feature Weighting",
+            desc: "Our algorithms evaluate up to 47 vertical variables, normalizing for Australian holiday schedules, weather anomalies, and supply chains."
+          },
+          {
+            step: "03",
+            title: "Holdout Backtesting",
+            desc: "Every model is rigorously benchmarked against historical ground truth before signals are exposed, maintaining >89% confidence thresholds."
+          },
+          {
+            step: "04",
+            title: "Prescriptive Signaling",
+            desc: "Instead of complex charts, operators receive explicit risk flags, required timing adjustments, and budget recalculations in plain English."
+          }
+        ].map((item, idx) => (
+          <div
+            key={idx}
+            data-reveal="from-bottom"
+            data-reveal-delay={`${idx * 100}`}
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+          >
+            <!-- Left-to-Right Shimmer Glare Beam -->
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+            <div class="relative z-20">
+              <div class="text-2xl font-mono font-bold text-[#00FF88] mb-3">{item.step}</div>
+              <h3 class="text-base font-serif font-semibold text-[#F0EDE6] mb-2">{item.title}</h3>
+              <p class="text-xs text-[#C9CCC8] font-sans leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ═══ 5. DATA SECURITY & SOVEREIGNTY SECTION (2-COLUMN BALANCED LAYOUT) ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <!-- Left Card: Security Highlights -->
+        <div
+          data-reveal="from-left"
+          class="group relative overflow-hidden lg:col-span-8 rounded-3xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 hover:border-[#00FF88]/40 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.2)] flex flex-col justify-between"
+        >
+          <!-- Shimmer Layer -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#00FF88] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+              DATA SECURITY &amp; COMPLIANCE
+            </div>
+            <h2 class="text-2xl md:text-3xl font-serif font-semibold text-[#F0EDE6] mb-4">
+              Australian Data Sovereignty: Your Data Never Leaves Our Borders
+            </h2>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed mb-6">
+              Australian enterprise data belongs under Australian jurisdiction. PresciaIQ runs entirely on ISO 27001, SOC 2, and IRAP-assessed cloud infrastructure located in Sydney, NSW (<span class="font-mono text-[#00FF88]">AWS ap-southeast-2</span>).
+            </p>
+          </div>
+
+          <div class="relative z-20 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#C9CCC8] font-sans pt-2 border-t border-white/5">
+            <div class="flex items-center gap-2">
+              <span class="text-[#00FF88] font-mono">✓</span> 100% Onshore Australian Data Residency
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[#00FF88] font-mono">✓</span> Zero Third-Party Public LLM Training
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[#00FF88] font-mono">✓</span> End-to-End AES-256 Data Encryption
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[#00FF88] font-mono">✓</span> Privacy Act 1988 (Cth) &amp; APP Alignment
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Card: Sydney Facility & Coordinates -->
+        <div
+          data-reveal="from-right"
+          class="group relative overflow-hidden lg:col-span-4 rounded-3xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-8 md:p-10 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#00FF88]/40 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.2)]"
+        >
+          <!-- Shimmer Layer -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20 flex flex-col items-center">
+            <div class="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-3xl mb-4 shadow-[0_0_20px_rgba(0,255,136,0.1)]">
+              🇦🇺
+            </div>
+            <div class="font-serif font-bold text-[#F0EDE6] text-lg mb-1">Sydney Campus</div>
+            <div class="text-xs font-mono text-[#8FAF8F] mb-4">100 Harris St, Pyrmont NSW 2009</div>
+            <div class="px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.02] text-[10px] font-mono text-[#00FF88] tracking-wider">
+              LAT -33.8688° // LONG 151.1957°
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 6. LEADERSHIP CARDS (ALEX CUTAJAR & MACAULEY BURKE) ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          EXECUTIVE LEADERSHIP
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          The Leadership Team Behind PresciaIQ
+        </h2>
+        <p class="text-sm md:text-base text-[#C9CCC8] font-sans">
+          Operators who have built businesses, managed margin crunches, and deployed production AI systems.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto my-12">
+        <!-- Alex Cutajar -->
+        <div
+          data-reveal="from-left"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.25)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <!-- Left-to-Right Shimmer Glare Beam -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 rounded-full border-2 border-[#00FF88]/40 overflow-hidden bg-white/5 flex items-center justify-center shrink-0">
+                <img
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/SwyIDFXzKmIrniOC.webp"
+                  alt="Alex Cutajar"
+                  class="w-full h-full object-cover"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                />
+                <div style="display:none;" class="w-full h-full items-center justify-center font-serif text-lg font-bold text-[#00FF88]">AC</div>
+              </div>
+              <div>
+                <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors mb-1">
+                  Alex Cutajar
+                </h3>
+                <div class="text-xs font-mono uppercase tracking-widest text-[#00FF88] mb-4">
+                  Co-Founder &amp; Chief Executive Officer
+                </div>
+              </div>
+            </div>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed mb-6">
+              Alex brings over a decade of hands-on experience running Australian SMB and FMCG operations, combined with deep technical expertise in applied machine learning. He leads product strategy, algorithmic architecture, and data pipelines across PresciaIQ's four core intelligence pillars.
+            </p>
+          </div>
+
+          <div class="relative z-20 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-[#8FAF8F]">Focus: AI Architecture &amp; Platform Strategy</span>
+            <a
+              href="https://www.linkedin.com/in/alex-cutajar/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[#8FAF8F] hover:text-[#00FF88] transition-colors"
+            >
+              LinkedIn ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Macauley Burke -->
+        <div
+          data-reveal="from-right"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.25)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <!-- Left-to-Right Shimmer Glare Beam -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 rounded-full border-2 border-[#00FF88]/40 overflow-hidden bg-white/5 flex items-center justify-center shrink-0">
+                <img
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663078146555/xjVQsXYtaEfhKerq.JPG"
+                  alt="Macauley Burke"
+                  class="w-full h-full object-cover"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                />
+                <div style="display:none;" class="w-full h-full items-center justify-center font-serif text-lg font-bold text-[#00FF88]">MB</div>
+              </div>
+              <div>
+                <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors mb-1">
+                  Macauley Burke
+                </h3>
+                <div class="text-xs font-mono uppercase tracking-widest text-[#00FF88] mb-4">
+                  Co-Founder &amp; Chief Commercial Officer
+                </div>
+              </div>
+            </div>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed mb-6">
+              Macauley has seven years of executive commercial experience advising Australian business owners through Modern Body Method and B2B growth operations. He oversees commercial expansion, customer success, partner alliances, and revenue operations across the PresciaIQ ecosystem.
+            </p>
+          </div>
+
+          <div class="relative z-20 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-[#8FAF8F]">Focus: Commercial Growth &amp; Ecosystem Alliances</span>
+            <a
+              href="https://www.linkedin.com/in/macauley-burke/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[#8FAF8F] hover:text-[#00FF88] transition-colors"
+            >
+              LinkedIn ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 7. BOTTOM CTA BUTTON ═══ -->
+      <div class="mt-16 text-center">
+        <a
+          href="/contact/"
+          class="bg-[#00FF88] text-[#050508] font-semibold px-8 py-3.5 rounded-full hover:bg-[#00FF88]/90 hover:shadow-[0_0_25px_rgba(0,255,136,0.4)] transition-all font-mono text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2 active:scale-95"
+        >
+          Connect With Leadership Team →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ 8. DIRECTIONAL SCROLL ENTRANCE SCRIPT (400MS DURATION) ═══ -->
+  <script is:inline>
+    (function () {
+      const INIT = {
+        'from-left':   { transform: 'translateX(-20px)', opacity: '0' },
+        'from-right':  { transform: 'translateX(20px)',  opacity: '0' },
+        'from-bottom': { transform: 'translateY(20px)',  opacity: '0' },
+      };
+
+      const targets = document.querySelectorAll('[data-reveal]');
+
+      targets.forEach(el => {
+        const dir = el.getAttribute('data-reveal');
+        const init = INIT[dir];
+        if (!init) return;
+        Object.assign(el.style, init);
+        el.style.transition = 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.willChange = 'transform, opacity';
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => {
+              el.style.transform = 'translate(0, 0)';
+              el.style.opacity = '1';
+            }, delay);
+            observer.unobserve(el);
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      targets.forEach(el => observer.observe(el));
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(el => {
+          el.style.transform = 'none';
+          el.style.opacity = '1';
+          el.style.transition = 'none';
+        });
       }
-    ]
-  }
+    })();
   </script>
-
-  <div class="pt-16 pb-24 min-h-screen">
-    <div class="max-w-4xl mx-auto px-6">
-
-      <!-- Page Header -->
-      <div class="mb-16 text-center">
-        <p class="text-primary font-bold uppercase tracking-widest text-xs mb-4 font-sans">About Us</p>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6">Australia's Predictive AI Company</h1>
-        <p class="text-lg text-muted-foreground font-sans max-w-2xl mx-auto">We build AI forecasting platforms that eliminate the Reaction Tax — the hidden cost every business pays for learning things after they have already happened.</p>
-      </div>
-
-      <!-- Why We Built It -->
-      <div class="mb-16 glass-card p-8 md:p-12">
-        <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">Why We Built PresciaIQ</h2>
-        <div class="space-y-4 text-muted-foreground font-sans leading-relaxed">
-          <p>Most Australian businesses are running on yesterday's data. They review last month's campaign performance after the budget is spent. They find out about the supplier delay after the build has slipped. They discover the demand spike after the warehouse has run dry.</p>
-          <p>This is what we call the <strong class="text-foreground">Reaction Tax</strong> — the hidden cost every business pays for learning things after they have already happened. It does not appear on a P&amp;L. It shows up as margin erosion, missed opportunities, and decisions made under pressure with incomplete information.</p>
-          <p>PresciaIQ was founded in Sydney in 2024 to eliminate the Reaction Tax for Australian businesses. We build AI forecasting platforms that give operators predictive intelligence before decisions need to be made — not reports on what already happened.</p>
-          <p>Our founders, Alex Cutajar and Macauley Burke, identified that the tools available to Australian SMBs were either too generic (off-the-shelf platforms built for US enterprise markets) or too expensive (custom AI development starting at six figures). There was nothing built specifically for the Australian mid-market operator who makes high-stakes decisions every day on incomplete information.</p>
-          <p>That gap is what PresciaIQ fills.</p>
-        </div>
-      </div>
-
-      <!-- The Four Products -->
-      <div class="mb-16">
-        <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">Our Four Intelligence Platforms</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <a href="/products/buildpredictiq" class="glass-card-hover p-6 group" style="text-decoration:none;">
-            <p class="text-primary font-bold uppercase tracking-widest text-xs mb-3 font-sans">Construction</p>
-            <h3 class="font-display text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">BuildPredictIQ</h3>
-            <p class="text-sm text-muted-foreground font-sans leading-relaxed">AI-powered construction risk and budget intelligence. Forecasts geotechnical risk, supplier delays, and cost blowouts before they materialise — giving builders and developers early warning to protect margin.</p>
-          </a>
-          <a href="/products/adsiq" class="glass-card-hover p-6 group" style="text-decoration:none;">
-            <p class="text-primary font-bold uppercase tracking-widest text-xs mb-3 font-sans">Marketing</p>
-            <h3 class="font-display text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">AdsIQ</h3>
-            <p class="text-sm text-muted-foreground font-sans leading-relaxed">Campaign timing and ROAS forecasting for Australian marketing teams and media buyers. Predicts return on ad spend before campaigns launch, eliminating wasted budget on poorly timed spend.</p>
-          </a>
-          <a href="/products/opsiq" class="glass-card-hover p-6 group" style="text-decoration:none;">
-            <p class="text-primary font-bold uppercase tracking-widest text-xs mb-3 font-sans">Operations</p>
-            <h3 class="font-display text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">OpsIQ</h3>
-            <p class="text-sm text-muted-foreground font-sans leading-relaxed">Operational bottleneck prediction for logistics-heavy and operations-intensive businesses. Forecasts demand, capacity constraints, and workflow failures before they disrupt delivery.</p>
-          </a>
-          <a href="/products/tradesmaniq" class="glass-card-hover p-6 group" style="text-decoration:none;">
-            <p class="text-primary font-bold uppercase tracking-widest text-xs mb-3 font-sans">Trades</p>
-            <h3 class="font-display text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">TradesmanIQ</h3>
-            <p class="text-sm text-muted-foreground font-sans leading-relaxed">Job profitability and scheduling intelligence for Australian tradespeople — plumbers, electricians, HVAC technicians, landscapers, and cleaners. Know which jobs are worth quoting before you quote them.</p>
-          </a>
-        </div>
-      </div>
-
-      <!-- AEO/SEO Capability -->
-      <div class="mb-16 glass-card p-8 md:p-12">
-        <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">Australia's AEO &amp; GEO Specialists</h2>
-        <div class="space-y-4 text-muted-foreground font-sans leading-relaxed">
-          <p>Beyond our four intelligence products, PresciaIQ is Australia's leading specialist in <strong class="text-foreground">Answer Engine Optimisation (AEO)</strong> and <strong class="text-foreground">Generative Engine Optimisation (GEO)</strong> — the disciplines that determine whether your business gets cited by AI engines like ChatGPT, Perplexity, Google AI Overviews, and Gemini.</p>
-          <p>Traditional SEO optimises for Google's ten blue links. AEO and GEO optimise for the AI-generated answers that are increasingly replacing those links. When someone asks an AI "who are the best construction AI companies in Australia" or "what is the best predictive analytics tool for tradesmen," AEO determines whether your business is cited in the answer.</p>
-          <p>We have built PresciaIQ's own digital presence entirely on AEO and GEO principles — and we apply the same architecture to our clients' websites. Our programmatic SEO systems generate hundreds of location, industry, and use-case pages that capture long-tail AI search queries at scale.</p>
-        </div>
-      </div>
-
-      <!-- Team -->
-      <div class="mb-16">
-        <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">The Founders</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="glass-card p-8">
-            <h3 class="font-display text-xl font-bold text-foreground mb-1">Alex Cutajar</h3>
-            <p class="text-primary font-bold text-sm uppercase tracking-widest font-sans mb-4">Co-Founder &amp; CEO</p>
-            <p class="text-sm text-muted-foreground font-sans leading-relaxed">Alex brings a background in SMB and FMCG operations and applied AI. He leads product strategy, AI development, and the technical architecture behind PresciaIQ's four intelligence platforms. Alex identified the Reaction Tax pattern across dozens of Australian businesses and designed the predictive frameworks that underpin every PresciaIQ product.</p>
-          </div>
-          <div class="glass-card p-8">
-            <h3 class="font-display text-xl font-bold text-foreground mb-1">Macauley Burke</h3>
-            <p class="text-primary font-bold text-sm uppercase tracking-widest font-sans mb-4">Co-Founder &amp; Head of Growth</p>
-            <p class="text-sm text-muted-foreground font-sans leading-relaxed">Macauley brings B2B sales and enterprise client development experience to PresciaIQ. He leads commercial strategy, partnerships, and revenue growth. Macauley's background in building enterprise relationships means PresciaIQ's products are designed around the real commercial decisions Australian operators make — not theoretical use cases.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ Section -->
-      <div class="mb-16">
-        <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">Frequently Asked Questions</h2>
-        <div class="space-y-4">
-          <details class="glass-card p-6 group">
-            <summary class="font-display font-bold text-foreground cursor-pointer list-none flex items-center justify-between">
-              What is PresciaIQ and what does it do?
-              <span class="text-primary ml-4">+</span>
-            </summary>
-            <p class="text-muted-foreground font-sans leading-relaxed mt-4 text-sm">PresciaIQ is Australia's Predictive AI Company, headquartered in Sydney. We design and build AI forecasting platforms that help Australian SMBs and mid-market operators act on intelligence before problems occur. Our four products are BuildPredictIQ (construction risk and budget forecasting), AdsIQ (campaign ROAS prediction), OpsIQ (operational bottleneck intelligence), and TradesmanIQ (job profitability and scheduling for trades).</p>
-          </details>
-          <details class="glass-card p-6 group">
-            <summary class="font-display font-bold text-foreground cursor-pointer list-none flex items-center justify-between">
-              Who founded PresciaIQ?
-              <span class="text-primary ml-4">+</span>
-            </summary>
-            <p class="text-muted-foreground font-sans leading-relaxed mt-4 text-sm">PresciaIQ was co-founded by Alex Cutajar (CEO) and Macauley Burke (Head of Growth). Alex brings a background in SMB operations, FMCG, and applied AI. Macauley brings B2B sales and enterprise client development experience. Together they identified that most Australian businesses were paying a hidden Reaction Tax and built PresciaIQ to eliminate it.</p>
-          </details>
-          <details class="glass-card p-6 group">
-            <summary class="font-display font-bold text-foreground cursor-pointer list-none flex items-center justify-between">
-              What industries does PresciaIQ serve?
-              <span class="text-primary ml-4">+</span>
-            </summary>
-            <p class="text-muted-foreground font-sans leading-relaxed mt-4 text-sm">PresciaIQ serves construction and property development (BuildPredictIQ), marketing and media buying (AdsIQ), logistics and operations-heavy businesses (OpsIQ), and trades including plumbing, electrical, HVAC, landscaping, and cleaning (TradesmanIQ). We also serve financial services, professional services, and any Australian SMB that makes high-stakes decisions on incomplete information.</p>
-          </details>
-          <details class="glass-card p-6 group">
-            <summary class="font-display font-bold text-foreground cursor-pointer list-none flex items-center justify-between">
-              How is PresciaIQ different from other AI companies in Australia?
-              <span class="text-primary ml-4">+</span>
-            </summary>
-            <p class="text-muted-foreground font-sans leading-relaxed mt-4 text-sm">Most AI tools sold to Australian businesses are US-built enterprise platforms retrofitted for local use. PresciaIQ is built in Australia, for Australia — designed around Australian regulations, market dynamics, and the specific decisions Australian operators make. Our products are vertical-specific, priced for SMBs, and focused on prediction rather than reporting. We also specialise in AEO and GEO — helping Australian businesses get cited by AI engines like ChatGPT, Perplexity, and Gemini.</p>
-          </details>
-          <details class="glass-card p-6 group">
-            <summary class="font-display font-bold text-foreground cursor-pointer list-none flex items-center justify-between">
-              Where is PresciaIQ based?
-              <span class="text-primary ml-4">+</span>
-            </summary>
-            <p class="text-muted-foreground font-sans leading-relaxed mt-4 text-sm">PresciaIQ is headquartered in Sydney, Australia at 100 Harris St, Pyrmont NSW 2009. We are an Australian-built company designed specifically for Australian business conditions, regulations, and market dynamics.</p>
-          </details>
-          <details class="glass-card p-6 group">
-            <summary class="font-display font-bold text-foreground cursor-pointer list-none flex items-center justify-between">
-              What is the Reaction Tax?
-              <span class="text-primary ml-4">+</span>
-            </summary>
-            <p class="text-muted-foreground font-sans leading-relaxed mt-4 text-sm">The Reaction Tax is the hidden cost every business pays when it learns something after it has already happened — the ad spend burned on a failing campaign, the build that slips because nobody saw the supplier delay, the warehouse that ran dry when demand spiked. PresciaIQ was built to eliminate the Reaction Tax by giving Australian operators predictive intelligence before decisions need to be made.</p>
-          </details>
-        </div>
-      </div>
-
-      <!-- Location -->
-      <div class="mt-4 text-sm text-muted-foreground font-sans">
-        <strong class="text-foreground">Sydney Office</strong>
-        100 Harris St, Pyrmont NSW 2009, Australia
-      </div>
-
-    </div>
-  </div>
-
-  <WhySection client:load />
-  <LeadCaptureSection client:load />
 </Layout>

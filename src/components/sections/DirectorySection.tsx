@@ -52,27 +52,27 @@ const products: Product[] = [
     isExternal: true,
   },
   {
-    name: "OpsIQ",
-    icon: Settings,
-    category: "OPERATIONS INTELLIGENCE",
-    status: "COMING Q3 2026",
-    statusType: "coming",
-    tagline: "Your entire business playbook, built in 4 weeks.",
-    features: ["Done-For-You SOPs", "Face-to-Face Discovery", "Ongoing Optimisation"],
-    ctaLabel: "Join Waitlist",
-    ctaHref: "/contact",
+    name: "AI Automations & Agents",
+    icon: Code2,
+    category: "AUTONOMOUS AGENTS",
+    status: "LIVE",
+    statusType: "live",
+    tagline: "Autonomous neural multi-agent pipelines for complex enterprise tasks.",
+    features: ["Intelligent Document Parsing", "Multi-Agent Routing", "ERP / CRM Integrations"],
+    ctaLabel: "Explore Automations",
+    ctaHref: "/products/ai-automations/",
     isExternal: false,
   },
   {
-    name: "TradesmanIQ",
-    icon: Wrench,
-    category: "TRADES INTELLIGENCE",
-    status: "IN DEVELOPMENT",
-    statusType: "coming",
-    tagline: "The digital backbone for modern Australian trades.",
-    features: ["Job Management", "Compliance Tracking", "Client Portal"],
-    ctaLabel: "Register Interest",
-    ctaHref: "/contact",
+    name: "HELM OS",
+    icon: Settings,
+    category: "ENTERPRISE INTELLIGENCE",
+    status: "ENTERPRISE",
+    statusType: "live",
+    tagline: "The central nervous system for enterprise decision-making & operations.",
+    features: ["Autonomous Telemetry", "Real-Time Risk Heatmaps", "High-Throughput Workflows"],
+    ctaLabel: "Explore HELM OS",
+    ctaHref: "/services/ai-software-development/",
     isExternal: false,
   },
 ];
@@ -261,9 +261,9 @@ const DirectorySection = () => {
           className="flex flex-wrap gap-3"
         >
           {companyLinks.map((link) => (
-            <Link
+            <a
               key={link.label}
-              to={link.href}
+              href={link.href}
               className="px-5 py-2.5 text-sm font-sans font-medium text-foreground rounded-full transition-all duration-200 hover:text-primary hover:border-primary/30 no-underline"
               style={{ border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.02)" }}
               aria-label={link.label}

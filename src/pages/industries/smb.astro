@@ -1,0 +1,356 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "AI for SMBs & Growing Businesses Australia | PresciaIQ";
+const description = "Predictive intelligence and operational forecasting built specifically for Australian SMBs. Eliminate operational drag, forecast cash flow, and protect margins.";
+const canonicalURL = "https://www.presciaiq.com.au/industries/smb/";
+
+const faqs = [
+  {
+    q: "Is PresciaIQ suitable for SMBs without an internal data science team?",
+    a: "Absolutely. PresciaIQ was engineered specifically for mid-market and small business operators who do not have in-house data scientists or ML engineers. Our models ingest your existing operational data — from accounting platforms like Xero, CRM pipelines, inventory systems, or even standard spreadsheets — and output actionable predictive signals directly through an executive dashboard."
+  },
+  {
+    q: "How does PresciaIQ connect with existing SMB software?",
+    a: "We support secure, native API connections with Australian standard SMB software stacks including Xero, MYOB, HubSpot, Salesforce, Shopify, Procore, and Google Workspace. Data ingestion is automated, read-only, and fully secured under Australian data sovereignty protocols."
+  },
+  {
+    q: "How quickly does an SMB see measurable return on investment?",
+    a: "Most SMB clients receive their first live predictive signals within 72 hours of data ingestion. Measurable ROI is typically realized within the first 30–45 days as preventable cash flow bottlenecks, misallocated marketing spend, and inventory runouts are preempted."
+  },
+  {
+    q: "What makes PresciaIQ different from standard reporting dashboards like PowerBI or Looker?",
+    a: "Traditional dashboards show you what happened last week or last month — this is rear-view mirror reporting that forces your team to operate reactively. PresciaIQ runs forward-looking predictive models that forecast what will happen over the next 14, 30, and 90 days, providing prescriptive recommendations before issues compound."
+  },
+  {
+    q: "Where is SMB financial and operational data stored?",
+    a: "100% of client data is stored and processed within ISO 27001-certified Australian data centres (AWS Sydney / ap-southeast-2). Your data is never used to train global third-party foundation models, ensuring complete confidentiality and Australian Privacy Principles (APP) compliance."
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": canonicalURL,
+      "dateModified": "2026-09-25",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+          { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.presciaiq.com.au/industries/" },
+          { "@type": "ListItem", "position": 3, "name": "SMB Operations & Forecasting", "item": canonicalURL }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
+};
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
+    <!-- ═══ ATMOSPHERIC BACKGROUND LAYERS ═══ -->
+    <!-- Top-Right Mint Ambient Radial Aura -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Subtle Intelligence Grid Backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ 1. HERO WRAPPER & BREADCRUMB ALIGNMENT ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center pb-20">
+        <!-- Breadcrumb: Centered below floating navbar with dedicated breathing space -->
+        <nav
+          class="pt-32 md:pt-36 mb-6 w-full flex justify-center items-center gap-2 text-xs font-mono text-[#8FAF8F] tracking-wide flex-wrap"
+          aria-label="Breadcrumb"
+        >
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <a href="/industries/" class="hover:text-primary transition-colors">Industries</a>
+          <span class="text-white/20">/</span>
+          <span class="text-foreground">SMB Operations</span>
+        </nav>
+
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          SMB // Operations &amp; Forecasting
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          Predictive Intelligence for <span class="text-[#00FF88] italic">Growing Businesses</span>
+        </h1>
+
+        <!-- Subtitle / Lead Paragraph -->
+        <p class="text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-8 leading-relaxed">
+          Australian SMBs lose an estimated 14–22% of EBITDA to operational drag and latency — diagnosing problems only after margins erode. PresciaIQ brings institutional-grade machine learning to growing enterprises, predicting cash flow bottlenecks, customer churn, and capacity limits before they strike.
+        </p>
+
+        <!-- CTA Row: Centered with comfortable spacing below lead paragraph -->
+        <div class="mt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/contact/"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
+          >
+            Book an SMB Strategy Call →
+          </a>
+          <a
+            href="/reaction-tax-calculator/"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 hover:bg-white/[0.07] transition-all duration-300 backdrop-blur-md active:scale-95"
+          >
+            Calculate Your Potential ROI →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 2. "THE REALITY" NARRATIVE SECTION & 4 METRIC BENTO CARDS ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-16 md:pb-20 border-b border-white/5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Left Column: Narrative Copy -->
+        <div class="lg:col-span-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+            THE REALITY FOR AUSTRALIAN SMBS
+          </div>
+          <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-6">
+            Small Businesses Pay the <span class="text-[#00FF88] italic">Heaviest Price for Lagging Data.</span>
+          </h2>
+          <p class="text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed mb-4">
+            Large enterprises maintain dedicated data engineering teams and multi-million-dollar ERP suites to forecast seasonal shifts and supply chains. Australian SMBs, meanwhile, run high-stakes businesses using end-of-month Xero reports and intuition.
+          </p>
+          <p class="text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed mb-4">
+            When a key customer silently decreases order cadence, when supplier lead times blow out by 21 days, or when cash reserves tighten unexpectedly due to late invoices — the SMB operator is always the last to know.
+          </p>
+          <p class="text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed">
+            PresciaIQ democratizes institutional predictive algorithms. By synthesizing your operational records with macro-economic indicators, we transform historical bookkeeping into proactive, 90-day forward foresight.
+          </p>
+        </div>
+
+        <!-- Right Column: 4 Metric Bento Cards in High-Contrast Luxury Glass -->
+        <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            { stat: "3.4X", label: "Average First-Year ROI", subtext: "Recaptured EBITDA margin via automated early warning" },
+            { stat: "72 hrs", label: "Signal Deployment", subtext: "Plug-and-play ingestion without costly tech replatforming" },
+            { stat: "$48K+", label: "EBITDA Margin Protected", subtext: "Average annual losses prevented across active SMBs" },
+            { stat: "91.4%", label: "30-Day Forecast Accuracy", subtext: "Validated predictive accuracy across cash and inventory" },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+            >
+              <!-- Hover Glare Beam -->
+              <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+              <div class="relative z-20">
+                <p class="text-3xl font-serif font-bold text-[#00FF88] group-hover:text-white transition-colors mb-2">
+                  {item.stat}
+                </p>
+                <p class="text-sm font-semibold text-[#F0EDE6] font-sans leading-snug mb-1">
+                  {item.label}
+                </p>
+              </div>
+              <p class="relative z-20 text-[11px] font-mono text-[#8FAF8F] mt-4 pt-3 border-t border-white/5">
+                {item.subtext}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 3. "CAPABILITIES FOR MODERN SMBS" (4 CARDS GRID WITH LUXURY FROSTED GLASS & GLARE SHIMMER) ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          CAPABILITIES
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          Four Core Predictive Capabilities for <span class="text-[#00FF88] italic">Modern SMBs</span>
+        </h2>
+        <p class="text-sm md:text-base text-[#C9CCC8] font-sans">
+          Purpose-built models tailored to the operational realities of growing Australian firms.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            title: "Rolling 90-Day Cash Flow Intelligence",
+            desc: "Predicts customer payment delinquency, seasonal dips, and supplier outflows before an overdraft situation arises.",
+            tag: "Financial Guardrails"
+          },
+          {
+            title: "Dynamic Demand & Stock Velocity",
+            desc: "Forecasts inventory depletion rates and material requirements, eliminating both costly deadstock and lost sales.",
+            tag: "Inventory Optimization"
+          },
+          {
+            title: "Operational Bottleneck Detection",
+            desc: "Identifies capacity crunches in field technicians, service delivery, or warehouse fulfillment before customer reviews suffer.",
+            tag: "Resource Allocation"
+          },
+          {
+            title: "Margin Degradation Early Warning",
+            desc: "Continuously tracks job and product profitability against inflation, subcontractor rates, and overhead creep in real time.",
+            tag: "Margin Protection"
+          }
+        ].map((feat, idx) => (
+          <div
+            key={idx}
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.25)] hover:-translate-y-1"
+          >
+            <!-- Left-to-Right Shimmer Glare Beam -->
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+            <!-- Elevated Inner Content -->
+            <div class="relative z-20">
+              <div class="text-xs font-mono uppercase tracking-widest text-[#00FF88] mb-2">{feat.tag}</div>
+              <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors mb-3">{feat.title}</h3>
+              <p class="text-sm text-[#C9CCC8] leading-relaxed font-sans">{feat.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ═══ 4. "SMB INTELLIGENCE EXPLAINED" (UPGRADED FAQ ITEMS & COCKPIT CTA BOX) ═══ -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 border-b border-white/5">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          FREQUENTLY ASKED QUESTIONS
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          SMB Intelligence <span class="text-[#00FF88] italic">Explained</span>
+        </h2>
+        <p class="text-sm text-[#C9CCC8] font-sans">
+          Common questions from Australian founders and managing directors.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq, idx) => (
+          <details
+            key={idx}
+            class="group rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 mb-4 transition-all duration-200 hover:border-[#00FF88]/30 hover:bg-[#111411]/90"
+          >
+            <summary class="cursor-pointer list-none flex items-center justify-between">
+              <span class="text-base md:text-lg font-serif font-medium text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors">
+                {faq.q}
+              </span>
+              <span class="text-[#00FF88] text-lg font-mono transition-transform duration-200 group-open:rotate-45 ml-4 shrink-0">
+                +
+              </span>
+            </summary>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed mt-4 pt-4 border-t border-white/5">
+              {faq.a}
+            </p>
+          </details>
+        ))}
+      </div>
+
+      <!-- Luxury Cockpit CTA Box: "Ready to Eliminate Operational Drag?" -->
+      <div class="rounded-3xl border border-white/10 bg-[#111411]/90 backdrop-blur-2xl p-8 md:p-12 text-center max-w-4xl mx-auto my-16 shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,255,136,0.06),transparent_70%)] pointer-events-none"></div>
+        <h3 class="text-2xl md:text-3xl font-serif font-semibold text-[#F0EDE6] mb-4 relative z-10">
+          Ready to Eliminate Operational Drag?
+        </h3>
+        <p class="text-sm md:text-base text-[#C9CCC8] max-w-xl mx-auto mb-8 font-sans relative z-10 leading-relaxed">
+          Book a 20-minute exploratory session with our Sydney engineering team. We'll run an initial data readiness review and map out your predictive roadmap.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+          <a
+            href="/contact/"
+            class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.5)] transition-all font-sans"
+          >
+            Book Strategy Call
+          </a>
+          <a
+            href="/pricing/"
+            class="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/20 bg-white/5 text-[#F0EDE6] font-semibold text-sm hover:border-[#00FF88]/40 transition-all font-sans"
+          >
+            View Ecosystem Pricing
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 5. RELATED ECOSYSTEM LINKS (FROSTED GLASS TILES) ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          ECOSYSTEM NAVIGATION
+        </div>
+        <h3 class="text-2xl md:text-3xl font-serif font-semibold text-[#F0EDE6]">
+          Explore Related Intelligence
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a
+          href="/pricing/"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 hover:border-[#00FF88]/50 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.18)] hover:-translate-y-1 transition-all duration-300 block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2">Interactive Tool</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              Predictive ROI Calculator
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans">Quantify recoverable EBITDA and operational drag across your business.</p>
+          </div>
+        </a>
+
+        <a
+          href="/products/ai-automations/"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 hover:border-[#00FF88]/50 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.18)] hover:-translate-y-1 transition-all duration-300 block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2">Operations AI</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              AI Automations &amp; Agents
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans">Autonomous workflow orchestration and intelligent document processing.</p>
+          </div>
+        </a>
+
+        <a
+          href="/insights/"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 hover:border-[#00FF88]/50 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.18)] hover:-translate-y-1 transition-all duration-300 block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2">Industry Insight</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              Operational Latency Briefing
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans">Why Australian mid-market operators bleed margin on rear-view data.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,592 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import SocialsForm from '../../../components/SocialsForm';
+
+const title = "Social Media Content Management — AI-Driven Posting for Australian Brands | PresciaIQ";
+const description = "PresciaIQ creates, schedules, and publishes high-performance social media content for Australian businesses. Combat sports, fitness, trades, and professional services. Powered by AI. Delivered via Blotato.";
+const canonicalURL = "https://www.presciaiq.com.au/services/social-media-content-management/";
+---
+
+<!-- JSON-LD: Service Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Social Media Content Management",
+  "alternateName": "AI Social Media Marketing Australia",
+  "provider": {
+    "@type": "Organization",
+    "name": "PresciaIQ",
+    "url": "https://www.presciaiq.com.au",
+    "logo": "https://www.presciaiq.com.au/og-image.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "sales@presciaiq.com.au",
+      "contactType": "sales",
+      "areaServed": "AU"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Australia"
+  },
+  "description": "PresciaIQ creates, schedules, and publishes AI-generated social media content for Australian businesses — combat sports brands, gyms, trades, and professional services. Content is produced using a proprietary design system and scheduled via Blotato across Instagram, TikTok, LinkedIn, and YouTube.",
+  "serviceType": "Social Media Content Management",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "AUD",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "PresciaIQ"
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Social Media Content Packages",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "3 Posts Per Week — Starter" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "5 Posts Per Week — Growth" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Daily Posting — Authority" } }
+    ]
+  },
+  "dateModified": "2026-08-07",
+  "relatedLink": [
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/services/aeo-seo-predictive-search-architecture/", "name": "AEO/SEO — Predictive Search Architecture" },
+    { "@type": "WebPage", "url": "https://www.presciaiq.com.au/industries/marketing-agencies/", "name": "AI for Marketing Agencies" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AI social media content management?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI social media content management uses artificial intelligence to generate, design, schedule, and publish social media posts on behalf of a business. PresciaIQ combines a proprietary visual design system with AI-generated copy and automated scheduling via Blotato to deliver consistent, on-brand content across Instagram, TikTok, LinkedIn, and YouTube — without the business needing to lift a finger."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does PresciaIQ create social media content for Australian businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PresciaIQ uses a structured intake process to capture your brand voice, content goals, posting schedule, and visual assets. We then produce a batch of posts using our editorial design system — dark cinematic backgrounds, branded typography, and data-driven copy — and schedule them directly to your social accounts via Blotato. Every post is reviewed and approved before going live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which social media platforms does PresciaIQ post to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PresciaIQ currently supports Instagram, TikTok, LinkedIn, YouTube, and Facebook. Content is formatted natively for each platform — square and portrait carousels for Instagram, vertical video for TikTok and Reels, and long-form document carousels for LinkedIn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many posts per week does PresciaIQ produce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PresciaIQ offers flexible posting cadences starting from 3 posts per week up to daily posting. The right cadence depends on your audience size, content goals, and available assets. Most growth-focused clients start at 5 posts per week across Instagram and one secondary platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is PresciaIQ's social media service suitable for combat sports and fitness brands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. PresciaIQ's social media content service was originally developed for combat sports coaches, gyms, and performance nutrition brands. Our design system is built for high-intensity, authority-driven content — fight week nutrition, weight cut protocols, training load management, and supplement stacks. We understand the audience and the language."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Blotato and how does it work with PresciaIQ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Blotato is a social media scheduling and publishing platform with an API that allows AI agents to post directly to Instagram, TikTok, LinkedIn, YouTube, and Facebook on behalf of a connected account. PresciaIQ uses the Blotato API to schedule and publish your content automatically once it has been approved, eliminating the need for manual uploading."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get started with PresciaIQ social media content management?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Complete the intake brief on this page. It takes approximately 5 minutes and covers your brand, content goals, posting schedule, and available assets. Once submitted, a PresciaIQ strategist will review your brief and be in touch within one business day to confirm the scope and begin production."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.presciaiq.com.au/development/" },
+    { "@type": "ListItem", "position": 3, "name": "Social Media Content Management", "item": "https://www.presciaiq.com.au/services/social-media-content-management/" }
+  ]
+}
+</script>
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
+
+    <!-- ═══ 1. ATMOSPHERIC GLOW BACKDROP ═══ -->
+    <!-- Ambient: top-right mint radial glow -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Subtle intelligence grid backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ HERO FRAMING ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-14 text-left md:text-center">
+
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-muted-foreground font-mono mb-8 md:justify-center flex-wrap" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <a href="/development/" class="hover:text-primary transition-colors">Development</a>
+          <span class="text-white/20">/</span>
+          <span class="text-foreground">Social Media Management</span>
+        </nav>
+
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          PRESCIAIQ // SOCIAL MEDIA
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          Social media content <span class="text-[#00FF88] italic">that compounds.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-8 leading-relaxed">
+          We create, schedule, and publish high-performance social media content for Australian businesses. AI-generated design. Brand-specific copy. Automated delivery via Blotato. You own the audience.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#brief"
+            id="hero-cta-social-start"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+          >
+            Start Your Brief →
+          </a>
+          <a
+            href="/contact/"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 hover:bg-white/[0.07] transition-all duration-300 backdrop-blur-md"
+          >
+            Book a Strategy Call
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ 2. HOW IT WORKS (3 SEQUENTIAL STEPS) ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          THE METHOD
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          How It <span class="text-[#00FF88] italic">Works</span>
+        </h2>
+        <p class="text-[#C9CCC8] text-base font-sans leading-relaxed">
+          From an initial 5-minute brief to hands-free automated multi-platform distribution.
+        </p>
+      </div>
+
+      <!-- 3-Column Workflow Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto my-6">
+
+        <!-- Step 01: Brief -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="0"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <!-- Shimmer Overlay -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <p class="text-2xl font-mono font-bold text-[#00FF88] mb-3">01</p>
+            <h3 class="text-lg font-serif font-semibold text-[#F0EDE6] mb-2 group-hover:text-[#00FF88] transition-colors">Brief</h3>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+              Complete a 5-minute intake form covering your brand, goals, posting cadence, and available assets. No calls required to get started.
+            </p>
+          </div>
+          <div class="relative z-20 mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-[#8FAF8F]">
+            <span>5-minute intake &bull; Zero friction</span>
+          </div>
+        </div>
+
+        <!-- Step 02: Produce -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="100"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <!-- Shimmer Overlay -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <p class="text-2xl font-mono font-bold text-[#00FF88] mb-3">02</p>
+            <h3 class="text-lg font-serif font-semibold text-[#F0EDE6] mb-2 group-hover:text-[#00FF88] transition-colors">Produce</h3>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+              We generate a full batch of posts using our editorial design system — cinematic backgrounds, branded typography, and platform-native formats.
+            </p>
+          </div>
+          <div class="relative z-20 mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-[#8FAF8F]">
+            <span>Design system &bull; High-res graphics</span>
+          </div>
+        </div>
+
+        <!-- Step 03: Schedule -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="200"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <!-- Shimmer Overlay -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <p class="text-2xl font-mono font-bold text-[#00FF88] mb-3">03</p>
+            <h3 class="text-lg font-serif font-semibold text-[#F0EDE6] mb-2 group-hover:text-[#00FF88] transition-colors">Schedule</h3>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+              Posts are reviewed, approved, and scheduled directly to your social accounts via the Blotato API. Nothing goes live without your sign-off.
+            </p>
+          </div>
+          <div class="relative z-20 mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-[#8FAF8F]">
+            <span>Blotato API &bull; 100% human sign-off</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ 3. IDEAL CLIENTS (4 PERSONA CARDS) ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          TARGET ARCHITECTURE
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          Built for brands that need <span class="text-[#00FF88] italic">authority, not noise.</span>
+        </h2>
+        <p class="text-[#C9CCC8] text-base font-sans leading-relaxed">
+          Our content system was developed for high-intensity, authority-driven brands. If your audience demands credibility and specificity, this is built for you.
+        </p>
+      </div>
+
+      <!-- 2x2 Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto my-6">
+
+        <!-- Persona 1: Combat Sports Coaches & Gyms -->
+        <div
+          data-reveal="from-left"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <!-- Shimmer Overlay -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-2 block">COACHES &amp; GYMS</span>
+            <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2 group-hover:text-[#00FF88] transition-colors">
+              Combat Sports Coaches &amp; Gyms
+            </h3>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+              Fight week nutrition, weight cut protocols, training load content, supplement stacks.
+            </p>
+          </div>
+          <div class="relative z-20 mt-6 pt-4 border-t border-white/5 text-xs font-mono text-[#8FAF8F]">
+            <span>Fight week &bull; Strength protocols &bull; Weight cut management</span>
+          </div>
+        </div>
+
+        <!-- Persona 2: Performance & Fitness Brands -->
+        <div
+          data-reveal="from-right"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <!-- Shimmer Overlay -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-2 block">PERFORMANCE BRANDS</span>
+            <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2 group-hover:text-[#00FF88] transition-colors">
+              Performance &amp; Fitness Brands
+            </h3>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+              Macro breakdowns, recovery science, off-season programming, athlete results.
+            </p>
+          </div>
+          <div class="relative z-20 mt-6 pt-4 border-t border-white/5 text-xs font-mono text-[#8FAF8F]">
+            <span>Recovery science &bull; Nutrition breakdowns &bull; Athlete showcases</span>
+          </div>
+        </div>
+
+        <!-- Persona 3: Enterprise Operations -->
+        <div
+          data-reveal="from-left"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <!-- Shimmer Overlay -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-2 block">OPERATIONS</span>
+            <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2 group-hover:text-[#00FF88] transition-colors">
+              Enterprise Operations
+            </h3>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+              Technical project spotlights, team execution, site telemetry showcases, executive case studies.
+            </p>
+          </div>
+          <div class="relative z-20 mt-6 pt-4 border-t border-white/5 text-xs font-mono text-[#8FAF8F]">
+            <span>Site walkthroughs &bull; System execution &bull; Operational proof</span>
+          </div>
+        </div>
+
+        <!-- Persona 4: Professional Services -->
+        <div
+          data-reveal="from-right"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <!-- Shimmer Overlay -->
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+          <div class="relative z-20">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-2 block">ENTERPRISE ADVISORY</span>
+            <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2 group-hover:text-[#00FF88] transition-colors">
+              Professional Services
+            </h3>
+            <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+              Thought leadership, case studies, process explainers, industry positioning.
+            </p>
+          </div>
+          <div class="relative z-20 mt-6 pt-4 border-t border-white/5 text-xs font-mono text-[#8FAF8F]">
+            <span>Executive insights &bull; Case studies &bull; Strategic thought leadership</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ 4. SUBMIT YOUR CONTENT BRIEF (MULTI-STEP COCKPIT FORM) ═══ -->
+    <section id="brief" class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          INTAKE BRIEF
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-3">
+          Submit your content brief.
+        </h2>
+        <p class="text-[#C9CCC8] text-sm font-sans leading-relaxed">
+          Takes 5 minutes. A PresciaIQ strategist will review your brief and be in touch within one business day.
+        </p>
+      </div>
+
+      <div data-reveal="from-bottom">
+        <SocialsForm client:load />
+      </div>
+    </section>
+
+    <!-- ═══ 5. FREQUENTLY ASKED QUESTIONS (WHAT YOU NEED TO KNOW) ═══ -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          COMMON QUESTIONS
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-3">
+          What you need to know.
+        </h2>
+        <p class="text-[#C9CCC8] text-sm font-sans">
+          Clear answers about how we design, schedule, and automate your social presence.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+
+        <!-- FAQ Item 1 -->
+        <details
+          data-reveal="from-bottom"
+          data-reveal-delay="0"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.15)] transition-all cursor-pointer"
+        >
+          <summary class="flex items-center justify-between font-serif font-semibold text-[#F0EDE6] text-lg select-none list-none">
+            <span>Which platforms do you post to?</span>
+            <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
+              ▼
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-white/5 text-sm text-[#C9CCC8] font-sans leading-relaxed">
+            Instagram, TikTok, LinkedIn, YouTube, and Facebook. Content is formatted natively for each — carousels for Instagram and LinkedIn, vertical video for TikTok and Reels.
+          </div>
+        </details>
+
+        <!-- FAQ Item 2 -->
+        <details
+          data-reveal="from-bottom"
+          data-reveal-delay="70"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.15)] transition-all cursor-pointer"
+        >
+          <summary class="flex items-center justify-between font-serif font-semibold text-[#F0EDE6] text-lg select-none list-none">
+            <span>How many posts per week?</span>
+            <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
+              ▼
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-white/5 text-sm text-[#C9CCC8] font-sans leading-relaxed">
+            We offer 3x, 5x, 7x, and daily posting cadences. Most growth-focused clients start at 5 posts per week across Instagram and one secondary platform.
+          </div>
+        </details>
+
+        <!-- FAQ Item 3 -->
+        <details
+          data-reveal="from-bottom"
+          data-reveal-delay="140"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.15)] transition-all cursor-pointer"
+        >
+          <summary class="flex items-center justify-between font-serif font-semibold text-[#F0EDE6] text-lg select-none list-none">
+            <span>Do I need to provide photos?</span>
+            <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
+              ▼
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-white/5 text-sm text-[#C9CCC8] font-sans leading-relaxed">
+            No. If you have a library of photos or videos, we use them. If not, we generate cinematic AI backgrounds and branded graphics that match your identity.
+          </div>
+        </details>
+
+        <!-- FAQ Item 4 -->
+        <details
+          data-reveal="from-bottom"
+          data-reveal-delay="210"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.15)] transition-all cursor-pointer"
+        >
+          <summary class="flex items-center justify-between font-serif font-semibold text-[#F0EDE6] text-lg select-none list-none">
+            <span>How does scheduling work?</span>
+            <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
+              ▼
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-white/5 text-sm text-[#C9CCC8] font-sans leading-relaxed">
+            We use the Blotato API to schedule and publish directly to your connected social accounts. Nothing goes live without your approval.
+          </div>
+        </details>
+
+        <!-- FAQ Item 5 -->
+        <details
+          data-reveal="from-bottom"
+          data-reveal-delay="280"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.15)] transition-all cursor-pointer"
+        >
+          <summary class="flex items-center justify-between font-serif font-semibold text-[#F0EDE6] text-lg select-none list-none">
+            <span>What does it cost?</span>
+            <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
+              ▼
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-white/5 text-sm text-[#C9CCC8] font-sans leading-relaxed">
+            Pricing is scoped based on posting cadence, number of platforms, and content complexity. Complete the brief below and we will provide a tailored quote within one business day.
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ═══ RELATED INTELLIGENCE RESOURCES ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-12 border-t border-white/5">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#8FAF8F] block mb-1">RELATED INTELLIGENCE &amp; RESEARCH</span>
+          <p class="text-xs text-[#C9CCC8]">Authoritative case studies and engineering frameworks by PresciaIQ.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="/services/aeo-seo-predictive-search-architecture/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">
+            AEO/SEO Architecture →
+          </a>
+          <a href="/industries/marketing-agencies/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">
+            Marketing Agencies →
+          </a>
+          <a href="/development/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">
+            All Dev Services →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ DIRECTIONAL SCROLL REVEAL SCRIPT ═══ -->
+  <script is:inline>
+    (function () {
+      const INIT = {
+        'from-left':   { transform: 'translateX(-20px)', opacity: '0' },
+        'from-right':  { transform: 'translateX(20px)',  opacity: '0' },
+        'from-bottom': { transform: 'translateY(20px)',  opacity: '0' },
+      };
+
+      const targets = document.querySelectorAll('[data-reveal]');
+
+      // Apply initial hidden state without flash
+      targets.forEach(el => {
+        const dir = el.getAttribute('data-reveal');
+        const init = INIT[dir];
+        if (!init) return;
+        Object.assign(el.style, init);
+        el.style.transition = 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.willChange = 'transform, opacity';
+      });
+
+      // Observe and reveal on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => {
+              el.style.transform = 'translate(0, 0)';
+              el.style.opacity = '1';
+            }, delay);
+            observer.unobserve(el);
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      targets.forEach(el => observer.observe(el));
+
+      // Accessibility: skip animations for prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(el => {
+          el.style.transform = 'none';
+          el.style.opacity = '1';
+          el.style.transition = 'none';
+        });
+      }
+    })();
+  </script>
+</Layout>

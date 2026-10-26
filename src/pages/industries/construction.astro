@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 
 const title = "AI for Construction Australia | PresciaIQ";
 const description = "Predict construction cost overruns, timeline blowouts, and subcontractor risk before they happen. PresciaIQ's BuildPredictIQ for Australian builders.";
-const canonicalURL = new URL("/industries/construction/", Astro.site).href;
+const canonicalURL = "https://www.presciaiq.com.au/industries/construction/";
 
 const faqs = [
   {
@@ -38,9 +38,9 @@ const schema = {
       "url": canonicalURL,
       "dateModified": "2026-05-27",
       "relatedLink": [
-      { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/ai-construction-risk-assessment-australia/", "name": "AI Construction Risk Assessment in Australia" },
-      { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/eliminate-construction-budget-blowouts-ai/", "name": "Eliminate Construction Budget Blowouts with AI" },
-      { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/the-reaction-tax/", "name": "The Reaction Tax" }
+        { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/ai-construction-risk-assessment-australia/", "name": "AI Construction Risk Assessment in Australia" },
+        { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/eliminate-construction-budget-blowouts-ai/", "name": "Eliminate Construction Budget Blowouts with AI" },
+        { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/the-reaction-tax/", "name": "The Cost of Reactive Operations" }
       ],
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -70,176 +70,377 @@ const schema = {
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <main class="min-h-screen bg-background text-foreground">
-    <!-- Breadcrumb -->
-    <div class="border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
-          <a href="/" class="hover:text-primary transition-colors">Home</a>
-          <span>/</span>
-          <a href="/industries/" class="hover:text-primary transition-colors">Industries</a>
-          <span>/</span>
-          <span class="text-foreground">Construction & Property</span>
-        </nav>
-      </div>
-    </div>
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
 
-    <!-- Hero -->
-    <section class="py-16 md:py-24 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Construction & Property</span>
-          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">BuildPredictIQ</span>
+    <!-- ═══ 1. ATMOSPHERIC BACKDROP ═══ -->
+    <!-- Ambient: top-right mint radial glow -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Subtle intelligence grid backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ HERO WRAPPER ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-14 text-left md:text-center">
+
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-muted-foreground font-mono mb-8 md:justify-center flex-wrap" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <a href="/industries/" class="hover:text-primary transition-colors">Industries</a>
+          <span class="text-white/20">/</span>
+          <span class="text-foreground">Construction &amp; Property</span>
+        </nav>
+
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          CONSTRUCTION &amp; PROPERTY // BuildPredictIQ
         </div>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
-          Predict Project Risk <span class="text-gradient-primary">Before It Costs You</span>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          Predict Project Risk <span class="text-[#00FF88] italic">Before It Costs You</span>
         </h1>
-        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+
+        <!-- Subtitle -->
+        <p class="speakable-summary text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-8 leading-relaxed">
           Australian construction projects run 20–30% over budget on average. BuildPredictIQ analyses 47 risk variables — weather, subcontractor history, material lead times, and site complexity — to predict cost and timeline risk before a single sod is turned.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/start/"
+            id="hero-cta-construction-assessment"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+          >
             Run a Free Risk Assessment →
           </a>
-          <a href="/products/buildpredictiq/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
+          <a
+            href="/products/buildpredictiq/"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 hover:bg-white/[0.07] transition-all duration-300 backdrop-blur-md"
+          >
             View BuildPredictIQ →
           </a>
         </div>
+
       </div>
     </section>
 
-    <!-- The Problem -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12 items-start">
-          <div>
-            <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Problem</p>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">Construction Runs on Gut Feel. That's Expensive.</h2>
-            <p class="text-muted-foreground font-sans leading-relaxed mb-4">
-              Most Australian construction companies price tenders based on experience and spreadsheets. When a subcontractor goes under, when council approvals blow out by 6 weeks, or when steel prices spike 18% — the margin evaporates and the project becomes a liability.
-            </p>
-            <p class="text-muted-foreground font-sans leading-relaxed mb-4">
-              The problem isn't that these risks are unpredictable. It's that the data to predict them exists — in your past projects, in public weather records, in subcontractor payment histories, in council approval databases — but no one has connected it into a prediction engine.
-            </p>
-            <p class="text-muted-foreground font-sans leading-relaxed">
-              BuildPredictIQ connects that data. For the first time, Australian construction companies can price with confidence, not hope.
-            </p>
+    <!-- ═══ 2. THE PROBLEM & 4 METRIC BENTO CARDS ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+        <!-- Left Column: Narrative Copy -->
+        <div data-reveal="from-left" class="lg:col-span-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+            THE REALITY
           </div>
-          <div class="grid grid-cols-2 gap-4">
-            {[
-              { stat: "23%", label: "Average cost overrun reduction" },
-              { stat: "18%", label: "Tender win rate improvement" },
-              { stat: "47", label: "Risk variables analysed per project" },
-              { stat: "89%", label: "Prediction accuracy on 3-month forecasts" },
-            ].map(item => (
-              <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
-                <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
-                <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
-              </div>
-            ))}
-          </div>
+          <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-6">
+            Construction Runs on Gut Feel. <span class="text-[#00FF88] italic">That's Expensive.</span>
+          </h2>
+          <p class="text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed mb-4">
+            Most Australian construction companies price tenders based on experience and spreadsheets. When a subcontractor goes under, when council approvals blow out by 6 weeks, or when steel prices spike 18% — the margin evaporates and the project becomes a liability.
+          </p>
+          <p class="text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed mb-4">
+            The problem isn't that these risks are unpredictable. It's that the data to predict them exists — in your past projects, in public weather records, in subcontractor payment histories, in council approval databases — but no one has connected it into a prediction engine.
+          </p>
+          <p class="text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed">
+            BuildPredictIQ connects that data. For the first time, Australian construction companies can price with confidence, not hope.
+          </p>
         </div>
-      </div>
-    </section>
 
-    <!-- How It Works -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">How It Works</p>
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-12 max-w-2xl">From Project Brief to Risk-Adjusted Forecast in 72 Hours</h2>
-        <div class="grid md:grid-cols-3 gap-8">
+        <!-- Right Column: 2x2 Metric Bento Grid -->
+        <div data-reveal="from-right" class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
-            {
-              step: "01",
-              title: "Data Ingestion",
-              desc: "We connect BuildPredictIQ to your existing project data — Procore, Aconex, or CSV export. The engine ingests your historical project outcomes, subcontractor records, and site data."
-            },
-            {
-              step: "02",
-              title: "Risk Modelling",
-              desc: "The AI cross-references your project parameters against 12,000+ Australian construction projects, current material pricing, BOM weather forecasts, and council approval timelines for your LGA."
-            },
-            {
-              step: "03",
-              title: "Predictive Output",
-              desc: "You receive a risk-adjusted cost forecast, a timeline confidence interval, and a ranked list of the top 5 risk factors for your specific project — with recommended mitigation actions."
-            },
-          ].map(step => (
-            <div class="relative">
-              <p class="font-mono text-5xl font-bold text-primary/20 mb-4">{step.step}</p>
-              <h3 class="font-display text-xl font-bold text-foreground mb-3">{step.title}</h3>
-              <p class="text-muted-foreground font-sans leading-relaxed text-sm">{step.desc}</p>
+            { stat: "23%", label: "Average cost overrun reduction", subtext: "Across active Australian builds" },
+            { stat: "18%", label: "Tender win rate improvement", subtext: "Precision risk-adjusted pricing" },
+            { stat: "47", label: "Risk variables analyzed per project", subtext: "Weather, lead times, trade history" },
+            { stat: "89%", label: "Prediction accuracy on 3-month forecasts", subtext: "Validated on 12k+ projects" },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+            >
+              <!-- Shimmer Overlay -->
+              <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+              <div class="relative z-20">
+                <p class="font-serif text-4xl sm:text-5xl font-bold text-[#00FF88] group-hover:text-white transition-colors mb-2">
+                  {item.stat}
+                </p>
+                <p class="text-sm font-semibold text-[#F0EDE6] font-sans leading-snug mb-1">
+                  {item.label}
+                </p>
+              </div>
+              <p class="relative z-20 text-[11px] font-mono text-[#8FAF8F] mt-4 pt-3 border-t border-white/5">
+                {item.subtext}
+              </p>
             </div>
           ))}
         </div>
+
       </div>
     </section>
 
-    <!-- Case Study -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Case Study</p>
-        <div class="rounded-2xl border border-primary/20 p-8 md:p-12" style="background: rgba(0,255,136,0.02);">
-          <h2 class="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
+    <!-- ═══ 3. HOW IT WORKS (3 WORKFLOW CARDS) ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          OPERATIONAL WORKFLOW
+        </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          From Project Brief to Risk-Adjusted Forecast <span class="text-[#00FF88] italic">in 72 Hours</span>
+        </h2>
+        <p class="text-[#C9CCC8] text-base font-sans leading-relaxed">
+          How BuildPredictIQ transforms existing construction datasets into proactive risk intelligence.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          {
+            step: "01",
+            title: "Data Ingestion",
+            desc: "We connect BuildPredictIQ to your existing project data — Procore, Aconex, or CSV export. The engine ingests your historical project outcomes, subcontractor records, and site data."
+          },
+          {
+            step: "02",
+            title: "Risk Modelling",
+            desc: "The AI cross-references your project parameters against 12,000+ Australian construction projects, current material pricing, BOM weather forecasts, and council approval timelines for your LGA."
+          },
+          {
+            step: "03",
+            title: "Predictive Output",
+            desc: "You receive a risk-adjusted cost forecast, a timeline confidence interval, and a ranked list of the top 5 risk factors for your specific project — with recommended mitigation actions."
+          },
+        ].map((step, i) => (
+          <div
+            data-reveal="from-bottom"
+            data-reveal-delay={(i * 100).toString()}
+            key={step.step}
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+          >
+            <!-- Shimmer Overlay -->
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+            <div class="relative z-20">
+              <p class="text-3xl font-mono font-bold text-[#00FF88] mb-3">{step.step}</p>
+              <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-3 group-hover:text-[#00FF88] transition-colors">{step.title}</h3>
+              <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">{step.desc}</p>
+            </div>
+            <div class="relative z-20 mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-[#8FAF8F]">
+              <span>Stage {step.step} Execution</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ═══ 4. BUILDHIRE CASE STUDY GLASS CARD ═══ -->
+    <section class="relative z-10 px-4 sm:px-6 lg:px-8 py-6">
+      <div
+        data-reveal="from-bottom"
+        class="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#111411]/90 backdrop-blur-2xl p-8 md:p-12 max-w-5xl mx-auto my-14 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-[#00FF88]/50 hover:shadow-[0_12px_45px_-8px_rgba(0,255,136,0.25)] transition-all duration-300"
+      >
+        <!-- Light Shimmer -->
+        <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+
+        <!-- Ambient corner glow inside card -->
+        <div class="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[#00FF88]/10 blur-3xl z-0" aria-hidden="true"></div>
+
+        <div class="relative z-20">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#00FF88]/20 bg-[#00FF88]/[0.06] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+            CASE STUDY // NSW CONSTRUCTION SECTOR
+          </div>
+
+          <h2 class="text-2xl md:text-3xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
             How BuildHire Used pSEO Architecture to Build a 84,000-Page Organic Presence
           </h2>
-          <p class="text-muted-foreground font-sans leading-relaxed mb-6 max-w-3xl">
+
+          <p class="text-sm md:text-base text-[#C9CCC8] font-sans leading-relaxed mb-8 max-w-3xl">
             BuildHire, an equipment hire company serving NSW construction sites, had zero organic search presence — all leads came from paid ads at $45–$90 cost per click. PresciaIQ built a full programmatic SEO architecture covering every equipment type, 83 NSW locations, and 12 construction industry sub-sectors.
           </p>
-          <div class="grid sm:grid-cols-3 gap-6 mb-8">
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 pt-6 border-t border-white/5">
             {[
               { metric: "84,000", label: "Organic pages deployed" },
               { metric: "$0", label: "Ongoing cost per organic visit" },
               { metric: "83", label: "NSW locations covered" },
             ].map(m => (
-              <div>
-                <p class="font-mono text-3xl font-bold text-primary mb-1">{m.metric}</p>
-                <p class="text-sm text-muted-foreground font-sans">{m.label}</p>
+              <div key={m.label} class="p-4 rounded-xl border border-white/5 bg-black/30">
+                <p class="text-3xl md:text-4xl font-serif font-bold text-[#00FF88] mb-1">{m.metric}</p>
+                <p class="text-xs font-mono uppercase tracking-wider text-[#8FAF8F]">{m.label}</p>
               </div>
             ))}
           </div>
-          <a href="/insights/case-studies/buildhire/" class="inline-flex items-center gap-2 text-primary font-sans font-semibold text-sm hover:gap-3 transition-all">
+
+          <a
+            href="/insights/how-programmatic-seo-replaced-paid-ads-buildhire/"
+            class="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-wider text-[#00FF88] hover:text-[#42FFAA] group-hover:translate-x-1 transition-all"
+          >
             Read the full BuildHire case study →
           </a>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Frequently Asked Questions</p>
-        <h2 class="font-display text-3xl font-bold text-foreground mb-10">Construction AI — Common Questions</h2>
-        <div class="space-y-6 max-w-3xl">
-          {faqs.map(faq => (
-            <div class="border-b border-white/5 pb-6">
-              <h3 class="font-display text-lg font-bold text-foreground mb-3">{faq.q}</h3>
-              <p class="text-muted-foreground font-sans leading-relaxed text-sm">{faq.a}</p>
-            </div>
-          ))}
+    <!-- ═══ 5. FREQUENTLY ASKED QUESTIONS (FAQ) ═══ -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          TRANSPARENCY &amp; INTEGRATIONS
         </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-3">
+          Construction AI — Common Questions
+        </h2>
+        <p class="text-[#C9CCC8] text-sm font-sans">
+          Key considerations for Australian head contractors, project directors, and estimators.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq, index) => (
+          <details
+            data-reveal="from-bottom"
+            data-reveal-delay={(index * 70).toString()}
+            key={faq.q}
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.15)] transition-all cursor-pointer"
+          >
+            <summary class="flex items-center justify-between font-serif font-semibold text-[#F0EDE6] text-lg select-none list-none">
+              <span>{faq.q}</span>
+              <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
+                ▼
+              </span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-white/5 text-sm text-[#C9CCC8] font-sans leading-relaxed">
+              {faq.a}
+            </div>
+          </details>
+        ))}
       </div>
     </section>
 
-    <!-- Related -->
-    <section class="py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
-        <div class="grid sm:grid-cols-3 gap-4">
-          <a href="/products/buildpredictiq/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Product</p>
-            <p class="font-display font-bold text-foreground">BuildPredictIQ →</p>
-          </a>
-          <a href="/answers/how-does-ai-help-construction-risk-management-australia/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Answer</p>
-            <p class="font-display font-bold text-foreground">AI & Construction Risk →</p>
-          </a>
-          <a href="/insights/ai-construction-risk-assessment-australia/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Insight</p>
-            <p class="font-display font-bold text-foreground">Construction Risk Assessment →</p>
-          </a>
+    <!-- ═══ 6. "RELATED" LINKS (3 HORIZONTAL TILES) ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#8FAF8F] block mb-1">RELATED INTELLIGENCE &amp; PLATFORMS</span>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6]">Explore Further Construction Capabilities</h3>
         </div>
       </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <a
+          href="/products/buildpredictiq/"
+          data-reveal="from-bottom"
+          data-reveal-delay="0"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 hover:border-[#00FF88]/50 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.18)] hover:-translate-y-1 transition-all duration-300 block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2">Product Engine</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              BuildPredictIQ
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans">Automated construction risk prediction &amp; tender analysis.</p>
+          </div>
+        </a>
+
+        <a
+          href="/insights/ai-construction-risk-assessment-australia/"
+          data-reveal="from-bottom"
+          data-reveal-delay="100"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 hover:border-[#00FF88]/50 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.18)] hover:-translate-y-1 transition-all duration-300 block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2">Research Paper</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              AI &amp; Construction Risk
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans">Methodologies for eliminating margin erosion across Tier 2–3 builds.</p>
+          </div>
+        </a>
+
+        <a
+          href="/insights/eliminate-construction-budget-blowouts-ai/"
+          data-reveal="from-bottom"
+          data-reveal-delay="200"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 hover:border-[#00FF88]/50 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.18)] hover:-translate-y-1 transition-all duration-300 block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2">Industry Insight</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              Budget Blowouts &amp; AI
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans">How forward-looking builders replace spreadsheets with probabilistic scoring.</p>
+          </div>
+        </a>
+      </div>
     </section>
+
   </main>
+
+  <!-- ═══ 7. DIRECTIONAL SCROLL ENTRANCE SCRIPT ═══ -->
+  <script is:inline>
+    (function () {
+      const INIT = {
+        'from-left':   { transform: 'translateX(-20px)', opacity: '0' },
+        'from-right':  { transform: 'translateX(20px)',  opacity: '0' },
+        'from-bottom': { transform: 'translateY(20px)',  opacity: '0' },
+      };
+
+      const targets = document.querySelectorAll('[data-reveal]');
+
+      // Apply initial hidden state without flash
+      targets.forEach(el => {
+        const dir = el.getAttribute('data-reveal');
+        const init = INIT[dir];
+        if (!init) return;
+        Object.assign(el.style, init);
+        el.style.transition = 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.willChange = 'transform, opacity';
+      });
+
+      // Observe and reveal on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => {
+              el.style.transform = 'translate(0, 0)';
+              el.style.opacity = '1';
+            }, delay);
+            observer.unobserve(el);
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      targets.forEach(el => observer.observe(el));
+
+      // Accessibility: skip animations for prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(el => {
+          el.style.transform = 'none';
+          el.style.opacity = '1';
+          el.style.transition = 'none';
+        });
+      }
+    })();
+  </script>
 </Layout>

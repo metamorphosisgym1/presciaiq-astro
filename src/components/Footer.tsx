@@ -1,130 +1,279 @@
-import { Linkedin, Twitter, Instagram } from "lucide-react";
-const logo = "/logo.png";
+import React from "react";
+import { Linkedin, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
 
+interface NavLink {
+  label: string;
+  href: string;
+  badge?: string;
+  external?: boolean;
+}
+
+const features: NavLink[] = [
+  { label: "BuildPredictIQ", href: "https://buildpredictiq.com.au/", badge: "Live", external: true },
+  { label: "AdsIQ", href: "https://adsiq.com.au/", badge: "Live", external: true },
+  { label: "HELM OS", href: "/services/ai-software-development/", badge: "Enterprise" },
+  { label: "AI Automations & Agents", href: "/products/ai-automations/" },
+  { label: "High-Performance Platforms", href: "/development/" },
+];
+
+const solutions: NavLink[] = [
+  { label: "Construction & Infrastructure", href: "/industries/construction/" },
+  { label: "Marketing & Ad Agencies", href: "/industries/marketing-agencies/" },
+  { label: "Enterprise Operations", href: "/services/ai-software-development/" },
+  { label: "Logistics & Supply Chain", href: "/industries/logistics/" },
+  { label: "Financial Services", href: "/industries/financial-services/" },
+  { label: "Mid-Market SMB", href: "/industries/smb/" },
+];
+
+const resources: NavLink[] = [
+  { label: "Predictive ROI Calculator", href: "/pricing/", badge: "Free" },
+  { label: "Insights & Case Studies", href: "/insights/" },
+  { label: "Technical Q&A Answers", href: "/answers/" },
+  { label: "Topical Authority (AEO)", href: "/services/aeo-seo-predictive-search-architecture/" },
+  { label: "Ecosystem Pricing", href: "/pricing/" },
+];
+
+const company: NavLink[] = [
+  { label: "About PresciaIQ", href: "/about/" },
+  { label: "The Operators", href: "/#intelligence" },
+  { label: "Operating Principles", href: "/#intelligence" },
+  { label: "Channel Partners", href: "/partners/" },
+  { label: "Contact Leadership", href: "/contact/" },
+];
 
 const Footer = () => {
   return (
-    <footer style={{ background: 'rgba(5,5,8,0.9)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-8 lg:gap-6">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="mb-4">
-              <img src={logo} alt="PresciaIQ" className="w-48 h-auto" />
-            </div>
-            <p className="text-sm italic text-muted-foreground mb-3 font-display">
-              Intelligence That Moves First
+    <footer className="w-full bg-[#020503] pt-20 pb-12 text-left relative z-10 overflow-hidden">
+      {/* ── Left Flank Emerald Ambient Glow ── */}
+      <div
+        className="pointer-events-none absolute bottom-0 -left-16 w-72 h-72 bg-emerald-500/10 blur-[130px] rounded-full"
+        aria-hidden="true"
+      />
+      {/* ── Right Flank Emerald Ambient Glow ── */}
+      <div
+        className="pointer-events-none absolute top-0 -right-16 w-72 h-72 bg-emerald-500/8 blur-[130px] rounded-full"
+        aria-hidden="true"
+      />
+      {/* ── Top seamless fade from CTA section ── */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent"
+        aria-hidden="true"
+      />
+
+      <div className="w-full max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+        {/* Main Grid: Clean Brand Flank + 4 Navigation Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+          {/* Left Flank: Clean Brand Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-4 pr-0 lg:pr-8"
+          >
+            <a href="/" className="inline-block mb-5">
+              <img
+                src="/assets/presciaiq-logo-transparent.png"
+                alt="PresciaIQ"
+                className="h-7 sm:h-8 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
+              />
+            </a>
+            <p className="text-sm text-neutral-400 leading-relaxed max-w-sm mb-6 font-sans">
+              Enterprise-grade predictive AI infrastructure engineered for high-growth Australian operators.
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-              Australia's AI Intelligence & Development Company. We build predictive tools that turn data into decisions.
-            </p>
-          </div>
+            {/* Operational Status Pill */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/[0.06] border border-emerald-500/20 text-xs font-mono text-emerald-400/90 shadow-sm"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse shadow-[0_0_8px_#00FF88]" />
+              <span>Systems Operational // Holdout-Validated Engine</span>
+            </motion.div>
+          </motion.div>
 
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Products</h4>
-            <ul className="space-y-3">
-              <li><a href="/products/" className="text-sm text-primary hover:text-primary/80 transition-colors font-sans font-semibold">All Products →</a></li>
-              {[
-                { name: "BuildPredictIQ", href: "/products/buildpredictiq/", sub: "Construction AI" },
-                { name: "AdsIQ", href: "/products/adsiq/", sub: "Marketing AI" },
-                { name: "OpsIQ", href: "/products/opsiq/", sub: "Operations AI" },
-                { name: "TradesmanIQ", href: "/products/tradesmaniq/", sub: "Trades AI" },
-              ].map((p) => (
-                <li key={p.name}>
-                  <a href={p.href} className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
-                    {p.name.replace("IQ", "")}<span className="text-primary">IQ</span>
-                  </a>
-                </li>
-              ))}
-              <li><a href="/development" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Web & App <span className="text-primary">Development</span></a></li>
-            </ul>
-          </div>
+          {/* Right Columns: 4 Navigation Columns */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+            {/* Column 1: Features */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h4 className="text-sm font-semibold text-white tracking-wide mb-4">
+                Features
+              </h4>
+              <ul className="space-y-2">
+                {features.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-emerald-400 transition-colors py-0.5"
+                    >
+                      <span>{item.label}</span>
+                      {item.badge && (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 ml-2 font-mono leading-none font-medium">
+                          {item.badge}
+                        </span>
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
 
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Industries</h4>
-            <ul className="space-y-3">
-              <li><a href="/industries/" className="text-sm text-primary hover:text-primary/80 transition-colors font-sans font-semibold">All Industries →</a></li>
-              <li><a href="/industries/construction/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Construction</a></li>
-              <li><a href="/industries/marketing-agencies/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Marketing</a></li>
-              <li><a href="/industries/trades/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Trades</a></li>
-              <li><a href="/industries/logistics/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Logistics</a></li>
-              <li><a href="/industries/financial-services/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Financial Services</a></li>
-            </ul>
-          </div>
+            {/* Column 2: Solutions */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h4 className="text-sm font-semibold text-white tracking-wide mb-4">
+                Solutions
+              </h4>
+              <ul className="space-y-2">
+                {solutions.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-emerald-400 transition-colors py-0.5"
+                    >
+                      <span>{item.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
 
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Company</h4>
-            <ul className="space-y-3">
-              <li><a href="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">About</a></li>
-              <li><a href="/insights/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Insights</a></li>
-              <li><a href="/pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Pricing</a></li>
-              <li><a href="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Careers</a></li>
-              <li><a href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Contact</a></li>
-            </ul>
-          </div>
+            {/* Column 3: Resources */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h4 className="text-sm font-semibold text-white tracking-wide mb-4">
+                Resources
+              </h4>
+              <ul className="space-y-2">
+                {resources.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-emerald-400 transition-colors py-0.5"
+                    >
+                      <span>{item.label}</span>
+                      {item.badge && (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 ml-2 font-mono leading-none font-medium">
+                          {item.badge}
+                        </span>
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
 
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Resources</h4>
-            <ul className="space-y-3">
-              <li><a href="/answers/" className="text-sm text-primary hover:text-primary/80 transition-colors font-sans font-semibold">AI Answers →</a></li>
-              <li><a href="/answers/what-is-predictive-ai/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">What is Predictive AI?</a></li>
-              <li><a href="/answers/what-is-aeo/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">What is AEO?</a></li>
-              <li><a href="/answers/best-predictive-ai-company-australia/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Best AI Company Australia</a></li>
-              <li><a href="/compare/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Compare AI Providers</a></li>
-              <li><a href="/problems/" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">Business Problems We Solve</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Social</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
-                  <Linkedin className="w-4 h-4" /> LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
-        <Twitter className="w-4 h-4" /> Twitter / X
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-sans">
-        <Instagram className="w-4 h-4" /> Instagram
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-mono">Contact & Legal</h4>
-            <ul className="space-y-3">
-              <li><a href="tel:0400457006" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">📞 0400 457 006</a></li>
-              <li><a href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors font-sans">✉️ Contact Us</a></li>
-              <li className="text-sm text-muted-foreground font-sans">📍 100 Harris St, Pyrmont, New South Wales 2009, AU</li>
-              <li className="text-sm text-muted-foreground font-sans">📍 1501 Biscayne Blvd, Miami, Florida 33132, US</li>
-                            <li><a href="/privacy" class="text-muted-foreground hover:text-primary transition-colors text-sm font-sans">Privacy Policy</a></li>
-              <li><a href="/terms" class="text-muted-foreground hover:text-primary transition-colors text-sm font-sans">Terms of Service</a></li>
-            </ul>
+            {/* Column 4: Company */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <h4 className="text-sm font-semibold text-white tracking-wide mb-4">
+                Company
+              </h4>
+              <ul className="space-y-2">
+                {company.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-emerald-400 transition-colors py-0.5"
+                    >
+                      <span>{item.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-          <p className="text-xs text-muted-foreground font-sans">
-            © 2026 PresciaIQ. All rights reserved. Australian-built AI intelligence.
+        {/* Bottom Sub-Footer Bar — seamless, no hard border */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4"
+          style={{
+            borderTop: "1px solid transparent",
+            backgroundImage:
+              "linear-gradient(to right, transparent, rgba(16,185,129,0.08) 20%, rgba(16,185,129,0.08) 80%, transparent)",
+            backgroundOrigin: "border-box",
+            backgroundClip: "border-box",
+            borderImageSource:
+              "linear-gradient(to right, transparent, rgba(16,185,129,0.18) 30%, rgba(16,185,129,0.18) 70%, transparent)",
+            borderImageSlice: 1,
+          }}
+        >
+          <p className="text-xs font-mono text-neutral-500/80">
+            © 2026 PresciaIQ Pty Ltd. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-              <Linkedin className="w-4 h-4" />
-            </a>
-            <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-        <Twitter className="w-4 h-4" />
-            </a>
-            <a href="https://www.linkedin.com/company/presciaiq-holdings" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-        <Instagram className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
 
+          <div className="flex flex-wrap items-center gap-6">
+            <div className="flex items-center gap-4 text-neutral-500">
+              <a
+                href="/privacy/"
+                className="text-xs font-mono hover:text-emerald-400 transition-colors"
+              >
+                Privacy Policy
+              </a>
+              <span className="text-neutral-700">•</span>
+              <a
+                href="/terms/"
+                className="text-xs font-mono hover:text-emerald-400 transition-colors"
+              >
+                Terms of Service
+              </a>
+              <span className="text-neutral-700">•</span>
+              <a
+                href="/insights/ai-automation-security-privacy/"
+                className="text-xs font-mono hover:text-emerald-400 transition-colors"
+              >
+                Security
+              </a>
+            </div>
+
+            <div className="flex items-center gap-3 pl-2 sm:border-l sm:border-white/[0.06] text-neutral-500">
+              <a
+                href="https://www.linkedin.com/company/presciaiq-holdings"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg hover:bg-emerald-500/[0.08] hover:text-emerald-400 transition-all"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://twitter.com/presciaiq"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1.5 rounded-lg hover:bg-emerald-500/[0.08] hover:text-emerald-400 transition-all"
+                aria-label="X / Twitter"
+              >
+                <Twitter className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </footer>
   );

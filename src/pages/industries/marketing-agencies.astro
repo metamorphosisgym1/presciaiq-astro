@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 
 const title = "AI for Marketing Agencies Australia | PresciaIQ";
 const description = "Help your clients predict campaign ROAS before spend is committed. AdsIQ by PresciaIQ — the predictive AI tool for Australian marketing agencies.";
-const canonicalURL = new URL("/industries/marketing-agencies/", Astro.site).href;
+const canonicalURL = "https://www.presciaiq.com.au/industries/marketing-agencies/";
 
 const faqs = [
   {
@@ -38,9 +38,9 @@ const schema = {
       "url": canonicalURL,
       "dateModified": "2026-05-27",
       "relatedLink": [
-      { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/roas-prediction-tool-australian-marketing/", "name": "ROAS Prediction Tool for Australian Marketing" },
-      { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/how-ai-predicted-campaign-roas-loopbc-marketing-agency/", "name": "How AI Predicted Campaign ROAS for LoopBC" },
-      { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/the-action-gap/", "name": "The Action Gap" }
+        { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/roas-prediction-tool-australian-marketing/", "name": "ROAS Prediction Tool for Australian Marketing" },
+        { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/how-ai-predicted-campaign-roas-loopbc-marketing-agency/", "name": "How AI Predicted Campaign ROAS for LoopBC" },
+        { "@type": "WebPage", "url": "https://www.presciaiq.com.au/insights/the-action-gap/", "name": "The Action Gap" }
       ],
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -70,139 +70,400 @@ const schema = {
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <main class="min-h-screen bg-background text-foreground">
-    <!-- Breadcrumb -->
-    <div class="border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
-          <a href="/" class="hover:text-primary transition-colors">Home</a>
-          <span>/</span>
-          <a href="/industries/" class="hover:text-primary transition-colors">Industries</a>
-          <span>/</span>
-          <span class="text-foreground">Marketing & Advertising</span>
-        </nav>
-      </div>
-    </div>
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
 
-    <!-- Hero -->
-    <section class="py-16 md:py-24 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold">Marketing & Advertising</span>
-          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">AdsIQ</span>
+    <!-- ═══ AMBIENT ATMOSPHERIC BACKDROP ═══ -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0"
+      aria-hidden="true"
+      style="background: radial-gradient(ellipse at top right, rgba(0,255,136,0.12), transparent 60%);"
+    ></div>
+
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ 1. HERO SECTION ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-14 text-left md:text-center">
+
+        <!-- Breadcrumb -->
+        <nav class="w-full flex justify-center text-center mx-auto mb-6" aria-label="Breadcrumb">
+          <div class="text-xs font-mono text-[#8FAF8F] tracking-wide inline-flex items-center gap-2">
+            <a href="/" class="hover:text-[#00FF88] transition-colors">Home</a>
+            <span class="text-white/20">/</span>
+            <a href="/industries/" class="hover:text-[#00FF88] transition-colors">Industries</a>
+            <span class="text-white/20">/</span>
+            <span class="text-[#F0EDE6]">Marketing &amp; Advertising</span>
+          </div>
+        </nav>
+
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          MARKETING &amp; ADVERTISING // AdsIQ
         </div>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
-          Know Your ROAS <span class="text-gradient-primary">Before You Spend a Dollar</span>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          Know Your ROAS <span class="text-[#00FF88] italic">Before You Spend a Dollar</span>
         </h1>
-        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
+
+        <!-- Subtitle -->
+        <p class="speakable-summary text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-8 leading-relaxed">
           AdsIQ scores your campaign parameters against 2.4 million historical Australian campaign data points to predict ROAS, CTR, and conversion likelihood before launch — so you optimise the strategy, not the post-mortem.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/start/"
+            id="hero-cta-marketing-prediction"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+          >
             Run a Free Campaign Prediction →
           </a>
-          <a href="/products/adsiq/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-foreground font-semibold text-sm font-sans hover:border-primary/30 transition-all">
+          <a
+            href="/products/adsiq/"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 hover:bg-white/[0.07] transition-all duration-300 backdrop-blur-md"
+          >
             View AdsIQ →
           </a>
         </div>
+
       </div>
     </section>
 
-    <!-- Stats -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12 items-start">
-          <div>
-            <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">The Problem</p>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">Australian Ad Spend Is Wasted on Campaigns That Were Always Going to Underperform</h2>
-            <p class="text-muted-foreground font-sans leading-relaxed mb-4">
-              The average Australian marketing agency launches campaigns based on creative intuition, platform best-practice guides, and last quarter's benchmarks. By the time the data tells you the campaign is underperforming, you've already spent 60–70% of the budget.
-            </p>
-            <p class="text-muted-foreground font-sans leading-relaxed">
-              AdsIQ inverts this. Before you commit budget, the prediction engine tells you which creative format, audience segment, and bidding strategy is most likely to hit your ROAS target — based on what actually worked for comparable Australian campaigns in your vertical.
+    <!-- ═══ 2. THE PROBLEM & 4 METRIC BENTO CARDS ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+        <!-- Narrative Column -->
+        <div class="lg:col-span-5" data-reveal="from-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88]"></span>
+            THE PROBLEM
+          </div>
+          <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-6 leading-tight">
+            Australian Ad Spend Is Wasted on Campaigns That Were Always Going to Underperform
+          </h2>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed mb-4 text-sm md:text-base">
+            The average Australian marketing agency launches campaigns based on creative intuition, platform best-practice guides, and last quarter's benchmarks. By the time the data tells you the campaign is underperforming, you've already spent 60–70% of the budget.
+          </p>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed text-sm md:text-base">
+            AdsIQ inverts this. Before you commit budget, the prediction engine tells you which creative format, audience segment, and bidding strategy is most likely to hit your ROAS target — based on what actually worked for comparable Australian campaigns in your vertical.
+          </p>
+        </div>
+
+        <!-- 2x2 Metric Bento Grid -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4" data-reveal="from-right">
+          
+          <!-- Metric 1 -->
+          <div
+            data-reveal="from-bottom"
+            data-reveal-delay="50"
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+          >
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+            <div class="absolute -right-16 -bottom-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none z-0" style="background: radial-gradient(circle, #00FF88 0%, transparent 70%);"></div>
+            <div class="relative z-20">
+              <p class="font-serif text-3xl md:text-4xl font-bold text-[#00FF88] mb-1 tracking-tight">84%</p>
+              <p class="text-xs md:text-sm text-[#C9CCC8] font-sans leading-snug">ROAS prediction accuracy</p>
+              <p class="text-[11px] font-mono text-[#8FAF8F] mt-3 pt-3 border-t border-white/5">±15% MARGIN ON 90+ DAY ACCOUNTS</p>
+            </div>
+          </div>
+
+          <!-- Metric 2 -->
+          <div
+            data-reveal="from-bottom"
+            data-reveal-delay="100"
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+          >
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+            <div class="absolute -right-16 -bottom-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none z-0" style="background: radial-gradient(circle, #00FF88 0%, transparent 70%);"></div>
+            <div class="relative z-20">
+              <p class="font-serif text-3xl md:text-4xl font-bold text-[#00FF88] mb-1 tracking-tight">2.4M</p>
+              <p class="text-xs md:text-sm text-[#C9CCC8] font-sans leading-snug">Historical campaign data points</p>
+              <p class="text-[11px] font-mono text-[#8FAF8F] mt-3 pt-3 border-t border-white/5">AUSTRALIAN ADVERTISER CORPUS</p>
+            </div>
+          </div>
+
+          <!-- Metric 3 -->
+          <div
+            data-reveal="from-bottom"
+            data-reveal-delay="150"
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+          >
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+            <div class="absolute -right-16 -bottom-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none z-0" style="background: radial-gradient(circle, #00FF88 0%, transparent 70%);"></div>
+            <div class="relative z-20">
+              <p class="font-serif text-3xl md:text-4xl font-bold text-[#00FF88] mb-1 tracking-tight">31%</p>
+              <p class="text-xs md:text-sm text-[#C9CCC8] font-sans leading-snug">Average improvement in campaign ROAS</p>
+              <p class="text-[11px] font-mono text-[#8FAF8F] mt-3 pt-3 border-t border-white/5">PRE-LAUNCH OPTIMISED CAMPAIGNS</p>
+            </div>
+          </div>
+
+          <!-- Metric 4 -->
+          <div
+            data-reveal="from-bottom"
+            data-reveal-delay="200"
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+          >
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+            <div class="absolute -right-16 -bottom-16 w-40 h-40 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none z-0" style="background: radial-gradient(circle, #00FF88 0%, transparent 70%);"></div>
+            <div class="relative z-20">
+              <p class="font-serif text-3xl md:text-4xl font-bold text-[#00FF88] mb-1 tracking-tight">6</p>
+              <p class="text-xs md:text-sm text-[#C9CCC8] font-sans leading-snug">Supported ad platforms</p>
+              <p class="text-[11px] font-mono text-[#8FAF8F] mt-3 pt-3 border-t border-white/5">GOOGLE, META, TIKTOK, LINKEDIN, DV360</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ 3. USE CASES (3 MARKETING CARDS) ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="text-left md:text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88]"></span>
+          USE CASES
+        </div>
+        <h2 class="text-3xl md:text-5xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          How Australian Marketing Teams Use AdsIQ
+        </h2>
+        <p class="text-[#C9CCC8] font-sans text-sm md:text-base leading-relaxed">
+          Predictive simulation transforms agency campaign workflows from retrospective reporting into proactive yield optimisation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Use Case 1 -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="0"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-widest mb-3 block font-semibold">01 / PRE-LAUNCH SCORING</span>
+            <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-3 group-hover:text-[#00FF88] transition-colors">
+              Pre-Launch Campaign Scoring
+            </h3>
+            <p class="text-[#C9CCC8] font-sans text-sm leading-relaxed mb-6">
+              Before committing budget, score your campaign brief against historical performance data. Get a predicted ROAS range, CTR estimate, and top 3 optimisation recommendations.
             </p>
           </div>
-          <div class="grid grid-cols-2 gap-4">
-            {[
-              { stat: "84%", label: "ROAS prediction accuracy" },
-              { stat: "2.4M", label: "Historical campaign data points" },
-              { stat: "31%", label: "Average improvement in campaign ROAS" },
-              { stat: "6", label: "Supported ad platforms" },
-            ].map(item => (
-              <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
-                <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
-                <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
-              </div>
-            ))}
+          <div class="pt-4 border-t border-white/5 relative z-20 flex items-center justify-between text-xs font-mono text-[#8FAF8F]">
+            <span>CONFIDENCE INTERVAL</span>
+            <span class="text-[#00FF88]">±15%</span>
           </div>
         </div>
+
+        <!-- Use Case 2 -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="100"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-widest mb-3 block font-semibold">02 / FORMAT INTELLIGENCE</span>
+            <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-3 group-hover:text-[#00FF88] transition-colors">
+              Creative Format Selection
+            </h3>
+            <p class="text-[#C9CCC8] font-sans text-sm leading-relaxed mb-6">
+              AdsIQ tells you whether video, static, carousel, or story format is most likely to perform for your specific audience segment and campaign objective — before you brief the creative team.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/5 relative z-20 flex items-center justify-between text-xs font-mono text-[#8FAF8F]">
+            <span>CREATIVE YIELD</span>
+            <span class="text-[#00FF88]">PROBABILISTIC</span>
+          </div>
+        </div>
+
+        <!-- Use Case 3 -->
+        <div
+          data-reveal="from-bottom"
+          data-reveal-delay="200"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 flex flex-col justify-between"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-widest mb-3 block font-semibold">03 / BUDGET MODELLING</span>
+            <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-3 group-hover:text-[#00FF88] transition-colors">
+              Budget Allocation Modelling
+            </h3>
+            <p class="text-[#C9CCC8] font-sans text-sm leading-relaxed mb-6">
+              Model how splitting budget across Google, Meta, and TikTok will affect total ROAS — and get a recommended allocation based on your industry vertical and target audience demographics.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/5 relative z-20 flex items-center justify-between text-xs font-mono text-[#8FAF8F]">
+            <span>CROSS-CHANNEL</span>
+            <span class="text-[#00FF88]">DYNAMIC</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Use Cases -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Use Cases</p>
-        <h2 class="font-display text-3xl font-bold text-foreground mb-10">How Australian Marketing Teams Use AdsIQ</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              title: "Pre-Launch Campaign Scoring",
-              desc: "Before committing budget, score your campaign brief against historical performance data. Get a predicted ROAS range, CTR estimate, and top 3 optimisation recommendations."
-            },
-            {
-              title: "Creative Format Selection",
-              desc: "AdsIQ tells you whether video, static, carousel, or story format is most likely to perform for your specific audience segment and campaign objective — before you brief the creative team."
-            },
-            {
-              title: "Budget Allocation Modelling",
-              desc: "Model how splitting budget across Google, Meta, and TikTok will affect total ROAS — and get a recommended allocation based on your industry vertical and target audience demographics."
-            },
-          ].map(uc => (
-            <div class="rounded-xl border border-white/8 p-6" style="background: rgba(255,255,255,0.02);">
-              <h3 class="font-display text-lg font-bold text-foreground mb-3">{uc.title}</h3>
-              <p class="text-muted-foreground font-sans text-sm leading-relaxed">{uc.desc}</p>
-            </div>
-          ))}
+    <!-- ═══ 4. FREQUENTLY ASKED QUESTIONS ═══ -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="text-left md:text-center mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88]"></span>
+          FREQUENTLY ASKED QUESTIONS
         </div>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight">
+          Marketing AI — Common Questions
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq, idx) => (
+          <details
+            data-reveal="from-bottom"
+            data-reveal-delay={(idx * 50).toString()}
+            class="group rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 hover:border-white/20 transition-all cursor-pointer"
+          >
+            <summary class="flex items-center justify-between font-serif font-semibold text-lg text-[#F0EDE6] group-open:text-[#00FF88] transition-colors list-none select-none">
+              <span>{faq.q}</span>
+              <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
+                ↓
+              </span>
+            </summary>
+            <p class="text-[#C9CCC8] font-sans leading-relaxed text-sm mt-4 pt-4 border-t border-white/5">
+              {faq.a}
+            </p>
+          </details>
+        ))}
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Frequently Asked Questions</p>
-        <h2 class="font-display text-3xl font-bold text-foreground mb-10">Marketing AI — Common Questions</h2>
-        <div class="space-y-6 max-w-3xl">
-          {faqs.map(faq => (
-            <div class="border-b border-white/5 pb-6">
-              <h3 class="font-display text-lg font-bold text-foreground mb-3">{faq.q}</h3>
-              <p class="text-muted-foreground font-sans leading-relaxed text-sm">{faq.a}</p>
-            </div>
-          ))}
-        </div>
+    <!-- ═══ 5. RELATED LINKS (3 CARDS) ═══ -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <div class="text-left md:text-center mb-8">
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] block mb-2 font-semibold">
+          EXPLORE FURTHER
+        </span>
+        <h2 class="font-serif text-2xl md:text-3xl font-semibold text-[#F0EDE6]">
+          Related Intelligence &amp; Solutions
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Card 1: AdsIQ -->
+        <a
+          href="/products/adsiq/"
+          data-reveal="from-bottom"
+          data-reveal-delay="0"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2 font-semibold">Product</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              AdsIQ
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans leading-relaxed">
+              Predictive campaign scoring &amp; ROAS simulation before committing media spend.
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 2: AI & ROAS Prediction -->
+        <a
+          href="/answers/how-does-predictive-ai-improve-roas-for-australian-marketing-agencies/"
+          data-reveal="from-bottom"
+          data-reveal-delay="80"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2 font-semibold">Answer</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              AI &amp; ROAS Prediction
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans leading-relaxed">
+              How Australian marketing agencies eliminate trial-and-error campaign waste with AI.
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 3: ROAS Prediction Tool -->
+        <a
+          href="/insights/roas-prediction-tool-australian-marketing/"
+          data-reveal="from-bottom"
+          data-reveal-delay="160"
+          class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 hover:border-[#00FF88]/50 hover:shadow-[0_12px_35px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1 block"
+        >
+          <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.08] to-transparent skew-x-12 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-mono text-[#00FF88] uppercase tracking-wider block mb-2 font-semibold">Insight</span>
+            <p class="font-serif font-semibold text-lg text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors flex items-center justify-between">
+              ROAS Prediction Tool
+              <span class="text-xs font-mono group-hover:translate-x-1 transition-transform">→</span>
+            </p>
+            <p class="text-xs text-[#C9CCC8] mt-2 font-sans leading-relaxed">
+              Pre-launch campaign simulation methodology and Australian advertiser benchmarks.
+            </p>
+          </div>
+        </a>
       </div>
     </section>
 
-    <!-- Related -->
-    <section class="py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
-        <div class="grid sm:grid-cols-3 gap-4">
-          <a href="/products/adsiq/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Product</p>
-            <p class="font-display font-bold text-foreground">AdsIQ →</p>
-          </a>
-          <a href="/answers/how-does-predictive-ai-improve-roas-for-australian-marketing-agencies/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Answer</p>
-            <p class="font-display font-bold text-foreground">AI & ROAS Prediction →</p>
-          </a>
-          <a href="/insights/roas-prediction-tool-australian-marketing/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Insight</p>
-            <p class="font-display font-bold text-foreground">ROAS Prediction Tool →</p>
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
+
+  <!-- ═══ 6. DIRECTIONAL SCROLL ENTRANCE SCRIPT ═══ -->
+  <script is:inline>
+    (function () {
+      const INIT = {
+        'from-left':   { transform: 'translateX(-20px)', opacity: '0' },
+        'from-right':  { transform: 'translateX(20px)',  opacity: '0' },
+        'from-bottom': { transform: 'translateY(20px)',  opacity: '0' },
+      };
+
+      const targets = document.querySelectorAll('[data-reveal]');
+
+      targets.forEach(el => {
+        const dir = el.getAttribute('data-reveal');
+        const init = INIT[dir];
+        if (!init) return;
+        Object.assign(el.style, init);
+        el.style.transition = 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.willChange = 'transform, opacity';
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => {
+              el.style.transform = 'translate(0, 0)';
+              el.style.opacity = '1';
+            }, delay);
+            observer.unobserve(el);
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      targets.forEach(el => observer.observe(el));
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(el => {
+          el.style.transform = 'none';
+          el.style.opacity = '1';
+          el.style.transition = 'none';
+        });
+      }
+    })();
+  </script>
 </Layout>

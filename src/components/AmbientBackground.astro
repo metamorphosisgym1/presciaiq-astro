@@ -1,0 +1,124 @@
+---
+---
+<div class="ambient fixed inset-0 -z-10 pointer-events-none overflow-hidden select-none" aria-hidden="true">
+  <!-- Soft Atmospheric Radial Glow Pools -->
+  <div class="absolute top-[-20vh] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(92,122,92,0.12),transparent_70%)]"></div>
+  <div class="absolute top-[20vh] right-[-10vw] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(0,255,136,0.05),transparent_70%)]"></div>
+  <div class="absolute bottom-[-10vh] left-[-10vw] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(92,122,92,0.08),transparent_70%)]"></div>
+
+  <!-- Ambient Grid Background -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+</div>
+
+<!--
+  ═══════════════════════════════════════════════════════════════════
+  GLOBAL STARDUST CANVAS
+  Fixed behind the entire page. Dots are scattered at various
+  viewport-percentage coordinates so they appear everywhere as the
+  user scrolls, from hero to footer. Uses global star-twinkle-1/2/3
+  CSS animation classes defined in global.css.
+  ═══════════════════════════════════════════════════════════════════
+-->
+<div class="global-stardust -z-10" aria-hidden="true">
+  <svg
+    class="w-full h-full"
+    xmlns="http://www.w3.org/2000/svg"
+    style="position:absolute;inset:0;width:100%;height:100%;"
+  >
+    <!-- ── Top band (0–25% down the page) ── -->
+    <circle cx="7%"  cy="4%"  r="1"   fill="#ffffff" opacity="0.4" />
+    <circle cx="14%" cy="8%"  r="1.5" fill="#00F5A0" opacity="0.6"  class="star-twinkle-1" />
+    <circle cx="23%" cy="5%"  r="1.2" fill="#ffffff" opacity="0.45" />
+    <circle cx="32%" cy="11%" r="1"   fill="#00F5A0" opacity="0.35" />
+    <circle cx="41%" cy="7%"  r="1.8" fill="#ffffff" opacity="0.55" class="star-twinkle-2" />
+    <circle cx="51%" cy="3%"  r="1"   fill="#00F5A0" opacity="0.3"  />
+    <circle cx="60%" cy="9%"  r="1.4" fill="#ffffff" opacity="0.45" class="star-twinkle-1" />
+    <circle cx="70%" cy="6%"  r="1.5" fill="#00F5A0" opacity="0.55" />
+    <circle cx="80%" cy="12%" r="1.2" fill="#ffffff" opacity="0.4"  class="star-twinkle-3" />
+    <circle cx="89%" cy="5%"  r="2"   fill="#00F5A0" opacity="0.65" class="star-twinkle-2" />
+    <circle cx="95%" cy="9%"  r="1"   fill="#ffffff" opacity="0.35" />
+
+    <!-- ✦ top band glyphs -->
+    <g transform="translate(120,55) scale(0.6)" opacity="0.55" class="star-twinkle-3">
+      <path d="M0 -6 L1.2 -1.2 L6 0 L1.2 1.2 L0 6 L-1.2 1.2 L-6 0 L-1.2 -1.2 Z" fill="#00F5A0" />
+    </g>
+    <g transform="translate(1060,70) scale(0.65)" opacity="0.5" class="star-twinkle-1">
+      <path d="M0 -6 L1.2 -1.2 L6 0 L1.2 1.2 L0 6 L-1.2 1.2 L-6 0 L-1.2 -1.2 Z" fill="#a3ffd6" />
+    </g>
+
+    <!-- ── Upper-mid band (25–45%) ── -->
+    <circle cx="5%"  cy="30%" r="1.2" fill="#00F5A0" opacity="0.45" class="star-twinkle-2" />
+    <circle cx="12%" cy="35%" r="1"   fill="#ffffff" opacity="0.38" />
+    <circle cx="20%" cy="28%" r="1.5" fill="#00F5A0" opacity="0.5"  class="star-twinkle-1" />
+    <circle cx="28%" cy="40%" r="1"   fill="#ffffff" opacity="0.4"  />
+    <circle cx="37%" cy="33%" r="1.8" fill="#00F5A0" opacity="0.6"  class="star-twinkle-3" />
+    <circle cx="46%" cy="26%" r="1.2" fill="#ffffff" opacity="0.45" />
+    <circle cx="55%" cy="38%" r="1"   fill="#00F5A0" opacity="0.35" class="star-twinkle-2" />
+    <circle cx="63%" cy="31%" r="1.5" fill="#ffffff" opacity="0.5"  />
+    <circle cx="72%" cy="43%" r="1.2" fill="#00F5A0" opacity="0.55" class="star-twinkle-1" />
+    <circle cx="82%" cy="29%" r="1"   fill="#ffffff" opacity="0.38" />
+    <circle cx="91%" cy="36%" r="1.8" fill="#00F5A0" opacity="0.65" class="star-twinkle-3" />
+    <circle cx="97%" cy="44%" r="1.2" fill="#ffffff" opacity="0.4"  />
+
+    <g transform="translate(420,380) scale(0.55)" opacity="0.5" class="star-twinkle-2">
+      <path d="M0 -6 L1.2 -1.2 L6 0 L1.2 1.2 L0 6 L-1.2 1.2 L-6 0 L-1.2 -1.2 Z" fill="#00F5A0" />
+    </g>
+    <g transform="translate(1280,310) scale(0.6)" opacity="0.45" class="star-twinkle-1">
+      <path d="M0 -6 L1.2 -1.2 L6 0 L1.2 1.2 L0 6 L-1.2 1.2 L-6 0 L-1.2 -1.2 Z" fill="#ffffff" />
+    </g>
+
+    <!-- ── Mid band (45–65%) ── -->
+    <circle cx="8%"  cy="50%" r="1.5" fill="#00F5A0" opacity="0.55" class="star-twinkle-1" />
+    <circle cx="17%" cy="57%" r="1"   fill="#ffffff" opacity="0.38" />
+    <circle cx="25%" cy="52%" r="1.8" fill="#00F5A0" opacity="0.5"  class="star-twinkle-3" />
+    <circle cx="34%" cy="63%" r="1.2" fill="#ffffff" opacity="0.42" />
+    <circle cx="43%" cy="55%" r="1"   fill="#00F5A0" opacity="0.35" class="star-twinkle-2" />
+    <circle cx="52%" cy="48%" r="1.5" fill="#ffffff" opacity="0.5"  />
+    <circle cx="61%" cy="60%" r="1.2" fill="#00F5A0" opacity="0.55" class="star-twinkle-1" />
+    <circle cx="69%" cy="53%" r="1"   fill="#ffffff" opacity="0.38" />
+    <circle cx="78%" cy="65%" r="1.8" fill="#00F5A0" opacity="0.6"  class="star-twinkle-3" />
+    <circle cx="87%" cy="50%" r="1.2" fill="#ffffff" opacity="0.4"  />
+    <circle cx="93%" cy="58%" r="1"   fill="#00F5A0" opacity="0.35" class="star-twinkle-2" />
+
+    <g transform="translate(780,720) scale(0.65)" opacity="0.55" class="star-twinkle-3">
+      <path d="M0 -6 L1.2 -1.2 L6 0 L1.2 1.2 L0 6 L-1.2 1.2 L-6 0 L-1.2 -1.2 Z" fill="#00F5A0" />
+    </g>
+
+    <!-- ── Lower-mid band (65–82%) ── -->
+    <circle cx="6%"  cy="70%" r="1.2" fill="#ffffff" opacity="0.38" />
+    <circle cx="15%" cy="75%" r="1.5" fill="#00F5A0" opacity="0.5"  class="star-twinkle-1" />
+    <circle cx="24%" cy="68%" r="1"   fill="#ffffff" opacity="0.4"  />
+    <circle cx="33%" cy="79%" r="1.8" fill="#00F5A0" opacity="0.6"  class="star-twinkle-2" />
+    <circle cx="42%" cy="73%" r="1.2" fill="#ffffff" opacity="0.45" />
+    <circle cx="51%" cy="67%" r="1"   fill="#00F5A0" opacity="0.35" class="star-twinkle-3" />
+    <circle cx="60%" cy="76%" r="1.5" fill="#ffffff" opacity="0.5"  class="star-twinkle-1" />
+    <circle cx="70%" cy="71%" r="1.2" fill="#00F5A0" opacity="0.55" />
+    <circle cx="79%" cy="80%" r="1"   fill="#ffffff" opacity="0.38" class="star-twinkle-2" />
+    <circle cx="88%" cy="68%" r="1.8" fill="#00F5A0" opacity="0.65" class="star-twinkle-3" />
+    <circle cx="95%" cy="75%" r="1.2" fill="#ffffff" opacity="0.42" />
+
+    <g transform="translate(245,1000) scale(0.6)" opacity="0.5" class="star-twinkle-1">
+      <path d="M0 -6 L1.2 -1.2 L6 0 L1.2 1.2 L0 6 L-1.2 1.2 L-6 0 L-1.2 -1.2 Z" fill="#a3ffd6" />
+    </g>
+    <g transform="translate(1180,980) scale(0.55)" opacity="0.45" class="star-twinkle-2">
+      <path d="M0 -6 L1.2 -1.2 L6 0 L1.2 1.2 L0 6 L-1.2 1.2 L-6 0 L-1.2 -1.2 Z" fill="#00F5A0" />
+    </g>
+
+    <!-- ── Bottom band — footer zone (82–100%) ── -->
+    <circle cx="9%"  cy="86%" r="1.5" fill="#00F5A0" opacity="0.55" class="star-twinkle-2" />
+    <circle cx="18%" cy="91%" r="1"   fill="#ffffff" opacity="0.38" />
+    <circle cx="27%" cy="85%" r="1.2" fill="#00F5A0" opacity="0.45" class="star-twinkle-1" />
+    <circle cx="36%" cy="93%" r="1.8" fill="#ffffff" opacity="0.5"  class="star-twinkle-3" />
+    <circle cx="45%" cy="88%" r="1"   fill="#00F5A0" opacity="0.35" />
+    <circle cx="54%" cy="95%" r="1.5" fill="#ffffff" opacity="0.45" class="star-twinkle-2" />
+    <circle cx="64%" cy="84%" r="1.2" fill="#00F5A0" opacity="0.55" class="star-twinkle-1" />
+    <circle cx="73%" cy="92%" r="1"   fill="#ffffff" opacity="0.38" />
+    <circle cx="83%" cy="87%" r="1.8" fill="#00F5A0" opacity="0.6"  class="star-twinkle-3" />
+    <circle cx="91%" cy="94%" r="1.2" fill="#ffffff" opacity="0.4"  class="star-twinkle-2" />
+    <circle cx="97%" cy="89%" r="1"   fill="#00F5A0" opacity="0.35" />
+
+    <g transform="translate(650,1240) scale(0.65)" opacity="0.55" class="star-twinkle-3">
+      <path d="M0 -6 L1.2 -1.2 L6 0 L1.2 1.2 L0 6 L-1.2 1.2 L-6 0 L-1.2 -1.2 Z" fill="#00F5A0" />
+    </g>
+  </svg>
+</div>

@@ -1,187 +1,318 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const title = "Referral Partner Program | PresciaIQ — Earn $500–$1,000 Per Client";
-const description = "Accountants, business coaches, web developers, and consultants: earn $500–$1,000 for every client you refer to PresciaIQ. Simple, no paperwork, paid on signing.";
-const canonicalURL = "/partners/";
-
+const title = "Partner With PresciaIQ | Technology & Channel Partner Ecosystem";
+const description = "Join the PresciaIQ Partner Ecosystem. Agency partnerships, technology integrations, and high-yield revenue sharing for Australian accountants, advisors, and consultancies.";
+const canonicalURL = "https://www.presciaiq.com.au/partners/";
 const CALENDLY_URL = "https://calendly.com/presciaiq-sales/discoverycall";
 
-const partnerTypes = [
+const agencyTiers = [
   {
-    icon: "📊",
-    title: "Accountants & Bookkeepers",
-    desc: "Your clients are already asking about AI and digital marketing. When they're paying too much for leads or invisible online, refer them to us.",
+    tier: "Affiliate & Referral Partner",
+    commission: "$500 – $1,000",
+    period: "Per closed engagement",
+    desc: "For accountants, business brokers, fractional CFOs, and advisors whose clients need operational early-warning intelligence.",
+    benefits: [
+      "Zero paperwork, paid within 7 days of signing",
+      "Dedicated client onboarding concierge",
+      "Executive co-branded intelligence briefing",
+      "Direct Slack/Teams channel with PresciaIQ engineering"
+    ]
   },
   {
-    icon: "🎯",
-    title: "Business Coaches & Consultants",
-    desc: "You work with business owners on growth. We give them the AI infrastructure to execute it. A natural fit.",
+    tier: "Certified Solutions Agency",
+    commission: "20% Recurring",
+    period: "Monthly software revenue share",
+    desc: "For digital agencies, systems integrators, and software consultancies delivering custom AI transformations.",
+    benefits: [
+      "White-label or co-branded algorithmic deployment",
+      "Full API & SDK sandboxes with dedicated compute",
+      "Quarterly joint go-to-market and lead routing",
+      "Priority roadmap feature requests"
+    ]
   },
   {
-    icon: "💻",
-    title: "Web Developers & Designers",
-    desc: "You build the site. We build the organic traffic machine that fills it with leads. Refer clients who need SEO, AEO, or AI tools.",
-  },
-  {
-    icon: "📱",
-    title: "Marketing Agencies",
-    desc: "If a client needs something outside your core offer — AI software, programmatic SEO, AEO architecture — refer them and earn.",
-  },
+    tier: "Technology Alliance",
+    commission: "Bespoke",
+    period: "Joint revenue & OEM licensing",
+    desc: "For ERP, CRM, and vertical SaaS platforms seeking native predictive intelligence add-ons.",
+    benefits: [
+      "Bi-directional webhook & REST event pipelines",
+      "Custom fine-tuned prediction models",
+      "Sovereign Australian tenant isolation",
+      "Executive architectural design reviews"
+    ]
+  }
 ];
 
-const howItWorks = [
-  { step: "01", title: "Make the introduction", desc: "DM us on LinkedIn or email partners@presciaiq.com.au with the client's name and what they need. That's it." },
-  { step: "02", title: "We handle everything", desc: "We run the discovery call, audit, proposal, and onboarding. You don't need to be involved beyond the introduction." },
-  { step: "03", title: "Get paid on signing", desc: "When the client signs, we pay your referral fee within 7 days. No invoicing process, no chasing." },
+const integrations = [
+  { name: "Xero", category: "Accounting & Cashflow", desc: "Real-time ledger ingestion powering our 90-day rolling cash flow prediction models." },
+  { name: "Procore", category: "Construction Management", desc: "Subcontractor timeline logs feeding BuildPredictIQ's 47 risk variable engine." },
+  { name: "Meta Ads & Google Ads", category: "Paid Media APIs", desc: "Hourly spend and attribution streaming into AdsIQ ROAS forecast clusters." },
+  { name: "HubSpot & Salesforce", category: "CRM & Pipeline", desc: "Deal velocity telemetry identifying pipeline slippage 30 days before close." },
+  { name: "Shopify Plus", category: "eCommerce Telemetry", desc: "SKU-level stock velocity and demand surge forecasting for retail." },
+  { name: "AWS Sydney (ap-southeast-2)", category: "Sovereign Cloud", desc: "Dedicated high-performance compute guaranteeing Australian data sovereignty." }
 ];
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": title,
-  "description": description,
-  "url": `https://www.presciaiq.com.au${canonicalURL}`,
-  "publisher": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au" },
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": title,
+      "description": description,
+      "url": canonicalURL,
+      "dateModified": "2026-09-25",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+          { "@type": "ListItem", "position": 2, "name": "Ecosystem Partners", "item": canonicalURL }
+        ]
+      }
+    }
+  ]
 };
 ---
 
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <main class="min-h-screen bg-background text-foreground">
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
+    <!-- Top-Right Mint Ambient Radial Aura -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
 
-    <!-- Hero -->
-    <section class="pt-12 pb-16 border-b border-white/5">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
-          style="background: rgba(74,222,128,0.1); color: #4ade80; border: 1px solid rgba(74,222,128,0.2);">
-          <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-          Referral Partner Program — Now Open
+    <!-- Subtle Grid Overlay -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ 1. HERO WRAPPER ═══ -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 text-left md:text-center">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-muted-foreground font-mono mb-8 md:justify-center flex-wrap" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <span class="text-foreground">Partners</span>
+        </nav>
+
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono uppercase tracking-[0.2em] text-[#00FF88] mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00FF88] shadow-[0_0_8px_#00FF88]"></span>
+          ECOSYSTEM // Technology &amp; Channel Partners
         </div>
-        <h1 class="font-display text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight">
-          Earn $500–$1,000<br />
-          <span class="text-primary">per client you refer.</span>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4 leading-[1.1]">
+          Partner With <span class="text-[#00FF88] italic">PresciaIQ</span>
         </h1>
-        <p class="text-xl text-muted-foreground font-sans leading-relaxed max-w-2xl mx-auto mb-10">
-          If you work with Australian business owners — as an accountant, business coach, web developer, or consultant — we'll pay you $500–$1,000 for every client you introduce who signs with PresciaIQ. No paperwork. No process. Just an introduction.
+
+        <!-- Subtitle -->
+        <p class="text-[#C9CCC8] text-base md:text-lg font-sans max-w-2xl mx-auto mb-8 leading-relaxed">
+          Join Australia's fastest-growing predictive AI network. Equip your clients with institutional machine learning models while unlocking high-margin recurring revenue and direct engineering collaboration.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:partners@presciaiq.com.au"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98]"
-            style="background: linear-gradient(135deg, #4ade80, #22d3ee);">
-            Become a Partner →
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#apply"
+            class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300 hover:-translate-y-0.5"
+          >
+            Apply to Partner →
           </a>
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold border border-white/15 text-white/75 hover:border-primary/40 transition-all">
-            Book a Partner Call
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 hover:bg-white/[0.07] transition-all duration-300 backdrop-blur-md"
+          >
+            Schedule Partner Briefing →
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Commission structure -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-8 text-center">Commission Structure</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { amount: "$500", label: "Per AI product referral", desc: "Client signs up for TradesmanIQ, AdsIQ, OpsIQ, or BuildPredictIQ (any plan)" },
-            { amount: "$750", label: "Per AEO/SEO project", desc: "Client signs for a programmatic SEO or AEO architecture build ($4,999+)" },
-            { amount: "$1,000", label: "Per retainer client", desc: "Client signs an ongoing monthly retainer ($1,500+/month)" },
-          ].map(tier => (
-            <div class="p-6 rounded-2xl border border-primary/20 text-center" style="background: rgba(0,255,136,0.02);">
-              <p class="font-mono text-4xl font-black text-primary mb-2">{tier.amount}</p>
-              <p class="font-semibold text-white text-sm mb-3">{tier.label}</p>
-              <p class="text-xs text-muted-foreground leading-relaxed">{tier.desc}</p>
-            </div>
-          ))}
+    <!-- ═══ 2. AGENCY & CHANNEL PARTNER TIERS ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          AGENCY &amp; CHANNEL PROGRAMS
         </div>
-        <p class="text-center text-xs text-muted-foreground mt-6">Paid within 7 days of client signing. No minimum referrals required. No cap on earnings.</p>
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          Engineered for Advisors, Consultancies &amp; Agencies
+        </h2>
+        <p class="text-sm md:text-base text-[#C9CCC8] font-sans">
+          Select the partnership structure that best aligns with your operating model and client relationships.
+        </p>
       </div>
-    </section>
 
-    <!-- Who it's for -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4 text-center">Who It's For</p>
-        <h2 class="font-display text-3xl font-bold text-foreground mb-10 text-center">If your clients are Australian business owners, this is for you.</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {partnerTypes.map(p => (
-            <div class="flex gap-4 p-5 rounded-xl border border-white/8" style="background: rgba(255,255,255,0.02);">
-              <span class="text-2xl shrink-0">{p.icon}</span>
-              <div>
-                <p class="font-semibold text-white text-sm mb-1">{p.title}</p>
-                <p class="text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {agencyTiers.map((tier, idx) => (
+          <div
+            key={idx}
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-8 transition-all duration-300 hover:border-[#00FF88]/40 hover:shadow-[0_12px_40px_-10px_rgba(0,255,136,0.18)] flex flex-col justify-between"
+          >
+            <div class="absolute inset-0 pointer-events-none -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/[0.06] to-transparent skew-x-12 z-10"></div>
+
+            <div class="relative z-20">
+              <div class="text-xs font-mono uppercase tracking-widest text-[#00FF88] mb-3">Tier 0{idx + 1}</div>
+              <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">{tier.tier}</h3>
+              <div class="flex items-baseline gap-2 mb-4">
+                <span class="text-3xl font-serif font-bold text-[#F0EDE6]">{tier.commission}</span>
+                <span class="text-xs font-mono text-[#8FAF8F]">{tier.period}</span>
+              </div>
+              <p class="text-sm text-[#C9CCC8] font-sans mb-6 leading-relaxed">
+                {tier.desc}
+              </p>
+
+              <div class="border-t border-white/5 pt-6 space-y-3 mb-6">
+                <div class="text-[11px] font-mono uppercase tracking-wider text-[#8FAF8F]">Key Inclusions</div>
+                {tier.benefits.map((b, bIdx) => (
+                  <div key={bIdx} class="flex items-start gap-2.5 text-xs text-[#C9CCC8] font-sans">
+                    <span class="text-[#00FF88] font-mono mt-0.5">✓</span>
+                    <span>{b}</span>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
+
+            <a
+              href="#apply"
+              class="relative z-20 block w-full py-3 rounded-full text-center text-xs font-semibold uppercase tracking-wider font-mono border border-white/15 bg-white/5 text-[#F0EDE6] group-hover:border-[#00FF88]/40 group-hover:bg-[#00FF88]/10 group-hover:text-[#00FF88] transition-all"
+            >
+              Select Program →
+            </a>
+          </div>
+        ))}
       </div>
     </section>
 
-    <!-- How it works -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4 text-center">How It Works</p>
-        <h2 class="font-display text-3xl font-bold text-foreground mb-10 text-center">Three steps. No paperwork.</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {howItWorks.map(step => (
-            <div class="text-center">
-              <p class="font-mono text-4xl font-black text-primary/30 mb-4">{step.step}</p>
-              <p class="font-semibold text-white text-sm mb-2">{step.title}</p>
-              <p class="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
-            </div>
-          ))}
+    <!-- ═══ 3. TECHNOLOGY INTEGRATIONS ═══ -->
+    <section class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 border-b border-white/5">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#8FAF8F] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+          ECOSYSTEM ARCHITECTURE
         </div>
-      </div>
-    </section>
-
-    <!-- Who we're looking for (ideal client profile) -->
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Ideal Client Profile</p>
-        <h2 class="font-display text-2xl font-bold text-foreground mb-6">The clients most likely to sign — and earn you a commission.</h2>
-        <div class="space-y-3">
-          {[
-            "Australian business doing $2M–$50M in annual revenue",
-            "Currently spending $1,000+/month on Google Ads or paid social",
-            "No organic search presence or a weak one",
-            "Wants to reduce paid media dependency",
-            "In construction, equipment hire, marketing, logistics, trades, or professional services",
-            "Open to AI tools or has already asked about them",
-          ].map(item => (
-            <div class="flex items-start gap-3">
-              <span class="text-primary mt-0.5 shrink-0">✓</span>
-              <p class="text-sm text-muted-foreground">{item}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-20">
-      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Ready to become a partner?
+        <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">
+          Seamless Technology Integrations
         </h2>
-        <p class="text-muted-foreground font-sans leading-relaxed mb-8 max-w-xl mx-auto">
-          Email us at partners@presciaiq.com.au or book a 20-minute partner call. We'll walk you through the program, answer any questions, and set you up to start referring.
+        <p class="text-sm md:text-base text-[#C9CCC8] font-sans">
+          PresciaIQ integrates directly with the mission-critical systems your Australian clients already depend on.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:partners@presciaiq.com.au"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-black transition-all hover:brightness-110 active:scale-[0.98]"
-            style="background: linear-gradient(135deg, #4ade80, #22d3ee);">
-            Email Us to Join →
-          </a>
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold border border-white/15 text-white/75 hover:border-primary/40 transition-all">
-            Book a Partner Call
-          </a>
-        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {integrations.map((item, idx) => (
+          <div
+            key={idx}
+            class="rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 hover:border-[#00FF88]/30 transition-all duration-300"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-lg font-serif font-bold text-[#F0EDE6]">{item.name}</span>
+              <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border border-[#00FF88]/20 bg-[#00FF88]/10 text-[#00FF88]">
+                Native API
+              </span>
+            </div>
+            <div class="text-xs font-mono text-[#8FAF8F] mb-2">{item.category}</div>
+            <p class="text-xs text-[#C9CCC8] font-sans leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
 
+    <!-- ═══ 4. PARTNER APPLICATION CTA SECTION ═══ -->
+    <section id="apply" class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="rounded-3xl border border-[#00FF88]/20 bg-[#111411]/90 backdrop-blur-2xl p-8 md:p-12 relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,136,0.08),transparent_70%)] pointer-events-none"></div>
+
+        <div class="max-w-2xl mx-auto text-center mb-8 relative z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[#00FF88] font-mono text-[11px] tracking-[0.2em] uppercase mb-4">
+            APPLICATION // FAST TRACK
+          </div>
+          <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-3">
+            Apply to the Partner Network
+          </h2>
+          <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed">
+            Submit your partner inquiry below or email directly to <a href="mailto:partners@presciaiq.com.au" class="text-[#00FF88] underline hover:text-[#42FFAA]">partners@presciaiq.com.au</a>. Our Sydney partner management team reviews and responds within 24 hours.
+          </p>
+        </div>
+
+        <form
+          action="/thank-you/"
+          method="GET"
+          class="space-y-4 max-w-xl mx-auto relative z-10"
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-[#8FAF8F] mb-1 uppercase tracking-wider">Your Name *</label>
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Macauley Burke"
+                class="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-sm text-[#F0EDE6] placeholder-white/20 focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-[#8FAF8F] mb-1 uppercase tracking-wider">Business Email *</label>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="partner@yourfirm.com.au"
+                class="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-sm text-[#F0EDE6] placeholder-white/20 focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-[#8FAF8F] mb-1 uppercase tracking-wider">Company / Agency *</label>
+              <input
+                type="text"
+                name="company"
+                required
+                placeholder="Apex Advisory Group"
+                class="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-sm text-[#F0EDE6] placeholder-white/20 focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-[#8FAF8F] mb-1 uppercase tracking-wider">Partner Track *</label>
+              <select
+                name="partner_track"
+                class="w-full rounded-xl bg-[#111411] border border-white/10 px-4 py-3 text-sm text-[#F0EDE6] focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+              >
+                <option value="referral">Referral Partner ($500–$1,000/deal)</option>
+                <option value="certified_agency">Certified Agency (20% Recurring Share)</option>
+                <option value="tech_alliance">Technology &amp; SaaS Alliance</option>
+                <option value="other">Other Collaboration</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-mono text-[#8FAF8F] mb-1 uppercase tracking-wider">Client Base &amp; Partnership Objective</label>
+            <textarea
+              name="notes"
+              rows="3"
+              placeholder="Tell us about the size of your client base and how predictive AI complements your current advisory or agency services..."
+              class="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-sm text-[#F0EDE6] placeholder-white/20 focus:outline-none focus:border-[#00FF88] focus:ring-1 focus:ring-[#00FF88] transition-all font-sans"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3.5 px-6 rounded-full bg-[#00FF88] text-[#050508] font-semibold text-sm hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.5)] transition-all mt-4 font-sans active:scale-95"
+          >
+            Submit Partner Application →
+          </button>
+        </form>
+      </div>
+    </section>
   </main>
 </Layout>

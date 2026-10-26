@@ -55,140 +55,269 @@ const schema = {
 <Layout title={title} description={description} canonicalURL={canonicalURL}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <main class="min-h-screen bg-background text-foreground">
-    <div class="border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap">
-          <a href="/" class="hover:text-primary transition-colors">Home</a>
-          <span>/</span>
-          <a href="/products/" class="hover:text-primary transition-colors">Products</a>
-          <span>/</span>
-          <span class="text-foreground">AI Automations</span>
-        </nav>
-      </div>
-    </div>
+  <main class="relative bg-background text-foreground overflow-x-hidden">
 
-    <section class="py-16 md:py-24 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold text-primary border border-primary/20 bg-primary/5">AI Automations</span>
-          <span class="text-xs text-muted-foreground font-sans">Custom Solutions</span>
+    <!-- Ambient: top-right mint radial glow -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0"
+      aria-hidden="true"
+      style="background: radial-gradient(circle at top right, rgba(0,255,136,0.12), transparent 55%);"
+    ></div>
+
+    <!-- Subtle intelligence grid backdrop -->
+    <div
+      class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ═══ ABOVE-THE-FOLD FRAME: breadcrumb + hero copy + 4 cards ═══
+         min-h-screen flex column ensures this is a complete standalone viewport.
+         The Capabilities section (pt-28+) only appears on scroll. -->
+    <div class="relative z-10 min-h-screen flex flex-col">
+
+      <!-- BREADCRUMB: pt-24 keeps it cleanly below the fixed navbar -->
+      <div class="pt-24 md:pt-28 border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-3">
+          <nav class="flex items-center gap-2 text-sm text-muted-foreground font-sans flex-wrap" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-primary transition-colors">Home</a>
+            <span class="text-white/20">/</span>
+            <a href="/products/" class="hover:text-primary transition-colors">Products</a>
+            <span class="text-white/20">/</span>
+            <span class="text-foreground">AI Automations</span>
+          </nav>
         </div>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl">
-          Stop Doing Work <span class="text-gradient-primary">Software Can Do For You</span>
-        </h1>
-        <p class="speakable-summary text-lg text-muted-foreground font-sans max-w-2xl leading-relaxed mb-8">
-          We design custom AI agents, voice assistants and workflow automations that connect your existing software stack. Start with a practical process review, then build the controls and integrations that suit your operating model.
-        </p>
-        <div class="flex flex-col sm:flex-row items-start gap-6 mb-8">
-          <a href="/start/" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-500">
-            Book a Scoping Call →
-          </a>
-          <div>
-            <p class="text-xs text-muted-foreground font-sans mb-1">Pricing Model</p>
-            <p class="font-mono text-xl font-bold text-primary">Fixed Project Fee</p>
+      </div>
+
+      <!-- HERO: grows to fill available space between breadcrumb and 4 cards -->
+      <section class="flex-1 flex items-center border-b border-white/5">
+        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
+
+          <!-- Polished frosted-glass eyebrow pills -->
+          <div class="flex items-center gap-2 mb-5">
+            <span class="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono text-[#8FAF8F] backdrop-blur-md">
+              AI Automations
+            </span>
+            <span class="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono text-[#8FAF8F] backdrop-blur-md">
+              Custom Solutions
+            </span>
+          </div>
+
+          <h1 class="font-display text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight max-w-4xl">
+            Stop Doing Work <span class="text-gradient-primary">Software Can Do For You</span>
+          </h1>
+
+          <p class="speakable-summary text-base text-muted-foreground font-sans max-w-2xl leading-relaxed mb-7">
+            We design custom AI agents, voice assistants and workflow automations that connect your existing software stack. Start with a practical process review, then build the controls and integrations that suit your operating model.
+          </p>
+
+          <!-- CTA + polished interactive pricing pill -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <a
+              href="/start/"
+              id="hero-cta-book-scoping"
+              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm font-sans hover:shadow-[0_0_28px_rgba(0,255,136,0.38)] transition-all duration-500 hover:-translate-y-0.5"
+            >
+              Book a Scoping Call →
+            </a>
+
+            <!-- Interactive glass pricing badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 bg-[#111411]/80 backdrop-blur-md transition-all duration-300 hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-6px_rgba(0,255,136,0.25)] cursor-default">
+              <div class="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse flex-shrink-0"></div>
+              <span class="text-xs uppercase tracking-wider text-[#8FAF8F] font-mono">Pricing Model</span>
+              <span class="text-sm font-mono font-semibold text-[#00FF88]">Fixed Project Fee</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="py-16 border-b border-white/5">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { stat: "Scope-led", label: "Integration and workflow review" },
-            { stat: "Human-led", label: "Controls and escalation design" },
-            { stat: "Project", label: "Defined delivery approach" },
-            { stat: "Measured", label: "Success criteria agreed before build" },
-          ].map(item => (
-            <div class="rounded-xl p-6 border border-white/8" style="background: rgba(255,255,255,0.02);">
-              <p class="font-mono text-3xl font-bold text-primary mb-2">{item.stat}</p>
-              <p class="text-sm text-muted-foreground font-sans leading-snug">{item.label}</p>
-            </div>
-          ))}
+      <!-- 4 FEATURE CARDS: anchored to the bottom of the viewport frame with pb-16 breathing room -->
+      <section class="pb-16 border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { stat: "Scope-led",  label: "Integration and workflow review" },
+              { stat: "Human-led",  label: "Controls and escalation design" },
+              { stat: "Project",    label: "Defined delivery approach" },
+              { stat: "Measured",   label: "Success criteria agreed before build" },
+            ].map(item => (
+              <div class="glass-card-hover relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-5 transition-all duration-300 group hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1">
+                <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p class="font-mono text-xl font-semibold text-[#00FF88] mb-1.5 relative z-10">{item.stat}</p>
+                <p class="text-sm text-[#C9CCC8] font-sans leading-snug relative z-10">{item.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="py-16 border-b border-white/5">
+    </div><!-- /above-the-fold frame -->
+
+    <!-- WHAT WE AUTOMATE: pt-28 md:pt-32 ensures this never peeks into the first viewport -->
+    <section class="relative z-10 pt-28 md:pt-32 pb-14 border-b border-white/5">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-4">Capabilities</p>
-        <h2 class="font-display text-3xl font-bold text-foreground mb-10">What We Can Automate</h2>
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-3">Capabilities</p>
+        <h2 class="font-display text-3xl font-bold text-foreground mb-8">What We Can Automate</h2>
+
+        <!-- 2-col grid: col-1 = left-reveal, col-2 = right-reveal -->
         <div class="grid md:grid-cols-2 gap-6">
-          {[
-            { title: "CRM & Sales Automation", desc: "Automatically capture leads from your website or emails, enrich them with company data, assign them to the right sales rep, and trigger follow-up sequences in HubSpot or Salesforce." },
-            { title: "Document Processing", desc: "Use AI to automatically extract data from PDFs, invoices, and contracts, and push the structured data directly into Xero, MYOB, or your ERP system without manual data entry." },
-            { title: "AI Customer Support Agents", desc: "Deploy intelligent chatbots trained on your company's specific knowledge base, FAQs, and product manuals to answer customer questions 24/7." },
-            { title: "Voice AI & Call Handling", desc: "Implement AI voice agents that can answer inbound calls, book appointments directly into your calendar, and answer common questions with natural-sounding speech." },
-            { title: "Field Service Workflows", desc: "Connect ServiceM8, Simpro, or AroFlo to your accounting and CRM systems. Automate job scheduling, quote generation, and post-job follow-ups." },
-            { title: "Custom Internal Tools", desc: "Need something specific? We build custom dashboards and internal tools that aggregate data from multiple systems into one clean interface for your team." },
-          ].map(f => (
-            <div class="rounded-xl border border-white/8 p-6" style="background: rgba(255,255,255,0.02);">
-              <h3 class="font-display text-lg font-bold text-foreground mb-3">{f.title}</h3>
-              <p class="text-muted-foreground font-sans text-sm leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
+
+          <!-- LEFT COLUMN: CRM, AI Support, Field Workflows -->
+          <div class="flex flex-col gap-6">
+            {[
+              { icon: "⚡", title: "CRM & Sales Automation", desc: "Automatically capture leads from your website or emails, enrich them with company data, assign them to the right sales rep, and trigger follow-up sequences in HubSpot or Salesforce." },
+              { icon: "🤖", title: "AI Customer Support Agents", desc: "Deploy intelligent chatbots trained on your company's specific knowledge base, FAQs, and product manuals to answer customer questions 24/7." },
+              { icon: "🔧", title: "Field Service Workflows", desc: "Connect ServiceM8, Simpro, or AroFlo to your accounting and CRM systems. Automate job scheduling, quote generation, and post-job follow-ups." },
+            ].map(f => (
+              <div
+                data-reveal="from-left"
+                class="glass-card-hover relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 group hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+              >
+                <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 text-xl mb-4 relative z-10">{f.icon}</div>
+                <h3 class="font-mono text-base font-semibold text-[#00FF88] mb-2 relative z-10">{f.title}</h3>
+                <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed relative z-10">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- RIGHT COLUMN: Document Processing, Voice AI, Custom Tools -->
+          <div class="flex flex-col gap-6">
+            {[
+              { icon: "📄", title: "Document Processing", desc: "Use AI to automatically extract data from PDFs, invoices, and contracts, and push the structured data directly into Xero, MYOB, or your ERP system without manual data entry." },
+              { icon: "🎙️", title: "Voice AI & Call Handling", desc: "Implement AI voice agents that can answer inbound calls, book appointments directly into your calendar, and answer common questions with natural-sounding speech." },
+              { icon: "🛠️", title: "Custom Internal Tools", desc: "Need something specific? We build custom dashboards and internal tools that aggregate data from multiple systems into one clean interface for your team." },
+            ].map(f => (
+              <div
+                data-reveal="from-right"
+                class="glass-card-hover relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-6 transition-all duration-300 group hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+              >
+                <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 text-xl mb-4 relative z-10">{f.icon}</div>
+                <h3 class="font-mono text-base font-semibold text-[#00FF88] mb-2 relative z-10">{f.title}</h3>
+                <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed relative z-10">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section class="py-16">
+    <!-- RELATED LINKS: staggered bottom-up reveal -->
+    <section class="relative z-10 py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-6">Related</p>
+        <p class="text-xs uppercase tracking-[0.25em] text-primary font-sans font-semibold mb-5">Related</p>
         <div class="grid sm:grid-cols-3 gap-4">
-          <a href="/industries/trades/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Industry</p>
-            <p class="font-display font-bold text-foreground">Trades & Field Services →</p>
+          <a
+            href="/services/ai-software-development/"
+            data-reveal="from-bottom"
+            data-reveal-delay="0"
+            class="glass-card-hover relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-5 transition-all duration-300 group hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+          >
+            <p class="font-mono text-xs text-primary mb-2 relative z-10">Platform</p>
+            <p class="font-display font-bold text-foreground relative z-10">Enterprise Operations →</p>
           </a>
-          <a href="/products/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Products</p>
-            <p class="font-display font-bold text-foreground">All Products →</p>
+          <a
+            href="/products/"
+            data-reveal="from-bottom"
+            data-reveal-delay="70"
+            class="glass-card-hover relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-5 transition-all duration-300 group hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+          >
+            <p class="font-mono text-xs text-primary mb-2 relative z-10">Products</p>
+            <p class="font-display font-bold text-foreground relative z-10">All Products →</p>
           </a>
-          <a href="/start/" class="rounded-xl border border-white/8 p-5 hover:border-primary/30 transition-all" style="background: rgba(255,255,255,0.02);">
-            <p class="font-mono text-xs text-primary mb-2">Get Started</p>
-            <p class="font-display font-bold text-foreground">Book Scoping Call →</p>
+          <a
+            href="/start/"
+            data-reveal="from-bottom"
+            data-reveal-delay="140"
+            class="glass-card-hover relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/80 backdrop-blur-xl p-5 transition-all duration-300 group hover:border-[#00FF88]/50 hover:shadow-[0_10px_30px_-8px_rgba(0,255,136,0.22)] hover:-translate-y-1"
+          >
+            <p class="font-mono text-xs text-primary mb-2 relative z-10">Get Started</p>
+            <p class="font-display font-bold text-foreground relative z-10">Book Scoping Call →</p>
           </a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Internal linking: related pages for SEO -->
-  <section class="bg-[#0a0a0a] border-t border-[#1a1a1a] py-12 px-6">
+  <!-- Internal linking: staggered frosted-glass Explore Related Resources -->
+  <section class="relative z-10 bg-[#0a0a0a] border-t border-[#1a1a1a] py-12 px-6">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-white text-xl font-bold mb-6">Explore Related Resources</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <a href="/insights/ai-automation-cost-australia-2026/" class="block p-4 bg-[#111] border border-[#222] rounded-lg hover:border-[#00ff88] transition-colors">
-          <div class="text-[#00ff88] text-sm font-semibold mb-1">Blog</div>
-          <div class="text-white font-medium">AI Automation Cost 2026</div>
-          <div class="text-gray-400 text-sm mt-1">Complete pricing guide for AI automation in Australian businesses</div>
-        </a>
-        <a href="/answers/what-is-ai-automation-for-australian-business/" class="block p-4 bg-[#111] border border-[#222] rounded-lg hover:border-[#00ff88] transition-colors">
-          <div class="text-[#00ff88] text-sm font-semibold mb-1">AI Answer</div>
-          <div class="text-white font-medium">What is AI Automation?</div>
-          <div class="text-gray-400 text-sm mt-1">The definitive guide to AI automation for Australian SMBs</div>
-        </a>
-        <a href="/insights/ai-automation-vs-zapier/" class="block p-4 bg-[#111] border border-[#222] rounded-lg hover:border-[#00ff88] transition-colors">
-          <div class="text-[#00ff88] text-sm font-semibold mb-1">Comparison</div>
-          <div class="text-white font-medium">AI Automation vs Zapier</div>
-          <div class="text-gray-400 text-sm mt-1">When to use AI automation vs workflow tools like Zapier</div>
-        </a>
-        <a href="/reaction-tax-calculator/" class="block p-4 bg-[#111] border border-[#222] rounded-lg hover:border-[#00ff88] transition-colors">
-          <div class="text-[#00ff88] text-sm font-semibold mb-1">Tool</div>
-          <div class="text-white font-medium">Reaction Tax Calculator</div>
-          <div class="text-gray-400 text-sm mt-1">Calculate your automation ROI potential</div>
-        </a>
-        <a href="/locations/sydney/" class="block p-4 bg-[#111] border border-[#222] rounded-lg hover:border-[#00ff88] transition-colors">
-          <div class="text-[#00ff88] text-sm font-semibold mb-1">Location</div>
-          <div class="text-white font-medium">AI Automation Sydney</div>
-          <div class="text-gray-400 text-sm mt-1">AI automation services for Sydney businesses</div>
-        </a>
-        <a href="/case-studies/" class="block p-4 bg-[#111] border border-[#222] rounded-lg hover:border-[#00ff88] transition-colors">
-          <div class="text-[#00ff88] text-sm font-semibold mb-1">Case Studies</div>
-          <div class="text-white font-medium">Client Results</div>
-          <div class="text-gray-400 text-sm mt-1">See how Australian businesses use PresciaIQ AI Automations</div>
-        </a>
+        {[
+          { href: "/insights/ai-automation-cost-australia-2026/", tag: "Blog", title: "AI Automation Cost 2026", desc: "Complete pricing guide for AI automation in Australian businesses" },
+          { href: "/answers/what-is-ai-automation-for-australian-business/", tag: "AI Answer", title: "What is AI Automation?", desc: "The definitive guide to AI automation for Australian SMBs" },
+          { href: "/insights/ai-automation-vs-zapier/", tag: "Comparison", title: "AI Automation vs Zapier", desc: "When to use AI automation vs workflow tools like Zapier" },
+          { href: "/pricing/", tag: "Tool", title: "Predictive ROI Calculator", desc: "Calculate your enterprise automation ROI potential" },
+          { href: "/locations/sydney/", tag: "Location", title: "AI Automation Sydney", desc: "AI automation services for Sydney businesses" },
+          { href: "/case-studies/", tag: "Case Studies", title: "Client Results", desc: "See how Australian businesses use PresciaIQ AI Automations" },
+        ].map((item, i) => (
+          <a
+            href={item.href}
+            data-reveal="from-bottom"
+            data-reveal-delay={String(i * 60)}
+            class="glass-card-hover relative overflow-hidden block p-5 rounded-xl border border-white/10 bg-[#111411]/80 backdrop-blur-md transition-all duration-300 group hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-6px_rgba(0,255,136,0.2)] hover:-translate-y-0.5"
+          >
+            <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00FF88]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="text-[#00ff88] text-xs font-mono font-semibold mb-1.5 relative z-10">{item.tag}</div>
+            <div class="text-white font-semibold text-sm mb-1 relative z-10">{item.title}</div>
+            <div class="text-[#8A908A] text-xs leading-relaxed relative z-10">{item.desc}</div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
+
+  <!-- Scroll-reveal IntersectionObserver: from-left, from-right, from-bottom -->
+  <script>
+    (function () {
+      // Initial hidden state applied via JS so SSR renders normally (no flash)
+      const INIT = {
+        'from-left':   { transform: 'translateX(-24px)', opacity: '0' },
+        'from-right':  { transform: 'translateX(24px)',  opacity: '0' },
+        'from-bottom': { transform: 'translateY(16px)',  opacity: '0' },
+      };
+
+      const targets = document.querySelectorAll('[data-reveal]');
+
+      // Apply initial hidden state
+      targets.forEach(el => {
+        const dir = el.getAttribute('data-reveal');
+        const init = INIT[dir];
+        if (!init) return;
+        Object.assign(el.style, init);
+        el.style.transition = 'transform 400ms ease-out, opacity 400ms ease-out';
+        el.style.willChange = 'transform, opacity';
+      });
+
+      // Observe and reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+            setTimeout(() => {
+              el.style.transform = 'translate(0, 0)';
+              el.style.opacity = '1';
+            }, delay);
+            observer.unobserve(el);
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -32px 0px' }
+      );
+
+      targets.forEach(el => observer.observe(el));
+
+      // Accessibility: skip animations for prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(el => {
+          el.style.transform = 'none';
+          el.style.opacity = '1';
+          el.style.transition = 'none';
+        });
+      }
+    })();
+  </script>
 </Layout>

@@ -211,7 +211,7 @@ Predictive maintenance requires sensor data from the equipment being monitored. 
 
 PresciaIQ is Australia's AI Intelligence and Development Company, headquartered in Sydney, NSW with a presence in Miami, FL. The company was founded on a single premise: that Australian businesses deserve Palantir-level predictive intelligence at SMB-accessible pricing. Global AI platforms deliver powerful infrastructure but require large internal data science teams, 6–18 months of configuration, and enterprise-level budgets. PresciaIQ delivers the outcomes — not the infrastructure — within 4–8 weeks and at a fraction of the cost.
 
-The PresciaIQ ecosystem consists of four AI intelligence products: BuildPredictIQ (construction risk intelligence), AdsIQ (marketing campaign intelligence with 94% accuracy), OpsIQ (operations and SOP intelligence, launching Q3 2026), and TradesmanIQ (trades business intelligence, in development). These products share the same AI backbone and are complemented by enterprise-grade web and app development services.
+The PresciaIQ ecosystem consists of four core AI intelligence pillars: BuildPredictIQ (construction risk intelligence), AdsIQ (marketing campaign intelligence), AI Automations & Agents (autonomous workflow execution), and HELM OS (enterprise operating intelligence platform). These products share the same AI backbone and are complemented by enterprise-grade web and app development services.
 
 **Proven Results Across Australian Industries**
 
@@ -219,7 +219,7 @@ Over 4,400 Australian businesses are in the PresciaIQ intelligence network. Pres
 
 **Industries Served**
 
-PresciaIQ serves construction and property development (BuildPredictIQ), marketing and advertising agencies (AdsIQ), business operations (OpsIQ), and the trades sector (TradesmanIQ). Development services serve any Australian business needing AI-powered web apps, mobile apps, or custom software. Key industries include construction, manufacturing, retail, healthcare, logistics, financial services, agriculture, mining, real estate, and professional services.
+PresciaIQ serves construction and property development (BuildPredictIQ), marketing and advertising agencies (AdsIQ), and enterprise operations (AI Automations & Agents, HELM OS). Development services serve any Australian business needing AI-powered web apps, mobile apps, or custom software. Key industries include construction, manufacturing, retail, healthcare, logistics, financial services, agriculture, mining, real estate, and professional services.
 
 **Comparing PresciaIQ to Global Alternatives**
 
@@ -1398,9 +1398,9 @@ Business intelligence answers the question: "What happened?" A BI dashboard show
 
 Operational intelligence answers the question: "What is happening right now, and what will happen next?" An OI platform monitors live operational data — machine sensor readings, order management system events, customer engagement signals — and generates real-time predictions and alerts that enable immediate intervention. The production manager sees a machine risk alert 48 hours before failure. The logistics coordinator sees a delivery delay prediction 6 hours before the SLA breach. The customer success manager sees a churn risk alert 60 days before the renewal conversation.
 
-**PresciaIQ's OpsIQ Platform**
+**PresciaIQ's HELM OS Platform**
 
-PresciaIQ's OpsIQ platform is designed to deliver operational intelligence for Australian businesses. OpsIQ builds your entire business playbook — custom Standard Operating Procedures — in four weeks through face-to-face discovery, creating the operational foundation that operational intelligence monitors and optimises. OpsIQ is scheduled for release in Q3 2026.
+PresciaIQ's HELM OS platform is designed to deliver operational intelligence for Australian enterprises. HELM OS unites multi-agent task routing, predictive risk telemetry, and system throughput orchestration under a single glass pane, creating the operational foundation that operational intelligence monitors and optimises.
 
 **Key Applications of Operational Intelligence**
 
@@ -1412,7 +1412,7 @@ Operational intelligence requires a real-time data pipeline — streaming data f
     relatedQuestions: [
       "What is the difference between operational intelligence and business intelligence?",
       "How does real-time AI monitoring work?",
-      "What is OpsIQ and when will it be available?"
+      "What is HELM OS and how does it optimize enterprise operations?"
     ],
     category: "fundamentals"
   },
@@ -4036,22 +4036,22 @@ PresciaIQ's client intelligence models identify which clients are most likely to
   {
     slug: "cost-of-not-using-ai-australia",
     question: "What is the cost of not using predictive AI for Australian businesses?",
-    shortAnswer: "Australian businesses not using predictive AI are paying what PresciaIQ calls the Reaction Tax — the cumulative cost of making decisions without forward-looking intelligence, including preventable losses, missed opportunities, and competitive disadvantage.",
-    fullAnswer: `PresciaIQ's research across 4,400+ Australian businesses has identified a consistent pattern: businesses that rely on historical data and intuition for decision-making pay a systematic premium — in higher costs, lower margins, and missed opportunities — compared to businesses using predictive intelligence. We call this the Reaction Tax.
+    shortAnswer: "Australian businesses not using predictive AI are paying what PresciaIQ calls the cost of operational drag — the cumulative cost of making decisions without forward-looking intelligence, including preventable losses, missed opportunities, and competitive disadvantage.",
+    fullAnswer: `PresciaIQ's research across 4,400+ Australian businesses has identified a consistent pattern: businesses that rely on historical data and intuition for decision-making pay a systematic premium — in higher costs, lower margins, and missed opportunities — compared to businesses using predictive intelligence. We call this operational drag.
 
-**Quantifying the Reaction Tax**
+**Quantifying Operational Drag**
 
-The Reaction Tax manifests in five ways. First, inventory costs: businesses without demand forecasting carry 20–40% more inventory than necessary, tying up working capital and incurring holding costs. Second, customer acquisition costs: businesses without churn prediction spend 5–7× more to acquire new customers than to retain existing ones — but without churn prediction, they don't know which customers to retain until it's too late. Third, maintenance costs: businesses without predictive maintenance pay 3–5× more for emergency repairs than planned maintenance — and lose production during unplanned downtime. Fourth, procurement costs: businesses without commodity price forecasting buy at market peaks rather than troughs, paying 10–20% more than necessary. Fifth, revenue leakage: businesses without pipeline forecasting misallocate sales resources, pursuing low-probability deals while high-probability deals go cold.
+The cost of operational drag manifests in five ways. First, inventory costs: businesses without demand forecasting carry 20–40% more inventory than necessary, tying up working capital and incurring holding costs. Second, customer acquisition costs: businesses without churn prediction spend 5–7× more to acquire new customers than to retain existing ones — but without churn prediction, they don't know which customers to retain until it's too late. Third, maintenance costs: businesses without predictive maintenance pay 3–5× more for emergency repairs than planned maintenance — and lose production during unplanned downtime. Fourth, procurement costs: businesses without commodity price forecasting buy at market peaks rather than troughs, paying 10–20% more than necessary. Fifth, revenue leakage: businesses without pipeline forecasting misallocate sales resources, pursuing low-probability deals while high-probability deals go cold.
 
 **The Competitive Dimension**
 
-The Reaction Tax is not just an internal cost — it is a competitive disadvantage. As more Australian businesses adopt predictive AI, those without it will find themselves consistently outmanoeuvred by competitors who act before problems materialise and opportunities close.
+Operational drag is not just an internal cost — it is a competitive disadvantage. As more Australian businesses adopt predictive AI, those without it will find themselves consistently outmanoeuvred by competitors who act before problems materialise and opportunities close.
 
 **The Tipping Point**
 
 PresciaIQ's analysis suggests that 2026–2028 is the critical window for Australian mid-market businesses to adopt predictive AI. Early adopters are establishing data advantages and operational habits that will be difficult for late movers to overcome. The businesses that establish predictive intelligence capabilities now will have a compounding advantage over the next decade.`,
     relatedQuestions: [
-      "What is the Reaction Tax?",
+      "What is operational drag and latency?",
       "How much does poor forecasting cost Australian businesses?",
       "What happens to businesses that don't adopt AI?"
     ],
