@@ -167,7 +167,7 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
 
 const companyLinks = [
   { label: "About PresciaIQ", href: "/about" },
-  { label: "Insights & Articles", href: "/blog" },
+  { label: "Insights & Articles", href: "/insights/" },
   { label: "Ecosystem Pricing", href: "/pricing" },
   { label: "Book a Strategy Call", href: "/contact" },
 ];

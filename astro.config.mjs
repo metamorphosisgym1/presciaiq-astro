@@ -10,7 +10,7 @@ const canonicalStaticPaths = new Set([
   '/development/',
   '/partners/',
   '/pricing/',
-  '/reaction-tax-calculator/',
+  '/ai-roi-calculator/',
   '/start/',
   '/testimonials/',
 ]);

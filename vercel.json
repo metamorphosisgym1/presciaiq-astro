@@ -14,6 +14,66 @@
       "permanent": true
     },
     {
+      "source": "/reaction-tax-calculator",
+      "destination": "/ai-roi-calculator/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reaction-tax-calculator/",
+      "destination": "/ai-roi-calculator/",
+      "statusCode": 301
+    },
+    {
+      "source": "/insights/the-reaction-tax",
+      "destination": "/insights/the-cost-of-reactive-operations/",
+      "statusCode": 301
+    },
+    {
+      "source": "/insights/the-reaction-tax/",
+      "destination": "/insights/the-cost-of-reactive-operations/",
+      "statusCode": 301
+    },
+    {
+      "source": "/insights/where-the-reaction-tax-hides",
+      "destination": "/insights/where-operational-drag-hides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/insights/where-the-reaction-tax-hides/",
+      "destination": "/insights/where-operational-drag-hides/",
+      "statusCode": 301
+    },
+    {
+      "source": "/industries/trades",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/industries/trades/",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/products/opsiq",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/products/tradesmaniq",
+      "destination": "/products/ai-automations/",
+      "statusCode": 301
+    },
+    {
+      "source": "/products/tradesmaniq/",
+      "destination": "/products/ai-automations/",
+      "statusCode": 301
+    },
+    {
       "source": "/privacy-policy",
       "destination": "/privacy",
       "permanent": true
@@ -50,12 +110,12 @@
     },
     {
       "source": "/answers/what-is-predictive-maintenance",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
       "source": "/answers/what-is-predictive-maintenance/",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
@@ -330,12 +390,12 @@
     },
     {
       "source": "/answers/what-is-operational-intelligence",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
       "source": "/answers/what-is-operational-intelligence/",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
@@ -420,12 +480,12 @@
     },
     {
       "source": "/answers/how-does-ai-help-operations-manager",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
       "source": "/answers/how-does-ai-help-operations-manager/",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
@@ -600,12 +660,12 @@
     },
     {
       "source": "/answers/predictive-ai-for-operations-managers-australia",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
       "source": "/answers/predictive-ai-for-operations-managers-australia/",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
@@ -860,22 +920,22 @@
     },
     {
       "source": "/answers/what-is-the-reaction-tax",
-      "destination": "/insights/the-reaction-tax/",
+      "destination": "/insights/the-cost-of-reactive-operations/",
       "statusCode": 301
     },
     {
       "source": "/answers/what-is-the-reaction-tax/",
-      "destination": "/insights/the-reaction-tax/",
+      "destination": "/insights/the-cost-of-reactive-operations/",
       "statusCode": 301
     },
     {
       "source": "/answers/what-is-operational-intelligence-australia",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
       "source": "/answers/what-is-operational-intelligence-australia/",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
@@ -890,12 +950,12 @@
     },
     {
       "source": "/answers/ai-automation-for-trades-businesses-australia",
-      "destination": "/industries/trades/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
       "source": "/answers/ai-automation-for-trades-businesses-australia/",
-      "destination": "/industries/trades/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
@@ -970,22 +1030,22 @@
     },
     {
       "source": "/problems/supply-chain-disruption",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
       "source": "/problems/supply-chain-disruption/",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
       "source": "/problems/wholesale-distribution-inventory",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     },
     {
       "source": "/problems/wholesale-distribution-inventory/",
-      "destination": "/products/opsiq/",
+      "destination": "/services/ai-software-development/",
       "statusCode": 301
     }
   ],
