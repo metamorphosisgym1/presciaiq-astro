@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import type { CSSProperties } from "react";
 import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
@@ -65,6 +65,9 @@ const SLIDES = engines.length;
 const PANELS = SLIDES + 1;
 // Panels from here on are dark, with light type.
 const DARK_FROM = 3;
+// Viewport heights the frame holds on the intro, while its words light up,
+// before the track starts sliding.
+const INTRO_HOLD = 0.8;
 
 // Brand green, sampled from the PresciaIQ logo mark. The lighter step keeps
 // the same hue legible on the obsidian panels.
@@ -102,6 +105,21 @@ const ModulePill = ({ name, href, dark = false }: { name: string; href: string; 
       }`}
     />
   </a>
+);
+
+// Words as separate inline-blocks the intro reveal can fade one by one. The
+// spaces stay real text so wrapping is unchanged.
+const RevealWords = ({ text }: { text: string }) => (
+  <>
+    {text.split(" ").map((word, i) => (
+      <Fragment key={i}>
+        {i > 0 && " "}
+        <span data-reveal-word className="inline-block will-change-[opacity,transform]">
+          {word}
+        </span>
+      </Fragment>
+    ))}
+  </>
 );
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -189,7 +207,7 @@ const ProductsSection = () => {
         ease: "none",
         scrollTrigger: {
           trigger: section,
-          start: "top top",
+          start: () => `top+=${window.innerHeight * INTRO_HOLD} top`,
           end: "bottom bottom",
           anticipatePin: 1,
           scrub: true,
@@ -199,6 +217,31 @@ const ProductsSection = () => {
       });
 
       if (reduced) return;
+
+      // Intro words light up in reading order - headline, copy, then the
+      // engine badges - as the section rises into view and through the hold,
+      // finishing exactly as the track starts to slide.
+      const revealWords = gsap.utils.toArray<HTMLElement>("[data-reveal-word]", section);
+      if (revealWords.length) {
+        // Set up front: a staggered fromTo leaves the words whose stagger has
+        // not begun unstyled, so they would show at full strength.
+        gsap.set(revealWords, { opacity: 0.18, y: 12 });
+        gsap.to(revealWords, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.3,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 60%",
+            end: () => `top+=${window.innerHeight * INTRO_HOLD} top`,
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
+
       const introTitle = section.querySelector<HTMLElement>("[data-intro-title]");
       const introCopy = section.querySelector<HTMLElement>("[data-intro-copy]");
       const introModules = section.querySelector<HTMLElement>("[data-intro-modules]");
@@ -282,9 +325,10 @@ const ProductsSection = () => {
     const section = sectionRef.current;
     if (!section) return;
     const top = section.getBoundingClientRect().top + window.scrollY;
-    const span = section.offsetHeight - window.innerHeight;
-    const y = top + (span * (engine + 1)) / (PANELS - 1);
-    const lenis = (window as Window & { lenis?: { scrollTo: (y: number) => void } }).lenis;
+    const hold = window.innerHeight * INTRO_HOLD;
+    const span = section.offsetHeight - window.innerHeight - hold;
+    const y = top + hold + (span * (engine + 1)) / (PANELS - 1);
+    const lenis = (window as unknown as { lenis?: { scrollTo: (y: number) => void } }).lenis;
     if (lenis) lenis.scrollTo(y);
     else window.scrollTo({ top: y, behavior: "smooth" });
   };
@@ -300,7 +344,7 @@ const ProductsSection = () => {
       ref={sectionRef}
       aria-labelledby="engines-heading"
       className="relative w-full"
-      style={{ height: `${PANELS * 100}vh` }}
+      style={{ height: `${(PANELS + INTRO_HOLD) * 100}vh` }}
     >
       <div ref={frameRef} className="sticky top-0 h-screen w-full overflow-hidden bg-white">
         <div
@@ -332,17 +376,25 @@ const ProductsSection = () => {
               id="engines-heading"
               className={`max-w-4xl ${PILLAR_TITLE} text-[color:var(--fg)]`}
             >
-              Four Core Pillars. <span className="text-[color:var(--accent)]">Infinite Scale.</span>
+              <RevealWords text="Four Core Pillars." />{" "}
+              <span className="text-[color:var(--accent)]">
+                <RevealWords text="Infinite Scale." />
+              </span>
             </h2>
             <p data-intro-copy className="mt-6 max-w-2xl text-base leading-relaxed text-[color:var(--muted)] sm:text-lg">
-              Purpose-built engineering across intelligent web architecture, high-concurrency applications, autonomous workflows, and centralized operations.
+              <RevealWords text="Purpose-built engineering across intelligent web architecture, high-concurrency applications, autonomous workflows, and centralized operations." />
             </p>
             <div data-intro-modules className="mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
-              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[color:var(--muted)]">
+              <span data-reveal-word className="font-mono text-[11px] uppercase tracking-[0.18em] text-[color:var(--muted)] will-change-[opacity,transform]">
                 Specialized Engines
               </span>
-              <ModulePill name="BuildPredictIQ" href="https://buildpredictiq.com.au/" />
-              <ModulePill name="AdsIQ" href="https://adsiq.com.au/" />
+              {/* Wrapped so the reveal's inline transform leaves the pills' hover lift alone. */}
+              <span data-reveal-word className="inline-flex will-change-[opacity,transform]">
+                <ModulePill name="BuildPredictIQ" href="https://buildpredictiq.com.au/" />
+              </span>
+              <span data-reveal-word className="inline-flex will-change-[opacity,transform]">
+                <ModulePill name="AdsIQ" href="https://adsiq.com.au/" />
+              </span>
             </div>
           </div>
 

@@ -25,7 +25,7 @@ export default function App() {
         {/* Dark particle swarm swinging across the white as the Engines section arrives. */}
         <ParticleSwing trigger="products" className="z-20" />
       </div>
-      <AppBuildingSection showCaseStudy={false} />
+      <AppBuildingSection showCaseStudy={false} featured />
       <LiquidDivider className="h-[50vh] min-h-[300px] max-h-[520px]" />
       <WhySection />
       <LiquidDivider variant="light-to-dark" className="h-[50vh] min-h-[300px] max-h-[520px]" />

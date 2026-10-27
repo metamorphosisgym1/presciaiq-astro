@@ -211,7 +211,7 @@ const Navbar = () => {
               className="text-sm font-medium text-neutral-300 hover:text-white transition-colors py-1.5 px-3 rounded-full hover:bg-white/5 inline-flex items-center gap-1.5 cursor-pointer"
               title="Open Product Directory"
             >
-              <FolderKanban className="w-3.5 h-3.5 text-[#00FF88]" />
+              <FolderKanban className="w-3.5 h-3.5 text-[#6D896E]" />
               <span className="hidden xl:inline">Product Directory</span>
               <span className="inline xl:hidden">Directory</span>
             </button>
@@ -224,14 +224,14 @@ const Navbar = () => {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-md text-neutral-200 hover:text-white hover:border-[#00FF88]/40 hover:bg-[#00FF88]/10 text-xs px-3 sm:px-3.5 py-2 transition-all font-medium tracking-wide active:scale-95 cursor-pointer whitespace-nowrap group shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-md text-neutral-200 hover:text-white hover:border-[#6D896E]/40 hover:bg-[rgba(109,137,110,0.2)] text-xs px-3 sm:px-3.5 py-2 transition-all font-medium tracking-wide active:scale-95 cursor-pointer whitespace-nowrap group shadow-sm"
               aria-label="Chat with PresciaIQ on WhatsApp"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FF88] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00FF88]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6D896E] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6D896E]" />
               </span>
-              <MessageCircle className="w-3.5 h-3.5 text-[#00FF88] group-hover:scale-110 transition-transform" />
+              <MessageCircle className="w-3.5 h-3.5 text-[#6D896E] group-hover:scale-110 transition-transform" />
               <span className="hidden md:inline">Chat on WhatsApp</span>
               <span className="inline md:hidden">Chat</span>
             </a>
@@ -301,9 +301,9 @@ const Navbar = () => {
                     closeAll();
                     setIsDirectoryOpen(true);
                   }}
-                  className="flex items-center gap-2 text-sm font-medium text-[#00FF88] hover:text-white transition-colors py-1 cursor-pointer"
+                  className="flex items-center gap-2 text-sm font-medium text-[#6D896E] hover:text-white transition-colors py-1 cursor-pointer"
                 >
-                  <FolderKanban className="w-4 h-4 text-[#00FF88]" />
+                  <FolderKanban className="w-4 h-4 text-[#6D896E]" />
                   <span>Product Directory</span>
                 </button>
               </div>
@@ -314,13 +314,13 @@ const Navbar = () => {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-center text-xs font-medium tracking-wide border border-white/15 bg-white/[0.06] text-white hover:border-[#00FF88]/40 hover:bg-[#00FF88]/10 transition-all cursor-pointer shadow-sm"
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-center text-xs font-medium tracking-wide border border-white/15 bg-white/[0.06] text-white hover:border-[#6D896E]/40 hover:bg-[rgba(109,137,110,0.2)] transition-all cursor-pointer shadow-sm"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FF88] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00FF88]" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6D896E] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6D896E]" />
                 </span>
-                <MessageCircle className="w-3.5 h-3.5 text-[#00FF88]" />
+                <MessageCircle className="w-3.5 h-3.5 text-[#6D896E]" />
                 <span>Chat on WhatsApp</span>
               </a>
               <a

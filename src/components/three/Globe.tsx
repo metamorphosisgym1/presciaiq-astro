@@ -29,23 +29,29 @@ const AUTO_ROTATE_SPEED = 0.055; // rad/s
 
 const PACKET_DUTY = 0.24; // share of each arc's cycle a packet is in flight
 
-const INTRO_DURATION = 1.5; // s for scattered points to assemble into the globe
+const INTRO_DURATION = 0.9; // s for scattered points to assemble into the globe
 const INTRO_MAX_DELAY = 0.3; // per-point stagger, as a fraction of the intro
 
 // Px of clearance between the slot top (under the navbar) and the globe, and
-// how far the globe may extend below the slot towards the copy.
-const GLOBE_TOP_GAP = 12;
-const GLOBE_DROP = 16;
+// how far the globe may extend below the slot towards the copy. The copy's 32px
+// top padding less the drop leaves a 24px gap above the headline.
+const GLOBE_TOP_GAP = 48;
+const GLOBE_DROP = 8;
+const GLOBE_MAX_RADIUS = 230; // 460px diameter at most
 
-const MINT = new THREE.Color("#00FF88");
+// Brand olive tints the halo and rim. The HQ networks' arcs, packets and hubs
+// use a lighter step of it, which still reads against the dark backdrop.
+const OLIVE = new THREE.Color("#6D896E");
+const OLIVE_LUMINOUS = new THREE.Color("#8FB890");
+const ARC_WIDTH = 2.25; // CSS px
 
 /** Primary hubs emit arcs in their network colour; other cities are destinations. */
 type Hub = { name: string; lat: number; lng: number; hq?: THREE.Color };
 
 const HUBS: Hub[] = [
-  { name: "Sydney", lat: -33.87, lng: 151.21, hq: MINT },
-  { name: "London", lat: 51.51, lng: -0.13, hq: MINT },
-  { name: "New York", lat: 40.71, lng: -74.01, hq: MINT },
+  { name: "Sydney", lat: -33.87, lng: 151.21, hq: OLIVE_LUMINOUS },
+  { name: "London", lat: 51.51, lng: -0.13, hq: OLIVE_LUMINOUS },
+  { name: "New York", lat: 40.71, lng: -74.01, hq: OLIVE_LUMINOUS },
   { name: "Melbourne", lat: -37.81, lng: 144.96 },
   { name: "Brisbane", lat: -27.47, lng: 153.03 },
   { name: "Perth", lat: -31.95, lng: 115.86 },
@@ -121,8 +127,15 @@ function latLngToVector3(lat: number, lng: number, radius: number) {
   );
 }
 
-/** Adds the per-point intro attributes to precomputed land-dot positions. */
-function buildLandGeometry(positions: Float32Array) {
+/**
+ * Per-point intro attributes for a land-dot set: the scattered start, a
+ * shimmer seed and a stagger delay. Built once per set and reused, so a
+ * remount (Strict Mode, HMR, navigation back) only uploads typed arrays.
+ */
+const introAttributeCache = new WeakMap<Float32Array, { scatter: Float32Array; seeds: Float32Array; delays: Float32Array }>();
+function introAttributes(positions: Float32Array) {
+  const cached = introAttributeCache.get(positions);
+  if (cached) return cached;
   const count = positions.length / 3;
   const scatter = new Float32Array(positions.length);
   const seeds = new Float32Array(count);
@@ -143,7 +156,14 @@ function buildLandGeometry(positions: Float32Array) {
     seeds[i] = Math.random();
     delays[i] = Math.random() * INTRO_MAX_DELAY;
   }
+  const attributes = { scatter, seeds, delays };
+  introAttributeCache.set(positions, attributes);
+  return attributes;
+}
 
+/** Land-dot geometry: sphere targets plus the cached intro attributes. */
+function buildLandGeometry(positions: Float32Array) {
+  const { scatter, seeds, delays } = introAttributes(positions);
   const geometry = new THREE.BufferGeometry();
   geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
   geometry.setAttribute("aScatter", new THREE.BufferAttribute(scatter, 3));
@@ -181,7 +201,7 @@ function buildRoutes(): Route[] {
         lift: 0.03 + 0.24 * (angle / Math.PI),
         freq: 1 / (7 + ((index * 7) % 6)),
         offset: (index * 0.618) % 1,
-        color: from.hq ?? MINT,
+        color: from.hq ?? OLIVE_LUMINOUS,
       },
     ];
   });
@@ -256,12 +276,15 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
 
     const timeUniform = { value: 0 };
     const scaleUniform = { value: 1 }; // device pixels per design pixel, times globe size
+    const resolutionUniform = { value: new THREE.Vector2(1, 1) }; // canvas size in CSS px
     const revealUniform = { value: reducedMotion ? 1 : 0 }; // arcs draw in from their hubs
     const motionUniform = { value: reducedMotion ? 0 : 1 };
     const assembleUniform = { value: reducedMotion ? 1 : 0 }; // intro: scattered -> on the sphere
     const glowUniform = { value: reducedMotion ? 1 : 0 }; // halo, rim and glass fade in with it
-    // Declared up front: requestRender() can run during setup (resize, atlas load).
+    // Declared up front: requestRender() can run during setup (resize).
     let disposed = false;
+    let shadersReady = false; // set once compileAsync() resolves, below
+    let introReady = reducedMotion;
     let inView = false;
     let frame = 0;
     // Granted by the RenderLoopCoordinator. Being on screen is not enough: only
@@ -277,7 +300,7 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
     const HALO_EXTENT = 1.55; // in silhouette radii
     const haloGeometry = new THREE.PlaneGeometry(silhouette * HALO_EXTENT * 2, silhouette * HALO_EXTENT * 2);
     const haloMaterial = new THREE.ShaderMaterial({
-      uniforms: { uColor: { value: MINT }, uExtent: { value: HALO_EXTENT }, uGlow: glowUniform },
+      uniforms: { uColor: { value: OLIVE }, uExtent: { value: HALO_EXTENT }, uGlow: glowUniform },
       vertexShader: /* glsl */ `
         varying vec2 vUv;
         void main() {
@@ -347,7 +370,7 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
     globe.add(body);
 
     const rimMaterial = new THREE.ShaderMaterial({
-      uniforms: { uColor: { value: MINT }, uGlow: glowUniform },
+      uniforms: { uColor: { value: OLIVE }, uGlow: glowUniform },
       vertexShader: glassVertex,
       fragmentShader: /* glsl */ `
         uniform vec3 uColor;
@@ -383,8 +406,8 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
     globe.add(rim);
 
     // ---------------------------------------------------------------
-    // Land dots (built once the atlas chunk loads). The vertex shader also
-    // runs the assembly intro.
+    // Land dots. The vertex shader also runs the assembly intro, so the whole
+    // fly-in is one uniform per frame.
     // ---------------------------------------------------------------
     const dotMaterial = new THREE.ShaderMaterial({
       uniforms: {
@@ -404,9 +427,10 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
         varying float vAlpha;
         ${COMMON_GLSL}
         void main() {
-          // Intro: fly in from the scattered start with a staggered quart-out ease.
+          // Intro: fly in from the scattered start with a staggered cubic-out
+          // ease (GSAP's power2.out).
           float progress = clamp((uAssemble - aDelay) / ${(1 - INTRO_MAX_DELAY).toFixed(3)}, 0.0, 1.0);
-          float eased = 1.0 - pow(1.0 - progress, 4.0);
+          float eased = 1.0 - pow(1.0 - progress, 3.0);
           vec4 mvPosition = modelViewMatrix * vec4(mix(aScatter, position, eased), 1.0);
 
           float front = smoothstep(-0.6, 0.85, facing(mvPosition));
@@ -442,67 +466,96 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
     globe.add(dots);
 
     // ---------------------------------------------------------------
-    // Flight arcs: one LineSegments draw call. Lines draw in from the hub on
-    // load; the packet trail comes from the same cycle as the packet head.
+    // Flight arcs: one draw call of screen-space ribbons. WebGL lines are
+    // always 1px, so each segment is a quad the vertex shader widens to
+    // ARC_WIDTH px across its on-screen direction. Lines draw in from the hub
+    // on load; the packet trail comes from the same cycle as the packet head.
     // ---------------------------------------------------------------
     const routes = buildRoutes();
-    const routeAttributes = (route: Route) => [
-      route.from.x, route.from.y, route.from.z,
-      route.to.x, route.to.y, route.to.z,
-      route.angle, route.lift, route.freq, route.offset,
-    ];
 
     const arcData = {
       position: [] as number[],
-      t: [] as number[],
+      seg: [] as number[],
+      corner: [] as number[],
       from: [] as number[],
       to: [] as number[],
       params: [] as number[],
       color: [] as number[],
+      index: [] as number[],
     };
     for (const route of routes) {
       const segments = Math.max(24, Math.round(56 * route.angle));
-      const [ax, ay, az, bx, by, bz, angle, lift, freq, offset] = routeAttributes(route);
       for (let i = 0; i < segments; i++) {
-        for (const j of [i, i + 1]) {
+        const base = arcData.position.length / 3;
+        // Corners: (start, left), (start, right), (end, left), (end, right).
+        for (const [end, side] of [[0, -1], [0, 1], [1, -1], [1, 1]]) {
           arcData.position.push(0, 0, 0); // computed in the vertex shader
-          arcData.t.push(j / segments);
-          arcData.from.push(ax, ay, az);
-          arcData.to.push(bx, by, bz);
-          arcData.params.push(angle, lift, freq, offset);
+          arcData.seg.push(i / segments, (i + 1) / segments);
+          arcData.corner.push(end, side);
+          arcData.from.push(route.from.x, route.from.y, route.from.z);
+          arcData.to.push(route.to.x, route.to.y, route.to.z);
+          arcData.params.push(route.angle, route.lift, route.freq, route.offset);
           arcData.color.push(route.color.r, route.color.g, route.color.b);
         }
+        arcData.index.push(base, base + 1, base + 2, base + 2, base + 1, base + 3);
       }
     }
     const arcGeometry = new THREE.BufferGeometry();
     arcGeometry.setAttribute("position", new THREE.Float32BufferAttribute(arcData.position, 3));
-    arcGeometry.setAttribute("aT", new THREE.Float32BufferAttribute(arcData.t, 1));
+    arcGeometry.setAttribute("aSeg", new THREE.Float32BufferAttribute(arcData.seg, 2));
+    arcGeometry.setAttribute("aCorner", new THREE.Float32BufferAttribute(arcData.corner, 2));
     arcGeometry.setAttribute("aFrom", new THREE.Float32BufferAttribute(arcData.from, 3));
     arcGeometry.setAttribute("aTo", new THREE.Float32BufferAttribute(arcData.to, 3));
     arcGeometry.setAttribute("aParams", new THREE.Float32BufferAttribute(arcData.params, 4));
     arcGeometry.setAttribute("aColor", new THREE.Float32BufferAttribute(arcData.color, 3));
+    arcGeometry.setIndex(arcData.index);
 
     const arcMaterial = new THREE.ShaderMaterial({
-      uniforms: { uTime: timeUniform, uReveal: revealUniform, uMotion: motionUniform },
+      uniforms: {
+        uTime: timeUniform,
+        uReveal: revealUniform,
+        uMotion: motionUniform,
+        uResolution: resolutionUniform,
+        uWidth: { value: ARC_WIDTH },
+      },
       vertexShader: /* glsl */ `
-        attribute float aT;
+        attribute vec2 aSeg; // t at the segment's start and end
+        attribute vec2 aCorner; // x: 0 start / 1 end, y: -1 left / 1 right
         attribute vec3 aFrom;
         attribute vec3 aTo;
         attribute vec4 aParams; // angle, lift, freq, offset
         attribute vec3 aColor;
         varying vec3 vColor;
         varying float vT;
+        varying float vSide;
         varying float vDepth;
         varying vec2 vCycle;
         uniform float uTime;
+        uniform vec2 uResolution;
+        uniform float uWidth;
         ${COMMON_GLSL}
         void main() {
-          vec4 mvPosition = modelViewMatrix * vec4(flight(aFrom, aTo, aParams.x, aParams.y, aT), 1.0);
-          vT = aT;
+          vec4 mvStart = modelViewMatrix * vec4(flight(aFrom, aTo, aParams.x, aParams.y, aSeg.x), 1.0);
+          vec4 mvEnd = modelViewMatrix * vec4(flight(aFrom, aTo, aParams.x, aParams.y, aSeg.y), 1.0);
+          vec4 clipStart = projectionMatrix * mvStart;
+          vec4 clipEnd = projectionMatrix * mvEnd;
+          // Segment direction in screen px; the ribbon spreads across it.
+          vec2 halfRes = 0.5 * uResolution;
+          vec2 dir = clipEnd.xy / clipEnd.w * halfRes - clipStart.xy / clipStart.w * halfRes;
+          float len = length(dir);
+          dir = len > 1e-5 ? dir / len : vec2(1.0, 0.0);
+          vec2 normal = vec2(-dir.y, dir.x);
+
+          vec4 mvPosition = aCorner.x < 0.5 ? mvStart : mvEnd;
+          vec4 clip = aCorner.x < 0.5 ? clipStart : clipEnd;
+          clip.xy += normal * aCorner.y * (0.5 * uWidth) / halfRes * clip.w;
+
+          vT = mix(aSeg.x, aSeg.y, aCorner.x);
+          vSide = aCorner.y;
           vColor = aColor;
           vDepth = ${DEPTH_FADE_GLSL};
           vCycle = packetCycle(uTime, aParams.z, aParams.w);
-          gl_Position = projectionMatrix * mvPosition;
+          gl_Position = clip;
         }
       `,
       fragmentShader: /* glsl */ `
@@ -510,15 +563,17 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
         uniform float uMotion;
         varying vec3 vColor;
         varying float vT;
+        varying float vSide;
         varying float vDepth;
         varying vec2 vCycle;
         void main() {
           float reveal = clamp((uReveal - vT * 0.85) / 0.15, 0.0, 1.0);
           float behind = vCycle.x - vT;
           float beam = behind >= 0.0 ? exp(-behind * 11.0) * vCycle.y * uMotion : 0.0;
-          float alpha = (0.4 + beam * 0.6) * reveal * vDepth;
-          vec3 base = mix(vec3(0.8, 0.86, 0.84), vColor, 0.5);
-          vec3 color = mix(base, vColor, clamp(beam * 1.4, 0.0, 1.0));
+          // Soft half-pixel edge so the ribbon stays smooth without MSAA.
+          float edge = 1.0 - smoothstep(0.55, 1.0, abs(vSide));
+          float alpha = (0.85 + beam * 0.15) * reveal * vDepth * edge;
+          vec3 color = mix(vColor, vec3(1.0), clamp(beam * 0.6, 0.0, 1.0));
           gl_FragColor = vec4(color * alpha, alpha);
         }
       `,
@@ -526,8 +581,9 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
       depthTest: false,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
+      side: THREE.DoubleSide, // ribbon winding flips with the segment's screen direction
     });
-    const arcLines = new THREE.LineSegments(arcGeometry, arcMaterial);
+    const arcLines = new THREE.Mesh(arcGeometry, arcMaterial);
     arcLines.frustumCulled = false; // positions live in the shader
     arcLines.renderOrder = 4;
     globe.add(arcLines);
@@ -562,7 +618,7 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
           vec4 mvPosition = modelViewMatrix * vec4(flight(aFrom, aTo, aParams.x, aParams.y, cycle.x), 1.0);
           float ends = smoothstep(0.0, 0.06, cycle.x) * (1.0 - smoothstep(0.94, 1.0, cycle.x));
           vAlpha = cycle.y * ends * step(1.0, uReveal) * uMotion * ${DEPTH_FADE_GLSL};
-          gl_PointSize = 15.0 * uScale * (${CAMERA_DISTANCE.toFixed(1)} / -mvPosition.z);
+          gl_PointSize = 19.0 * uScale * (${CAMERA_DISTANCE.toFixed(1)} / -mvPosition.z);
           gl_Position = projectionMatrix * mvPosition;
         }
       `,
@@ -593,7 +649,7 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
       HUBS.map((hub) => latLngToVector3(hub.lat, hub.lng, RADIUS * 1.004)),
     );
     hubGeometry.setAttribute("aHQ", new THREE.Float32BufferAttribute(HUBS.map((hub) => (hub.hq ? 1 : 0)), 1));
-    hubGeometry.setAttribute("aColor", new THREE.Float32BufferAttribute(HUBS.flatMap((hub) => (hub.hq ?? MINT).toArray()), 3));
+    hubGeometry.setAttribute("aColor", new THREE.Float32BufferAttribute(HUBS.flatMap((hub) => (hub.hq ?? OLIVE_LUMINOUS).toArray()), 3));
     hubGeometry.setAttribute("aSeed", new THREE.Float32BufferAttribute(HUBS.map((_, i) => (i * 0.37) % 1), 1));
     const hubMaterial = new THREE.ShaderMaterial({
       uniforms: { uTime: timeUniform, uScale: scaleUniform, uMotion: motionUniform, uReveal: revealUniform },
@@ -659,16 +715,20 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
       const containerBounds = container.getBoundingClientRect();
       const slotBounds = slotRef?.current?.getBoundingClientRect() ?? containerBounds;
       const slotHeight = Math.max(1, slotBounds.height);
-      // The container reaches up behind the (transparent) navbar, so the globe
-      // may rise slightly above the slot; its bottom curve sits just above the
-      // copy. The top keeps GLOBE_TOP_GAP px clear of the navbar; GLOBE_DROP is
-      // px beyond the slot's bottom.
+      // The container reaches up behind the (transparent) navbar so the halo
+      // can spill past the slot, but the sphere stays inside it: GLOBE_TOP_GAP px
+      // below the navbar, its bottom curve GLOBE_DROP px past the slot's bottom.
       const top = slotBounds.top - containerBounds.top + GLOBE_TOP_GAP;
       const bottom = slotBounds.top - containerBounds.top + slotHeight + GLOBE_DROP;
-      const radiusPx = Math.max(60, Math.min((bottom - top) / 2, width * (width < 768 ? 0.46 : 0.42), 400));
+      const radiusPx = Math.max(
+        60,
+        Math.min((bottom - top) / 2, width * (width < 768 ? 0.46 : 0.42), GLOBE_MAX_RADIUS),
+      );
       const anchor = (bottom - radiusPx) / height;
 
-      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      // Capped at 1.5x: retina/4K panels otherwise push 2-4x the fragments
+      // through the additive dot and arc passes for no visible gain.
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
       renderer.setPixelRatio(pixelRatio);
       renderer.setSize(width, height, false);
 
@@ -679,6 +739,7 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
       camera.updateProjectionMatrix();
 
       scaleUniform.value = pixelRatio * (radiusPx / 300);
+      resolutionUniform.value.set(width, height);
       Object.assign(layout, { width, height, centerY: anchor * height, radiusPx });
       requestRender();
     };
@@ -763,7 +824,19 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
     resizeObserver.observe(container);
     if (slotRef?.current) resizeObserver.observe(slotRef.current);
     resize();
-    renderer.render(scene, camera);
+
+    // Shaders compile through compileAsync (the driver's parallel compile
+    // where available) rather than stalling inside the first render; the
+    // intro starts on the very next frame after, from the scattered start.
+    renderer
+      .compileAsync(scene, camera)
+      .catch(() => {})
+      .then(() => {
+        if (disposed) return;
+        shadersReady = true;
+        introReady = true;
+        requestRender();
+      });
 
     const hero = container.closest<HTMLElement>("[data-hero]") ?? container;
     const renderLoop = registerRenderLoop((active) => {
@@ -793,6 +866,7 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
     document.addEventListener("visibilitychange", onVisibility);
 
     const timer = new THREE.Timer();
+    let introTime = 0;
 
     function tick(timestamp: number) {
       frame = 0;
@@ -803,7 +877,8 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
 
       // The precomputed land dots are present from the first scene render.
       if (!reducedMotion) {
-        const t = elapsed;
+        if (introReady) introTime += delta;
+        const t = introTime;
         assembleUniform.value = THREE.MathUtils.clamp(t / INTRO_DURATION, 0, 1);
         glowUniform.value = THREE.MathUtils.smoothstep(t, INTRO_DURATION * 0.45, INTRO_DURATION * 1.1);
         revealUniform.value = THREE.MathUtils.clamp((t - INTRO_DURATION * 0.85) / 1.2, 0, 1);
@@ -828,7 +903,7 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
     }
 
     function requestRender() {
-      if (frame || disposed || document.hidden) return;
+      if (frame || disposed || document.hidden || !shadersReady) return;
       // Off screen and unfunded: nothing to paint, and nothing may self-start.
       if (!inView && !renderGranted) return;
       frame = requestAnimationFrame(tick);
@@ -853,7 +928,7 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
           (object.material as THREE.Material).dispose();
         }
       });
-      dotMaterial.dispose(); // in case the atlas never arrived
+      dotMaterial.dispose();
       renderer.dispose();
     };
   }, [slotRef]);

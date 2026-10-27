@@ -19,7 +19,7 @@ export default function SmoothScroll() {
     const updateScroll = (time: number) => lenis.raf(time * 1000);
     const handleRefresh = () => lenis.resize();
     let disposed = false;
-    let refreshTimer: ReturnType<typeof window.setTimeout> | undefined;
+    let refreshTimer: number | undefined;
     let idleHandle = 0;
     // ScrollTrigger.refresh() recomputes every trigger on the page, the pinned
     // Engines track included - tens of milliseconds. Lazy images finish loading
@@ -51,7 +51,7 @@ export default function SmoothScroll() {
       const anchor = target?.closest<HTMLAnchorElement>('a[href^="#"]');
       const hash = anchor?.getAttribute("href");
       if (!hash || hash === "#") return;
-      const destination = document.querySelector(hash);
+      const destination = document.querySelector<HTMLElement>(hash);
       if (!destination) return;
       event.preventDefault();
       lenis.scrollTo(destination, { offset: -80 });
@@ -74,7 +74,7 @@ export default function SmoothScroll() {
     document.fonts?.ready.then(() => {
       if (!disposed) scheduleRefresh();
     });
-    (window as Window & { lenis?: Lenis }).lenis = lenis;
+    (window as unknown as { lenis?: Lenis }).lenis = lenis;
     ScrollTrigger.refresh();
 
     return () => {
@@ -87,7 +87,7 @@ export default function SmoothScroll() {
       ScrollTrigger.removeEventListener("refresh", handleRefresh);
       gsap.ticker.remove(updateScroll);
       lenis.destroy();
-      delete (window as Window & { lenis?: Lenis }).lenis;
+      delete (window as unknown as { lenis?: Lenis }).lenis;
       // Only tear down what this island owns. The reveal context below reverts
       // its own triggers, and a blanket kill would also destroy the triggers
       // belonging to other islands (e.g. the Engines horizontal track).
@@ -114,6 +114,7 @@ export default function SmoothScroll() {
               opacity: 1,
               duration: 1,
               ease: "expo.out",
+              clearProps: "filter",
               scrollTrigger: inHero(element) ? undefined : { trigger: element, start: "top 88%", once: true },
             },
           );

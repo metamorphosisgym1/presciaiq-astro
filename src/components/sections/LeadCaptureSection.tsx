@@ -13,7 +13,7 @@ const LeadCaptureSection = () => {
 
   return (
     <section className="relative isolate flex min-h-[85vh] w-full flex-col items-center justify-center overflow-hidden bg-black py-32 md:py-44">
-      <ParticleVortex className="absolute inset-0 z-0 h-full w-full" mint="#00FF88" white="#FFFFFF" />
+      <ParticleVortex className="absolute inset-0 z-0 h-full w-full" accent="#8FB890" white="#FFFFFF" />
 
       <motion.div
         initial={{ opacity: 0, y: 35 }}
@@ -52,7 +52,7 @@ const LeadCaptureSection = () => {
           <a
             href="/contact/"
             onClick={handleOpenStrategyModal}
-            className="group/btn relative inline-flex items-center gap-2.5 rounded-full bg-[#00FF88] px-8 py-4 text-sm font-semibold tracking-wide text-neutral-950 shadow-[0_0_20px_rgba(0,255,136,0.18)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_32px_rgba(0,255,136,0.4)] active:scale-[0.98] sm:px-10"
+            className="group/btn relative inline-flex items-center gap-2.5 rounded-full bg-[#6D896E] px-8 py-4 text-sm font-semibold tracking-wide text-[#050806] shadow-[0_16px_36px_rgba(109,137,110,0.35)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#5f7a60] hover:shadow-[0_20px_44px_rgba(109,137,110,0.45)] active:scale-[0.98] sm:px-10"
           >
             <span>Book Your Predictive ROI Briefing</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />

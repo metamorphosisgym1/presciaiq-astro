@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -71,6 +71,18 @@ const platforms: ProjectPlatform[] = [
   },
 ];
 
+// The homepage deck: three featured builds, then a "see more" card that
+// appends the rest to the track in place.
+const FEATURED_IDS = ["vale-tudo", "hypertint", "adsiq"];
+// Vertical scroll, in viewport heights, per panel of the featured deck. It
+// stays the same when the deck grows, so the reader's position still maps to
+// the same panel.
+const FEATURED_STEP_VH = 62.5;
+
+// The track is rebuilt before paint when the deck grows, so it never flashes
+// back to its start. Layout effects only warn during SSR, where none of this runs.
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+
 // The coordinate dot grid from the Core Pillars Daynori slide, with its
 // radial falloff into the dark.
 const DOT_MATRIX = {
@@ -89,6 +101,8 @@ interface AppBuildingSectionProps {
   hideHeader?: boolean;
   // The Groundbreakers case study after the track; the homepage leaves it out.
   showCaseStudy?: boolean;
+  // Only the featured builds plus an "explore more" card, on a shorter track.
+  featured?: boolean;
 }
 
 /**
@@ -97,20 +111,103 @@ interface AppBuildingSectionProps {
  * panels sideways. The frame unsticks after the last panel, and the
  * Groundbreakers case study follows in normal flow on the same black ground.
  */
-const AppBuildingSection = ({ hideHeader = false, showCaseStudy = true }: AppBuildingSectionProps) => {
+const AppBuildingSection = ({ hideHeader = false, showCaseStudy = true, featured = false }: AppBuildingSectionProps) => {
   const pinRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const panels = platforms.length + (hideHeader ? 0 : 1);
+  // Clips on screen right now. It outlives the effect below because each clip's
+  // listeners are attached once, with its src, and must keep reading the live
+  // set after "see more" re-runs the effect.
+  const visibleRef = useRef(new Set<HTMLVideoElement>());
+  const [expanded, setExpanded] = useState(false);
+  // Panel to glide to once the expanded track has been rebuilt.
+  const glideToRef = useRef<number | null>(null);
 
-  useEffect(() => {
+  const firstProjectPanel = hideHeader ? 0 : 1;
+  const shown = featured ? platforms.filter((p) => FEATURED_IDS.includes(p.id)) : platforms;
+  const extra = featured && expanded ? platforms.filter((p) => !FEATURED_IDS.includes(p.id)) : [];
+  const explorePanel = firstProjectPanel + shown.length;
+  const panels = explorePanel + (featured ? 1 + extra.length : 0);
+  // The frame sticks for (height - 100vh) of scroll; the full deck gives each
+  // panel a viewport of scroll, the featured deck a shorter step.
+  const heightVh = featured ? 100 + (panels - 1) * FEATURED_STEP_VH : panels * 100;
+
+  const seeMore = () => {
+    glideToRef.current = explorePanel + 1;
+    setExpanded(true);
+  };
+
+  useIsomorphicLayoutEffect(() => {
     const pin = pinRef.current;
     const track = trackRef.current;
     if (!pin || !track) return;
 
+    // Footage (~80MB in all) is attached panel by panel as the track nears it,
+    // so nothing competes with the hero, and each clip plays only while on
+    // screen. Off-screen panels are clipped by the frame, so they never count
+    // as visible. Everything here is declared before the scroll trigger below:
+    // refresh() fires its onUpdate synchronously, which calls attachUpTo.
+    const visible = visibleRef.current;
+    const playIfVisible = (video: HTMLVideoElement) => {
+      if (!visible.has(video) || !video.paused || !video.src) return;
+      // React sets `muted` as a property only, so the attribute is missing
+      // from the server HTML; Safari checks it before allowing autoplay.
+      video.muted = true;
+      video.play().catch(() => {});
+    };
+    const attachUpTo = (panel: number) => {
+      videoRefs.current.forEach((video) => {
+        if (!video || video.src || !video.dataset.src || Number(video.dataset.panel) > panel) return;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.setAttribute("muted", "");
+        video.src = video.dataset.src;
+        // autoPlay would also start clips that load while still off screen.
+        video.addEventListener("playing", () => {
+          if (!visibleRef.current.has(video)) video.pause();
+        });
+        // A play() issued before the first frame can be dropped; retry once
+        // the clip can actually play.
+        video.addEventListener("canplay", () => playIfVisible(video));
+        playIfVisible(video);
+      });
+    };
+    // Browsers pause background-tab media; pick the visible clip back up.
+    const resume = () => {
+      if (!document.hidden) visible.forEach(playIfVisible);
+    };
+    document.addEventListener("visibilitychange", resume);
+    const loader = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        attachUpTo(firstProjectPanel);
+        loader.disconnect();
+      },
+      { rootMargin: "100% 0px" },
+    );
+    loader.observe(pin);
+    // Every panel coming back into view, either way along the track, restarts
+    // its clip.
+    const player = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            visible.add(video);
+            playIfVisible(video);
+          } else {
+            visible.delete(video);
+            video.pause();
+          }
+        }),
+      { threshold: 0.15 },
+    );
+    videoRefs.current.forEach((video) => video && player.observe(video));
+
+    let travel: gsap.core.Tween | undefined;
     const ctx = gsap.context(() => {
-      gsap.to(track, {
+      travel = gsap.to(track, {
         xPercent: (-100 * (panels - 1)) / panels,
         ease: "none",
         scrollTrigger: {
@@ -128,55 +225,125 @@ const AppBuildingSection = ({ hideHeader = false, showCaseStudy = true }: AppBui
       });
     }, pin);
 
-    // Footage (~80MB in all) is attached panel by panel as the track nears it,
-    // so nothing competes with the hero, and each clip plays only while on
-    // screen. Off-screen panels are clipped by the frame, so they never count
-    // as visible.
-    const firstProjectPanel = hideHeader ? 0 : 1;
-    const visible = new Set<HTMLVideoElement>();
-    function attachUpTo(panel: number) {
-      videoRefs.current.forEach((video, i) => {
-        if (!video || video.src || !video.dataset.src || i + firstProjectPanel > panel) return;
-        video.src = video.dataset.src;
-        // autoPlay would also start clips that load while still off screen.
-        video.addEventListener("playing", () => {
-          if (!visible.has(video)) video.pause();
-        });
-      });
+    // "See more" grew the deck: measure the taller section, put the rebuilt
+    // track exactly where the old one stood, then glide on to the first new
+    // panel.
+    const glideTo = glideToRef.current;
+    const st = travel?.scrollTrigger;
+    if (glideTo !== null && travel && st) {
+      glideToRef.current = null;
+      ScrollTrigger.refresh();
+      travel.progress(st.progress);
+      const y = st.start + ((st.end - st.start) * glideTo) / (panels - 1);
+      const lenis = (window as unknown as { lenis?: { scrollTo: (y: number, opts?: { duration?: number; easing?: (t: number) => number }) => void } }).lenis;
+      // power2.inOut
+      const easing = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
+      if (lenis) lenis.scrollTo(y, { duration: 1, easing });
+      else window.scrollTo({ top: y, behavior: "smooth" });
     }
-    const loader = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return;
-        attachUpTo(firstProjectPanel);
-        loader.disconnect();
-      },
-      { rootMargin: "100% 0px" },
-    );
-    loader.observe(pin);
-    const player = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          const video = entry.target as HTMLVideoElement;
-          if (entry.isIntersecting) {
-            visible.add(video);
-            video.play().catch(() => {});
-          } else {
-            visible.delete(video);
-            video.pause();
-          }
-        }),
-      { threshold: 0.15 },
-    );
-    videoRefs.current.forEach((video) => video && player.observe(video));
 
     const refresh = requestAnimationFrame(() => ScrollTrigger.refresh());
     return () => {
       cancelAnimationFrame(refresh);
+      document.removeEventListener("visibilitychange", resume);
       loader.disconnect();
       player.disconnect();
+      // The next run's observer re-reports whatever is on screen.
+      visible.clear();
       ctx.revert();
     };
-  }, [panels, hideHeader]);
+  }, [panels, firstProjectPanel]);
+
+  // One project panel. `index` keys its video ref; `panel` is its place on
+  // the track, which decides when its footage is attached.
+  const renderPlatform = (p: ProjectPlatform, index: number, panel: number) => (
+    <article
+      key={p.id}
+      id={`project-${p.id}`}
+      className="flex h-full shrink-0 items-center justify-center px-5 pt-20 pb-12 sm:px-10"
+      style={{ flex: "0 0 100vw" }}
+    >
+      <div
+        className={
+          p.portrait
+            ? "flex w-full max-w-5xl flex-col items-center justify-center gap-6 sm:gap-8 lg:flex-row lg:gap-20"
+            : "flex w-full max-w-[1360px] flex-col items-center justify-between gap-10 md:gap-16 lg:flex-row"
+        }
+      >
+        <div className={`flex flex-col gap-4 lg:gap-5 ${p.portrait ? "items-center text-center lg:max-w-sm lg:items-start lg:text-left" : "w-full lg:w-[320px] lg:shrink-0"}`}>
+          <h3 className="font-sans text-3xl font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-4xl lg:text-5xl">
+            {p.name}
+          </h3>
+          <p className="max-w-md font-sans text-sm leading-relaxed text-neutral-300/90 sm:text-base">{p.tagline}</p>
+          <a
+            href={p.href}
+            {...(p.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            className="group/btn relative isolate mt-1 inline-flex w-fit items-center gap-2 overflow-hidden rounded-full border border-[#6D896E] bg-[#6D896E] px-5 py-2.5 text-sm font-semibold text-[#050806] transition-all duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:scale-[1.02] hover:border-[#5f7a60] hover:bg-[#5f7a60] hover:shadow-[0_12px_28px_rgba(109,137,110,0.3)]"
+          >
+            {/* Light streak that crosses the glass on hover. */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-0 -z-10 w-2/3 -translate-x-[160%] skew-x-[-20deg] transition-transform duration-[600ms] ease-out will-change-transform group-hover/btn:translate-x-[260%]"
+              style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)" }}
+            />
+            {p.ctaText}
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+          </a>
+        </div>
+
+        {/* Frames are sized by aspect ratio before the video loads, so
+            nothing shifts when it does. */}
+        {p.portrait ? (
+          <div className="relative aspect-[9/16] h-[calc(100svh-400px)] shrink-0 rounded-[2.75rem] border border-white/10 bg-[#0b100d] p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_70px_-25px_rgba(0,245,160,0.18)] lg:h-[min(calc(100vh-170px),820px)]">
+            {/* Edge highlight along the bezel */}
+            <div className="pointer-events-none absolute inset-0 rounded-[2.75rem] ring-1 ring-inset ring-white/[0.06]" aria-hidden="true" />
+            <div className="relative h-full w-full overflow-hidden rounded-[2.2rem] bg-black">
+              <video
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
+                data-src={p.video}
+                data-panel={panel}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-label={`${p.name} platform walkthrough`}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        ) : (
+          // The screen keeps the recordings' 16:9 (cropping them would cut off
+          // site navigation) and grows to the largest size that fits: the
+          // column's width, or 560px tall, or the viewport less the panel's
+          // padding and copy, whichever is smallest. p-2 is the bezel.
+          <div
+            className="relative w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-2 shadow-[0_24px_60px_rgba(0,0,0,0.5)] lg:flex-1"
+            style={{ maxWidth: "calc(min(560px, 100svh - 240px) * 1.778 + 16px)" }}
+          >
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black">
+              <video
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
+                data-src={p.video}
+                data-panel={panel}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-label={`${p.name} platform walkthrough`}
+                className="absolute inset-0 h-full w-full rounded-2xl object-cover"
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    </article>
+  );
 
   return (
     <section id="development-services" className="relative w-full bg-[#050807]">
@@ -199,7 +366,7 @@ const AppBuildingSection = ({ hideHeader = false, showCaseStudy = true }: AppBui
         .star-twinkle-3 { animation: starTwinkle3 5.2s ease-in-out infinite 1.5s; }
       `}</style>
 
-      <div ref={pinRef} className="relative w-full" style={{ height: `${panels * 100}vh` }}>
+      <div ref={pinRef} className="relative w-full" style={{ height: `${heightVh}vh` }}>
         <div className="sticky top-0 h-screen w-full overflow-hidden">
           {/* Backdrop stays put with the frame, so only the cards travel. */}
           <div
@@ -243,108 +410,49 @@ const AppBuildingSection = ({ hideHeader = false, showCaseStudy = true }: AppBui
           >
             {!hideHeader && (
               <div className="flex h-full shrink-0 items-center justify-center px-6" style={{ flex: "0 0 100vw" }}>
-                {/* Set in the display serif, like the hero, with a lighter italic
-                    ampersand given its own room. */}
-                <h2 className="max-w-5xl text-center font-display text-4xl font-semibold leading-[1.04] tracking-[-0.035em] text-cream sm:text-6xl lg:text-7xl">
-                  Web Apps
-                  <span className="mx-[0.22em] inline-block align-[0.02em] font-normal italic text-[0.92em] text-white/55">&amp;</span>
-                  <br className="hidden sm:block" />
-                  <span
-                    style={{
-                      backgroundImage: "linear-gradient(135deg, #ffffff 0%, #a3ffd6 45%, #00F5A0 80%, #10B981 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    High-Performance Platforms
-                  </span>
+                {/* Set in the display serif, like the hero: white lead-in, olive
+                    subject. */}
+                <h2 className="max-w-5xl text-center font-serif text-4xl font-semibold leading-[1.04] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
+                  Web Apps and
+                  <br className="hidden sm:block" />{" "}
+                  <span className="text-[#6D896E]">High-Performance Platforms</span>
                 </h2>
               </div>
             )}
 
-            {platforms.map((p, index) => (
+            {shown.map((p, i) => renderPlatform(p, i, firstProjectPanel + i))}
+
+            {featured && (
               <article
-                key={p.id}
-                id={`project-${p.id}`}
+                id="project-explore-more"
                 className="flex h-full shrink-0 items-center justify-center px-5 pt-20 pb-12 sm:px-10"
                 style={{ flex: "0 0 100vw" }}
               >
-                <div
-                  className={
-                    p.portrait
-                      ? "flex w-full max-w-5xl flex-col items-center justify-center gap-6 sm:gap-8 lg:flex-row lg:gap-20"
-                      : "grid w-full max-w-7xl items-center gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.1fr)] lg:gap-14"
-                  }
-                >
-                  <div className={`flex flex-col gap-4 lg:gap-5 ${p.portrait ? "items-center text-center lg:max-w-sm lg:items-start lg:text-left" : ""}`}>
-                    <h3 className="font-sans text-3xl font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-4xl lg:text-5xl">
-                      {p.name}
-                    </h3>
-                    <p className="max-w-md font-sans text-sm leading-relaxed text-neutral-300/90 sm:text-base">{p.tagline}</p>
-                    <a
-                      href={p.href}
-                      {...(p.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="group/btn relative isolate mt-1 inline-flex w-fit items-center gap-2 overflow-hidden rounded-full border border-white/15 bg-white/[0.04] px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:scale-[1.02] hover:border-emerald-400/50 hover:bg-white/[0.08]"
-                    >
-                      {/* Light streak that crosses the glass on hover. */}
-                      <span
-                        aria-hidden="true"
-                        className="pointer-events-none absolute inset-y-0 left-0 -z-10 w-2/3 -translate-x-[160%] skew-x-[-20deg] transition-transform duration-[600ms] ease-out will-change-transform group-hover/btn:translate-x-[260%]"
-                        style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)" }}
-                      />
-                      {p.ctaText}
-                      <ArrowUpRight className="h-4 w-4 text-emerald-400 transition-transform duration-200 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
-                    </a>
-                  </div>
-
-                  {/* Frames are sized by aspect ratio before the video loads, so
-                      nothing shifts when it does. */}
-                  {p.portrait ? (
-                    <div className="relative aspect-[9/16] h-[calc(100svh-400px)] shrink-0 rounded-[2.75rem] border border-white/10 bg-[#0b100d] p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_70px_-25px_rgba(0,245,160,0.18)] lg:h-[min(calc(100vh-170px),820px)]">
-                      {/* Edge highlight along the bezel */}
-                      <div className="pointer-events-none absolute inset-0 rounded-[2.75rem] ring-1 ring-inset ring-white/[0.06]" aria-hidden="true" />
-                      <div className="relative h-full w-full overflow-hidden rounded-[2.2rem] bg-black">
-                        <video
-                          ref={(el) => {
-                            videoRefs.current[index] = el;
-                          }}
-                          data-src={p.video}
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          preload="none"
-                          aria-label={`${p.name} platform walkthrough`}
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                      </div>
-                    </div>
+                <div className="flex max-w-2xl flex-col items-center text-center">
+                  <h3 className="font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
+                    Explore More Systems and <span className="italic text-[#6D896E]">Architectures</span>
+                  </h3>
+                  {expanded ? (
+                    <span className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[#8FAF8F]">
+                      Keep scrolling
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
                   ) : (
-                    <div
-                      className="relative mx-auto w-full overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl shadow-black/80"
-                      style={{ maxWidth: "calc((100vh - 220px) * 1.778)" }}
+                    <button
+                      type="button"
+                      onClick={seeMore}
+                      aria-expanded={expanded}
+                      className="group/btn mt-8 inline-flex cursor-pointer items-center gap-2 rounded-full border border-[#6D896E] bg-[#6D896E] px-6 py-3 text-sm font-semibold text-[#050806] transition-all duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:border-[#5f7a60] hover:bg-[#5f7a60] hover:shadow-[0_12px_28px_rgba(109,137,110,0.3)]"
                     >
-                      <div className="relative aspect-video w-full">
-                        <video
-                          ref={(el) => {
-                            videoRefs.current[index] = el;
-                          }}
-                          data-src={p.video}
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          preload="none"
-                          aria-label={`${p.name} platform walkthrough`}
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                      </div>
-                    </div>
+                      See More Projects
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" aria-hidden="true" />
+                    </button>
                   )}
                 </div>
               </article>
-            ))}
+            )}
+
+            {extra.map((p, i) => renderPlatform(p, shown.length + i, explorePanel + 1 + i))}
           </div>
 
           {/* Scroll-linked progress hairline */}
@@ -352,7 +460,7 @@ const AppBuildingSection = ({ hideHeader = false, showCaseStudy = true }: AppBui
             <span className="relative block h-px w-40 overflow-hidden bg-white/15 sm:w-56">
               <span
                 ref={progressRef}
-                className="absolute inset-0 origin-left scale-x-0 bg-emerald-400 will-change-transform"
+                className="absolute inset-0 origin-left scale-x-0 bg-[#6D896E] will-change-transform"
               />
             </span>
           </div>
@@ -369,7 +477,7 @@ const AppBuildingSection = ({ hideHeader = false, showCaseStudy = true }: AppBui
           aria-hidden="true"
           style={{
             ...DOT_MATRIX,
-            top: `${panels * 100}vh`,
+            top: `${heightVh}vh`,
             maskImage: "linear-gradient(to bottom, transparent, black 15%, black 70%, transparent)",
             WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 70%, transparent)",
           }}

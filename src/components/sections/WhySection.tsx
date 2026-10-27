@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { useReducedMotion } from "framer-motion";
-import { Globe, LineChart, ShieldCheck, Smartphone } from "lucide-react";
-import type { ComponentType, SVGProps } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, X } from "lucide-react";
+import type { Swiper as SwiperInstance } from "swiper";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Carousel_002 } from "../ui/skiper-ui/skiper48";
 gsap.registerPlugin(ScrollTrigger);
 
 interface CapabilityCard {
@@ -12,115 +13,105 @@ interface CapabilityCard {
   // Two lines at card width; keep it under ~110 characters.
   description: string;
   href: string;
-  // Side the card travels in from in the 3-column layout, matching its column.
-  enter: "left" | "bottom" | "right";
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  // Transparent 3D mark for the top of the card (336px WebP made from the
+  // PNGs in /public/cards, 3x its largest display size).
+  badge: string;
 }
-
-// Custom marks for the two capabilities Lucide has no fitting icon for. They
-// share Lucide's 24px grid so they sit alongside the library icons.
-const customIconProps = {
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 1.75,
-  strokeLinecap: "round" as const,
-  strokeLinejoin: "round" as const,
-};
-
-// n8n-style workflow: three chained nodes branching to a fourth
-const N8nIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg {...customIconProps} {...props}>
-    <rect x="2" y="5" width="4" height="4" rx="1" />
-    <rect x="10" y="5" width="4" height="4" rx="1" />
-    <rect x="18" y="5" width="4" height="4" rx="1" />
-    <rect x="10" y="15" width="4" height="4" rx="1" />
-    <path d="M6 7h4" />
-    <path d="M14 7h4" />
-    <path d="M12 9v6" />
-    <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-  </svg>
-);
-
-// Ship's helm: rim, hub and eight spoke handles
-const HelmIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg {...customIconProps} {...props}>
-    <circle cx="12" cy="12" r="8" />
-    <circle cx="12" cy="12" r="3" />
-    <line x1="12" y1="1" x2="12" y2="4" />
-    <line x1="12" y1="20" x2="12" y2="23" />
-    <line x1="1" y1="12" x2="4" y2="12" />
-    <line x1="20" y1="12" x2="23" y2="12" />
-    <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" />
-    <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" />
-    <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" />
-    <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" />
-  </svg>
-);
 
 const capabilities: CapabilityCard[] = [
   {
     id: "web-aeo",
+    badge: "/cards/badges/card1.webp",
     title: "Websites + SEO / AEO",
     description:
       "Sub-second platforms built to win search and answer engines, without ad spend.",
     href: "/services/aeo-seo-predictive-search-architecture/",
-    enter: "left",
-    icon: Globe,
   },
   {
     id: "mobile-software",
+    badge: "/cards/badges/card2.webp",
     title: "Mobile Apps + Custom Software",
     description:
       "Native iOS, Android and web apps, offline-first and synced across your workforce.",
     href: "/services/ai-app-development/",
-    enter: "bottom",
-    icon: Smartphone,
   },
   {
     id: "workflow-automation",
+    badge: "/cards/badges/card3.webp",
     title: "Workflow Automation + Integration",
     description:
       "ERP, CRM and pipelines connected end to end. Manual data entry disappears.",
     href: "/products/ai-automations/",
-    enter: "right",
-    icon: N8nIcon,
   },
   {
     id: "helm-os",
+    badge: "/cards/badges/monogram.webp",
     title: "Daynori Operational Backbone",
     description:
       "One live command layer for leadership, project managers and frontline teams.",
     href: "/services/ai-software-development/",
-    enter: "left",
-    icon: HelmIcon,
   },
   {
     id: "predictive-analytics",
+    badge: "/cards/badges/card5.webp",
     title: "Predictive Analytics + Forecasting",
     description:
       "Validated forecasts that flag schedule and cost variances before spend occurs.",
     href: "https://buildpredictiq.com.au/",
-    enter: "bottom",
-    icon: LineChart,
   },
   {
     id: "cloud-security",
+    badge: "/cards/badges/card6.webp",
     title: "Cloud Infrastructure + Security",
     description:
       "Australian-hosted, zero-trust architecture built to data sovereignty and compliance standards.",
     href: "/services/ai-software-development/",
-    enter: "right",
-    icon: ShieldCheck,
   },
 ];
 
-// GSAP start offsets for each entrance direction.
-const enterFrom = {
-  left: { x: -70, y: 0 },
-  bottom: { x: 0, y: 70 },
-  right: { x: 70, y: 0 },
-};
+const pad = (n: number) => String(n).padStart(2, "0");
+
+// One card of the capabilities deck. The whole face links through; Swiper
+// swallows the click when the card was dragged rather than tapped. Native link
+// dragging is off, or a mouse drag would pick up the URL instead of the card.
+const CapabilityFace = ({ card }: { card: CapabilityCard }) => (
+  <a
+    href={card.href}
+    draggable={false}
+    {...(card.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    className="group relative isolate flex h-full w-full flex-col justify-between overflow-hidden rounded-[2rem] border-[1.5px] border-[#6D896E]/25 bg-gradient-to-br from-[#F4F7F4] via-[#EEF3EE] to-[#E5EDE5] p-8 text-left shadow-[0_20px_50px_-12px_rgba(109,137,110,0.22),0_4px_12px_rgba(0,0,0,0.04)] sm:p-10"
+  >
+    {/* The mark floats on the card surface, no box: it heads the card and
+        the copy keeps its place at the bottom. */}
+    <img
+      src={card.badge}
+      alt=""
+      width={112}
+      height={112}
+      loading="lazy"
+      decoding="async"
+      draggable={false}
+      className="mb-6 mt-2 h-20 w-20 object-contain drop-shadow-[0_10px_20px_rgba(109,137,110,0.18)] sm:mb-8 sm:h-24 sm:w-24 md:h-28 md:w-28"
+    />
+    <div>
+      <h3 className="font-serif text-3xl font-bold leading-[1.1] tracking-tight text-[#0F1713] sm:text-4xl">
+        {card.title}
+      </h3>
+      <p className="mt-4 font-sans text-base leading-relaxed text-[#33443B]">
+        {card.description}
+      </p>
+      <span className="mt-8 inline-flex items-center gap-2 border-t border-[#6D896E]/25 pt-5 text-sm font-semibold text-[#0F1713] transition-colors duration-200 group-hover:text-[#6D896E]">
+        Explore capability
+        <ArrowUpRight
+          className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          aria-hidden="true"
+        />
+      </span>
+    </div>
+  </a>
+);
+
+const capabilitySlides = capabilities.map((card) => <CapabilityFace key={card.id} card={card} />);
 
 const marqueeRibbon =
   "INTELLIGENT SYSTEMS • SEAMLESS EXECUTION • BUILT FOR SCALE • ";
@@ -160,11 +151,19 @@ const WhySection = () => {
   const prefersReducedMotion = useReducedMotion();
 
   const marqueeRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const deckRef = useRef<HTMLDivElement>(null);
+  const swiperRef = useRef<SwiperInstance | null>(null);
+  const [activeCapability, setActiveCapability] = useState(0);
+  // Explicit loop targets: Swiper's slideNext() skips a card on its first call
+  // in loop mode with the cards effect.
+  const stepCapability = (step: number) => {
+    const swiper = swiperRef.current;
+    if (!swiper) return;
+    swiper.slideToLoop((swiper.realIndex + step + capabilities.length) % capabilities.length);
+  };
 
-  const founderGridRef = useRef<HTMLDivElement>(null);
-  const founderCardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const foundersRef = useRef<HTMLDivElement>(null);
+  const founderCardRefs = useRef<(HTMLElement | null)[]>([]);
 
   // Ribbon drift synchronization
   useEffect(() => {
@@ -188,78 +187,58 @@ const WhySection = () => {
     };
   }, []);
 
-  // Capability cards enter from their column's side as the grid scrolls into
-  // view: outer columns slide in, the centre column rises. Below xl the grid
-  // isn't three columns, so every card rises. The CSS transition is suspended
-  // during the tween (it would smear GSAP's per-frame transforms), then inline
-  // styles are cleared so the CSS hover lift takes over.
+  // The capabilities block rises into place as it scrolls into view.
   useEffect(() => {
-    const grid = gridRef.current;
-    if (!grid || prefersReducedMotion) return;
+    const deck = deckRef.current;
+    if (!deck || prefersReducedMotion) return;
 
-    const cards = cardRefs.current.filter((card): card is HTMLAnchorElement => card !== null);
-    const mm = gsap.matchMedia(grid);
-    mm.add(
-      { threeColumn: "(min-width: 1280px)", stacked: "(max-width: 1279.98px)" },
-      (context) => {
-        const { threeColumn } = context.conditions as { threeColumn: boolean };
-        gsap.fromTo(
-          cards,
-          {
-            x: (i: number) => (threeColumn ? enterFrom[capabilities[i].enter].x : 0),
-            y: (i: number) => (threeColumn ? enterFrom[capabilities[i].enter].y : 70),
-            autoAlpha: 0,
-            transition: "none",
-          },
-          {
-            x: 0,
-            y: 0,
-            autoAlpha: 1,
-            duration: 0.9,
-            stagger: 0.1,
-            ease: "power3.out",
-            force3D: true,
-            clearProps: "transform,opacity,visibility,transition",
-            scrollTrigger: {
-              trigger: grid,
-              start: "top 82%",
-              once: true,
-            },
-          },
-        );
+    const tween = gsap.fromTo(
+      deck,
+      { y: 56, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.9,
+        ease: "power3.out",
+        clearProps: "transform,opacity,visibility",
+        scrollTrigger: { trigger: deck, start: "top 82%", once: true },
       },
     );
 
-    return () => mm.revert();
+    return () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
   }, [prefersReducedMotion]);
 
-  // Founders cards reveal animation
+  // Founder cards slide in from their own side together as the section
+  // arrives; the section clips them horizontally so nothing adds a scrollbar.
+  // Inline styles are cleared afterwards, leaving the hover drawer and photo
+  // zoom to their CSS.
   useEffect(() => {
-    const grid = founderGridRef.current;
-    if (!grid || prefersReducedMotion) return;
+    const section = foundersRef.current;
+    if (!section || prefersReducedMotion) return;
 
-    const cards = founderCardRefs.current.filter((card): card is HTMLDivElement => card !== null);
+    const cards = founderCardRefs.current.filter((card): card is HTMLElement => card !== null);
     const context = gsap.context(() => {
-      cards.forEach((card, index) => {
-        gsap.fromTo(
-          card,
-          { y: 40, autoAlpha: 0 },
-          {
-            y: 0,
-            autoAlpha: 1,
-            delay: index * 0.15,
-            duration: 0.8,
-            ease: "power3.out",
-            clearProps: "transform,opacity,visibility",
-            scrollTrigger: {
-              trigger: grid,
-              start: "top 78%",
-              once: true,
-            },
+      gsap.fromTo(
+        cards,
+        { x: (i: number) => (i === 0 ? -80 : 80), autoAlpha: 0, willChange: "transform, opacity" },
+        {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power3.out",
+          force3D: true,
+          clearProps: "transform,opacity,visibility,willChange",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            once: true,
           },
-        );
-      });
-    }, grid);
+        },
+      );
+    }, section);
 
     return () => context.revert();
   }, [prefersReducedMotion]);
@@ -364,43 +343,92 @@ const WhySection = () => {
             <button
               type="button"
               onClick={() => setIsThesisOpen(true)}
-              className="group/btn inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full border border-neutral-300 bg-white px-4 py-2 text-xs font-mono text-neutral-700 shadow-sm transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-800"
+              className="group/btn inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full border border-neutral-300 bg-white/80 px-4 py-1.5 text-xs font-medium uppercase tracking-wide text-neutral-800 backdrop-blur-sm transition-all duration-300 hover:border-[#6D896E] hover:text-[#6D896E] hover:shadow-[0_4px_16px_rgba(109,137,110,0.15)] dark:border-neutral-700 dark:bg-neutral-900/80 dark:text-neutral-200"
             >
               <span>Read Strategy Thesis</span>
-              <span className="font-semibold text-emerald-600 transition-transform duration-200 group-hover/btn:translate-x-1">
-                &rarr;
-              </span>
+              <ArrowRight
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1"
+                aria-hidden="true"
+              />
             </button>
           </div>
 
-          {/* 3-Column x 2-Row Responsive Cards Grid */}
+          {/* Card-swap deck: an index on the left drives it on desktop;
+              drag, the arrows or the keyboard swap cards everywhere. */}
           <div
-            ref={gridRef}
-            className="grid w-full grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3"
+            ref={deckRef}
+            className="grid w-full items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16"
           >
-            {capabilities.map((card, idx) => (
-              <a
-                key={card.id}
-                href={card.href}
-                {...(card.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                ref={(el) => {
-                  cardRefs.current[idx] = el;
+            <ol className="hidden lg:block">
+              {capabilities.map((card, i) => {
+                const active = i === activeCapability;
+                return (
+                  <li key={card.id} className="border-b border-neutral-200 first:border-t">
+                    <button
+                      type="button"
+                      onClick={() => swiperRef.current?.slideToLoop(i)}
+                      aria-current={active ? "true" : undefined}
+                      className={`group my-2 flex w-full cursor-pointer items-center gap-3 rounded-r-xl border-l-4 py-2.5 pl-4 pr-4 text-left transition-colors duration-300 ${
+                        active ? "border-[#6D896E] bg-[#EEF3EE]" : "border-transparent hover:bg-neutral-100"
+                      }`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`inline-block h-1.5 w-1.5 shrink-0 rounded-full transition-[transform,background-color] duration-300 ${
+                          active ? "scale-125 bg-[#6D896E]" : "bg-neutral-300 dark:bg-neutral-700"
+                        }`}
+                      />
+                      <span
+                        className={`font-serif text-2xl tracking-[-0.015em] transition-colors duration-300 xl:text-[1.7rem] ${
+                          active ? "font-bold text-[#0F1713]" : "font-semibold text-neutral-400 group-hover:text-neutral-700"
+                        }`}
+                      >
+                        {card.title}
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+
+            <div className="flex flex-col items-center">
+              <Carousel_002
+                slides={capabilitySlides}
+                className="max-w-none"
+                deckClassName="h-[440px] w-[300px] sm:h-[480px] sm:w-[380px] xl:h-[520px] xl:w-[420px]"
+                slideClassName="rounded-3xl"
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper;
                 }}
-                className="group relative flex transform-gpu flex-col gap-6 rounded-2xl border border-neutral-200 bg-white/70 p-7 shadow-[0_1px_2px_rgba(10,15,13,0.04),0_8px_24px_-16px_rgba(10,15,13,0.12)] backdrop-blur-md transition-all duration-300 will-change-transform hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-[0_1px_2px_rgba(10,15,13,0.04),0_22px_44px_-20px_rgba(16,185,129,0.28)] sm:p-8 dark:border-white/10 dark:bg-white/[0.04]"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 text-neutral-800 transition-colors duration-200 group-hover:text-emerald-500 dark:border-white/10 dark:bg-white/[0.04] dark:text-neutral-200">
-                  <card.icon className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
+                onSlideChange={setActiveCapability}
+              />
+              <div className="mt-2 flex items-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => stepCapability(-1)}
+                  aria-label="Previous capability"
+                  className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-700 transition-colors hover:border-neutral-400 hover:text-neutral-900"
+                >
+                  <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+                </button>
+                <span
+                  className="min-w-[4.5rem] text-center font-sans text-xs font-semibold tabular-nums tracking-wider text-neutral-600 sm:text-sm dark:text-neutral-400"
+                  aria-live="polite"
+                >
+                  <span className="text-[#0F1713] dark:text-neutral-200">{pad(activeCapability + 1)}</span>
+                  <span className="mx-1.5 text-neutral-400">/</span>
+                  {pad(capabilities.length)}
                 </span>
-                <div>
-                  <h3 className="text-xl font-semibold leading-[1.2] tracking-[-0.015em] text-neutral-900">
-                    {card.title}
-                  </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-neutral-600 sm:text-[15px]">
-                    {card.description}
-                  </p>
-                </div>
-              </a>
-            ))}
+                <button
+                  type="button"
+                  onClick={() => stepCapability(1)}
+                  aria-label="Next capability"
+                  className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-700 transition-colors hover:border-neutral-400 hover:text-neutral-900"
+                >
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -408,69 +436,65 @@ const WhySection = () => {
       {/* ─────────────────────────────────────────────────────────────
           Part 3: "The Operators Behind PresciaIQ" (Founders Section)
          ───────────────────────────────────────────────────────────── */}
-      <div className="relative w-full bg-white pt-16 sm:pt-20">
-        <div className="mx-auto w-full max-w-[1520px] px-4 pb-20 text-left sm:px-8 sm:pb-24 lg:px-12">
+      <div ref={foundersRef} className="relative w-full overflow-x-clip bg-white pt-16 sm:pt-20">
+        <div className="mx-auto w-full max-w-5xl px-4 pb-20 text-left sm:px-8 sm:pb-24 lg:px-0">
           <div className="max-w-3xl mb-10 sm:mb-14">
             <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-neutral-900 mb-4 leading-[1.08]">
               The Operators Behind PresciaIQ
             </h3>
           </div>
 
-          <div
-            ref={founderGridRef}
-            className="grid w-full grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2"
-          >
+          {/* Full-bleed portraits; the bio drawer opens on hover or keyboard
+              focus, and stays open on touch screens, which have no hover. */}
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
             {team.map((founder, index) => (
-              <div
+              <article
                 key={founder.name}
                 ref={(element) => {
                   founderCardRefs.current[index] = element;
                 }}
-                className="flex h-full min-h-[320px] flex-col gap-6 overflow-hidden rounded-3xl border border-neutral-200/90 bg-white p-7 text-neutral-900 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-neutral-300 hover:shadow-2xl hover:shadow-neutral-900/5 md:flex-row md:p-8"
+                className="group relative isolate h-[520px] overflow-hidden rounded-3xl bg-neutral-900"
               >
-                <div className="group/portrait relative h-[220px] w-[170px] shrink-0 overflow-hidden rounded-2xl bg-neutral-100 border border-neutral-200 ring-1 ring-emerald-600/20 shadow-sm">
-                  <div className="absolute inset-0">
-                    <img
-                      src={founder.photo}
-                      alt={founder.name}
-                      className="h-full w-full object-cover object-top transition-transform duration-[400ms] group-hover/portrait:scale-[1.025]"
-                    />
-                  </div>
-                </div>
+                <img
+                  src={founder.photo}
+                  alt={founder.name}
+                  className="absolute inset-0 -z-10 h-full w-full object-cover object-top transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-focus-within:scale-105"
+                />
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-black/80 via-black/30 to-transparent"
+                />
 
-                <div className="flex min-w-0 flex-1 flex-col justify-between text-left">
-                  <div>
-                    <h4 className="text-2xl font-sans font-bold tracking-tight text-neutral-900 md:text-3xl">
-                      {founder.name}
-                    </h4>
-                    <span className="mt-1.5 w-fit rounded-full border border-neutral-200/80 bg-neutral-100 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-widest text-neutral-600">
-                      {founder.role}
-                    </span>
-                    <p className="mt-4 text-sm leading-relaxed text-neutral-600 md:text-base">
-                      {founder.focus}
-                    </p>
-                  </div>
-                  <div className="mt-auto pt-4">
-                    <a
-                      href={founder.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Connect with ${founder.name} on LinkedIn`}
-                      className="group/link -ml-3 mt-6 inline-flex w-fit items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium text-neutral-700 transition-all hover:bg-neutral-100 hover:text-emerald-600"
-                    >
-                      Connect on LinkedIn
-                      <svg
-                        className="h-4 w-4"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.34 18V9.67H5.57V18h2.77ZM6.96 8.53a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2ZM18 18v-4.56c0-2.44-1.3-3.58-3.04-3.58a2.63 2.63 0 0 0-2.37 1.3V9.67H9.82V18h2.77v-4.12c0-1.09.21-2.15 1.56-2.15 1.33 0 1.35 1.25 1.35 2.22V18H18Z" />
-                      </svg>
-                    </a>
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                  <h4 className="font-serif text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                    {founder.name}
+                  </h4>
+                  <p className="mt-1 font-mono text-xs font-semibold uppercase tracking-widest text-[#6D896E]">
+                    {founder.role}
+                  </p>
+
+                  {/* Grid rows 0fr -> 1fr animate the drawer to its exact height
+                      (a max-height cap overshoots and lags on the way out);
+                      height, fade and lift share one 250ms transition, no delay. */}
+                  <div className="pointer-events-none grid translate-y-3 grid-rows-[0fr] opacity-0 transition-[grid-template-rows,opacity,transform] delay-0 duration-[250ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] will-change-[transform,opacity] group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:grid-rows-[1fr] group-focus-within:opacity-100 [@media(hover:none)]:pointer-events-auto [@media(hover:none)]:translate-y-0 [@media(hover:none)]:grid-rows-[1fr] [@media(hover:none)]:opacity-100">
+                    <div className="min-h-0 overflow-hidden">
+                      <div className="mt-3 rounded-2xl border border-white/10 bg-black/60 p-6 backdrop-blur-md">
+                        <p className="text-sm leading-relaxed text-neutral-200">{founder.focus}</p>
+                        <a
+                          href={founder.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Connect with ${founder.name} on LinkedIn`}
+                          className="mt-3 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#6D896E] transition-colors hover:text-white"
+                        >
+                          Connect on LinkedIn
+                          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                        </a>
+                    </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -482,16 +506,16 @@ const WhySection = () => {
           role="dialog"
           aria-modal="true"
           aria-labelledby="thesis-modal-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md transition-all duration-300 animate-in fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-md animate-in fade-in duration-300"
           onClick={() => setIsThesisOpen(false)}
         >
           <div
-            className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-[#0D1210]/95 p-8 text-left text-white shadow-2xl backdrop-blur-xl"
+            className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-[#0D1114] p-8 text-left text-white shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Ambient Background Glow inside Modal */}
+            {/* A whisper of brand olive from the top-right corner. */}
             <div
-              className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/10 blur-[80px]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(109,137,110,0.15),transparent_70%)]"
               aria-hidden="true"
             />
 
@@ -499,7 +523,7 @@ const WhySection = () => {
             <div className="flex items-start justify-between gap-4 mb-6 relative z-10">
               <h3
                 id="thesis-modal-title"
-                className="text-2xl font-sans font-bold leading-tight tracking-tight text-white sm:text-3xl"
+                className="font-serif text-2xl leading-tight tracking-tight text-white sm:text-3xl"
               >
                 Intelligent Systems Thesis
               </h3>
@@ -508,24 +532,24 @@ const WhySection = () => {
                 type="button"
                 onClick={() => setIsThesisOpen(false)}
                 aria-label="Close modal"
-                className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/5 text-neutral-400 transition-all hover:border-[#6D896E]/50 hover:bg-white/10 hover:text-white"
               >
-                ✕
+                <X className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
 
             {/* Modal Content - Full Detailed Thesis */}
-            <div className="relative z-10 max-h-[60vh] space-y-5 overflow-y-auto pr-2 text-[15px] leading-7 text-neutral-300">
-              <p className="text-base font-medium leading-7 text-white">
+            <div className="relative z-10 max-h-[60vh] space-y-4 overflow-y-auto pr-2 font-sans text-sm leading-relaxed text-neutral-300 sm:text-base">
+              <p className="font-medium text-white">
                 Every business in Australia pays an unnecessary tax in operational friction, disconnected software, and latency.
               </p>
-              <p className="text-neutral-400">
+              <p>
                 It is the marketing budget misallocated without predictive conversion modeling. The project that slips weeks because field data was trapped in silos. The engineering team rebuilding boilerplate instead of deploying high-performance digital platforms.
               </p>
-              <p className="text-neutral-400">
-                We engineer <span className="text-white font-semibold">Intelligent Systems</span> designed for seamless execution and built for scale. From high-speed web and native app architectures to robust operational automation and Daynori, our infrastructure gives Australian enterprises the velocity required to scale with certainty.
+              <p>
+                We engineer <span className="font-semibold text-white">Intelligent Systems</span> designed for seamless execution and built for scale. From high-speed web and native app architectures to robust operational automation and Daynori, our infrastructure gives Australian enterprises the velocity required to scale with certainty.
               </p>
-              <p className="text-neutral-400">
+              <p>
                 Australian SMB and mid-market operators deserve enterprise-grade software built specifically for Australian conditions, engineered with zero compromise.
               </p>
             </div>
@@ -535,7 +559,7 @@ const WhySection = () => {
               <button
                 type="button"
                 onClick={() => setIsThesisOpen(false)}
-                className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-neutral-300 hover:text-white transition-colors cursor-pointer"
+                className="cursor-pointer rounded-full bg-[#6D896E] px-6 py-2.5 text-sm font-medium text-[#050806] shadow-sm transition-colors hover:bg-[#5f7a60]"
               >
                 Close Thesis
               </button>

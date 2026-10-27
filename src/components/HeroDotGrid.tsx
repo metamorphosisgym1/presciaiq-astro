@@ -129,6 +129,8 @@ export default function HeroDotGrid() {
       canvas.height = Math.round(height * pixelRatio);
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       if (!frame) drawStatic();
+      // The canvas draws the grid now; drop the server-rendered stand-in.
+      canvas.style.backgroundImage = "none";
     };
 
     // Ripples fire only on an explicit press, never on hover, drag or scroll.
@@ -166,5 +168,17 @@ export default function HeroDotGrid() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 h-full w-full" />;
+  // Until the canvas first draws (before hydration), the same grid as a CSS
+  // background, so the hero is never bare.
+  return (
+    <canvas
+      ref={canvasRef}
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 z-0 h-full w-full"
+      style={{
+        backgroundImage: `radial-gradient(circle, rgba(255, 255, 255, ${BASE_ALPHA}) ${DOT_RADIUS}px, transparent ${DOT_RADIUS + 0.25}px)`,
+        backgroundSize: `${CELL}px ${CELL}px`,
+      }}
+    />
+  );
 }

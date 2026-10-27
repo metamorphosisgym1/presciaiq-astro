@@ -45,19 +45,19 @@ const company: NavLink[] = [
 const Footer = () => {
   return (
     <footer className="w-full bg-[#020503] pt-20 pb-12 text-left relative z-10 overflow-hidden">
-      {/* ── Left Flank Emerald Ambient Glow ── */}
+      {/* ── Left Flank Olive Ambient Glow ── */}
       <div
-        className="pointer-events-none absolute bottom-0 -left-16 w-72 h-72 bg-emerald-500/10 blur-[130px] rounded-full"
+        className="pointer-events-none absolute bottom-0 -left-16 w-72 h-72 bg-[#6D896E]/10 blur-[130px] rounded-full"
         aria-hidden="true"
       />
-      {/* ── Right Flank Emerald Ambient Glow ── */}
+      {/* ── Right Flank Olive Ambient Glow ── */}
       <div
-        className="pointer-events-none absolute top-0 -right-16 w-72 h-72 bg-emerald-500/8 blur-[130px] rounded-full"
+        className="pointer-events-none absolute top-0 -right-16 w-72 h-72 bg-[#6D896E]/[0.08] blur-[130px] rounded-full"
         aria-hidden="true"
       />
       {/* ── Top seamless fade from CTA section ── */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#6D896E]/15 to-transparent"
         aria-hidden="true"
       />
 
@@ -88,9 +88,9 @@ const Footer = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/[0.06] border border-emerald-500/20 text-xs font-mono text-emerald-400/90 shadow-sm"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6D896E]/[0.08] border border-[#6D896E]/25 text-xs font-mono text-[#6D896E] shadow-sm"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse shadow-[0_0_8px_#00FF88]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#6D896E] animate-pulse shadow-[0_0_8px_rgba(109,137,110,0.6)]" />
               <span>Systems Operational // Holdout-Validated Engine</span>
             </motion.div>
           </motion.div>
@@ -113,11 +113,11 @@ const Footer = () => {
                     <a
                       href={item.href}
                       {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-emerald-400 transition-colors py-0.5"
+                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-[#6D896E] transition-colors py-0.5"
                     >
                       <span>{item.label}</span>
                       {item.badge && (
-                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 ml-2 font-mono leading-none font-medium">
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#6D896E]/20 text-[#6D896E] border border-[#6D896E]/30 ml-2 font-mono leading-none font-medium">
                           {item.badge}
                         </span>
                       )}
@@ -142,7 +142,7 @@ const Footer = () => {
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-emerald-400 transition-colors py-0.5"
+                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-[#6D896E] transition-colors py-0.5"
                     >
                       <span>{item.label}</span>
                     </a>
@@ -166,11 +166,11 @@ const Footer = () => {
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-emerald-400 transition-colors py-0.5"
+                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-[#6D896E] transition-colors py-0.5"
                     >
                       <span>{item.label}</span>
                       {item.badge && (
-                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 ml-2 font-mono leading-none font-medium">
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#6D896E]/20 text-[#6D896E] border border-[#6D896E]/30 ml-2 font-mono leading-none font-medium">
                           {item.badge}
                         </span>
                       )}
@@ -195,7 +195,7 @@ const Footer = () => {
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-emerald-400 transition-colors py-0.5"
+                      className="group inline-flex items-center text-sm text-neutral-400 hover:text-[#6D896E] transition-colors py-0.5"
                     >
                       <span>{item.label}</span>
                     </a>
@@ -216,11 +216,11 @@ const Footer = () => {
           style={{
             borderTop: "1px solid transparent",
             backgroundImage:
-              "linear-gradient(to right, transparent, rgba(16,185,129,0.08) 20%, rgba(16,185,129,0.08) 80%, transparent)",
+              "linear-gradient(to right, transparent, rgba(109,137,110,0.15) 20%, rgba(109,137,110,0.15) 80%, transparent)",
             backgroundOrigin: "border-box",
             backgroundClip: "border-box",
             borderImageSource:
-              "linear-gradient(to right, transparent, rgba(16,185,129,0.18) 30%, rgba(16,185,129,0.18) 70%, transparent)",
+              "linear-gradient(to right, transparent, rgba(109,137,110,0.3) 30%, rgba(109,137,110,0.3) 70%, transparent)",
             borderImageSlice: 1,
           }}
         >
@@ -232,21 +232,21 @@ const Footer = () => {
             <div className="flex items-center gap-4 text-neutral-500">
               <a
                 href="/privacy/"
-                className="text-xs font-mono hover:text-emerald-400 transition-colors"
+                className="text-xs font-mono hover:text-[#6D896E] transition-colors"
               >
                 Privacy Policy
               </a>
               <span className="text-neutral-700">•</span>
               <a
                 href="/terms/"
-                className="text-xs font-mono hover:text-emerald-400 transition-colors"
+                className="text-xs font-mono hover:text-[#6D896E] transition-colors"
               >
                 Terms of Service
               </a>
               <span className="text-neutral-700">•</span>
               <a
                 href="/insights/ai-automation-security-privacy/"
-                className="text-xs font-mono hover:text-emerald-400 transition-colors"
+                className="text-xs font-mono hover:text-[#6D896E] transition-colors"
               >
                 Security
               </a>
@@ -257,7 +257,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/presciaiq-holdings"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 rounded-lg hover:bg-emerald-500/[0.08] hover:text-emerald-400 transition-all"
+                className="p-1.5 rounded-lg hover:bg-[#6D896E]/10 hover:text-[#6D896E] transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -266,7 +266,7 @@ const Footer = () => {
                 href="https://twitter.com/presciaiq"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 rounded-lg hover:bg-emerald-500/[0.08] hover:text-emerald-400 transition-all"
+                className="p-1.5 rounded-lg hover:bg-[#6D896E]/10 hover:text-[#6D896E] transition-all"
                 aria-label="X / Twitter"
               >
                 <Twitter className="w-4 h-4" />
