@@ -1,9 +1,14 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
 // three.js and the globe load after the page has painted, so they never hold
-// up the headline. The globe still plays its own assemble intro when it mounts.
+// up the headline. Desktop: the globe mounts once the page is idle and plays its
+// assemble intro. Phones: a still of the finished globe shows first and the live
+// globe takes over, without the intro, on the first touch, scroll or key.
 const Globe = lazy(() => import('../three/Globe'));
+const PHONE = "(max-width: 767px)";
+// 1px transparent gif: desktop never downloads the phone poster.
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
 import HeroDotGrid from '../HeroDotGrid';
 import { Skiper58 } from '../ui/skiper-ui/skiper58';
 
@@ -13,8 +18,21 @@ const HeroSection = () => {
   // The globe fits this slot: whatever height is left above the copy.
   const globeSlotRef = useRef<HTMLDivElement>(null);
   const [globeReady, setGlobeReady] = useState(false);
+  const [onPhone, setOnPhone] = useState(false);
+  const [posterGone, setPosterGone] = useState(false);
+  const hidePoster = useCallback(() => setPosterGone(true), []);
 
   useEffect(() => {
+    if (window.matchMedia(PHONE).matches) {
+      setOnPhone(true);
+      const events = ["touchstart", "pointerdown", "wheel", "scroll", "keydown"] as const;
+      const wake = () => {
+        events.forEach((type) => window.removeEventListener(type, wake));
+        setGlobeReady(true);
+      };
+      events.forEach((type) => window.addEventListener(type, wake, { passive: true, once: true }));
+      return () => events.forEach((type) => window.removeEventListener(type, wake));
+    }
     const start = () => {
       if ("requestIdleCallback" in window) window.requestIdleCallback(() => setGlobeReady(true), { timeout: 1500 });
       else setTimeout(() => setGlobeReady(true), 200);
@@ -45,11 +63,32 @@ const HeroSection = () => {
           it, and its bottom curve sits just above the copy. Copy sits above (z-10). */}
       {globeReady && (
         <Suspense fallback={null}>
-          <Globe className="absolute inset-x-0 -top-20 bottom-0 z-[1]" slotRef={globeSlotRef} />
+          <Globe
+            className="absolute inset-x-0 -top-20 bottom-0 z-[1]"
+            slotRef={globeSlotRef}
+            skipIntro={onPhone}
+            onReady={hidePoster}
+          />
         </Suspense>
       )}
 
-      <div ref={globeSlotRef} aria-hidden="true" className="pointer-events-none min-h-0 w-full flex-1" />
+      <div ref={globeSlotRef} aria-hidden="true" className="pointer-events-none relative min-h-0 w-full flex-1 [container-type:size]">
+        {/* Phones only: the finished globe as a still, placed with the same size
+            rule as the live canvas (globe-poster in global.css). */}
+        <picture>
+          <source media="(min-width: 768px)" srcSet={BLANK} />
+          <source type="image/avif" srcSet="/assets/globe-poster.avif" />
+          <img
+            src="/assets/globe-poster.webp"
+            alt=""
+            width={602}
+            height={814}
+            fetchPriority="high"
+            decoding="async"
+            className={`globe-poster z-[1] transition-opacity duration-300 md:hidden ${posterGone ? "opacity-0" : "opacity-100"}`}
+          />
+        </picture>
+      </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl shrink-0 flex-col items-center overflow-visible px-4 pb-6 pt-8 text-center sm:pb-8">
         <div className="flex w-full flex-col items-center">

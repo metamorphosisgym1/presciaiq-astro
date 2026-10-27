@@ -493,6 +493,21 @@ html.reveal-pending [data-hero] [data-reveal] {
   opacity: 0;
 }
 
+/* Phone hero: still of the finished globe, inside the globe slot (a size
+   container). Same rule as Globe.tsx resize(): radius = min((slot height - 40px) / 2,
+   46vw, 230px), sphere bottom 8px below the slot. The image is cropped 1.0913r left
+   and right of the centre, 1.4r above and 1.5507r below it. */
+.globe-poster {
+  --r: max(60px, min(calc((100cqh - 40px) / 2), 46vw, 230px));
+  position: absolute;
+  left: calc(50% - 1.0913 * var(--r));
+  top: calc(100cqh + 8px - 2.4 * var(--r));
+  width: calc(2.1826 * var(--r));
+  height: calc(2.9507 * var(--r));
+  max-width: none;
+  pointer-events: none;
+}
+
 /* Skiper58 headline entrance: same roll as its framer variants, run by CSS from first paint. */
 @keyframes skiperRollIn {
   from { transform: translateY(160%); opacity: 0; }

@@ -238,9 +238,13 @@ type GlobeProps = {
    * past the slot; without a slot the globe centres in the container.
    */
   slotRef?: RefObject<HTMLElement | null>;
+  /** Start fully assembled (no scatter intro), e.g. when replacing a still poster. */
+  skipIntro?: boolean;
+  /** Called once, after the first frame with compiled shaders is on the canvas. */
+  onReady?: () => void;
 };
 
-export default function Globe({ className = "", slotRef }: GlobeProps) {
+export default function Globe({ className = "", slotRef, skipIntro = false, onReady }: GlobeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -277,10 +281,11 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
     const timeUniform = { value: 0 };
     const scaleUniform = { value: 1 }; // device pixels per design pixel, times globe size
     const resolutionUniform = { value: new THREE.Vector2(1, 1) }; // canvas size in CSS px
-    const revealUniform = { value: reducedMotion ? 1 : 0 }; // arcs draw in from their hubs
+    const assembled = reducedMotion || skipIntro;
+    const revealUniform = { value: assembled ? 1 : 0 }; // arcs draw in from their hubs
     const motionUniform = { value: reducedMotion ? 0 : 1 };
-    const assembleUniform = { value: reducedMotion ? 1 : 0 }; // intro: scattered -> on the sphere
-    const glowUniform = { value: reducedMotion ? 1 : 0 }; // halo, rim and glass fade in with it
+    const assembleUniform = { value: assembled ? 1 : 0 }; // intro: scattered -> on the sphere
+    const glowUniform = { value: assembled ? 1 : 0 }; // halo, rim and glass fade in with it
     // Declared up front: requestRender() can run during setup (resize).
     let disposed = false;
     let shadersReady = false; // set once compileAsync() resolves, below
@@ -866,7 +871,9 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
     document.addEventListener("visibilitychange", onVisibility);
 
     const timer = new THREE.Timer();
-    let introTime = 0;
+    // Past every intro threshold when skipped, so the first frame is the finished globe.
+    let introTime = skipIntro ? INTRO_DURATION * 3 : 0;
+    let readyReported = false;
 
     function tick(timestamp: number) {
       frame = 0;
@@ -897,6 +904,10 @@ export default function Globe({ className = "", slotRef }: GlobeProps) {
       globe.rotation.x += (targetTilt - globe.rotation.x) * (1 - Math.exp(-delta * 8));
 
       renderer.render(scene, camera);
+      if (shadersReady && !readyReported) {
+        readyReported = true;
+        onReady?.();
+      }
       // Only the loop the coordinator granted keeps itself alive. Without the
       // grant this was a one-off repaint (a resize or a drag) and it stops here.
       if (renderGranted) requestRender();
