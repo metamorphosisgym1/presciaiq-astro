@@ -40,6 +40,7 @@ const navigationItems = [
 const STAGGER = 0.018;
 
 export interface TextRollProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  as?: "h1" | "p";
   children?: React.ReactNode;
   text?: string;
   className?: string;
@@ -62,6 +63,7 @@ export const TextRoll: React.FC<TextRollProps> = ({
   center = true,
   duration = 0.48,
   stagger = STAGGER,
+  as: Tag = "h1",
   ...props
 }) => {
   const content = text || (typeof children === "string" ? children : "");
@@ -73,7 +75,7 @@ export const TextRoll: React.FC<TextRollProps> = ({
     center ? stagger * Math.abs(index - (totalChars - 1) / 2) : stagger * index;
 
   return (
-    <h1
+    <Tag
       aria-label={content}
       className={cn(
         "font-serif text-white text-center font-semibold tracking-[-0.03em] select-none",
@@ -136,7 +138,7 @@ export const TextRoll: React.FC<TextRollProps> = ({
           );
         })}
       </motion.span>
-    </h1>
+    </Tag>
   );
 };
 

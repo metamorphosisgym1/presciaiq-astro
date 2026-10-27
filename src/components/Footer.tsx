@@ -82,6 +82,11 @@ const Footer = () => {
             <p className="text-sm text-neutral-400 leading-relaxed max-w-sm mb-6 font-sans">
               Enterprise-grade predictive AI infrastructure engineered for high-growth Australian operators.
             </p>
+            <address className="not-italic text-sm text-neutral-400 font-sans space-y-1.5 mb-6">
+              <a href="tel:0400457006" className="block hover:text-white transition-colors">0400 457 006</a>
+              <span className="block">100 Harris St, Pyrmont, New South Wales 2009, AU</span>
+              <span className="block">1501 Biscayne Blvd, Miami, Florida 33132, US</span>
+            </address>
             {/* Operational Status Pill */}
             <motion.div
               initial={{ opacity: 0 }}

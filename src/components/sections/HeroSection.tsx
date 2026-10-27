@@ -35,7 +35,9 @@ const HeroSection = () => {
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl shrink-0 flex-col items-center overflow-visible px-4 pb-6 pt-8 text-center sm:pb-8">
         <div className="flex w-full flex-col items-center">
+          <h1 className="sr-only">Predictive AI and AI Development Company, Australia</h1>
           <Skiper58
+            as="p"
             text={HEADLINE}
             className="font-serif text-3xl font-semibold leading-[1.02] tracking-tight text-white text-center select-none sm:text-4xl md:whitespace-nowrap md:text-5xl lg:text-[3.25rem]"
           />
