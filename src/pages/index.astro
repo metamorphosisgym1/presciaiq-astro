@@ -9,23 +9,23 @@ import AppBuildingSection from '../components/sections/AppBuildingSection';
 import WhySection from '../components/sections/WhySection';
 import LeadCaptureSection from '../components/sections/LeadCaptureSection';
 // Same sections and order as components/App.tsx, but each is its own island:
-// the hero wakes right after the first paint (visible), the rest as they come near,
+// the hero wakes after load and the first paint (client:paint), the rest as they come near,
 // so a phone never runs every section's script at once on load.
 const near = { rootMargin: '200px' };
 ---
 <Layout title="PresciaIQ | Australia's Predictive AI Company">
-  <HeroSection client:visible />
-  <LogoMarquee client:visible={near} />
+  <HeroSection client:paint />
+  <LogoMarquee client:paint={near} />
   <div class="relative">
     {/* White ink rises out of the marquee into the light Engines section. */}
-    <LiquidDivider client:visible={near} className="h-[50vh] min-h-[300px] max-h-[520px]" />
-    <ProductsSection client:visible={near} />
+    <LiquidDivider client:paint={near} className="h-[50vh] min-h-[300px] max-h-[520px]" />
+    <ProductsSection client:paint={near} />
     {/* Dark particle swarm swinging across the white as the Engines section arrives. */}
-    <ParticleSwing client:visible={near} trigger="products" className="z-20" />
+    <ParticleSwing client:paint={near} trigger="products" className="z-20" />
   </div>
-  <AppBuildingSection client:visible={near} showCaseStudy={false} featured />
-  <LiquidDivider client:visible={near} className="h-[50vh] min-h-[300px] max-h-[520px]" />
-  <WhySection client:visible={near} />
-  <LiquidDivider client:visible={near} variant="light-to-dark" className="h-[50vh] min-h-[300px] max-h-[520px]" />
-  <LeadCaptureSection client:visible={near} />
+  <AppBuildingSection client:paint={near} showCaseStudy={false} featured />
+  <LiquidDivider client:paint={near} className="h-[50vh] min-h-[300px] max-h-[520px]" />
+  <WhySection client:paint={near} />
+  <LiquidDivider client:paint={near} variant="light-to-dark" className="h-[50vh] min-h-[300px] max-h-[520px]" />
+  <LeadCaptureSection client:paint={near} />
 </Layout>

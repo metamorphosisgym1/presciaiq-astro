@@ -467,7 +467,8 @@ const Navbar = () => {
           }
         }
         .hero-nav-entrance {
-          animation: heroNavEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+          /* Starts 50ms in, so the first frame already paints the nav (first contentful paint). */
+          animation: heroNavEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) -0.05s both;
         }
         @media (prefers-reduced-motion: reduce) {
           .hero-nav-entrance {

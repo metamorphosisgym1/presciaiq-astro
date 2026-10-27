@@ -3,6 +3,16 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
+// client:paint (src/directives/paint.ts): hydrate after load and the first frame.
+const clientPaint = {
+  name: 'client-paint',
+  hooks: {
+    'astro:config:setup': ({ addClientDirective }) => {
+      addClientDirective({ name: 'paint', entrypoint: './src/directives/paint.ts' });
+    },
+  },
+};
+
 const canonicalStaticPaths = new Set([
   '/',
   '/about/',
@@ -37,6 +47,7 @@ export default defineConfig({
   site: 'https://www.presciaiq.com.au',
   trailingSlash: 'always',
   integrations: [
+    clientPaint,
     react(),
     tailwind(),
     sitemap({

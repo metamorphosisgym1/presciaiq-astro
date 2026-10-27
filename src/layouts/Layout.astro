@@ -37,7 +37,7 @@ const resolvedCanonical = new URL(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script is:inline>
-      // Islands hydrate after the first paint (client:idle). Hero reveal targets stay hidden until
+      // Islands hydrate after load and the first paint (client:paint). Hero reveal targets stay hidden until
       // SmoothScroll starts their fade, so they never show, vanish and fade back in. Safety: 5s.
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('reveal-pending');
@@ -280,11 +280,11 @@ const resolvedCanonical = new URL(
 </head>
   <body class="bg-[#030705] text-[#C9CCC8] font-sans antialiased selection:bg-[#00FF88]/20 selection:text-[#00FF88] overflow-x-clip">
     <AmbientBackground />
-    <SmoothScroll client:idle />
-    <Navbar client:visible />
+    <SmoothScroll client:paint />
+    <Navbar client:paint />
     <main class="w-full overflow-x-clip" style="padding-top: 80px;"><slot /></main>
     <Footer client:visible />
-    <AuditPopup client:idle />
+    <AuditPopup client:paint />
     <Analytics />
 
     <script is:inline>
