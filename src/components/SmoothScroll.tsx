@@ -138,6 +138,8 @@ export default function SmoothScroll() {
           );
         });
       });
+      // The fromTo calls above now hold the hidden start state inline.
+      document.documentElement.classList.remove("reveal-pending");
     };
     const waitForAppHydration = () => {
       if (document.documentElement.dataset.appHydrated === "true") {

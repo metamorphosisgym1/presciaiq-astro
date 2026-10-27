@@ -1,18 +1,19 @@
 const clients = [
-  { name: "Modern Body Method", src: "/logos/modern-body-method.png" },
+  { name: "Modern Body Method", src: "/logos/modern-body-method.webp" },
   { name: "Longevity Australia", src: "/logos/longevity.png" },
   { name: "MAC Developments", src: "/logos/mac-developments.png" },
-  { name: "BuildHire", src: "/logos/buildhire.png" },
-  { name: "A-One Fencing & Gates", src: "/logos/a-one-fencing.png" },
-  { name: "Loop", src: "/logos/loop.png" },
-  { name: "Vale Tudo Training", src: "/logos/vale-tudo.png" },
-  { name: "The Silk Studio", src: "/logos/the-silk-studio.png" },
+  { name: "BuildHire", src: "/logos/buildhire.webp" },
+  { name: "A-One Fencing & Gates", src: "/logos/a-one-fencing.webp" },
+  { name: "Loop", src: "/logos/loop.webp" },
+  { name: "Vale Tudo Training", src: "/logos/vale-tudo.webp" },
+  { name: "The Silk Studio", src: "/logos/the-silk-studio.webp" },
   { name: "Hypertint", src: "/logos/hypertint.png" },
 ];
 
 export default function LogoMarquee() {
   return (
     <section
+      data-stardust-window
       aria-label="Trusted by Australian businesses"
       className="overflow-hidden border-y border-white/[0.06] bg-ink-950 py-7 sm:py-8"
     >
@@ -43,6 +44,8 @@ export default function LogoMarquee() {
                   <img
                     src={client.src}
                     alt={copy === 0 ? client.name : ""}
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-7 max-w-full object-contain opacity-60 transition-opacity duration-300 hover:opacity-100 sm:max-h-8"
                   />
                 </div>

@@ -1,6 +1,9 @@
-import { useRef } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import Globe from '../three/Globe';
+
+// three.js and the globe load after the page has painted, so they never hold
+// up the headline. The globe still plays its own assemble intro when it mounts.
+const Globe = lazy(() => import('../three/Globe'));
 import HeroDotGrid from '../HeroDotGrid';
 import { Skiper58 } from '../ui/skiper-ui/skiper58';
 
@@ -9,6 +12,17 @@ const HEADLINE = "Decisions before the risk appears.";
 const HeroSection = () => {
   // The globe fits this slot: whatever height is left above the copy.
   const globeSlotRef = useRef<HTMLDivElement>(null);
+  const [globeReady, setGlobeReady] = useState(false);
+
+  useEffect(() => {
+    const start = () => {
+      if ("requestIdleCallback" in window) window.requestIdleCallback(() => setGlobeReady(true), { timeout: 1500 });
+      else setTimeout(() => setGlobeReady(true), 200);
+    };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+    return () => window.removeEventListener("load", start);
+  }, []);
 
   return (
     <section
@@ -29,7 +43,11 @@ const HeroSection = () => {
       {/* Full-bleed canvas so the halo and long-haul arcs never clip. It reaches
           80px up behind the transparent navbar; the sphere itself starts just below
           it, and its bottom curve sits just above the copy. Copy sits above (z-10). */}
-      <Globe className="absolute inset-x-0 -top-20 bottom-0 z-[1]" slotRef={globeSlotRef} />
+      {globeReady && (
+        <Suspense fallback={null}>
+          <Globe className="absolute inset-x-0 -top-20 bottom-0 z-[1]" slotRef={globeSlotRef} />
+        </Suspense>
+      )}
 
       <div ref={globeSlotRef} aria-hidden="true" className="pointer-events-none min-h-0 w-full flex-1" />
 

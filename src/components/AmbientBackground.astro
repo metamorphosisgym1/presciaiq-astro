@@ -122,3 +122,18 @@
     </g>
   </svg>
 </div>
+
+<script is:inline>
+  // Run the stardust twinkle only while a see-through band ([data-stardust-window]) is on screen.
+  // AmbientBackground renders before <main>, so wait for the rest of the HTML.
+  document.addEventListener('DOMContentLoaded', function () {
+    var bands = document.querySelectorAll('[data-stardust-window]');
+    if (!bands.length || !('IntersectionObserver' in window)) return;
+    var live = new Set();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.isIntersecting ? live.add(e.target) : live.delete(e.target); });
+      document.documentElement.classList.toggle('stardust-live', live.size > 0);
+    });
+    bands.forEach(function (el) { io.observe(el); });
+  });
+</script>

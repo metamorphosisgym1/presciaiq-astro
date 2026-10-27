@@ -139,8 +139,10 @@ const Navbar = () => {
           {/* Brand Mark (Left) */}
           <a href="/" onClick={closeAll} className="flex items-center">
             <img
-              src="/assets/presciaiq-logo-transparent.png"
+              src="/assets/presciaiq-logo.webp"
               alt="PresciaIQ"
+              width={463}
+              height={96}
               className="h-7 sm:h-8 w-auto object-contain"
             />
           </a>

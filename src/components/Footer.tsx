@@ -74,8 +74,12 @@ const Footer = () => {
           >
             <a href="/" className="inline-block mb-5">
               <img
-                src="/assets/presciaiq-logo-transparent.png"
+                src="/assets/presciaiq-logo.webp"
                 alt="PresciaIQ"
+                width={463}
+                height={96}
+                loading="lazy"
+                decoding="async"
                 className="h-7 sm:h-8 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
               />
             </a>

@@ -85,7 +85,7 @@ export const TextRoll: React.FC<TextRollProps> = ({
     >
       <motion.span
         aria-hidden="true"
-        initial="initial"
+        initial={false}
         animate="animate"
         whileHover="hovered"
         className="inline"
@@ -110,7 +110,10 @@ export const TextRoll: React.FC<TextRollProps> = ({
                         hovered: { y: OFFSCREEN_ABOVE, opacity: 1 },
                       }}
                       transition={{ duration, ease: EASE, delay: delayFor(start + c) }}
-                      className="inline-block will-change-transform [backface-visibility:hidden]"
+                      // The entrance roll is the CSS animation skiper-roll-in (global.css), so
+                      // the headline paints with the HTML instead of after hydration.
+                      style={{ animationDuration: `${duration}s`, animationDelay: `${delayFor(start + c)}s` }}
+                      className="skiper-roll-in inline-block will-change-transform [backface-visibility:hidden]"
                     >
                       {char}
                     </motion.span>

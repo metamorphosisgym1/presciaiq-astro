@@ -32,6 +32,8 @@ function isCuratedSitemapPage(page) {
 }
 
 export default defineConfig({
+  // CSS inlined into each page so the first paint does not wait on a stylesheet request.
+  build: { inlineStylesheets: 'always' },
   site: 'https://www.presciaiq.com.au',
   trailingSlash: 'always',
   integrations: [

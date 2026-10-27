@@ -458,6 +458,8 @@ const WhySection = () => {
                 <img
                   src={founder.photo}
                   alt={founder.name}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 -z-10 h-full w-full object-cover object-top transition-transform duration-700 ease-out will-change-transform group-hover:scale-105 group-focus-within:scale-105"
                 />
                 <div
