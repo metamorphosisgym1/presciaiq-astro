@@ -121,6 +121,8 @@ export default function SmoothScroll() {
         });
 
         gsap.utils.toArray<HTMLElement>("[data-stagger]").forEach((container) => {
+          // The hero's stagger runs as CSS from first paint (global.css heroStaggerIn).
+          if (inHero(container)) return;
           gsap.fromTo(
             Array.from(container.children),
             { y: 30, filter: "blur(6px)", opacity: 0 },
@@ -138,8 +140,6 @@ export default function SmoothScroll() {
           );
         });
       });
-      // The fromTo calls above now hold the hidden start state inline.
-      document.documentElement.classList.remove("reveal-pending");
     };
     const waitForAppHydration = () => {
       if (document.documentElement.dataset.appHydrated === "true") {

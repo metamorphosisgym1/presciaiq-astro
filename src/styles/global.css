@@ -488,9 +488,21 @@
   }
 }
 
-html.reveal-pending [data-hero] [data-stagger] > *,
-html.reveal-pending [data-hero] [data-reveal] {
-  opacity: 0;
+/* Hero [data-stagger] entrance as CSS from first paint (SmoothScroll's GSAP stagger,
+   same values: y 30px, blur 6px, 0.8s expo out, 0.12s apart), so the hero never waits
+   for scripts. SmoothScroll skips hero stagger groups. */
+@keyframes heroStaggerIn {
+  from { transform: translateY(30px); filter: blur(6px); opacity: 0; }
+  to { transform: none; filter: none; opacity: 1; }
+}
+[data-hero] [data-stagger] > * {
+  animation: heroStaggerIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+[data-hero] [data-stagger] > :nth-child(2) { animation-delay: 0.12s; }
+[data-hero] [data-stagger] > :nth-child(3) { animation-delay: 0.24s; }
+[data-hero] [data-stagger] > :nth-child(4) { animation-delay: 0.36s; }
+@media (prefers-reduced-motion: reduce) {
+  [data-hero] [data-stagger] > * { animation: none; }
 }
 
 /* Phone hero: still of the finished globe, inside the globe slot (a size

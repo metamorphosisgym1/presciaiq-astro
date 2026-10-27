@@ -36,14 +36,6 @@ const resolvedCanonical = new URL(
     <meta name="google-site-verification" content="YkvGLb0AsKnv6O2YYsrsXeVaAMxlK3v1xhrrqkcarak" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script is:inline>
-      // Islands hydrate after load and the first paint (client:paint). Hero reveal targets stay hidden until
-      // SmoothScroll starts their fade, so they never show, vanish and fade back in. Safety: 5s.
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.documentElement.classList.add('reveal-pending');
-        setTimeout(function () { document.documentElement.classList.remove('reveal-pending'); }, 5000);
-      }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" media="print" onload="this.media='all'" />
