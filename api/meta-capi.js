@@ -21,7 +21,7 @@ function phoneE164Digits(raw) {
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'method' });
 
-  const pixelId = process.env.META_PIXEL_ID;
+  const pixelId = process.env.META_PIXEL_ID || '1089409557257136'; // dataset PresciaIQ 2026-11 (public ID)
   const token = process.env.META_CAPI_TOKEN;
   if (!pixelId || !token) return res.status(204).end();
 
