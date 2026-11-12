@@ -1,0 +1,233 @@
+---
+// Meta ad funnel, step 1 of 2: opt-in for the free AI Visibility Report (12 Nov 2026).
+// noindex, no menu, not in the sitemap. Survey: 4 multiple-choice questions, then contact details last.
+// On a successful submit: Lead (pixel + Conversions API, one event_id), GA4 generate_lead, then the booking page.
+import AdLayout from '../../../layouts/AdLayout.astro';
+import LpFaq from '../../../components/lp/LpFaq.astro';
+import { OPTIN_VIDEO_URL, WEB3FORMS_KEY } from '../../../lib/meta';
+
+const questions = [
+  { name: 'business_type', q: 'Which best describes your business?', options: [
+    'Trade or home service',
+    'Professional service (legal, accounting, health, real estate)',
+    'Shop, hospitality or online store',
+    'Software, SaaS or B2B',
+  ] },
+  { name: 'checked_ai', q: 'Have you checked what AI tools say about your business?', options: [
+    'No, not yet',
+    'Yes, and we are not named',
+    'Yes, and we are named',
+    'Not sure how',
+  ] },
+  { name: 'lead_source_now', q: 'Where do most new customers find you today?', options: [
+    'Google search or Google Maps',
+    'Word of mouth',
+    'Social media',
+    'Paid ads',
+  ] },
+  { name: 'budget', q: 'If the report shows gaps, what could you put toward fixing them?', options: [
+    '$5,000 to $10,000',
+    '$10,000 to $25,000',
+    '$25,000 or more',
+    'Not sure yet',
+  ] },
+];
+const total = questions.length + 1;
+---
+<AdLayout
+  title="Free AI Visibility Report | PresciaIQ"
+  description="See whether ChatGPT, Gemini and Google's AI name your business when customers in your city ask."
+>
+  <section class="hero wrap">
+    <div class="copy">
+      <p class="eyebrow">Free AI Visibility Report</p>
+      <h1 class="display">When customers ask ChatGPT who to call, does it name you?</h1>
+      <p class="sub">We ask ChatGPT, Gemini and Google's AI the questions your customers ask in your city, 3 times each. Then we show you who gets named instead of you, and why.</p>
+      {OPTIN_VIDEO_URL && (
+        <div class="video"><iframe src={OPTIN_VIDEO_URL} title="About the AI Visibility Report" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      )}
+    </div>
+
+    <div class="card" id="survey">
+      <p class="intro">Answer 4 quick questions to start your report.</p>
+      <div class="progress" aria-hidden="true"><span id="bar" style={`width:${100 / total}%`}></span></div>
+      <p class="stepcount" id="stepcount">Question 1 of {questions.length}</p>
+
+      <form id="lp-form" novalidate>
+        {questions.map((item, i) => (
+          <fieldset class="step" data-step={i} hidden={i !== 0}>
+            <legend>{item.q}</legend>
+            {item.options.map((opt) => (
+              <label class="opt">
+                <input type="radio" name={item.name} value={opt} required />
+                <span>{opt}</span>
+              </label>
+            ))}
+          </fieldset>
+        ))}
+
+        <fieldset class="step" data-step={questions.length} hidden>
+          <legend>Where should we send your report?</legend>
+          <div class="grid">
+            <label>Business name<input name="business_name" autocomplete="organization" required /></label>
+            <label>Website<input name="website" type="text" inputmode="url" placeholder="yourbusiness.com.au" required /></label>
+            <label>City or area you serve<input name="city" autocomplete="address-level2" required /></label>
+            <label>Your name<input name="full_name" autocomplete="name" required /></label>
+            <label>Mobile<input name="phone" type="tel" autocomplete="tel" required /></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+          </div>
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+          <button type="submit" class="cta" id="submit">Get my free report</button>
+          <p class="fine">Free, no lock in. Next you pick a time for a short call where we walk you through it.</p>
+          <p class="error" id="error" role="alert" hidden></p>
+        </fieldset>
+
+        <button type="button" class="back" id="back" hidden>Back</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="wrap two">
+    <div>
+      <h2 class="display">What is in your report</h2>
+      <ul class="ticks">
+        <li>The questions we asked, built from what people in your city search for</li>
+        <li>Whether you were named, on each AI tool, out of every run</li>
+        <li>The businesses AI named instead of you</li>
+        <li>The websites AI used as its sources</li>
+        <li>Why you were missed, and the first 3 fixes</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="display">Who runs it</h2>
+      <p>PresciaIQ is an AI and web development company based in Sydney. We build websites and apps, and we help businesses get found in Google and in AI answers. We run this same check every month for our SEO clients and for our own site.</p>
+      <p class="note">We cannot promise any AI tool will name you. Nobody can. The report shows where you stand today and what to fix first.</p>
+    </div>
+  </section>
+
+  <LpFaq />
+
+  <script is:inline define:vars={{ key: WEB3FORMS_KEY, nSteps: total, nQuestions: questions.length }}>
+    (function(){
+      var form = document.getElementById('lp-form');
+      var steps = Array.prototype.slice.call(form.querySelectorAll('.step'));
+      var bar = document.getElementById('bar');
+      var count = document.getElementById('stepcount');
+      var back = document.getElementById('back');
+      var err = document.getElementById('error');
+      var btn = document.getElementById('submit');
+      var current = 0;
+
+      function show(i){
+        current = i;
+        steps.forEach(function(s, n){ s.hidden = n !== i; });
+        bar.style.width = ((i + 1) / nSteps * 100) + '%';
+        count.textContent = i < nQuestions ? 'Question ' + (i + 1) + ' of ' + nQuestions : 'Last step';
+        back.hidden = i === 0;
+      }
+      form.addEventListener('change', function(e){
+        if (e.target.type === 'radio' && current < nQuestions) { setTimeout(function(){ show(current + 1); }, 180); }
+      });
+      back.addEventListener('click', function(){ if (current > 0) show(current - 1); });
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        err.hidden = true;
+        var fd = new FormData(form);
+        for (var i = 0; i < nQuestions; i++) {
+          if (!steps[i].querySelector('input:checked')) { show(i); return; }
+        }
+        var last = steps[nQuestions];
+        var bad = Array.prototype.slice.call(last.querySelectorAll('input[required]')).filter(function(el){ return !el.value.trim() || !el.checkValidity(); });
+        if (bad.length) { bad[0].focus(); err.textContent = 'Please fill in every field so we can build your report.'; err.hidden = false; return; }
+        if (fd.get('botcheck')) return;
+
+        btn.disabled = true; btn.textContent = 'Sending...';
+        var name = String(fd.get('full_name')).trim();
+        var parts = name.split(/\s+/);
+        var user = {
+          email: String(fd.get('email')).trim(), phone: String(fd.get('phone')).trim(),
+          first_name: parts[0] || '', last_name: parts.length > 1 ? parts[parts.length - 1] : '',
+          city: String(fd.get('city')).trim(), name: name
+        };
+        var attr = window.piqAttribution ? window.piqAttribution() : {};
+        var payload = {
+          access_key: key,
+          subject: 'AI Visibility Report request: ' + fd.get('business_name') + ' (' + fd.get('city') + ')',
+          from_name: 'PresciaIQ Meta ad page',
+          replyto: user.email,
+          'Business name': fd.get('business_name'),
+          'Website': fd.get('website'),
+          'City or area': fd.get('city'),
+          'Name': name,
+          'Mobile': user.phone,
+          'Email': user.email,
+          'Business type': fd.get('business_type'),
+          'Checked AI already': fd.get('checked_ai'),
+          'Where customers find them now': fd.get('lead_source_now'),
+          'Budget to fix gaps': fd.get('budget'),
+          'Source': [attr.utm_source, attr.utm_campaign, attr.utm_content].filter(Boolean).join(' / ') || 'direct',
+          'Call within 5 minutes': 'Yes, then build the report before the booked call',
+          submitted_at: new Date().toISOString()
+        };
+        try {
+          var res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          var data = await res.json().catch(function(){ return {}; });
+          if (!res.ok || data.success === false) throw new Error('send');
+          if (window.piqTrack) window.piqTrack('Lead', user);
+          try { sessionStorage.setItem('piq_lead', JSON.stringify({ name: name, email: user.email, phone: user.phone, first_name: user.first_name, last_name: user.last_name, city: user.city })); } catch (x) {}
+          setTimeout(function(){ location.href = '/lp/ai-visibility-report/book/'; }, 350);
+        } catch (x) {
+          btn.disabled = false; btn.textContent = 'Get my free report';
+          err.textContent = 'That did not send. Please try again, or call 0400 457 006.'; err.hidden = false;
+        }
+      });
+    })();
+  </script>
+</AdLayout>
+
+<style>
+  .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; padding-top: 40px; align-items: start; }
+  h1 { font-size: clamp(26px, 3.6vw, 40px); line-height: 1.2; margin: 0 0 16px; }
+  .sub { color: var(--muted); font-size: 18px; margin: 0 0 20px; }
+  .video { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .intro { margin: 0 0 12px; font-weight: 600; }
+  .progress { height: 4px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .progress span { display: block; height: 100%; background: var(--cyan); transition: width .25s; }
+  .stepcount { font-size: 12px; color: var(--muted); margin: 8px 0 12px; }
+  fieldset { border: 0; padding: 0; margin: 0; }
+  fieldset[hidden] { display: none; }
+  legend { font-size: 18px; font-weight: 600; margin-bottom: 12px; padding: 0; }
+  .opt { display: flex; gap: 10px; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; cursor: pointer; transition: border-color .15s, background .15s; }
+  .opt:hover { border-color: var(--cyan); }
+  .opt:has(input:checked) { border-color: var(--cyan); background: rgba(91,227,232,0.08); }
+  .opt input { accent-color: var(--cyan); width: 18px; height: 18px; flex: none; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .grid label { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+  .grid input { font: inherit; font-size: 16px; color: var(--paper); background: var(--void); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+  .grid input:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
+  .hp { position: absolute; left: -9999px; }
+  .cta { width: 100%; margin-top: 14px; font: inherit; font-weight: 700; font-size: 17px; color: var(--void); background: var(--cyan); border: 0; border-radius: 10px; padding: 14px; cursor: pointer; }
+  .cta:disabled { opacity: .6; cursor: wait; }
+  .fine { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+  .error { color: #ff9a9a; font-size: 14px; margin: 10px 0 0; }
+  .back { margin-top: 10px; background: none; border: 0; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer; padding: 4px 0; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 64px; }
+  .two h2 { font-size: 20px; margin: 0 0 14px; }
+  .two p { color: var(--muted); }
+  .ticks { list-style: none; padding: 0; margin: 0; }
+  .ticks li { padding: 8px 0 8px 28px; position: relative; border-top: 1px solid var(--line); }
+  .ticks li::before { content: ''; position: absolute; left: 4px; top: 15px; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); }
+  .note { border-left: 2px solid var(--cyan); padding-left: 12px; }
+  @media (max-width: 860px) {
+    .hero, .two { grid-template-columns: 1fr; gap: 20px; }
+    .hero { padding-top: 22px; }
+    .sub { font-size: 16px; margin-bottom: 4px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

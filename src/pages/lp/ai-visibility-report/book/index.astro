@@ -1,0 +1,88 @@
+---
+// Meta ad funnel, step 2 of 2: book the report call (12 Nov 2026). noindex, not in the sitemap.
+// A booking in the Calendly widget fires Schedule (pixel + Conversions API, one event_id) and GA4 book_call.
+import AdLayout from '../../../../layouts/AdLayout.astro';
+import LpFaq from '../../../../components/lp/LpFaq.astro';
+import { BOOKING_VIDEO_URL, CALENDLY_URL } from '../../../../lib/meta';
+---
+<AdLayout
+  title="Book your AI Visibility Report call | PresciaIQ"
+  description="Pick a time to go through your free AI Visibility Report."
+>
+  <section class="wrap top">
+    <p class="eyebrow">Step 2 of 2</p>
+    <h1 class="display">Pick a time to go through your report</h1>
+    <p class="sub">We build your report before the call. On the call we show you what AI says about your business, who it names instead, and the first 3 fixes.</p>
+  </section>
+
+  {BOOKING_VIDEO_URL && (
+    <section class="wrap"><div class="video"><iframe src={BOOKING_VIDEO_URL} title="What happens on the call" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></section>
+  )}
+
+  <section class="wrap">
+    <div id="booked" class="booked" hidden>
+      <h2 class="display">You are booked</h2>
+      <p>Check your email for the invite. Your report will be ready for the call.</p>
+    </div>
+    <div id="calendly" class="cal" aria-label="Booking calendar"></div>
+  </section>
+
+  <section class="wrap steps">
+    <h2 class="display">What happens next</h2>
+    <ol>
+      <li>Pick a time that suits you.</li>
+      <li>We run your report.</li>
+      <li>We walk you through it on the call.</li>
+    </ol>
+  </section>
+
+  <LpFaq />
+
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script is:inline define:vars={{ calUrl: CALENDLY_URL }}>
+    (function(){
+      var lead = {};
+      try { lead = JSON.parse(sessionStorage.getItem('piq_lead') || '{}'); } catch (e) {}
+      var attr = window.piqAttribution ? window.piqAttribution() : {};
+      var url = calUrl + '?hide_gdpr_banner=1&background_color=0d1012&text_color=f4f6f7&primary_color=5be3e8';
+
+      function init(){
+        if (!window.Calendly) return setTimeout(init, 150);
+        window.Calendly.initInlineWidget({
+          url: url,
+          parentElement: document.getElementById('calendly'),
+          prefill: { name: lead.name || '', email: lead.email || '' },
+          utm: { utmSource: attr.utm_source || 'meta', utmMedium: attr.utm_medium || 'paid_social', utmCampaign: attr.utm_campaign || 'ai-visibility-report', utmContent: attr.utm_content || '' }
+        });
+      }
+      init();
+
+      var sent = false;
+      window.addEventListener('message', function(e){
+        if (e.origin !== 'https://calendly.com' || !e.data || e.data.event !== 'calendly.event_scheduled' || sent) return;
+        sent = true;
+        if (window.piqTrack) window.piqTrack('Schedule', lead);
+        if (window.gtag) window.gtag('event', 'book_call', { lead_source: 'meta_ad_lp', page_path: location.pathname });
+        document.getElementById('booked').hidden = false;
+        document.getElementById('booked').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    })();
+  </script>
+</AdLayout>
+
+<style>
+  .top { padding-top: 40px; max-width: 820px; }
+  h1 { font-size: clamp(24px, 3.2vw, 36px); line-height: 1.2; margin: 0 0 14px; }
+  .sub { color: var(--muted); font-size: 18px; margin: 0 0 24px; }
+  .video { position: relative; aspect-ratio: 16 / 9; max-width: 820px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .cal { height: 760px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--panel); }
+  .booked { border: 1px solid var(--cyan); border-radius: 16px; padding: 20px 22px; margin-bottom: 16px; background: rgba(91,227,232,0.08); }
+  .booked h2 { margin: 0 0 6px; font-size: 20px; }
+  .booked p { margin: 0; }
+  .steps { margin-top: 48px; }
+  .steps h2 { font-size: 20px; margin: 0 0 12px; }
+  .steps ol { margin: 0; padding-left: 20px; color: var(--muted); }
+  .steps li { padding: 4px 0; }
+  @media (max-width: 860px) { .top { padding-top: 22px; } .sub { font-size: 16px; } .cal { height: 1080px; } }
+</style>

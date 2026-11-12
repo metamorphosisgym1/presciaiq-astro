@@ -1,0 +1,142 @@
+---
+// Layout for paid ad landing pages only (Meta funnel, 12 Nov 2026).
+// No menu, no footer links, no popup: one page, one action (ads-strategy 04-landing-pages.md).
+// Always noindex and never in the sitemap (the sitemap filter in astro.config.mjs only lists curated paths).
+// The main Layout.astro head is NOT changed. The GA4 block below mirrors it so leads from these pages
+// still reach GA4 as generate_lead, with the same production host guard.
+import '@fontsource-variable/geist';
+import { META_PIXEL_ID, PHONE_DISPLAY, PHONE_TEL } from '../lib/meta';
+
+export interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" />
+
+    <!-- Google tag (gtag.js), same property and host guard as Layout.astro -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VGKZVCWFXQ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ window.dataLayer.push(arguments); };
+      if (location.hostname === 'www.presciaiq.com.au') {
+        gtag('js', new Date());
+        gtag('config', 'G-VGKZVCWFXQ');
+        var nativeFetch = window.fetch;
+        window.fetch = function(input, init) {
+          var url = typeof input === 'string' ? input : (input && input.url) || '';
+          var p = nativeFetch.apply(this, arguments);
+          if (url.indexOf('api.web3forms.com/submit') !== -1) {
+            p.then(function(res){ if (res && res.ok) { gtag('event', 'generate_lead', { lead_source: 'meta_ad_lp', page_path: location.pathname }); } }).catch(function(){});
+          }
+          return p;
+        };
+      }
+    </script>
+
+    <!-- Meta pixel (browser side). Off until META_PIXEL_ID is set; production host only. -->
+    <script is:inline define:vars={{ pixelId: META_PIXEL_ID }}>
+      window.PIQ_PIXEL_ID = pixelId;
+      if (pixelId && location.hostname === 'www.presciaiq.com.au') {
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', pixelId);
+        fbq('track', 'PageView');
+      }
+    </script>
+
+    <!-- piqTrack: one event, sent by the pixel (browser) and by the Conversions API (server)
+         with the same event_id, so Meta counts it once. -->
+    <script is:inline>
+      (function(){
+        function cookie(name){ var m = document.cookie.match('(?:^|; )' + name + '=([^;]*)'); return m ? decodeURIComponent(m[1]) : ''; }
+        // Keep UTMs and fbclid from the ad click for the whole visit.
+        try {
+          var q = new URLSearchParams(location.search);
+          ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){
+            if (q.get(k)) sessionStorage.setItem('piq_' + k, q.get(k));
+          });
+          if (q.get('fbclid') && !sessionStorage.getItem('piq_fbc')) {
+            sessionStorage.setItem('piq_fbc', 'fb.1.' + Date.now() + '.' + q.get('fbclid'));
+          }
+        } catch (e) {}
+        window.piqAttribution = function(){
+          var out = {};
+          try { ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){ var v = sessionStorage.getItem('piq_' + k); if (v) out[k] = v; }); } catch (e) {}
+          return out;
+        };
+        window.piqTrack = function(eventName, user){
+          var id = eventName.toLowerCase() + '-' + (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+          var live = location.hostname === 'www.presciaiq.com.au';
+          if (window.fbq) { window.fbq('track', eventName, { content_name: 'AI Visibility Report' }, { eventID: id }); }
+          if (live && window.PIQ_PIXEL_ID) {
+            var fbc = cookie('_fbc'); try { fbc = fbc || sessionStorage.getItem('piq_fbc') || ''; } catch (e) {}
+            var body = JSON.stringify({
+              event_name: eventName, event_id: id, event_source_url: location.href,
+              email: user && user.email, phone: user && user.phone, first_name: user && user.first_name,
+              last_name: user && user.last_name, city: user && user.city,
+              fbp: cookie('_fbp'), fbc: fbc
+            });
+            try { fetch('/api/meta-capi', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true }).catch(function(){}); } catch (e) {}
+          }
+          return id;
+        };
+      })();
+    </script>
+
+    <style is:global>
+      :root {
+        --void: #060708; --panel: #0d1012; --line: rgba(244,246,247,0.10);
+        --paper: #f4f6f7; --muted: #a7b0b4; --cyan: #5be3e8; --deep-cyan: #0a6e75;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--void); color: var(--paper); }
+      body { font-family: 'Geist Variable', 'Geist', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+      .display { font-family: 'Michroma', 'Geist Variable', Arial, sans-serif; letter-spacing: 0.01em; }
+      a { color: var(--cyan); }
+      .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+      .eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); margin: 0 0 14px; }
+      .lp-header { padding: 18px 0; border-bottom: 1px solid var(--line); }
+      .lp-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+      .lp-header img { height: 22px; width: auto; display: block; }
+      .lp-header a.call { color: var(--muted); font-size: 14px; text-decoration: none; }
+      .lp-header a.call strong { color: var(--paper); font-weight: 600; }
+      .lp-footer { border-top: 1px solid var(--line); margin-top: 64px; padding: 24px 0 40px; color: var(--muted); font-size: 13px; }
+      .lp-footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+      .lp-footer a { color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <header class="lp-header">
+      <div class="wrap">
+        <img src="/presciaiq-logo-transparent.png" alt="PresciaIQ" width="106" height="22" />
+        <a class="call" href={PHONE_TEL}>Prefer to talk? <strong>{PHONE_DISPLAY}</strong></a>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="lp-footer">
+      <div class="wrap">
+        <span>PresciaIQ, Sydney, Australia</span>
+        <a href="/privacy/" rel="nofollow">Privacy</a>
+      </div>
+    </footer>
+  </body>
+</html>

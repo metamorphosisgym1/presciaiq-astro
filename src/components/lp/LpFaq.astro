@@ -1,0 +1,30 @@
+---
+// FAQ shared by both Meta funnel pages. No prices here (ads-strategy 04-landing-pages.md).
+const faqs = [
+  { q: 'Is it really free?', a: 'Yes. No card, no lock in.' },
+  { q: 'Which AI tools do you check?', a: "ChatGPT, Gemini and Google's AI Overviews." },
+  { q: 'Do I need to give you any logins?', a: 'No. We only use what is public.' },
+  { q: 'When do I get it?', a: 'We have it ready for your call.' },
+  { q: 'What happens on the call?', a: 'We walk through the report and the first fixes. If you want our help, we tell you what it costs. If not, the report is yours to keep.' },
+];
+---
+<section class="faq wrap" aria-labelledby="faq-h">
+  <h2 id="faq-h" class="display">Questions</h2>
+  {faqs.map((f) => (
+    <details>
+      <summary>{f.q}</summary>
+      <p>{f.a}</p>
+    </details>
+  ))}
+</section>
+<style>
+  .faq { margin-top: 56px; max-width: 760px; }
+  .faq h2 { font-size: 20px; margin: 0 0 16px; }
+  details { border-top: 1px solid var(--line); padding: 14px 0; }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; font-weight: 600; list-style: none; position: relative; padding-right: 28px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; position: absolute; right: 4px; top: -2px; color: var(--cyan); font-size: 20px; }
+  details[open] summary::after { content: '\2212'; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+</style>
