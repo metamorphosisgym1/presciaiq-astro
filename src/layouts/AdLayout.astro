@@ -95,7 +95,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).hr
               last_name: user && user.last_name, city: user && user.city,
               fbp: cookie('_fbp'), fbc: fbc
             });
-            try { fetch('/api/meta-capi', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true }).catch(function(){}); } catch (e) {}
+            try { fetch('/api/meta-capi/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true }).catch(function(){}); } catch (e) {}
           }
           return id;
         };
