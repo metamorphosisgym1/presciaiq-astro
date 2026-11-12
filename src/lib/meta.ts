@@ -2,7 +2,7 @@
 // META_PIXEL_ID: the PresciaIQ Meta dataset ID from Events Manager. Public value, safe in code.
 // Empty = the pixel stays off (no Meta tracking at all) until the dataset exists.
 // Keep it the same as the META_PIXEL_ID env var in Vercel, which the Conversions API function uses.
-export const META_PIXEL_ID = '';
+export const META_PIXEL_ID = '1089409557257136';
 
 // Booking calendar for the AI Visibility Report call.
 export const CALENDLY_URL = 'https://calendly.com/presciaiq-sales/discoverycall';
