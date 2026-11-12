@@ -45,6 +45,9 @@ import { BOOKING_VIDEO_URL, CALENDLY_URL } from '../../../../lib/meta';
       try { lead = JSON.parse(sessionStorage.getItem('piq_lead') || '{}'); } catch (e) {}
       var attr = window.piqAttribution ? window.piqAttribution() : {};
       var url = calUrl + '?hide_gdpr_banner=1&background_color=0d1012&text_color=f4f6f7&primary_color=5be3e8';
+      // Prefill by URL (Calendly's documented name and email params), so the lead does not retype them.
+      if (lead.name) url += '&name=' + encodeURIComponent(lead.name);
+      if (lead.email) url += '&email=' + encodeURIComponent(lead.email);
 
       function init(){
         if (!window.Calendly) return setTimeout(init, 150);
