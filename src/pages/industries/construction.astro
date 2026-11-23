@@ -308,22 +308,19 @@ const schema = {
 
       <div class="space-y-4">
         {faqs.map((faq, index) => (
-          <details
+          <div
             data-reveal="from-bottom"
             data-reveal-delay={(index * 70).toString()}
             key={faq.q}
-            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.15)] transition-all cursor-pointer"
+            class="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 hover:border-[#00FF88]/40 hover:shadow-[0_8px_25px_-8px_rgba(0,255,136,0.15)] transition-all"
           >
-            <summary class="flex items-center justify-between font-serif font-semibold text-[#F0EDE6] text-lg select-none list-none">
+            <h3 class="font-serif font-semibold text-[#F0EDE6] text-lg">
               <span>{faq.q}</span>
-              <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
-                ▼
-              </span>
-            </summary>
+            </h3>
             <div class="mt-4 pt-4 border-t border-white/5 text-sm text-[#C9CCC8] font-sans leading-relaxed">
               {faq.a}
             </div>
-          </details>
+          </div>
         ))}
       </div>
     </section>

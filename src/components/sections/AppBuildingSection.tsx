@@ -432,22 +432,14 @@ const AppBuildingSection = ({ hideHeader = false, showCaseStudy = true, featured
                   <h3 className="font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
                     Explore More Systems and <span className="italic text-[#6D896E]">Architectures</span>
                   </h3>
-                  {expanded ? (
-                    <span className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[#8FAF8F]">
-                      Keep scrolling
-                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                    </span>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={seeMore}
-                      aria-expanded={expanded}
-                      className="group/btn mt-8 inline-flex cursor-pointer items-center gap-2 rounded-full border border-[#6D896E] bg-[#6D896E] px-6 py-3 text-sm font-semibold text-[#050806] transition-all duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:border-[#5f7a60] hover:bg-[#5f7a60] hover:shadow-[0_12px_28px_rgba(109,137,110,0.3)]"
-                    >
-                      See More Projects
-                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" aria-hidden="true" />
-                    </button>
-                  )}
+                  {/* No click to reveal (no-accordions rule, 24 Nov 2026): link to the page that shows every project. */}
+                  <a
+                    href="/development/"
+                    className="group/btn mt-8 inline-flex cursor-pointer items-center gap-2 rounded-full border border-[#6D896E] bg-[#6D896E] px-6 py-3 text-sm font-semibold text-[#050806] transition-all duration-300 ease-out will-change-transform hover:-translate-y-0.5 hover:border-[#5f7a60] hover:bg-[#5f7a60] hover:shadow-[0_12px_28px_rgba(109,137,110,0.3)]"
+                  >
+                    See All Projects
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" aria-hidden="true" />
+                  </a>
                 </div>
               </article>
             )}

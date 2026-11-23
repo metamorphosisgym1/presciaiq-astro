@@ -249,22 +249,19 @@ const schema = {
 
       <div class="space-y-4">
         {faqs.map((faq, idx) => (
-          <details
+          <div
             key={idx}
             class="group rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 mb-4 transition-all duration-200 hover:border-[#00FF88]/30 hover:bg-[#111411]/90"
           >
-            <summary class="cursor-pointer list-none flex items-center justify-between">
+            <h3 class="">
               <span class="text-base md:text-lg font-serif font-medium text-[#F0EDE6] group-hover:text-[#00FF88] transition-colors">
                 {faq.q}
               </span>
-              <span class="text-[#00FF88] text-lg font-mono transition-transform duration-200 group-open:rotate-45 ml-4 shrink-0">
-                +
-              </span>
-            </summary>
+            </h3>
             <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed mt-4 pt-4 border-t border-white/5">
               {faq.a}
             </p>
-          </details>
+          </div>
         ))}
       </div>
 

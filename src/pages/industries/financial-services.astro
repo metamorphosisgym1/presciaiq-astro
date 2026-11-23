@@ -231,21 +231,18 @@ const schema = {
 
       <div class="space-y-4">
         {faqs.map((faq, idx) => (
-          <details
+          <div
             data-reveal="from-bottom"
             data-reveal-delay={(idx * 50).toString()}
-            class="rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 mb-4 hover:border-white/20 transition-all group cursor-pointer"
+            class="rounded-2xl border border-white/10 bg-[#111411]/70 backdrop-blur-md p-6 mb-4 hover:border-white/20 transition-all group"
           >
-            <summary class="flex items-center justify-between text-lg font-serif font-semibold text-[#F0EDE6] group-open:text-[#00FF88] transition-colors list-none select-none mb-2">
+            <h3 class="text-lg font-serif font-semibold text-[#F0EDE6] transition-colors mb-2">
               <span>{faq.q}</span>
-              <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-xs text-[#00FF88] group-open:rotate-180 transition-transform duration-300 ml-4 shrink-0">
-                ↓
-              </span>
-            </summary>
+            </h3>
             <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed pt-3 border-t border-white/5">
               {faq.a}
             </p>
-          </details>
+          </div>
         ))}
       </div>
     </section>
