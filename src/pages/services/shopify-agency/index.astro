@@ -1,0 +1,205 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+// Hand written 24 Nov 2026 (catalogue line 03, Ecommerce and Shopify). No prices: ASK FIRST.
+const title = "Shopify Agency Australia, Store Builds and Automation | PresciaIQ";
+const description = "Shopify store builds, redesigns, speed fixes, apps and automation for Australian brands, from a Sydney team that also runs your SEO and ads.";
+const canonicalURL = "https://www.presciaiq.com.au/services/shopify-agency/";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Shopify and ecommerce development",
+    "serviceType": "Shopify store development",
+    "provider": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au/" },
+    "areaServed": { "@type": "Country", "name": "Australia" },
+    "url": canonicalURL,
+    "description": description
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+      { "@type": "ListItem", "position": 2, "name": "Development", "item": "https://www.presciaiq.com.au/development/" },
+      { "@type": "ListItem", "position": 3, "name": "Shopify agency Australia", "item": canonicalURL }
+    ]
+  }
+];
+
+const groups = [
+  { name: "Build and redesign", items: ["Shopify store development", "Shopify store redesign", "Shopify theme customisation", "Custom Shopify development", "Shopify Plus development", "Shopify app development"] },
+  { name: "Speed and sales", items: ["Shopify speed optimisation", "Shopify CRO", "Checkout optimisation", "Product page optimisation", "Shopify landing pages", "Upsell and cross sell systems"] },
+  { name: "Automation in the background", items: ["Email and SMS automation", "Order automation", "Inventory automation", "Customer support automation", "Subscription systems"] },
+  { name: "Connections and AI", items: ["CRM integration", "ERP integration", "Shopify AI chatbots", "AI product recommendations", "Analytics and tracking", "Shopify SEO"] },
+];
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
+    <div class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]" aria-hidden="true"></div>
+    <div class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60" aria-hidden="true"></div>
+
+    <!-- HERO -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 text-left md:text-center">
+        <nav class="flex items-center gap-2 text-xs text-muted-foreground font-mono mb-8 md:justify-center flex-wrap" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <a href="/development/" class="hover:text-primary transition-colors">Development</a>
+          <span class="text-white/20">/</span>
+          <span class="text-foreground">Shopify agency Australia</span>
+        </nav>
+
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-6 leading-[1.1]">
+          Shopify agency in Australia <span class="text-[#00FF88] italic">for stores that sell</span>
+        </h1>
+
+        <p class="text-lg text-[#C9CCC8] font-sans leading-relaxed max-w-3xl mx-auto mb-8">
+          We build, redesign and speed up Shopify stores for Australian brands, then automate the busywork behind them. Orders, stock, emails and support can run without someone copying data between tabs. The same Sydney team can run your SEO and ads, so the store and the traffic are planned together.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/start/" id="hero-cta-shopify-start" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300">
+            Start your project
+          </a>
+          <a href="tel:+61400457006" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 transition-all duration-300">
+            Call +61 400 457 006
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO + CLIP -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_260px] gap-10 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">What we do on Shopify</h2>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed mb-8">
+            Pick one job or the full set.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {groups.map((g) => (
+              <div class="rounded-2xl border border-white/10 bg-[#111411]/80 p-6">
+                <h3 class="text-lg font-serif font-semibold text-[#F0EDE6] mb-3">{g.name}</h3>
+                <ul class="space-y-2 text-sm text-[#C9CCC8] font-sans">
+                  {g.items.map((i) => <li class="flex gap-2"><span class="text-[#00FF88]">+</span>{i}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p class="text-sm text-[#C9CCC8] font-sans leading-relaxed mt-6">
+            Not on Shopify? We also build WooCommerce stores and custom ecommerce sites from scratch.
+          </p>
+        </div>
+        <figure class="mx-auto w-full max-w-[260px]">
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#111411] shadow-[0_0_40px_-10px_rgba(0,255,136,0.25)]">
+            <video class="block w-full h-auto" width="540" height="960" poster="/video/ecommerce-shopify-poster.jpg" preload="none" controls muted playsinline aria-label="Ecommerce and Shopify slide from the PresciaIQ service catalogue">
+              <source src="/video/ecommerce-shopify.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <figcaption class="mt-3 text-xs text-[#8FAF8F] font-mono text-center">Ecommerce and Shopify, from our service catalogue</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-8">How a Shopify job starts</h2>
+      <ol class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <li class="rounded-2xl border border-white/10 bg-[#111411]/80 p-5">
+          <div class="text-xs font-mono text-[#00FF88] mb-2">STEP 1</div>
+          <h3 class="font-serif font-semibold text-[#F0EDE6] mb-2">Tell us what is slowing the store down</h3>
+          <p class="text-sm text-[#C9CCC8] leading-relaxed">A slow theme, a leaky checkout, manual order work, or a store you want to launch.</p>
+        </li>
+        <li class="rounded-2xl border border-white/10 bg-[#111411]/80 p-5">
+          <div class="text-xs font-mono text-[#00FF88] mb-2">STEP 2</div>
+          <h3 class="font-serif font-semibold text-[#F0EDE6] mb-2">We scope the smallest fix</h3>
+          <p class="text-sm text-[#C9CCC8] leading-relaxed">We recommend the smallest set of work that gets it done, and scope it clearly before any work starts.</p>
+        </li>
+        <li class="rounded-2xl border border-white/10 bg-[#111411]/80 p-5">
+          <div class="text-xs font-mono text-[#00FF88] mb-2">STEP 3</div>
+          <h3 class="font-serif font-semibold text-[#F0EDE6] mb-2">Build, test, hand over</h3>
+          <p class="text-sm text-[#C9CCC8] leading-relaxed">We build it, test it, then launch it.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- NOT THE RIGHT FIT -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-6">When a Shopify agency is not the right job for you</h2>
+      <div class="space-y-4 text-[#C9CCC8] font-sans leading-relaxed">
+        <p>If you sell a handful of products and the store is still new, a standard Shopify theme set up well is often enough. Spend on stock and marketing first.</p>
+        <p>If your problem is that nobody visits the store, a redesign will not fix it. That is a traffic job, so start with <a href="/services/aeo-seo-predictive-search-architecture/" class="text-[#00FF88] hover:underline underline-offset-4">SEO</a> or <a href="/services/google-ads-agency-sydney/" class="text-[#00FF88] hover:underline underline-offset-4">Google Shopping ads</a>.</p>
+      </div>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-8">Questions buyers ask us</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">How much does it cost to have someone build a Shopify store?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">We quote each store after a short scoping call. The price depends on the number of products and page types, how much custom design you want, which apps and integrations it needs, and whether data moves over from another platform. You see the scope and price before work starts.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">Can you hire someone to build your Shopify store?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">Yes. We build new Shopify stores from the theme up, redesign existing ones and build custom apps when an off the shelf app does not fit.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">Can you move my store to Shopify from WooCommerce or another platform?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">Yes. We build the new Shopify store, and our website migration SEO work redirects your old URLs to the new pages, so Google and returning customers land in the right place.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">Can you automate the work behind my Shopify store?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">Yes, much of it. We set up order, stock, email and SMS automation, and AI chatbots that answer common customer questions. Your staff then handle the jobs that need a person.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">Do you do Shopify Plus?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">Yes. Shopify Plus development is part of this service, including checkout work and ERP and CRM connections for larger stores.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">Is Shopify still worth it in 2026?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">For most Australian brands selling physical products, yes. Shopify handles hosting, payments and security, so your money goes into the store and marketing. Stores with very unusual pricing or ordering rules may suit a custom build better, and we build those as well.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF LINK -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-white/5">
+      <h2 class="text-2xl font-serif font-semibold text-[#F0EDE6] mb-3">Ecommerce work we have done</h2>
+      <p class="text-[#C9CCC8] font-sans leading-relaxed">
+        Read how we built the SEO foundation for fashion brand <a href="/case-studies/the-silk-studio/" class="text-[#00FF88] hover:underline underline-offset-4">The Silk Studio</a>: product schema, collection pages and content, so the store had an organic channel to lean on besides paid social.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative z-10 px-4 sm:px-6 lg:px-8">
+      <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-[#111411]/90 p-8 md:p-14 text-center max-w-4xl mx-auto my-16">
+        <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(0,255,136,0.15),transparent_70%)] blur-2xl" aria-hidden="true"></div>
+        <div class="relative">
+          <h2 class="font-serif text-3xl md:text-5xl font-semibold text-[#F0EDE6] tracking-tight mb-4">Got a Shopify store that needs work?</h2>
+          <p class="text-[#C9CCC8] text-base md:text-lg max-w-xl mx-auto mb-8 font-sans leading-relaxed">Send us the store link and what is slowing it down. We will come back with a clear scope.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/start/" id="cta-bottom-shopify-start" class="inline-flex items-center justify-center gap-2 bg-[#00FF88] text-[#050508] font-semibold text-base px-8 py-3.5 rounded-full hover:bg-[#00FF88]/90 transition-all duration-300">Start your project</a>
+            <a href="tel:+61400457006" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 transition-all duration-300">Call +61 400 457 006</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-12 border-t border-white/5">
+      <h2 class="text-xs font-mono uppercase tracking-[0.2em] text-[#8FAF8F] mb-4">Related</h2>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="/development/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">All services</a>
+        <a href="/services/ai-web-development/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">Web development</a>
+        <a href="/services/google-ads-agency-sydney/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">Google and Meta Ads</a>
+        <a href="/answers/how-to-build-ecommerce-store-australia-without-developer/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">Building a store without a developer</a>
+      </div>
+    </section>
+  </main>
+</Layout>

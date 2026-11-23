@@ -1,0 +1,199 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+// Hand written 24 Nov 2026 (catalogue line 07, Paid Marketing). No prices: ASK FIRST.
+const title = "Google Ads Agency Sydney, Meta Ads and PPC | PresciaIQ";
+const description = "Google Ads, Meta, LinkedIn and TikTok campaigns for Australian businesses, run from Sydney and tracked through to real enquiries and sales.";
+const canonicalURL = "https://www.presciaiq.com.au/services/google-ads-agency-sydney/";
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Google Ads and paid marketing",
+    "serviceType": "Pay per click advertising management",
+    "provider": { "@type": "Organization", "name": "PresciaIQ", "url": "https://www.presciaiq.com.au/" },
+    "areaServed": { "@type": "Country", "name": "Australia" },
+    "url": canonicalURL,
+    "description": description
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.presciaiq.com.au/" },
+      { "@type": "ListItem", "position": 2, "name": "Development", "item": "https://www.presciaiq.com.au/development/" },
+      { "@type": "ListItem", "position": 3, "name": "Google Ads agency Sydney", "item": canonicalURL }
+    ]
+  }
+];
+
+const platforms = [
+  { name: "Google Ads", items: ["Google Search Ads", "Google Shopping Ads", "Performance Max", "YouTube Ads"] },
+  { name: "Meta Ads", items: ["Facebook Ads", "Instagram Ads", "Retargeting and remarketing"] },
+  { name: "LinkedIn and TikTok", items: ["LinkedIn Ads", "TikTok Ads"] },
+  { name: "Tracking and pages", items: ["Conversion tracking", "Funnel development", "Landing page optimisation", "Campaign optimisation"] },
+];
+---
+
+<Layout title={title} description={description} canonicalURL={canonicalURL}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <main class="relative bg-background text-foreground overflow-x-hidden min-h-screen">
+    <div class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,255,136,0.12),transparent_60%)]" aria-hidden="true"></div>
+    <div class="pointer-events-none fixed inset-0 z-0 grid-overlay opacity-60" aria-hidden="true"></div>
+
+    <!-- HERO -->
+    <section class="relative z-10 border-b border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 text-left md:text-center">
+        <nav class="flex items-center gap-2 text-xs text-muted-foreground font-mono mb-8 md:justify-center flex-wrap" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-primary transition-colors">Home</a>
+          <span class="text-white/20">/</span>
+          <a href="/development/" class="hover:text-primary transition-colors">Development</a>
+          <span class="text-white/20">/</span>
+          <span class="text-foreground">Google Ads agency Sydney</span>
+        </nav>
+
+        <h1 class="text-4xl md:text-6xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-6 leading-[1.1]">
+          Google Ads agency in Sydney, <span class="text-[#00FF88] italic">plus Meta, LinkedIn and TikTok</span>
+        </h1>
+
+        <p class="text-lg text-[#C9CCC8] font-sans leading-relaxed max-w-3xl mx-auto mb-8">
+          We run Google Ads, Meta, LinkedIn and TikTok campaigns for Australian businesses from Sydney. Every campaign is tracked through to real enquiries and sales, so you can see which dollars came back. Tell us what you sell and we scope it before any spend goes out.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/start/" id="hero-cta-ads-start" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#00FF88] text-[#050508] font-semibold text-sm font-sans hover:bg-[#42FFAA] hover:shadow-[0_0_28px_rgba(0,255,136,0.45)] transition-all duration-300">
+            Start your project
+          </a>
+          <a href="tel:+61400457006" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 transition-all duration-300">
+            Call +61 400 457 006
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE RUN + CLIP -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_260px] gap-10 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-4">What we run for you</h2>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed mb-8">
+            One team sets up the campaigns, the tracking and the landing pages. That way the ad, the page and the report all line up.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {platforms.map((p) => (
+              <div class="rounded-2xl border border-white/10 bg-[#111411]/80 p-6">
+                <h3 class="text-lg font-serif font-semibold text-[#F0EDE6] mb-3">{p.name}</h3>
+                <ul class="space-y-2 text-sm text-[#C9CCC8] font-sans">
+                  {p.items.map((i) => <li class="flex gap-2"><span class="text-[#00FF88]">+</span>{i}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+        <figure class="mx-auto w-full max-w-[260px]">
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#111411] shadow-[0_0_40px_-10px_rgba(0,255,136,0.25)]">
+            <video class="block w-full h-auto" width="540" height="960" poster="/video/paid-marketing-poster.jpg" preload="none" controls muted playsinline aria-label="Paid marketing slide from the PresciaIQ service catalogue">
+              <source src="/video/paid-marketing.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <figcaption class="mt-3 text-xs text-[#8FAF8F] font-mono text-center">Paid marketing, from our service catalogue</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-8">How a campaign starts</h2>
+      <ol class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <li class="rounded-2xl border border-white/10 bg-[#111411]/80 p-5">
+          <div class="text-xs font-mono text-[#00FF88] mb-2">STEP 1</div>
+          <h3 class="font-serif font-semibold text-[#F0EDE6] mb-2">Tell us the goal</h3>
+          <p class="text-sm text-[#C9CCC8] leading-relaxed">What you sell, who buys it and what a good lead or sale looks like to you.</p>
+        </li>
+        <li class="rounded-2xl border border-white/10 bg-[#111411]/80 p-5">
+          <div class="text-xs font-mono text-[#00FF88] mb-2">STEP 2</div>
+          <h3 class="font-serif font-semibold text-[#F0EDE6] mb-2">We pick the channels</h3>
+          <p class="text-sm text-[#C9CCC8] leading-relaxed">We recommend the smallest set of platforms that fits the goal, then scope it clearly before any work begins.</p>
+        </li>
+        <li class="rounded-2xl border border-white/10 bg-[#111411]/80 p-5">
+          <div class="text-xs font-mono text-[#00FF88] mb-2">STEP 3</div>
+          <h3 class="font-serif font-semibold text-[#F0EDE6] mb-2">Tracking goes in first</h3>
+          <p class="text-sm text-[#C9CCC8] leading-relaxed">Calls, forms and sales are set up as conversions, so every campaign is judged on results.</p>
+        </li>
+        <li class="rounded-2xl border border-white/10 bg-[#111411]/80 p-5">
+          <div class="text-xs font-mono text-[#00FF88] mb-2">STEP 4</div>
+          <h3 class="font-serif font-semibold text-[#F0EDE6] mb-2">Launch and tune</h3>
+          <p class="text-sm text-[#C9CCC8] leading-relaxed">Campaigns go live, then we tune bids, ads and landing pages against the conversions.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- NOT THE RIGHT FIT -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-6">When paid ads are not the right job for you</h2>
+      <div class="space-y-4 text-[#C9CCC8] font-sans leading-relaxed">
+        <p>Ads only pay off if someone answers the phone and follows up every quote. If enquiries already go cold, fix that first. More clicks will not help.</p>
+        <p>If buyers already find you on Google for free and the business is at capacity, ads add cost without adding jobs. In that case we will tell you to hold off.</p>
+      </div>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-white/5">
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold text-[#F0EDE6] tracking-tight mb-8">Questions buyers ask us</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">What does a Google Ads agency in Sydney cost?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">We quote each job after a short scoping call. The quote depends on how many platforms you run, how many campaigns and landing pages you need, and how much tracking has to be set up. You see the scope and the price before any work begins.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">Should I run Google Ads or Meta Ads?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">Google Ads reach people who are already searching for what you sell. Meta Ads (Facebook and Instagram) reach people who are not searching yet, so they suit products people buy on impulse or need to see first. Many businesses start with one and add the other once tracking shows what works.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">How do you prove the ads are working?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">We set up conversion tracking on calls, forms and sales before campaigns scale. Reports show cost per enquiry or sale, so you can trace spend back to revenue.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">Do you build the landing pages too?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">Yes. Landing page optimisation and funnel development are part of this service. The same team also builds websites and apps, so the page the ad sends people to gets fixed without a second agency.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">Do you run Google Shopping ads for online stores?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">Yes. We run Google Shopping, Performance Max and other ecommerce campaigns. If your store runs on Shopify, our <a href="/services/shopify-agency/" class="text-[#00FF88] hover:underline underline-offset-4">Shopify team</a> can fix product pages and checkout as well.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-serif font-semibold text-[#F0EDE6] mb-2">Do you only work with Sydney businesses?</h3>
+          <p class="text-[#C9CCC8] font-sans leading-relaxed">No. We are based in Sydney and work with businesses anywhere in Australia. Campaigns can target one suburb, one city or the whole country.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative z-10 px-4 sm:px-6 lg:px-8">
+      <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-[#111411]/90 p-8 md:p-14 text-center max-w-4xl mx-auto my-16">
+        <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(0,255,136,0.15),transparent_70%)] blur-2xl" aria-hidden="true"></div>
+        <div class="relative">
+          <h2 class="font-serif text-3xl md:text-5xl font-semibold text-[#F0EDE6] tracking-tight mb-4">Want spend you can trace back to revenue?</h2>
+          <p class="text-[#C9CCC8] text-base md:text-lg max-w-xl mx-auto mb-8 font-sans leading-relaxed">Tell us what you sell and what a good lead is worth. We will come back with a clear scope.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/start/" id="cta-bottom-ads-start" class="inline-flex items-center justify-center gap-2 bg-[#00FF88] text-[#050508] font-semibold text-base px-8 py-3.5 rounded-full hover:bg-[#00FF88]/90 transition-all duration-300">Start your project</a>
+            <a href="tel:+61400457006" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/10 bg-white/[0.04] text-[#F0EDE6] font-semibold text-sm font-sans hover:border-[#00FF88]/40 transition-all duration-300">Call +61 400 457 006</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 mb-12 border-t border-white/5">
+      <h2 class="text-xs font-mono uppercase tracking-[0.2em] text-[#8FAF8F] mb-4">Related</h2>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="/development/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">All services</a>
+        <a href="/products/adsiq/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">AdsIQ campaign prediction</a>
+        <a href="/insights/how-to-reduce-ad-spend-waste-australia/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">How to reduce ad spend waste</a>
+        <a href="/services/aeo-seo-predictive-search-architecture/" class="text-xs font-mono text-[#00FF88] hover:underline bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/10">SEO, AEO and GEO</a>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -15,6 +15,9 @@ const features: NavLink[] = [
   { label: "Daynori", href: "/services/ai-software-development/", badge: "Enterprise" },
   { label: "AI Automations & Agents", href: "/products/ai-automations/" },
   { label: "High-Performance Platforms", href: "/development/" },
+  { label: "AI Agent Development", href: "/services/ai-agent-development/" },
+  { label: "Shopify and Ecommerce", href: "/services/shopify-agency/" },
+  { label: "Google and Meta Ads", href: "/services/google-ads-agency-sydney/" },
 ];
 
 const solutions: NavLink[] = [
