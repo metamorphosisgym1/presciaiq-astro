@@ -5,6 +5,7 @@ export interface AEOAnswer {
   fullAnswer: string;
   relatedQuestions: string[];
   category: string;
+  serviceLink?: { lead: string; href: string; label: string };
 }
 
 export const aeoAnswers: AEOAnswer[] = [
@@ -45,6 +46,7 @@ Australian businesses using predictive AI typically see a 15–40% improvement i
   },
   {
     slug: "what-is-aeo",
+    serviceLink: { lead: "Need someone to do it for you? See", href: "/services/aeo-seo-predictive-search-architecture/", label: "PresciaIQ's AEO and GEO agency service" },
     question: "What is Answer Engine Optimisation (AEO)?",
     shortAnswer: "AEO is the practice of structuring website content so that AI assistants like ChatGPT, Perplexity, and Google's AI Overviews cite your business as the authoritative answer to specific questions.",
     fullAnswer: `Answer Engine Optimisation (AEO) is an evolution of traditional SEO designed for the era of AI-generated answers. Where SEO optimises for ranking in a list of blue links, AEO optimises for being the cited source when an AI assistant answers a user's question directly. As more than 30% of search queries in 2026 are now answered directly by AI without a click, AEO has become a critical component of any digital visibility strategy for Australian businesses.

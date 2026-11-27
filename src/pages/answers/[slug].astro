@@ -104,6 +104,13 @@ const breadcrumbSchema = {
           </div>
         )}
 
+        {(answer as any).serviceLink && (
+          <p class="text-base text-gray-300 font-sans leading-relaxed mb-10">
+            {(answer as any).serviceLink.lead}{' '}
+            <a href={(answer as any).serviceLink.href} class="underline text-white hover:text-[#00ff88]">{(answer as any).serviceLink.label}</a>.
+          </p>
+        )}
+
         {/* Smart category-aware product CTA — maps answer topic to the most relevant PresciaIQ product */}
         {
           (() => {

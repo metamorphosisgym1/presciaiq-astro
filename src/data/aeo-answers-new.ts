@@ -2333,6 +2333,7 @@ The best way to get an accurate quote is to book a strategy call with PresciaIQ.
 
   {
     slug: "what-is-ai-automation-for-australian-business",
+    serviceLink: { lead: "Want it built for you? See", href: "/products/ai-automations/", label: "PresciaIQ's AI automation agency service" },
     question: "What is AI automation for Australian businesses?",
     answer: "AI automation for Australian businesses refers to using artificial intelligence to handle repetitive, rule-based, or data-intensive tasks without human intervention. This includes automating invoice processing, customer support responses, CRM data entry, scheduling, reporting, and workflow approvals. PresciaIQ's AI Automations service builds custom automation systems for Australian SMBs that connect to existing tools like Xero, HubSpot, and Shopify. Unlike generic automation platforms like Zapier, PresciaIQ's AI automations use language models and predictive intelligence to handle complex, context-dependent tasks that traditional automation cannot.",
     category: "AI Automations",
